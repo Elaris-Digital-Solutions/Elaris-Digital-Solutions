@@ -82,6 +82,23 @@
       }
     }
   },
+  "techForInclusion": {
+    "titleNormal": "Tecnología para la ",
+    "titleAccent": "Inclusión",
+    "description": "Tecnología que conecta, incluye y empodera. Creamos herramientas digitales para cerrar brechas y fortalecer comunidades en Latinoamérica.",
+    "projects": {
+      "pictoLink": {
+        "title": "PictoLink",
+        "subtitle": "Comunicación Aumentativa",
+        "description": "Una plataforma diseñada para personas con dificultades de comunicación, lenguaje o aprendizaje. Facilita la interacción mediante pictogramas intuitivos y personalizables."
+      },
+      "nuestroBarrio": {
+        "title": "Nuestro Barrio",
+        "subtitle": "Identidad Local",
+        "description": "Plataforma social que conecta vecinos, preserva la historia local y fomenta la participación ciudadana a través de herramientas digitales colaborativas."
+      }
+    }
+  },
   "portfolio": {
     "headingNormal": "Nuestro ",
     "headingAccent": "Portafolio",

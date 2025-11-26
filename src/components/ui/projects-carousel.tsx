@@ -5,12 +5,6 @@ import { useI18n } from '@/lib/i18n';
 
 const projectConfigs = [
   {
-    slug: 'nuestroBarrio',
-    image: '/assets/nuestro-barrio-nuestra-historia.webp',
-    stack: ['React', 'Node.js', 'MongoDB'],
-    url: 'https://nuestro-barrio-nuestra-historia.netlify.app/'
-  },
-  {
     slug: 'karMa',
     image: '/assets/kar-ma.webp',
     stack: ['React', 'Tailwind', 'Vite'],
@@ -84,9 +78,8 @@ const ProjectsCarousel: React.FC = () => {
   return (
     <section ref={sectionRef} className="relative bg-transparent">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`transform transition-all duration-1000 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-        }`}>
+        <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+          }`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl mb-4">
               <span className="text-slate-900">{t('portfolio.headingNormal')}</span>
@@ -102,8 +95,8 @@ const ProjectsCarousel: React.FC = () => {
           <div className="relative">
             <div className="bg-gray-50 rounded-2xl overflow-hidden shadow-lg">
               <div className="relative h-64">
-                <SmartImage 
-                  src={projects[currentProject].image} 
+                <SmartImage
+                  src={projects[currentProject].image}
                   alt={projects[currentProject].name}
                   className="w-full h-full object-cover"
                   priority
@@ -112,16 +105,16 @@ const ProjectsCarousel: React.FC = () => {
                   {projects[currentProject].category}
                 </div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-xl font-bold text-black mb-3">
                   {projects[currentProject].name}
                 </h3>
-                
+
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {projects[currentProject].description}
                 </p>
-                
+
                 <div className="mb-4">
                   <div className="flex flex-wrap gap-2">
                     {projects[currentProject].stack.map((tech, i) => (
@@ -131,7 +124,7 @@ const ProjectsCarousel: React.FC = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-semibold text-green-600">{projects[currentProject].metrics}</p>
@@ -139,8 +132,8 @@ const ProjectsCarousel: React.FC = () => {
                   <div className="flex space-x-2">
                     <button
                       className="p-2 bg-gray-200 hover:bg-blue-600 hover:text-white rounded-lg transition-colors"
-                        onClick={() => projects[currentProject].url && window.open(projects[currentProject].url, '_blank')}
-                        aria-label={t('common.buttons.viewProject')}
+                      onClick={() => projects[currentProject].url && window.open(projects[currentProject].url, '_blank')}
+                      aria-label={t('common.buttons.viewProject')}
                     >
                       <ExternalLink className="w-4 h-4" />
                     </button>
@@ -157,7 +150,7 @@ const ProjectsCarousel: React.FC = () => {
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
-            
+
             <button
               onClick={nextProject}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-blue-600 hover:text-white transition-colors"
@@ -173,9 +166,8 @@ const ProjectsCarousel: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setCurrentProject(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentProject ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === currentProject ? 'bg-blue-600' : 'bg-gray-300'
+                  }`}
               />
             ))}
           </div>

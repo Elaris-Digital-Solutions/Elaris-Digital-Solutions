@@ -22,12 +22,7 @@ interface Option {
 }
 
 const projectConfigs = [
-	{
-		slug: "nuestroBarrio",
-		image: "/assets/nuestro-barrio-nuestra-historia.webp",
-		Icon: AppWindow,
-		url: "https://nuestro-barrio-nuestra-historia.netlify.app/",
-	},
+
 	{
 		slug: "karMa",
 		image: "/assets/kar-ma.webp",
@@ -150,8 +145,8 @@ const InteractiveSelector = () => {
 							borderColor: isActive ? "#2F64FF" : "#E2E8F0",
 							cursor: "pointer",
 							backgroundColor: "#F7FAFC",
-							boxShadow: isActive 
-								? "0 20px 60px rgba(47,100,255,0.25)" 
+							boxShadow: isActive
+								? "0 20px 60px rgba(47,100,255,0.25)"
 								: "0 10px 30px rgba(16,24,40,0.12)",
 							flex: isActive ? "7 1 0%" : "1 1 0%",
 							zIndex: isActive ? 10 : 1,
@@ -171,8 +166,8 @@ const InteractiveSelector = () => {
 							bottom: isActive ? 0 : -40,
 							height: "120px",
 							pointerEvents: "none" as const,
-							boxShadow: isActive 
-								? "inset 0 -120px 120px -120px rgba(0,0,0,0.8), inset 0 -120px 120px -80px rgba(0,0,0,0.6)" 
+							boxShadow: isActive
+								? "inset 0 -120px 120px -120px rgba(0,0,0,0.8), inset 0 -120px 120px -80px rgba(0,0,0,0.6)"
 								: "inset 0 -120px 0px -120px rgba(0,0,0,0.8), inset 0 -120px 0px -80px rgba(0,0,0,0.6)",
 							transition: "all 0.7s ease-in-out",
 						};
@@ -199,7 +194,7 @@ const InteractiveSelector = () => {
 							>
 								{/* Shadow overlay */}
 								<div style={shadowStyles} />
-								
+
 								{/* Content */}
 								<div className="pointer-events-none relative z-10 flex w-full items-center gap-3 px-4 pb-5">
 									<div className="flex h-11 w-11 min-w-[44px] max-w-[44px] flex-shrink-0 items-center justify-center rounded-full border-2 border-slate-300 bg-[rgba(32,32,32,0.85)] shadow-[0_1px_4px_rgba(0,0,0,0.18)] backdrop-blur-[10px]">
@@ -214,8 +209,8 @@ const InteractiveSelector = () => {
 										</span>
 									</div>
 									{isActive && option.url && (
-										<div 
-											className="pointer-events-auto flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors cursor-pointer" 
+										<div
+											className="pointer-events-auto flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 transition-colors cursor-pointer"
 											style={titleStyles}
 											onClick={(e) => {
 												e.stopPropagation();

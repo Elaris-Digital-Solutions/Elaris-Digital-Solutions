@@ -82,6 +82,23 @@
       }
     }
   },
+  "techForInclusion": {
+    "titleNormal": "Tech for ",
+    "titleAccent": "Inclusion",
+    "description": "Technology that connects, includes, and empowers. We build digital tools to bridge gaps and strengthen communities across Latin America.",
+    "projects": {
+      "pictoLink": {
+        "title": "PictoLink",
+        "subtitle": "Augmentative Communication",
+        "description": "A platform designed for people with communication, language, or learning difficulties. Facilitates interaction through intuitive and customizable pictograms."
+      },
+      "nuestroBarrio": {
+        "title": "Our Neighborhood",
+        "subtitle": "Local Identity",
+        "description": "Social platform that connects neighbors, preserves local history, and fosters civic participation through collaborative digital tools."
+      }
+    }
+  },
   "portfolio": {
     "headingNormal": "Our ",
     "headingAccent": "Portfolio",
@@ -92,7 +109,7 @@
     },
     "projects": {
       "nuestroBarrio": {
-        "title": "Nuestro Barrio, Nuestra Historia",
+        "title": "Our Neighborhood, Our Story",
         "description": "Social platform that connects communities, archives local stories, and supports civic organizations with business data analysis dashboards.",
         "category": "Social Platform",
         "metrics": "Positive social impact"
