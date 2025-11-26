@@ -73,7 +73,7 @@ export default function TechForInclusion() {
                 <div className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] bg-indigo-100/40 rounded-full blur-3xl" />
             </div>
 
-            <div className="container mx-auto px-8 lg:px-16 relative z-10">
+            <div className="container mx-auto px-16 lg:px-20 relative z-10">
 
                 {/* Section Header */}
                 <div className="mb-12 max-w-3xl mx-auto text-center">
