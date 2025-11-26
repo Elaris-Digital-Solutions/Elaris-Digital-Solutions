@@ -90,12 +90,12 @@
       "pictoLink": {
         "title": "PictoLink",
         "subtitle": "Comunicación Aumentativa",
-        "description": "Una plataforma diseñada para personas con dificultades de comunicación, lenguaje o aprendizaje. Facilita la interacción mediante pictogramas intuitivos y personalizables."
+        "description": "PictoLink es una plataforma digital que combina inteligencia artificial y pictogramas para mejorar la comunicación, especialmente para personas con dificultades en el lenguaje escrito u oral. A partir de un texto, PictoLink genera representaciones visuales mediante pictogramas, permitiendo que mensajes complejos se vuelvan más claros, accesibles y fáciles de entender.\n\nAdemás, funciona como una especie de 'red social visual', donde los usuarios pueden compartir, comentar y reutilizar combinaciones de pictogramas, creando así una comunidad centrada en la inclusión y la comunicación universal."
       },
       "nuestroBarrio": {
         "title": "Nuestro Barrio",
         "subtitle": "Identidad Local",
-        "description": "Plataforma social que conecta vecinos, preserva la historia local y fomenta la participación ciudadana a través de herramientas digitales colaborativas."
+        "description": "'Nuestro Barrio, Nuestra Historia' es un proyecto comunitario de memoria colectiva que busca rescatar, organizar y difundir las historias, tradiciones y experiencias de los vecinos de un barrio. A través de entrevistas, fotografías antiguas, mapas afectivos, recorridos urbanos y pequeños talleres, el proyecto convierte recuerdos personales en un archivo vivo accesible para todos.\n\nSu objetivo es fortalecer el sentido de pertenencia, visibilizar a las personas que construyen el día a día del barrio y dejar un legado cultural para las nuevas generaciones."
       }
     }
   },

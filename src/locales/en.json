@@ -90,12 +90,12 @@
       "pictoLink": {
         "title": "PictoLink",
         "subtitle": "Augmentative Communication",
-        "description": "A platform designed for people with communication, language, or learning difficulties. Facilitates interaction through intuitive and customizable pictograms."
+        "description": "PictoLink is a digital platform that combines artificial intelligence and pictograms to improve communication, especially for people with difficulties in written or oral language. Starting from a text, PictoLink generates visual representations through pictograms, making complex messages clearer, more accessible, and easier to understand.\n\nAdditionally, it functions as a kind of 'visual social network,' where users can share, comment, and reuse combinations of pictograms, creating a community focused on inclusion and universal communication."
       },
       "nuestroBarrio": {
         "title": "Our Neighborhood",
         "subtitle": "Local Identity",
-        "description": "Social platform that connects neighbors, preserves local history, and fosters civic participation through collaborative digital tools."
+        "description": "'Our Neighborhood, Our Story' is a community project of collective memory that seeks to rescue, organize, and disseminate the stories, traditions, and experiences of the residents of a neighborhood. Through interviews, old photographs, affective maps, urban tours, and small workshops, the project turns personal memories into a living archive accessible to everyone.\n\nIts goal is to strengthen the sense of belonging, make visible the people who build the daily life of the neighborhood, and leave a cultural legacy for future generations."
       }
     }
   },

@@ -69,12 +69,11 @@ export default function TechForInclusion() {
         <section className="py-20 sm:py-32 bg-slate-50 relative z-20">
             {/* Background decoration */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
-                <div className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] bg-indigo-100/40 rounded-full blur-3xl" />
+                <div className="absolute -top-[20%] left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
+                <div className="absolute top-[40%] right-[10%] w-[40%] h-[60%] bg-indigo-100/40 rounded-full blur-3xl" />
             </div>
 
-            <div className="container mx-auto px-16 lg:px-20 relative z-10">
-
+            <div className="container mx-auto relative z-10">
                 {/* Section Header */}
                 <div className="mb-12 max-w-3xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">
@@ -86,10 +85,9 @@ export default function TechForInclusion() {
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
-
+                <div className="grid lg:grid-cols-2 gap-4 items-start">
                     {/* Left Column: Content */}
-                    <div className="order-1 lg:order-1 flex flex-col justify-between h-full">
+                    <div className="order-1 lg:order-1 flex flex-col justify-start h-full relative sm:static sm:w-full sm:px-4">
                         <AnimatePresence mode="wait" custom={direction}>
                             <motion.div
                                 key={currentIndex}
@@ -99,7 +97,7 @@ export default function TechForInclusion() {
                                 animate="center"
                                 exit="exit"
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="flex flex-col"
+                                className="relative lg:absolute lg:top-[22%] lg:left-[17%] lg:max-w-[520px] transform translate-y-0 flex flex-col text-left lg:translate-y-0"
                             >
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className={cn("p-3 rounded-2xl", currentInitiative.bg)}>
@@ -110,11 +108,11 @@ export default function TechForInclusion() {
                                     </h3>
                                 </div>
 
-                                <p className={cn("text-base sm:text-lg font-medium mb-4 pl-12", currentInitiative.color)}>
+                                <p className={cn("text-base sm:text-lg font-medium mb-4 text-justify", currentInitiative.color)}>
                                     {t(`techForInclusion.projects.${currentInitiative.key}.subtitle`)}
                                 </p>
 
-                                <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
+                                <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed text-justify">
                                     {t(`techForInclusion.projects.${currentInitiative.key}.description`)}
                                 </p>
 
@@ -133,7 +131,7 @@ export default function TechForInclusion() {
                         </AnimatePresence>
 
                         {/* Controls */}
-                        <div className="flex items-center gap-4 mt-8 justify-center lg:justify-start">
+                        <div className="relative lg:absolute lg:bottom-[5%] lg:left-[22%] flex items-center gap-4 justify-center lg:justify-start">
                             <button
                                 onClick={handlePrev}
                                 className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm hover:shadow-md"
@@ -172,7 +170,7 @@ export default function TechForInclusion() {
                     {/* Right Column: Phone Mockup */}
                     <div className="order-2 lg:order-2 flex justify-center items-center relative">
                         {/* Phone Frame */}
-                        <div className="relative w-[300px] h-[600px] bg-slate-900 rounded-[3rem] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-[8px] border-slate-900 overflow-hidden z-10">
+                        <div className="relative w-[300px] h-[600px] bg-slate-900 rounded-[3rem] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-[8px] border-slate-900 overflow-hidden lg:z-10 z-auto mx-auto">
                             {/* Notch */}
                             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-2xl z-20"></div>
 
