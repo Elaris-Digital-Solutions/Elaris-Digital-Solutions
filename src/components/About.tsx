@@ -192,8 +192,7 @@ export default function About() {
 
 
   return (
-    <section id="nosotros" className="relative isolate overflow-hidden bg-gradient-to-br from-slate-50 via-sky-50 to-white py-24 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.18),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(168,85,247,0.15),_transparent_45%)]" />
+    <section id="nosotros" className="relative isolate overflow-hidden bg-white py-24 sm:py-28">
       <div className="relative mx-auto flex max-w-6xl flex-col gap-16 px-6 lg:px-12">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
           <div className="relative order-2 lg:order-1">
