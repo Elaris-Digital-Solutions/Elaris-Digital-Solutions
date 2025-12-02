@@ -22,7 +22,7 @@ const SocialEmbedCard = ({
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-[0_14px_40px_rgba(15,118,210,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,118,210,0.12)]">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50">
+      <div className="relative w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50 h-[500px] sm:h-[540px] lg:h-[557px]">
         {hasEmbed ? (
           <div
             className="h-full w-full"
@@ -61,23 +61,26 @@ export default function SocialFeed() {
       {
         id: "linkedin-intro",
         platform: "LinkedIn",
-        // Paste the sanitized LinkedIn embed HTML into `embedHtml` when ready.
-        embedHtml: null,
+        // Sanitized LinkedIn embed using the official iframe endpoint.
+        embedHtml:
+          '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7399999460476575744" title="LinkedIn post" aria-label="LinkedIn post" allowfullscreen scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
         url: "https://www.linkedin.com/company/elaris-digital-solutions/",
       },
       {
         id: "instagram-team",
         platform: "Instagram",
-        // Paste the sanitized Instagram embed HTML into `embedHtml` when ready.
-        embedHtml: null,
+        // Sanitized Instagram embed converted to iframe for responsive rendering.
+        embedHtml:
+          '<iframe src="https://www.instagram.com/p/DRmqkyFDfQ2/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
         url: "https://www.instagram.com/elarisdigitalsolutions/",
       },
       {
-        id: "linkedin-announcement",
-        platform: "LinkedIn",
-        // Paste the sanitized LinkedIn embed HTML into `embedHtml` when ready.
-        embedHtml: null,
-        url: "https://www.linkedin.com/company/elaris-digital-solutions/posts/",
+        id: "instagram-innovation",
+        platform: "Instagram",
+        // Sanitized Instagram embed converted to iframe for responsive rendering.
+        embedHtml:
+          '<iframe src="https://www.instagram.com/p/DQ-j6QYkdue/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
+        url: "https://www.instagram.com/elarisdigitalsolutions/",
       },
     ],
     []
@@ -87,18 +90,16 @@ export default function SocialFeed() {
     <section id="social-feed" className="py-20 sm:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg text-slate-900 sm:text-4xl lg:text-5xl">
-            {t("socialFeed.title")}
+          <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
+            <span className="text-slate-900">{t("socialFeed.titleNormal")}</span>
+            <span style={{ color: "#2F64FF" }}>{t("socialFeed.titleAccent")}</span>
           </h2>
-          <p className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#2F64FF]">
-            {t("socialFeed.subtitle")}
-          </p>
           <p className="mt-6 text-base text-slate-600 sm:text-lg">
             {t("socialFeed.description")}
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {embeds.map((embed) => (
             <SocialEmbedCard
               key={embed.id}

@@ -141,8 +141,8 @@
     }
   },
   "socialFeed": {
-    "title": "Social Feed",
-    "subtitle": "Nuestras publicaciones en redes",
+    "titleNormal": "Social ",
+    "titleAccent": "Feed",
     "description": "Publicaciones recientes y actualizaciones desde nuestras redes sociales.",
     "cta": "Ver más",
     "embedPlaceholder": "Reemplaza este bloque con el código embebido de {platform} o comparte un enlace.",

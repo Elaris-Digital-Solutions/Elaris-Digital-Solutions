@@ -108,11 +108,11 @@ export default function TechForInclusion() {
                                     </h3>
                                 </div>
 
-                                <p className={cn("text-base sm:text-lg font-medium mb-4", currentInitiative.color)}>
+                                <p className={cn("text-base sm:text-lg font-medium mb-4 text-justify", currentInitiative.color)}>
                                     {t(`techForInclusion.projects.${currentInitiative.key}.subtitle`)}
                                 </p>
 
-                                <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
+                                <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed text-justify">
                                     {t(`techForInclusion.projects.${currentInitiative.key}.description`)}
                                 </p>
 
