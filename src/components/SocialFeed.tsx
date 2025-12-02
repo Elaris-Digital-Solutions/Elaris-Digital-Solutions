@@ -112,7 +112,7 @@ export default function SocialFeed() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="https://www.linkedin.com/company/elaris-digital-solutions/"
+            href="https://www.instagram.com/elarisdigitalsolutions/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-xl bg-[#2F64FF] px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#1E3ECC] hover:shadow-xl sm:text-base"
