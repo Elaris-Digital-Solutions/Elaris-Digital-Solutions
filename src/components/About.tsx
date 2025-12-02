@@ -68,17 +68,6 @@ const team: TeamMember[] = [
       { type: "github", href: "https://github.com/Elkfle", icon: Github },
     ],
   },
-  {
-    name: "Joaquin Del Solar",
-    role: "Co-Founder",
-    image: "/images/team/delso.webp",
-    accent: "from-rose-500/60 via-orange-500/40 to-amber-500/60",
-    focus: "center 38%",
-    socials: [
-      { type: "linkedin", href: "https://www.linkedin.com/in/joaquin-del-solar-383069355", icon: Linkedin },
-      { type: "github", href: "https://github.com/JOACODS22", icon: Github },
-    ],
-  },
 ];
 
 export default function About() {
