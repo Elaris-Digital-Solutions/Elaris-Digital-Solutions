@@ -140,6 +140,18 @@
       }
     }
   },
+  "socialFeed": {
+    "title": "Social Feed",
+    "subtitle": "Nuestras publicaciones en redes",
+    "description": "Publicaciones recientes y actualizaciones desde nuestras redes sociales.",
+    "cta": "Ver más",
+    "embedPlaceholder": "Reemplaza este bloque con el código embebido de {platform} o comparte un enlace.",
+    "openPost": "Abrir publicación de {platform}",
+    "seo": {
+      "title": "Social Feed | Elaris Digital Solutions",
+      "description": "Descubre las últimas novedades y publicaciones de Elaris Digital Solutions en LinkedIn e Instagram."
+    }
+  },
   "process": {
     "headingNormal": "Nuestro ",
     "headingAccent": "Proceso",

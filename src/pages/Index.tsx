@@ -5,6 +5,7 @@ import TechForInclusion from "@/components/TechForInclusion";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
+import SocialFeed from "@/components/SocialFeed";
 import { Logos3 } from "@/components/ui/logos3";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -29,6 +30,7 @@ const Index = () => {
         <Portfolio />
         <Process />
         <Testimonials />
+        <SocialFeed />
         <section className="py-12 sm:py-16 lg:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 lg:mb-12">
