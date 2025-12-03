@@ -1,13 +1,45 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MessageSquare, Users, GraduationCap } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
+const initiativeImageVariants = [
+    "/assets/picto-link-landing-es.webp",
+    "/assets/picto-link-landing-en.webp",
+    "/assets/nuestro-barrio-landing-es.webp",
+    "/assets/nuestro-barrio-landing-en.webp",
+];
+
 export default function TechForInclusion() {
     const { t, language } = useI18n();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [direction, setDirection] = useState(0);
+
+    useEffect(() => {
+        if (typeof document === "undefined") return;
+
+        const uniqueImages = Array.from(new Set(initiativeImageVariants));
+
+        uniqueImages.forEach((imageSrc) => {
+            const dataAttr = `tech-inclusion-${imageSrc}`;
+
+            if (!document.querySelector(`link[data-preload="${dataAttr}"]`)) {
+                const link = document.createElement("link");
+                link.rel = "preload";
+                link.as = "image";
+                link.href = imageSrc;
+                link.setAttribute("data-preload", dataAttr);
+                document.head.appendChild(link);
+            }
+
+            if (typeof Image !== "undefined") {
+                const img = new Image();
+                img.decoding = "async";
+                img.src = imageSrc;
+            }
+        });
+    }, []);
 
     const initiatives = [
         {
@@ -41,14 +73,6 @@ export default function TechForInclusion() {
     };
 
     const currentInitiative = initiatives[currentIndex];
-
-    // Auto-advance
-    useEffect(() => {
-        const timer = setInterval(() => {
-            handleNext();
-        }, 8000);
-        return () => clearInterval(timer);
-    }, [currentIndex]);
 
     const variants = {
         enter: (direction: number) => ({

@@ -36,6 +36,31 @@ const ProjectsCarousel: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { t } = useI18n();
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+
+    const uniqueImages = Array.from(new Set(projectConfigs.map((project) => project.image)));
+
+    uniqueImages.forEach((imageSrc) => {
+      const dataAttr = `projects-carousel-${imageSrc}`;
+
+      if (!document.querySelector(`link[data-preload="${dataAttr}"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = imageSrc;
+        link.setAttribute('data-preload', dataAttr);
+        document.head.appendChild(link);
+      }
+
+      if (typeof Image !== 'undefined') {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = imageSrc;
+      }
+    });
+  }, []);
+
   const projects = useMemo(
     () =>
       projectConfigs.map((config) => ({

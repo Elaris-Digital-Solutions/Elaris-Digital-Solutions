@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo, useCallback, lazy, Suspense } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
-import MatrixRain from "./ui/matrix-code";
 import { useI18n } from "@/lib/i18n";
+
+const MatrixRain = lazy(() => import("./ui/matrix-code"));
 
 export default function Contact() {
   const { t, tArray } = useI18n();
-  const addressLines = tArray("contact.info.addressLines");
+  const addressLines = useMemo(() => tArray("contact.info.addressLines"), [tArray]);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
@@ -18,9 +19,9 @@ export default function Contact() {
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [mapHeight, setMapHeight] = useState<number | null>(null);
   // keep map height in sync so the map grows upward toward the contact card (desktop only)
-  useSyncMapHeight(contactInfoRef, mapRef, setMapHeight);
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const syncMapHeight = useCallback((height: number | null) => setMapHeight(height), []);
+  useSyncMapHeight(contactInfoRef, mapRef, syncMapHeight);
+  const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const composedMessage = t("contact.form.whatsappTemplate", {
@@ -32,7 +33,28 @@ export default function Contact() {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
-  };
+  }, [email, fullName, message, reason, t]);
+
+  const contactItems = useMemo(
+    () => [
+      {
+        icon: Mail,
+        label: t("contact.info.email"),
+        value: "contact@elarisdigitalsolutions.com",
+      },
+      {
+        icon: Phone,
+        label: t("contact.info.phone"),
+        value: "+51 987 450 340",
+      },
+      {
+        icon: MapPin,
+        label: t("contact.info.office"),
+        value: addressLines,
+      },
+    ],
+    [addressLines, t]
+  );
 
   return (
     <section
@@ -40,7 +62,9 @@ export default function Contact() {
       className="relative overflow-hidden py-20 sm:py-32 site-dark-section text-white"
       style={{ backgroundColor: "#030E2C" }}
     >
-      <MatrixRain className="z-0" />
+      <Suspense fallback={null}>
+        <MatrixRain className="z-0" />
+      </Suspense>
       <div className="container relative z-[1] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
@@ -130,42 +154,26 @@ export default function Contact() {
               <div ref={contactInfoRef} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
                 <h3 className="text-lg font-semibold text-white">{t("contact.info.title")}</h3>
                 <ul className="mt-4 space-y-4 text-sm">
-                  <li className="flex items-start gap-3">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF]">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-white/90">{t("contact.info.email")}</div>
-                      <div className="font-semibold">contact@elarisdigitalsolutions.com</div>
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF]">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-white/90">{t("contact.info.phone")}</div>
-                      <div className="font-semibold">+51 987 450 340</div>
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF]">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-white/90">{t("contact.info.office")}</div>
-                      <div className="font-semibold">
-                        {addressLines.map((line, index) => (
-                          <React.Fragment key={`${line}-${index}`}>
-                            {line}
-                            {index < addressLines.length - 1 && <br />}
-                          </React.Fragment>
-                        ))}
+                  {contactItems.map((item) => (
+                    <li key={item.label} className="flex items-start gap-3">
+                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF]">
+                        <item.icon className="h-5 w-5" />
                       </div>
-                    </div>
-                  </li>
+                      <div>
+                        <div className="text-white/90">{item.label}</div>
+                        <div className="font-semibold">
+                          {Array.isArray(item.value)
+                            ? item.value.map((line, lineIndex) => (
+                                <React.Fragment key={`${line}-${lineIndex}`}>
+                                  {line}
+                                  {lineIndex < item.value.length - 1 && <br />}
+                                </React.Fragment>
+                              ))
+                            : item.value}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
