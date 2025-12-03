@@ -1,11 +1,13 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useI18n } from "@/lib/i18n";
 
 interface SocialEmbed {
   id: string;
   platform: string;
   embedHtml?: string | null;
+  iframeSrc?: string | null;
   url?: string | null;
+  fallbackImage?: string | null;
 }
 
 const SocialEmbedCard = ({
@@ -19,11 +21,70 @@ const SocialEmbedCard = ({
 }) => {
   const sanitizedHtml = embed.embedHtml?.trim();
   const hasEmbed = Boolean(sanitizedHtml);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const loadResolvedRef = useRef(false);
+  const [showFallback, setShowFallback] = useState(false);
+
+  useEffect(() => {
+    loadResolvedRef.current = false;
+    setShowFallback(false);
+
+    if (typeof window === "undefined") return;
+
+    const isEdge = typeof navigator !== "undefined" && /Edg/i.test(navigator.userAgent);
+    if (isEdge && embed.platform.toLowerCase() === "linkedin") {
+      setShowFallback(true);
+      return;
+    }
+
+    if (!embed.iframeSrc) return;
+
+    const timer = window.setTimeout(() => {
+      if (!loadResolvedRef.current) {
+        setShowFallback(true);
+      }
+    }, 2000);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [embed.iframeSrc, embed.id, embed.platform]);
+
+  const handleIframeLoad = () => {
+    loadResolvedRef.current = true;
+  };
 
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white/95 p-4 shadow-[0_14px_40px_rgba(15,118,210,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,118,210,0.12)]">
       <div className="relative w-full overflow-hidden rounded-xl border border-slate-100 bg-slate-50 h-[500px] sm:h-[540px] lg:h-[557px]">
-        {hasEmbed ? (
+        {showFallback && embed.fallbackImage && embed.url ? (
+          <a
+            href={embed.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-full w-full items-center justify-center overflow-hidden"
+            aria-label={openPostLabel}
+          >
+            <img
+              src={embed.fallbackImage}
+              alt={openPostLabel}
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </a>
+        ) : embed.iframeSrc && !showFallback ? (
+          <iframe
+            ref={iframeRef}
+            src={embed.iframeSrc}
+            title={`${embed.platform} post`}
+            aria-label={openPostLabel}
+            allowFullScreen
+            scrolling="no"
+            loading="lazy"
+            style={{ width: "100%", height: "100%", border: "none", overflow: "hidden" }}
+            onLoad={handleIframeLoad}
+          />
+        ) : hasEmbed ? (
           <div
             className="h-full w-full"
             aria-label={openPostLabel}
@@ -61,10 +122,9 @@ export default function SocialFeed() {
       {
         id: "linkedin-intro",
         platform: "LinkedIn",
-        // Sanitized LinkedIn embed using the official iframe endpoint.
-        embedHtml:
-          '<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7399999460476575744" title="LinkedIn post" aria-label="LinkedIn post" allowfullscreen scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
+        iframeSrc: "https://www.linkedin.com/embed/feed/update/urn:li:activity:7399999460476575744",
         url: "https://www.linkedin.com/company/elaris-digital-solutions/",
+        fallbackImage: "/assets/fallback-linkedin.png",
       },
       {
         id: "instagram-team",
