@@ -23,8 +23,8 @@
   "hero": {
     "title": "Elaris Digital Solutions",
     "description": "Diseñamos experiencias con integración de IA que se sienten humanas, fluidas y listas para convertir clientes en LATAM, Estados Unidos y Europa.",
-    "badgeLabel": "Studio",
-    "badgeText": "Software Solutions",
+    "badgeLabel": "Estudio",
+    "badgeText": "Soluciones de software",
     "ctas": {
       "primary": "Portafolio",
       "secondary": "Sobre nosotros"
@@ -231,7 +231,7 @@
   "contact": {
     "titleNormal": "Comencemos una ",
     "titleAccent": "Conversación",
-    "description": "¿Necesitas consultoría digital, automatización con IA o servicios de desarrollo web? Cuéntanos tu reto y diseñamos un roadmap con foco en datos.",
+    "description": "Si necesitas automatización con IA, desarrollo digital o una estrategia de innovación, cuéntanos en qué estás trabajando y te ayudaremos a avanzar.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
       "emailLabel": "Email Corporativo *",
@@ -241,7 +241,8 @@
       "emailPlaceholder": "johndoe@corp.com",
       "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
       "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
-      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}"
+      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
+      "responseTime": "Te responderemos dentro de las próximas 12 horas."
     },
     "info": {
       "title": "Información de Contacto",

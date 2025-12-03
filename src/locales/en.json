@@ -231,7 +231,7 @@
   "contact": {
     "titleNormal": "Let's start a ",
     "titleAccent": "Conversation",
-    "description": "Looking for digital consulting for companies that need AI automation, Web development services, or data-driven roadmaps? Tell us about your challenge and we will help you innovate.",
+    "description": "Whether you need AI automation, digital development or innovation strategy — tell us what you’re working on, and we’ll help you move forward.",
     "form": {
       "fullNameLabel": "Full Name *",
       "emailLabel": "Corporate Email *",
@@ -241,7 +241,8 @@
       "emailPlaceholder": "johndoe@corp.com",
       "reasonPlaceholder": "AI automation, Web development services, workflow automation...",
       "messagePlaceholder": "Share KPIs, markets, integrations, or compliance needs...",
-      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}"
+      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}",
+      "responseTime": "We’ll get back to you within 12 hours."
     },
     "info": {
       "title": "Contact Information",

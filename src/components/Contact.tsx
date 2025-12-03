@@ -118,7 +118,7 @@ export default function Contact() {
                       {t("common.buttons.sendMessage")}
                     </button>
                     <p className="mt-3 text-center text-sm text-white/80">
-                      We&rsquo;ll get back to you within 12 hours.
+                      {t("contact.form.responseTime")}
                     </p>
                   </div>
                 </form>
