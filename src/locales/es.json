@@ -27,7 +27,7 @@
     "badgeText": "Soluciones de software",
     "ctas": {
       "primary": "Portafolio",
-      "secondary": "Sobre nosotros"
+      "secondary": "Agenda una llamada"
     },
     "consolePhrases": [
       "Lanzando pilotos de automatización con IA para industrias reguladas...",
@@ -280,6 +280,7 @@
       },
       "contact": {
         "title": "Contacto",
+        "meetingLabel": "Agenda una reunión",
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",

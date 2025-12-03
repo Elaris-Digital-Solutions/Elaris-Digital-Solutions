@@ -24,10 +24,12 @@ const Hero = () => {
       badgeText={t("hero.badgeText")}
       ctaButtons={[
         { text: t("hero.ctas.primary"), href: "#portafolio", primary: true },
-        { text: t("hero.ctas.secondary"), href: "#nosotros" },
+        {
+          text: t("hero.ctas.secondary"),
+          href: "https://calendly.com/contact-elarisdigitalsolutions/30min",
+        },
       ]}
       consolePhrases={consolePhrases}
-     
     />
   );
 };

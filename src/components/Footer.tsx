@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Github, Mail, Instagram, Facebook, Phone, MapPin } from "lucide-react";
+import { Linkedin, Twitter, Github, Mail, Instagram, Facebook, Phone, MapPin, Calendar } from "lucide-react";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 
@@ -14,6 +14,7 @@ const Footer = () => {
   }));
   const contactSection = {
     title: t("footer.sections.contact.title"),
+    meetingLabel: t("footer.sections.contact.meetingLabel"),
     email: t("footer.sections.contact.email"),
     phone: t("footer.sections.contact.phone"),
     instagram: t("footer.sections.contact.instagram"),
@@ -154,6 +155,17 @@ const Footer = () => {
                 >
                   <Mail className="h-5 w-5 flex-shrink-0" />
                   {contactSection.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://calendly.com/contact-elarisdigitalsolutions/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors"
+                >
+                  <Calendar className="h-4 w-4" />
+                  {contactSection.meetingLabel}
                 </a>
               </li>
               <li>

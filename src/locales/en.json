@@ -27,7 +27,7 @@
     "badgeText": "Software Solutions",
     "ctas": {
       "primary": "Portfolio",
-      "secondary": "About Us"
+      "secondary": "Schedule a Call"
     },
     "consolePhrases": [
       "Launching AI automation pilots for regulated industries...",
@@ -280,6 +280,7 @@
       },
       "contact": {
         "title": "Contact",
+        "meetingLabel": "Schedule a Meeting",
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",

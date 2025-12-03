@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Use PostCSS imports so plain CSS linters won't report unknown @tailwind at-rules;
+   Tailwind/PostCSS will still recognize and include these when building. */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -71,7 +73,7 @@ All colors MUST be HSL.
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   html {
@@ -82,7 +84,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 100vw;
@@ -101,7 +107,8 @@ All colors MUST be HSL.
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
 
   /* Alternating section colors */
@@ -190,22 +197,8 @@ All colors MUST be HSL.
 /* ---break---
 */
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
-/* ---break---
-*/
-
-@theme inline {
-  @keyframes marquee {
+@keyframes marquee {
   to {
     transform: translateX(-50%);
-    }
   }
 }

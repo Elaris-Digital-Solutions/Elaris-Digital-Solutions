@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useMemo, useCallback, lazy, Suspens
 import { Mail, Phone, MapPin } from "lucide-react";
 
 import { useI18n } from "@/lib/i18n";
+import { Button } from "@/components/ui/button";
 
 const MatrixRain = lazy(() => import("./ui/matrix-code"));
 
@@ -175,6 +176,18 @@ export default function Contact() {
                     </li>
                   ))}
                 </ul>
+                <Button
+                  asChild
+                  className="mt-6 w-full bg-[#2F64FF] text-white hover:bg-[#2553e6] transition-colors"
+                >
+                  <a
+                    href="https://calendly.com/contact-elarisdigitalsolutions/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t("hero.ctas.secondary")}
+                  </a>
+                </Button>
               </div>
 
               <div ref={mapRef} className="rounded-xl border border-white/10 bg-white/5 overflow-hidden mt-6 lg:mt-auto">
