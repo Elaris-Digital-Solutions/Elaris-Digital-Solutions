@@ -29,6 +29,8 @@ function TechLogo({ src, alt, label, imgOnly }: { src: string; alt: string; labe
 }
 
 export default function TechnologiesCarousel() {
+  
+
   return (
     <section className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,10 +49,7 @@ export default function TechnologiesCarousel() {
       <div className="w-full overflow-hidden">
         <Marquee pauseOnHover className="[--duration:60s]">
           {techData.map((tech, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center mx-10 lg:mx-16"
-            >
+            <div key={index} className="flex items-center justify-center mx-5 md:mx-10 lg:mx-16">
               <div className="transition-all duration-300 hover:scale-110 hover:-translate-y-2">
                 <TechLogo {...tech} />
               </div>

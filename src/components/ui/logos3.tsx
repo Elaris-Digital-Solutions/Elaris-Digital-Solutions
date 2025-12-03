@@ -280,9 +280,9 @@ const Logos3 = ({
               {logos.map((logo) => (
                 <CarouselItem
                   key={logo.id}
-                  className="flex basis-1/6 justify-center pl-0"
+                  className="flex basis-1/3 sm:basis-1/4 lg:basis-1/6 justify-center pl-0"
                 >
-                  <div className="mx-2 flex shrink-0 flex-row items-center justify-center gap-4 py-4 transform hover:scale-110 transition-all duration-300">
+                  <div className="mx-1 sm:mx-2 flex shrink-0 flex-row items-center justify-center gap-2 sm:gap-4 py-4 transform hover:scale-110 transition-all duration-300">
                     <div className="flex items-center justify-center h-16 w-16 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg">
                       <SmartImage
                         src={logo.image}
