@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import MeetsRedirect from "./pages/MeetsRedirect";
 import NotFound from "./pages/NotFound";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 
@@ -35,6 +36,7 @@ const App = () => (
             <LanguageSync />
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/meet" element={<MeetsRedirect />} />
               {sectionSlugs.map((slug) => (
                 <Route key={`en-${slug}`} path={`/${slug}`} element={<Index />} />
               ))}
