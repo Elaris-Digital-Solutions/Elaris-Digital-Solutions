@@ -53,6 +53,8 @@
       "web": {
         "title": "Web Development",
         "description": "Modern, responsive, SEO-optimized landing pages and commerce hubs that turn visitors into clients.",
+        "visualTitle": "Digital Impact",
+        "visualDescription": "Crafting pixel-perfect experiences that captivate and convert.",
         "features": [
           "Professional UI/UX design for global brands",
           "SEO-optimized landing pages and content hubs",
@@ -63,6 +65,8 @@
       "software": {
         "title": "Software Development",
         "description": "Custom software development that automates processes, connects data, and scales with your operations.",
+        "visualTitle": "Scalable Core",
+        "visualDescription": "Engineering robust systems that power your business growth.",
         "features": [
           "Scalable architecture and reliability",
           "Robust APIs and workflow automation",
@@ -73,6 +77,8 @@
       "ai": {
         "title": "AI Solutions",
         "description": "Strategic AI automation programs, copilots, and AI chatbots that enhance customer and employee journeys.",
+        "visualTitle": "Future Intelligence",
+        "visualDescription": "Unlocking potential with data-driven automation and insights.",
         "features": [
           "Machine learning and predictive insights",
           "Natural language experiences and AI chatbots",

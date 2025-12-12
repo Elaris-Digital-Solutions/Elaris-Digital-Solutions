@@ -11,6 +11,8 @@ interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
+  visualTitle: string;
+  visualDescription: string;
   features: string[];
   accent?: string;
   highlight?: boolean;
@@ -69,6 +71,8 @@ export default function Services() {
         icon: service.icon,
         title: t(`${service.baseKey}.title`),
         description: t(`${service.baseKey}.description`),
+        visualTitle: t(`${service.baseKey}.visualTitle`),
+        visualDescription: t(`${service.baseKey}.visualDescription`),
         features: tArray(`${service.baseKey}.features`),
         accent: service.accent,
         highlight: service.highlight,
@@ -405,10 +409,10 @@ function ServiceVisual({ service }: { service: Service }) {
         <div className="relative z-10 p-8 text-center max-w-lg mx-auto">
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
             <h4 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-white text-shadow-lg">
-              {service.title}
+              {service.visualTitle}
             </h4>
             <p className="text-base md:text-lg text-muted-foreground/90 text-white text-shadow-md">
-              {service.description}
+              {service.visualDescription}
             </p>
           </motion.div>
         </div>

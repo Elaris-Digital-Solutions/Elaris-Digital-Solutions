@@ -53,6 +53,8 @@
       "web": {
         "title": "Desarrollo Web",
         "description": "Landing pages SEO, sitios corporativos y hubs de comercio que convierten visitantes en clientes.",
+        "visualTitle": "Impacto Digital",
+        "visualDescription": "Creando experiencias pixel-perfect que cautivan y convierten.",
         "features": [
           "Diseño UI/UX profesional para marcas globales",
           "Landing pages SEO y centros de contenido",
@@ -63,6 +65,8 @@
       "software": {
         "title": "Desarrollo de Software",
         "description": "Desarrollo de software a medida que automatiza procesos, conecta datos y escala con la operación.",
+        "visualTitle": "Núcleo Escalable",
+        "visualDescription": "Ingeniería de sistemas robustos que impulsan el crecimiento de tu negocio.",
         "features": [
           "Arquitectura escalable y resiliente",
           "APIs robustas y automatización de flujos",
@@ -73,6 +77,8 @@
       "ai": {
         "title": "Soluciones de IA",
         "description": "Programas de automatización con IA, copilotos y chatbots con IA que elevan la experiencia del cliente y del equipo.",
+        "visualTitle": "Inteligencia Futura",
+        "visualDescription": "Desbloqueando potencial con automatización e insights basados en datos.",
         "features": [
           "Machine learning y analítica predictiva",
           "Experiencias de lenguaje natural y chatbots",
