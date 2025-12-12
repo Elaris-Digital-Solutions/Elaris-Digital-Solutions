@@ -147,7 +147,7 @@ export default function SocialFeed() {
   );
 
   return (
-    <section id="social-feed" className="py-20 sm:py-32 bg-white">
+    <section id="social-feed" className="py-20 sm:py-32 bg-slate-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">

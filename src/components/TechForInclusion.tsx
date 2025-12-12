@@ -90,10 +90,9 @@ export default function TechForInclusion() {
     };
 
     return (
-        <section className="py-20 sm:py-32 bg-slate-50 relative z-20">
+        <section className="py-20 sm:py-32 bg-white relative z-20">
             {/* Background decoration */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[20%] left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
                 <div className="absolute top-[40%] right-[10%] w-[40%] h-[60%] bg-indigo-100/40 rounded-full blur-3xl" />
             </div>
 

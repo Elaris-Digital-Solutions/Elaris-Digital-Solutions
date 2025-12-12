@@ -18,8 +18,12 @@ export default function Testimonials() {
   )
 
   return (
-    <section id="clientes" className="py-20 sm:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="clientes" className="py-20 sm:py-32 bg-slate-50 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{t('testimonials.headingNormal')}</span><span style={{ color: '#2F64FF' }}>{t('testimonials.headingAccent')}</span>
@@ -28,7 +32,7 @@ export default function Testimonials() {
             {t('testimonials.description')}
           </p>
         </div>
-        <div className="p-4 rounded-3xl min-h-[300px] flex flex-wrap gap-6 items-center justify-center relative text-slate-900 bg-white">
+        <div className="p-4 rounded-3xl min-h-[300px] flex flex-wrap gap-6 items-center justify-center relative text-slate-900 bg-transparent">
           <div className="items-center justify-center relative flex" style={{ maxWidth: '1024px' }}>
             <CircularTestimonials
               testimonials={testimonials}
