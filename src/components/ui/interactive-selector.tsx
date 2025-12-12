@@ -42,6 +42,12 @@ const projectConfigs = [
 		url: "https://diego-joyero.netlify.app/",
 	},
 	{
+		slug: "alexArtesano",
+		image: "/assets/alex-artesano.png",
+		Icon: AppWindow,
+		url: "https://alex-artesano.netlify.app/",
+	},
+	{
 		slug: "salcedoJewels",
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,

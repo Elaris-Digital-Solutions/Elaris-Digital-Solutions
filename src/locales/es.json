@@ -120,6 +120,12 @@
         "category": "Landing Page",
         "metrics": "Presencia digital, mejor portafolio, más ventas"
       },
+      "alexArtesano": {
+        "title": "Alex Artesano",
+        "description": "Portafolio artesanal que muestra productos hechos a mano con un enfoque en la narrativa visual y la identidad de marca.",
+        "category": "Portafolio",
+        "metrics": "Visibilidad de marca, exhibición de productos"
+      },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Sitio institucional con catálogo multilingüe, automatización vía WhatsApp y SEO regional.",

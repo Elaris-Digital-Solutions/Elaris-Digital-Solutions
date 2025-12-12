@@ -120,6 +120,12 @@
         "category": "Landing Page",
         "metrics": "Digital presence, stronger portfolio, more sales"
       },
+      "alexArtesano": {
+        "title": "Alex Artesano",
+        "description": "Artisan portfolio showcasing handcrafted products with a focus on visual storytelling and brand identity.",
+        "category": "Portfolio",
+        "metrics": "Brand visibility, product showcase"
+      },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Institutional site with multilingual catalog, workflow automation via WhatsApp, and regional SEO.",
