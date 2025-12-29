@@ -139,6 +139,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#2F64FF] px-6 py-3 text-white font-semibold shadow-sm hover:bg-[#2553e6] transition-colors"
+                      onClick={() => (window as any).fbq('track', 'Lead')}
                     >
                       {t("common.buttons.sendMessage")}
                     </button>
@@ -179,6 +180,7 @@ export default function Contact() {
                 <Button
                   asChild
                   className="mt-6 w-full bg-[#2F64FF] text-white hover:bg-[#2553e6] transition-colors"
+                  onClick={() => (window as any).fbq('track', 'Schedule')}
                 >
                   <a
                     href="https://calendly.com/contact-elarisdigitalsolutions/30min"
