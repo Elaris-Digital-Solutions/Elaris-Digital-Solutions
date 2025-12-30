@@ -1,3 +1,3 @@
-# Landing re cheta
+# Landing cheta
 
 [https://elaris-digital-solutions.netlify.app/]
