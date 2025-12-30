@@ -105,7 +105,7 @@ const buildOrganizationSchema = () => ({
     {
       "@type": "ContactPoint",
       email: "contact@elarisdigitalsolutions.com",
-      telephone: "+51-987-450-340",
+      telephone: "+51-944-228-807",
       contactType: "sales",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Spanish"],
