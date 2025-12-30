@@ -62,9 +62,11 @@ All colors MUST be HSL.
     --sky-400: #38bdf8;
     --sky-500: #0ea5e9;
   }
+
   .theme {
     --animate-marquee: marquee var(--duration, 30s) linear infinite;
   }
+
   .dark {
     --sky-400: #38bdf8;
     --sky-500: #0ea5e9;
@@ -106,22 +108,29 @@ All colors MUST be HSL.
     max-width: 100vw;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 700;
     letter-spacing: -0.025em;
   }
 
   /* Alternating section colors */
-  .site-sections > section {
-    background-color: #FFFFFF; /* white */
+  .site-sections>section {
+    background-color: #FFFFFF;
+    /* white */
   }
 
-  .site-sections > section:nth-of-type(2n) {
-    background-color: #F0F4FF; /* very light blue (visible) */
+  .site-sections>section:nth-of-type(2n) {
+    background-color: #F0F4FF;
+    /* very light blue (visible) */
   }
 
   /* Opt-out: sections that need a dark background (e.g. Contact) */
-  .site-sections > section.site-dark-section {
+  .site-sections>section.site-dark-section {
     background-color: #030E2C;
     color: #ffffff;
   }
@@ -168,6 +177,7 @@ All colors MUST be HSL.
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -178,6 +188,7 @@ All colors MUST be HSL.
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -188,6 +199,7 @@ All colors MUST be HSL.
     from {
       box-shadow: 0 0 20px hsl(189 94% 43% / 0.3);
     }
+
     to {
       box-shadow: 0 0 40px hsl(189 94% 43% / 0.6);
     }

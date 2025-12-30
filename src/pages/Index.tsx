@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -15,6 +17,49 @@ import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
   const { t } = useI18n();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle scrolling to section based on URL path or hash
+    const handleScroll = () => {
+      let targetId = "";
+
+      // Check for hash first (e.g. /#contacto)
+      if (location.hash) {
+        targetId = location.hash.replace("#", "");
+      } else {
+        // Check for path matching a section slug (e.g. /contacto or /es/contacto)
+        let cleanPath = location.pathname;
+        if (cleanPath.startsWith("/es/")) {
+          cleanPath = cleanPath.substring(4);
+        } else if (cleanPath.startsWith("/")) {
+          cleanPath = cleanPath.substring(1);
+        }
+
+        // Remove trailing slash if present
+        if (cleanPath.endsWith("/")) {
+          cleanPath = cleanPath.slice(0, -1);
+        }
+
+        const slugs = ["servicios", "portafolio", "proceso", "clientes", "contacto"];
+        if (slugs.includes(cleanPath)) {
+          targetId = cleanPath;
+        }
+      }
+
+      if (targetId) {
+        // Short timeout to ensure DOM is rendered
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      }
+    };
+
+    handleScroll();
+  }, [location]);
   return (
     <div
       id="app-scroll-container"
