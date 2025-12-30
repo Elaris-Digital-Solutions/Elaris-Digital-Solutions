@@ -3,7 +3,7 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n";
 
-const PHONE_NUMBER = "51987450340";
+const PHONE_NUMBER = "51944228807";
 
 const FloatingWhatsappButton: React.FC = () => {
   const { t } = useI18n();

@@ -14,7 +14,7 @@ export default function Contact() {
   const [reason, setReason] = useState("");
   const [message, setMessage] = useState("");
 
-  const phoneNumber = "51987450340";
+  const phoneNumber = "51944228807";
   const formRef = useRef<HTMLDivElement | null>(null);
   const contactInfoRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
