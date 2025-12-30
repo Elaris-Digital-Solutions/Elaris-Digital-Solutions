@@ -25,8 +25,8 @@ const Hero = () => {
       ctaButtons={[
         { text: t("hero.ctas.primary"), href: "#portafolio", primary: true },
         {
-          text: t("hero.ctas.secondary"),
-          href: "https://calendly.com/contact-elarisdigitalsolutions/30min",
+          text: "Contact",
+          href: "#contacto",
         },
       ]}
       consolePhrases={consolePhrases}
