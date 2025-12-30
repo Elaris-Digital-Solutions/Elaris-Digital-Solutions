@@ -149,6 +149,12 @@
         "description": "Desarrollo de e-commerce de lujo con catálogo interactivo, checkout seguro y datos listos para CRM.",
         "category": "E-commerce",
         "metrics": "Lanzamiento 2024, ventas internacionales"
+      },
+      "petroamerica": {
+        "title": "Petroamérica",
+        "description": "Mockup corporativo para una empresa líder en distribución de combustibles, con descripciones de servicios, portales para clientes y formularios de contacto.",
+        "category": "Sitio Corporativo",
+        "metrics": "Presencia online mejorada, mayor compromiso de clientes"
       }
     }
   },

@@ -149,7 +149,14 @@
         "description": "Luxury e-commerce development with interactive catalog, secure checkout, and CRM-ready data flows.",
         "category": "E-commerce",
         "metrics": "2024 launch, international sales"
+      },
+      "petroamerica": {
+        "title": "Petroamérica",
+        "description": "Corporate mockup site for a leading fuel distribution company, featuring service overviews, client portals, and contact forms.",
+        "category": "Corporate Website",
+        "metrics": "Enhanced online presence, improved client engagement"
       }
+      
     }
   },
   "socialFeed": {
