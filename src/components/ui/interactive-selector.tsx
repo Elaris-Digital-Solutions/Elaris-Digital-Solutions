@@ -53,6 +53,12 @@ const projectConfigs = [
 		Icon: Smartphone,
 		url: "https://salcedo-jewels.vercel.app/",
 	},
+	{
+		slug: "petroamerica",
+		image: "/assets/petroamerica.png",
+		Icon: AppWindow,
+		url: "https://petroamerica-demo.netlify.app/",
+	},
 ] as const;
 
 const InteractiveSelector = () => {

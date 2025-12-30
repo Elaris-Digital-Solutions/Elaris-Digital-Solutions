@@ -33,6 +33,12 @@ const projectConfigs = [
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
     url: 'https://salcedo-jewels.vercel.app/'
+  },
+  {
+    slug: 'petroamerica',
+    image: '/assets/petroamerica.png',
+    stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
+    url: 'https://petroamerica-demo.netlify.app/'
   }
 ] as const;
 
