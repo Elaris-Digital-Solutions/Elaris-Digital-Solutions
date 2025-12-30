@@ -157,17 +157,7 @@ const Footer = () => {
                   {contactSection.email}
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://calendly.com/contact-elarisdigitalsolutions/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors"
-                >
-                  <Calendar className="h-4 w-4" />
-                  {contactSection.meetingLabel}
-                </a>
-              </li>
+
               <li>
                 <a
                   href="tel:+51944228807"

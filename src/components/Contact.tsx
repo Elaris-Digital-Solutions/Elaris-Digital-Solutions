@@ -72,9 +72,9 @@ export default function Contact() {
             <span className="text-white">{t("contact.titleNormal")}</span>
             <span style={{ color: '#2F64FF' }}>{t("contact.titleAccent")}</span>
           </h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto mt-4">
-              {t("contact.description")}
-            </p>
+          <p className="text-lg text-white/80 max-w-3xl mx-auto mt-4">
+            {t("contact.description")}
+          </p>
         </div>
 
         <div className="mt-12 max-w-6xl mx-auto">
@@ -111,28 +111,28 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.reasonLabel")}</label>
-                      <input
-                        type="text"
-                        name="reason"
-                        placeholder={t("contact.form.reasonPlaceholder")}
-                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                        value={reason}
-                        onChange={(event) => setReason(event.target.value)}
-                        required
-                      />
+                    <input
+                      type="text"
+                      name="reason"
+                      placeholder={t("contact.form.reasonPlaceholder")}
+                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
+                      value={reason}
+                      onChange={(event) => setReason(event.target.value)}
+                      required
+                    />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.messageLabel")}</label>
-                      <textarea
-                        name="message"
-                        rows={6}
-                        placeholder={t("contact.form.messagePlaceholder")}
-                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                        value={message}
-                        onChange={(event) => setMessage(event.target.value)}
-                        required
-                      />
+                    <textarea
+                      name="message"
+                      rows={6}
+                      placeholder={t("contact.form.messagePlaceholder")}
+                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
+                      value={message}
+                      onChange={(event) => setMessage(event.target.value)}
+                      required
+                    />
                   </div>
 
                   <div>
@@ -166,30 +166,18 @@ export default function Contact() {
                         <div className="font-semibold">
                           {Array.isArray(item.value)
                             ? item.value.map((line, lineIndex) => (
-                                <React.Fragment key={`${line}-${lineIndex}`}>
-                                  {line}
-                                  {lineIndex < item.value.length - 1 && <br />}
-                                </React.Fragment>
-                              ))
+                              <React.Fragment key={`${line}-${lineIndex}`}>
+                                {line}
+                                {lineIndex < item.value.length - 1 && <br />}
+                              </React.Fragment>
+                            ))
                             : item.value}
                         </div>
                       </div>
                     </li>
                   ))}
                 </ul>
-                <Button
-                  asChild
-                  className="mt-6 w-full bg-[#2F64FF] text-white hover:bg-[#2553e6] transition-colors"
-                  onClick={() => (window as any).fbq('track', 'Schedule')}
-                >
-                  <a
-                    href="https://calendly.com/contact-elarisdigitalsolutions/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t("hero.ctas.secondary")}
-                  </a>
-                </Button>
+
               </div>
 
               <div ref={mapRef} className="rounded-xl border border-white/10 bg-white/5 overflow-hidden mt-6 lg:mt-auto">
