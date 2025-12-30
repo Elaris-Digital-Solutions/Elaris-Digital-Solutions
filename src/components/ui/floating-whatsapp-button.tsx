@@ -16,6 +16,13 @@ const FloatingWhatsappButton: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t("floatingWhatsapp.ariaLabel")}
+      onClick={() => {
+        try {
+          (window as any).fbq('track', 'Lead');
+        } catch {
+          // no-op
+        }
+      }}
       className="fixed bottom-6 right-6 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full border border-blue-300/50 bg-blue-500/25 text-white shadow-[0_18px_45px_rgba(37,99,235,0.45)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-blue-500/35 hover:shadow-[0_24px_70px_rgba(37,99,235,0.55)] focus:outline-none focus:ring-2 focus:ring-blue-200/80 md:h-16 md:w-16"
     >
       <svg
