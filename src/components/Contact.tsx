@@ -12,16 +12,12 @@ export default function Contact() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
-  const [message, setMessage] = useState("");
 
   const phoneNumber = "51944228807";
   const formRef = useRef<HTMLDivElement | null>(null);
   const contactInfoRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
-  const [mapHeight, setMapHeight] = useState<number | null>(null);
-  // keep map height in sync so the map grows upward toward the contact card (desktop only)
-  const syncMapHeight = useCallback((height: number | null) => setMapHeight(height), []);
-  useSyncMapHeight(contactInfoRef, mapRef, syncMapHeight);
+
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -29,12 +25,12 @@ export default function Contact() {
       fullName,
       email,
       reason,
-      message,
+      message: "", // Or remove this key if the locale string handles absence, but usually better to pass empty string if the key is expected by i18n
     });
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
-  }, [email, fullName, message, reason, t]);
+  }, [email, fullName, reason, t]);
 
   const contactItems = useMemo(
     () => [
@@ -78,64 +74,54 @@ export default function Contact() {
         </div>
 
         <div className="mt-12 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Grid with items-stretch to force equal height columns */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
             {/* Left: form */}
-            <div className="relative z-[1]" ref={formRef}>
-              <div className="rounded-xl border border-white/10 bg-white/5 p-8 backdrop-blur">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div>
-                    <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.fullNameLabel")}</label>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder={t("contact.form.fullNamePlaceholder")}
-                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                      value={fullName}
-                      onChange={(event) => setFullName(event.target.value)}
-                      required
-                    />
+            <div className="relative z-[1] h-full" ref={formRef}>
+              <div className="rounded-xl border border-white/10 bg-white/5 p-8 backdrop-blur h-full">
+                <form className="space-y-4 h-full flex flex-col" onSubmit={handleSubmit}>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.fullNameLabel")}</label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder={t("contact.form.fullNamePlaceholder")}
+                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-2 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
+                        value={fullName}
+                        onChange={(event) => setFullName(event.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.emailLabel")}</label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder={t("contact.form.emailPlaceholder")}
+                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-2 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.reasonLabel")}</label>
+                      <input
+                        type="text"
+                        name="reason"
+                        placeholder={t("contact.form.reasonPlaceholder")}
+                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-2 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
+                        value={reason}
+                        onChange={(event) => setReason(event.target.value)}
+                        required
+                      />
+                    </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.emailLabel")}</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder={t("contact.form.emailPlaceholder")}
-                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                      value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.reasonLabel")}</label>
-                    <input
-                      type="text"
-                      name="reason"
-                      placeholder={t("contact.form.reasonPlaceholder")}
-                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                      value={reason}
-                      onChange={(event) => setReason(event.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.messageLabel")}</label>
-                    <textarea
-                      name="message"
-                      rows={6}
-                      placeholder={t("contact.form.messagePlaceholder")}
-                      className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                      value={message}
-                      onChange={(event) => setMessage(event.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div>
+                  <div className="mt-auto pt-16">
                     <button
                       type="submit"
                       className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-[#2F64FF] px-6 py-3 text-white font-semibold shadow-sm hover:bg-[#2553e6] transition-colors"
@@ -143,7 +129,7 @@ export default function Contact() {
                     >
                       {t("common.buttons.sendMessage")}
                     </button>
-                    <p className="mt-3 text-center text-sm text-white/80">
+                    <p className="mt-2 text-center text-sm text-white/80">
                       {t("contact.form.responseTime")}
                     </p>
                   </div>
@@ -152,18 +138,19 @@ export default function Contact() {
             </div>
 
             {/* Right: contact info + map */}
-            <div className="relative z-[1] flex flex-col">
+            <div className="relative z-[1] flex flex-col h-full">
               <div ref={contactInfoRef} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
                 <h3 className="text-lg font-semibold text-white">{t("contact.info.title")}</h3>
                 <ul className="mt-4 space-y-4 text-sm">
                   {contactItems.map((item) => (
                     <li key={item.label} className="flex items-start gap-3">
-                      <div className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF]">
-                        <item.icon className="h-5 w-5" />
+                      {/* Reduced icon size from h-10/w-10 to h-8/w-8 and icon from h-5/w-5 to h-4/w-4 */}
+                      <div className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#2F64FF]/20 text-[#2F64FF] shrink-0">
+                        <item.icon className="h-4 w-4" />
                       </div>
                       <div>
-                        <div className="text-white/90">{item.label}</div>
-                        <div className="font-semibold">
+                        <div className="text-white/90 text-xs uppercase tracking-wider mb-0.5">{item.label}</div>
+                        <div className="font-semibold text-sm">
                           {Array.isArray(item.value)
                             ? item.value.map((line, lineIndex) => (
                               <React.Fragment key={`${line}-${lineIndex}`}>
@@ -180,12 +167,12 @@ export default function Contact() {
 
               </div>
 
-              <div ref={mapRef} className="rounded-xl border border-white/10 bg-white/5 overflow-hidden mt-6 lg:mt-auto">
+              {/* Map: flex-1 to fill remaining height, min-h to ensure usability */}
+              <div className="rounded-xl border border-white/10 bg-white/5 overflow-hidden mt-3 flex-1 min-h-[200px] relative">
                 <iframe
                   title={t("contact.mapTitle")}
                   src="https://www.google.com/maps?q=Jr.+Jeronimo+Aliaga+Norte+595+Santiago+de+Surco&output=embed"
-                  className="w-full border-0"
-                  style={{ height: mapHeight ? `${mapHeight}px` : undefined, minHeight: mapHeight ? undefined : '16rem' }}
+                  className="absolute inset-0 w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -196,54 +183,4 @@ export default function Contact() {
       </div>
     </section>
   );
-}
-
-// Measure form height and update map height on desktop
-function useSyncMapHeight(
-  contactRef: React.RefObject<HTMLDivElement>,
-  mapRef: React.RefObject<HTMLDivElement>,
-  setMapHeight: (h: number | null) => void,
-) {
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const GAP_PX = 12; // small visual gap between contact card and map
-
-    const measure = () => {
-      const contactEl = contactRef.current;
-      const mapEl = mapRef.current;
-      if (!contactEl || !mapEl) {
-        setMapHeight(null);
-        return;
-      }
-
-      const contactRect = contactEl.getBoundingClientRect();
-      const mapRect = mapEl.getBoundingClientRect();
-
-      if (window.innerWidth >= 1024) {
-        const currentBottom = Math.round(mapRect.bottom);
-        const desiredTop = Math.round(contactRect.bottom + GAP_PX);
-        const newHeight = currentBottom - desiredTop;
-
-        if (newHeight > 0 && newHeight !== mapEl.offsetHeight) {
-          setMapHeight(newHeight);
-        } else {
-          // if measurement is invalid, clear and let CSS fallback
-          setMapHeight(null);
-        }
-      } else {
-        setMapHeight(null);
-      }
-    };
-
-    const rafId = requestAnimationFrame(measure);
-    window.addEventListener('resize', measure);
-    window.addEventListener('orientationchange', measure);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      window.removeEventListener('resize', measure);
-      window.removeEventListener('orientationchange', measure);
-    };
-  }, [contactRef, mapRef, setMapHeight]);
 }

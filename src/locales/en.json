@@ -251,7 +251,7 @@
       "messageLabel": "Message *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "AI automation, Web development services, workflow automation...",
+      "reasonPlaceholder": "Schedule a meeting",
       "messagePlaceholder": "Share KPIs, markets, integrations, or compliance needs...",
       "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}",
       "responseTime": "We’ll get back to you within 12 hours."
@@ -262,8 +262,7 @@
       "phone": "Phone",
       "office": "Office",
       "addressLines": [
-        "Av. Primavera 2390",
-        "Santiago de Surco 15023"
+        "Jr. Jerónimo de Aliaga N 595, Santiago de Surco"
       ]
     },
     "mapTitle": "Map of the Elaris Lima office"

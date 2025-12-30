@@ -211,7 +211,7 @@ const Navbar = () => {
           <MobileAnimatedBackdrop />
           <nav className="relative border-b border-white/10">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex h-16 items-center justify-between">
+              <div className="flex h-14 items-center justify-between">
                 <button
                   className="flex items-center gap-3"
                   onClick={scrollHome}
@@ -312,7 +312,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="pointer-events-none flex justify-center px-4 pt-6 lg:px-8">
+      <div className="pointer-events-none flex justify-center px-4 pt-4 lg:px-8">
         <motion.nav
           variants={navVariants}
           initial={false}
@@ -382,7 +382,7 @@ const Navbar = () => {
                     priority
                     width={brandAssets.width}
                     height={brandAssets.height}
-                    className="h-16 w-auto drop-shadow-[0_6px_28px_rgba(96,165,250,0.65)] transition-all duration-300"
+                    className="h-12 w-auto drop-shadow-[0_6px_28px_rgba(96,165,250,0.65)] transition-all duration-300"
                   />
                 </motion.button>
 
@@ -396,7 +396,7 @@ const Navbar = () => {
                         type="button"
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => navigateTo(item)}
-                        className="group relative flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-5 py-2 text-sm font-medium tracking-tight text-blue-50 backdrop-blur-xl transition-all duration-500 hover:border-blue-200/60 hover:text-white hover:shadow-[0_20px_45px_rgba(29,78,216,0.4)]"
+                        className="group relative flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-4 py-1.5 text-sm font-medium tracking-tight text-blue-50 backdrop-blur-xl transition-all duration-500 hover:border-blue-200/60 hover:text-white hover:shadow-[0_20px_45px_rgba(29,78,216,0.4)]"
                       >
                         {t(item.labelKey)}
                         <span className="absolute inset-x-2 bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transition-transform duration-500 group-hover:scale-x-100" />

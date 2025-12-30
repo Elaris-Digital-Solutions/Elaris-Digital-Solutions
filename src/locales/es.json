@@ -251,7 +251,7 @@
       "messageLabel": "Mensaje *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
+      "reasonPlaceholder": "Agendar una reunión",
       "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
       "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
       "responseTime": "Te responderemos dentro de las próximas 12 horas."
@@ -262,8 +262,7 @@
       "phone": "Teléfono",
       "office": "Oficina",
       "addressLines": [
-        "Av. Primavera 2390",
-        "Santiago de Surco 15023"
+        "Jr. Jerónimo de Aliaga N 595, Santiago de Surco"
       ]
     },
     "mapTitle": "Mapa de la oficina de Elaris en Lima"
