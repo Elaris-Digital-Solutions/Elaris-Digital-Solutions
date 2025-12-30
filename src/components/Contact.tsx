@@ -46,7 +46,7 @@ export default function Contact() {
       {
         icon: Phone,
         label: t("contact.info.phone"),
-        value: "+51 987 450 340",
+        value: "+51 944 228 807",
       },
       {
         icon: MapPin,
