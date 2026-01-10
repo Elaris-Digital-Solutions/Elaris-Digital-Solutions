@@ -48,11 +48,6 @@ const Index = () => {
       }
 
       if (targetId) {
-        // Track 'Contact' event ONLY for the contact section
-        if (targetId === "contacto" && window.fbq) {
-          window.fbq('track', 'Contact');
-        }
-
         // Short timeout to ensure DOM is rendered
         setTimeout(() => {
           const element = document.getElementById(targetId);
