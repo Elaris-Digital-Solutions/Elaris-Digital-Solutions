@@ -13,7 +13,7 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [reason, setReason] = useState("");
 
-  const phoneNumber = "51944228807";
+  const phoneNumber = "51973663807";
   const formRef = useRef<HTMLDivElement | null>(null);
   const contactInfoRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<HTMLDivElement | null>(null);
@@ -42,7 +42,7 @@ export default function Contact() {
       {
         icon: Phone,
         label: t("contact.info.phone"),
-        value: "+51 944 228 807",
+        value: "+51 973 663 807",
       },
       {
         icon: MapPin,
