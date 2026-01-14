@@ -75,7 +75,8 @@ const Index = () => {
         <Portfolio />
         <Process />
         <SocialFeed />
-        <section className="py-12 sm:py-16 lg:py-20">
+        {/* Technologies section hidden as requested */}
+        {/* <section className="py-12 sm:py-16 lg:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 lg:mb-12">
               <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl mb-4">
@@ -102,7 +103,7 @@ const Index = () => {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
         <Contact />
       </main>
       <Footer />
