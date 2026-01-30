@@ -17,18 +17,6 @@ const projectConfigs = [
     url: 'https://papelera-latinoamericana.netlify.app'
   },
   {
-    slug: 'diegoJoyero',
-    image: '/assets/diego-joyero.webp',
-    stack: ['React', 'Tailwind', 'Netlify'],
-    url: 'https://diego-joyero.netlify.app/'
-  },
-  {
-    slug: 'alexArtesano',
-    image: '/assets/alex-artesano.png',
-    stack: ['React', 'Tailwind', 'Netlify'],
-    url: 'https://alex-artesano.netlify.app/'
-  },
-  {
     slug: 'salcedoJewels',
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],

@@ -126,23 +126,11 @@
         "category": "Landing Page",
         "metrics": "Presencia digital, mejor portafolio, más ventas"
       },
-      "alexArtesano": {
-        "title": "Alex Artesano",
-        "description": "Portafolio artesanal que muestra productos hechos a mano con un enfoque en la narrativa visual y la identidad de marca.",
-        "category": "Portafolio",
-        "metrics": "Visibilidad de marca, exhibición de productos"
-      },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Sitio institucional con catálogo multilingüe, automatización vía WhatsApp y SEO regional.",
         "category": "Landing Page",
         "metrics": "Catálogo digital, contacto rápido"
-      },
-      "diegoJoyero": {
-        "title": "Diego Joyero",
-        "description": "Experiencia premium para joyería que combina storytelling, chatbots con IA para citas y preparación de comercio de lujo.",
-        "category": "Landing Page",
-        "metrics": "Más clientes, mejor catálogo, más ventas"
       },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
