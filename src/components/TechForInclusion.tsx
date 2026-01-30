@@ -110,7 +110,7 @@ export default function TechForInclusion() {
 
                 <div className="grid lg:grid-cols-2 gap-4 items-start">
                     {/* Left Column: Content */}
-                    <div className="order-1 lg:order-1 flex flex-col justify-start h-full relative sm:static sm:w-full sm:px-4">
+                    <div className="order-1 lg:order-1 flex flex-col justify-center h-full sm:w-full sm:px-4 lg:pl-16 lg:pr-8 space-y-8">
                         <AnimatePresence mode="wait" custom={direction}>
                             <motion.div
                                 key={currentIndex}
@@ -120,7 +120,7 @@ export default function TechForInclusion() {
                                 animate="center"
                                 exit="exit"
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="relative lg:absolute lg:top-[22%] lg:left-[17%] lg:max-w-[520px] transform translate-y-0 flex flex-col text-left lg:translate-y-0"
+                                className="relative lg:max-w-[520px] flex flex-col text-left"
                             >
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className={cn("p-3 rounded-2xl", currentInitiative.bg)}>
@@ -154,7 +154,7 @@ export default function TechForInclusion() {
                         </AnimatePresence>
 
                         {/* Controls */}
-                        <div className="relative lg:absolute lg:bottom-[5%] lg:left-[22%] flex items-center gap-4 justify-center lg:justify-start">
+                        <div className="relative flex items-center gap-4 justify-center lg:justify-start">
                             <button
                                 onClick={handlePrev}
                                 className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm hover:shadow-md"
