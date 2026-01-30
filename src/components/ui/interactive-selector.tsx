@@ -39,7 +39,7 @@ const projectConfigs = [
 		slug: "salcedoJewels",
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,
-		url: "https://salcedo-jewels.vercel.app/",
+		url: "https://salcedojewels.com/",
 	},
 	{
 		slug: "petroamerica",
