@@ -131,7 +131,7 @@ export default function SocialFeed() {
         platform: "Instagram",
         // Sanitized Instagram embed converted to iframe for responsive rendering.
         embedHtml:
-          '<iframe src="https://www.instagram.com/p/DRmqkyFDfQ2/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
+          '<iframe src="https://www.instagram.com/p/DUFDsXjEWRp/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
         url: "https://www.instagram.com/elarisdigitalsolutions/",
       },
       {
@@ -139,7 +139,7 @@ export default function SocialFeed() {
         platform: "Instagram",
         // Sanitized Instagram embed converted to iframe for responsive rendering.
         embedHtml:
-          '<iframe src="https://www.instagram.com/p/DQ-j6QYkdue/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
+          '<iframe src="https://www.instagram.com/p/DRmqkyFDfQ2/embed" title="Instagram post" aria-label="Instagram post" allowtransparency="true" allow="encrypted-media" loading="lazy" scrolling="no" style="width:100%;height:100%;border:none;overflow:hidden;"></iframe>',
         url: "https://www.instagram.com/elarisdigitalsolutions/",
       },
     ],
