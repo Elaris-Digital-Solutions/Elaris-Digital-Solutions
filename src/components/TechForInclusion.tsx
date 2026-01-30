@@ -157,7 +157,7 @@ export default function TechForInclusion() {
                         <div className="relative flex items-center gap-4 justify-center lg:justify-start">
                             <button
                                 onClick={handlePrev}
-                                className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm hover:shadow-md"
+                                className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 active:bg-slate-50 active:border-slate-300 lg:hover:bg-slate-50 lg:hover:border-slate-300 transition-all shadow-sm lg:hover:shadow-md"
                                 aria-label="Previous project"
                             >
                                 <ChevronLeft className="w-6 h-6" />
@@ -173,7 +173,7 @@ export default function TechForInclusion() {
                                         }}
                                         className={cn(
                                             "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                                            idx === currentIndex ? "bg-slate-800 w-8" : "bg-slate-300 hover:bg-slate-400"
+                                            idx === currentIndex ? "bg-slate-800 w-8" : "bg-slate-300 active:bg-slate-400 lg:hover:bg-slate-400"
                                         )}
                                         aria-label={`Go to slide ${idx + 1}`}
                                     />
@@ -182,7 +182,7 @@ export default function TechForInclusion() {
 
                             <button
                                 onClick={handleNext}
-                                className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm hover:shadow-md"
+                                className="p-3 rounded-full bg-white border border-slate-200 text-slate-600 active:bg-slate-50 active:border-slate-300 lg:hover:bg-slate-50 lg:hover:border-slate-300 transition-all shadow-sm lg:hover:shadow-md"
                                 aria-label="Next project"
                             >
                                 <ChevronRight className="w-6 h-6" />

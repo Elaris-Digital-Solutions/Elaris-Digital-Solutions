@@ -60,8 +60,6 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
 
   // State
   const [activeIndex, setActiveIndex] = useState(0);
-  const [hoverPrev, setHoverPrev] = useState(false);
-  const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(1200);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -171,7 +169,16 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
   };
 
   return (
-    <div className="testimonial-container">
+    <div
+      className="testimonial-container"
+      style={
+        {
+          "--arrow-bg": colorArrowBg,
+          "--arrow-fg": colorArrowFg,
+          "--arrow-hover-bg": colorArrowHoverBg,
+        } as React.CSSProperties
+      }
+    >
       <div className="testimonial-grid">
         {/* Images */}
         <div className="image-container" ref={imageContainerRef}>
@@ -244,26 +251,16 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
             <button
               className="arrow-button prev-button"
               onClick={handlePrev}
-              style={{
-                backgroundColor: hoverPrev ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverPrev(true)}
-              onMouseLeave={() => setHoverPrev(false)}
               aria-label="Previous testimonial"
             >
-              <FaArrowLeft size={28} color={colorArrowFg} />
+              <FaArrowLeft size={28} style={{ color: "var(--arrow-fg)" }} />
             </button>
             <button
               className="arrow-button next-button"
               onClick={handleNext}
-              style={{
-                backgroundColor: hoverNext ? colorArrowHoverBg : colorArrowBg,
-              }}
-              onMouseEnter={() => setHoverNext(true)}
-              onMouseLeave={() => setHoverNext(false)}
               aria-label="Next testimonial"
             >
-              <FaArrowRight size={28} color={colorArrowFg} />
+              <FaArrowRight size={28} style={{ color: "var(--arrow-fg)" }} />
             </button>
           </div>
         </div>
@@ -321,16 +318,22 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: all 0.3s;
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           border: 1px solid #e2e8f0;
           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          background-color: var(--arrow-bg);
+          -webkit-tap-highlight-color: transparent;
         }
-        .arrow-button:hover {
-          transform: scale(1.05);
-          box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+        .arrow-button:active {
+          transform: scale(0.95);
+          background-color: #f1f5f9; /* fallback active color */
         }
-        .word {
-          display: inline-block;
+        @media (hover: hover) {
+          .arrow-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+            background-color: var(--arrow-hover-bg);
+          }
         }
         @media (min-width: 768px) {
           .testimonial-grid {
