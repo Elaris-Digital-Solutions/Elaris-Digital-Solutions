@@ -158,7 +158,7 @@ const Navbar = () => {
   const navigateTo = (item: NavItem) => {
     if (typeof window === "undefined") return;
 
-    const targetPath = getPathForLanguage(language, item.slug);
+    const targetPath = getPathForLanguage(language);
     if (window.location.pathname !== targetPath) {
       navigate(targetPath, { replace: false });
     }
