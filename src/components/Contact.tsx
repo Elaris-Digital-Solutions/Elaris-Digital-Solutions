@@ -11,7 +11,6 @@ export default function Contact() {
   const addressLines = useMemo(() => tArray("contact.info.addressLines"), [tArray]);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
-  const [reason, setReason] = useState("");
 
   const phoneNumber = "51973663807";
   const formRef = useRef<HTMLDivElement | null>(null);
@@ -24,13 +23,12 @@ export default function Contact() {
     const composedMessage = t("contact.form.whatsappTemplate", {
       fullName,
       email,
-      reason,
       message: "", // Or remove this key if the locale string handles absence, but usually better to pass empty string if the key is expected by i18n
     });
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
 
     window.open(url, "_blank", "noopener,noreferrer");
-  }, [email, fullName, reason, t]);
+  }, [email, fullName, t]);
 
   const contactItems = useMemo(
     () => [
@@ -103,19 +101,6 @@ export default function Contact() {
                         className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-2 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-white/90 mb-2">{t("contact.form.reasonLabel")}</label>
-                      <input
-                        type="text"
-                        name="reason"
-                        placeholder={t("contact.form.reasonPlaceholder")}
-                        className="w-full rounded-md bg-white/5 border border-white/10 px-4 py-2 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-[#2F64FF]/40"
-                        value={reason}
-                        onChange={(event) => setReason(event.target.value)}
                         required
                       />
                     </div>

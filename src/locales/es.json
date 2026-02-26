@@ -235,14 +235,12 @@
     "description": "Si necesitas automatización con IA, desarrollo digital o una estrategia de innovación, cuéntanos en qué estás trabajando y te ayudaremos a avanzar.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
-      "emailLabel": "Email Corporativo *",
-      "reasonLabel": "Motivo *",
+      "emailLabel": "Email *",
       "messageLabel": "Mensaje *",
-      "fullNamePlaceholder": "John Doe",
-      "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
+      "fullNamePlaceholder": "Ej. Juan Pérez",
+      "emailPlaceholder": "contacto@empresa.com",
       "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
-      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
+      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMensaje: {message}",
       "responseTime": "Te responderemos dentro de las próximas 12 horas."
     },
     "info": {
@@ -285,7 +283,7 @@
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
-        "location": "Surco"
+        "location": "Lima, Perú"
       }
     },
     "bottom": {
