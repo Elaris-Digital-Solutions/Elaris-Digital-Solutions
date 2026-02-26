@@ -22,7 +22,7 @@
     }
   },
   "hero": {
-    "title": "Desarrollo de software a medida para empresas con visión de escala.",
+    "title": "Desarrollo de software a medida para empresas con visión de escala",
     "description": "Diseñamos experiencias con integración de IA que se sienten humanas, fluidas y listas para convertir clientes en LATAM, Estados Unidos y Europa.",
     "badgeLabel": "Estudio",
     "badgeText": "Soluciones de software",
@@ -159,34 +159,34 @@
     "description": "Definimos y ejecutamos estándares claros de calidad, seguridad y operación para cada fase del proyecto.",
     "steps": {
       "analysis": {
-        "title": "Diagnóstico",
-        "heading": "Contexto, objetivos y riesgos",
-        "description": "Levantamos requerimientos, restricciones técnicas y riesgos regulatorios para definir un punto de partida verificable."
+        "title": "Propiedad total y control del sistema",
+        "heading": "Propiedad del código y datos",
+        "description": "Usted es dueño del 100% de su lógica de negocio y datos. Recibe acceso completo al repositorio y una licencia de por vida para usar nuestros módulos base sin regalías."
       },
       "design": {
-        "title": "Diseño",
-        "heading": "Arquitectura y criterios de calidad",
-        "description": "Documentamos arquitectura, journeys críticos y criterios de aceptación para asegurar consistencia entre equipos."
+        "title": "Arquitectura preparada para escalar",
+        "heading": "Software robusto y listo para crecimiento",
+        "description": "Construimos con estándares de seguridad, modularidad y pruebas automatizadas para que el sistema pueda crecer sin reescrituras."
       },
       "development": {
-        "title": "Implementación",
-        "heading": "Construcción con trazabilidad",
-        "description": "Desarrollamos con buenas prácticas de código, versionado y evidencia técnica para cada entrega incremental."
+        "title": "Trazabilidad y evidencia técnica",
+        "heading": "Transparencia en cada entrega",
+        "description": "Cada funcionalidad entregada cuenta con versionado, documentación mínima efectiva y evidencia técnica verificable."
       },
       "testing": {
-        "title": "Validación",
-        "heading": "Pruebas funcionales, técnicas y de IA",
-        "description": "Ejecutamos validaciones de rendimiento, seguridad, accesibilidad y comportamiento de IA antes de publicar."
+        "title": "Criterios de aceptación definidos",
+        "heading": "Nada se entrega sin validación clara",
+        "description": "Toda funcionalidad se construye y valida contra criterios de aceptación definidos previamente para evitar ambigüedades y retrabajos."
       },
       "deployment": {
-        "title": "Despliegue",
-        "heading": "Release controlado y observabilidad",
-        "description": "Publicamos con planes de rollback, monitoreo activo y checklist operativo para minimizar riesgos."
+        "title": "Despliegue seguro y controlado",
+        "heading": "Publicación sin improvisación",
+        "description": "Implementamos releases con planes de rollback, monitoreo activo y checklist operativo para reducir riesgos en producción."
       },
       "support": {
-        "title": "Soporte",
-        "heading": "Continuidad y mejora continua",
-        "description": "Mantenemos SLAs, gestionamos incidentes y aplicamos mejoras continuas basadas en datos y feedback."
+        "title": "Soporte con límites y estructura",
+        "heading": "Continuidad sin dependencia indefinida",
+        "description": "Definimos ventanas claras de soporte, SLAs específicos y mecanismos de mejora continua sin generar dependencia no estructurada."
       }
     }
   },

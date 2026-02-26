@@ -177,7 +177,7 @@ const SyntheticHero = ({
 
         <h1
           ref={headingRef}
-          className="text-5xl md:text-7xl max-w-4xl font-light tracking-tight text-white mb-6"
+          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-white mb-6"
         >
           {title}
         </h1>
