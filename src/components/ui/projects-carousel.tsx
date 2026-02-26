@@ -5,6 +5,12 @@ import { useI18n } from '@/lib/i18n';
 
 const projectConfigs = [
   {
+    slug: 'nuestroBarrio',
+    image: '/assets/nuestro-barrio-nuestra-historia.webp',
+    stack: ['React', 'Next.js', 'Tailwind'],
+    url: ''
+  },
+  {
     slug: 'karMa',
     image: '/assets/kar-ma.webp',
     stack: ['React', 'Tailwind', 'Vite'],
