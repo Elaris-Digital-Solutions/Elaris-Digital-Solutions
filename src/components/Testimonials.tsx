@@ -18,7 +18,7 @@ export default function Testimonials() {
   )
 
   return (
-    <section id="clientes" className="py-20 sm:py-32 bg-slate-50 relative overflow-hidden">
+    <section id="clientes" className="py-20 sm:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-[20%] left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />

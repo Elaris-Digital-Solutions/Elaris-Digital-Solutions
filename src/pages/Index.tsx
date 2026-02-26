@@ -3,11 +3,9 @@ import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
-import TechForInclusion from "@/components/TechForInclusion";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
-import SocialFeed from "@/components/SocialFeed";
 import { Logos3 } from "@/components/ui/logos3";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -27,6 +25,9 @@ const Index = () => {
       // Check for hash first (e.g. /#contacto)
       if (location.hash) {
         targetId = location.hash.replace("#", "");
+        if (targetId === "proceso") {
+          targetId = "estandares";
+        }
       } else {
         // Check for path matching a section slug (e.g. /contacto or /es/contacto)
         let cleanPath = location.pathname;
@@ -41,7 +42,11 @@ const Index = () => {
           cleanPath = cleanPath.slice(0, -1);
         }
 
-        const slugs = ["servicios", "portafolio", "proceso", "clientes", "contacto"];
+        if (cleanPath === "proceso") {
+          cleanPath = "estandares";
+        }
+
+        const slugs = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto"];
         if (slugs.includes(cleanPath)) {
           targetId = cleanPath;
         }
@@ -70,11 +75,9 @@ const Index = () => {
       <Hero />
       <main className="site-sections">
         <Services />
-        <Testimonials />
-        <TechForInclusion />
-        <Portfolio />
         <Process />
-        <SocialFeed />
+        <Portfolio />
+        <Testimonials />
         {/* Technologies section hidden as requested */}
         {/* <section className="py-12 sm:py-16 lg:py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">

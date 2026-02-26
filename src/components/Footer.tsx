@@ -1,4 +1,4 @@
-import { Linkedin, Twitter, Github, Mail, Instagram, Facebook, Phone, MapPin, Calendar } from "lucide-react";
+import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 
@@ -6,8 +6,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t, tArray } = useI18n();
   const serviceLinks = tArray("footer.sections.services.items");
+  const serviceTargets = ["servicios-web", "servicios-software", "servicios-ia", "estandares"];
+  const serviceItems = serviceTargets.map((id, index) => ({
+    id,
+    label: serviceLinks[index] ?? "",
+  }));
   const navLabels = tArray("footer.sections.navigation.items");
-  const navTargets = ["servicios", "portafolio", "proceso", "clientes", "contacto"];
+  const navTargets = ["servicios", "estandares", "portafolio", "clientes", "contacto"];
   const navItems = navTargets.map((id, index) => ({
     id,
     label: navLabels[index] ?? "",
@@ -60,36 +65,6 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://github.com/Elaris-Digital-Solutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-white/6 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-
-              <a
-                href="https://www.facebook.com/profile.php?id=61582879186110"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-white/6 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-
-              <a
-                href="https://x.com/ElarisSolutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-white/6 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
-                aria-label="X"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-
-              <a
                 href="mailto:contact@elarisdigitalsolutions.com"
                 className="p-2 bg-white/6 rounded-lg hover:bg-white/10 hover:text-white transition-colors"
                 aria-label="Email"
@@ -102,13 +77,22 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">{t("footer.sections.services.title")}</h3>
             <ul className="space-y-2">
-              {serviceLinks.map((link) => (
-                <li key={link}>
+              {serviceItems.map(({ id, label }) => (
+                <li key={`${label}-${id}`}>
                   <a
-                    href="#"
+                    href={`#${id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(id);
+                      if (el) {
+                        el.scrollIntoView({ behavior: "smooth", block: "start" });
+                      } else {
+                        window.location.href = `/#${id}`;
+                      }
+                    }}
                     className="text-white/80 text-sm hover:text-white transition-colors"
                   >
-                    {link}
+                    {label}
                   </a>
                 </li>
               ))}

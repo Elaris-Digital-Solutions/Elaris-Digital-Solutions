@@ -14,8 +14,9 @@
     "logoAlt": "Logotipo de Elaris Digital Solutions",
     "items": {
       "services": "Servicios",
+      "standards": "Estándares",
       "portfolio": "Portafolio",
-      "process": "Proceso",
+      "products": "Productos",
       "clients": "Clientes",
       "contact": "Contacto"
     }
@@ -89,8 +90,8 @@
     }
   },
   "techForInclusion": {
-    "titleNormal": "Tecnología para la ",
-    "titleAccent": "Inclusión",
+    "titleNormal": "Productos ",
+    "titleAccent": "Digitales",
     "description": "Tecnología que conecta, incluye y empodera. Creamos herramientas digitales para cerrar brechas y fortalecer comunidades en Latinoamérica.",
     "projects": {
       "pictoLink": {
@@ -101,7 +102,7 @@
       "nuestroBarrio": {
         "title": "Nuestro Barrio",
         "subtitle": "Identidad Local",
-        "description": "'Nuestro Barrio, Nuestra Historia' es una iniciativa comunitaria independiente donde aportamos la infraestructura tecnológica sin fines de lucro. Este proyecto de memoria colectiva rescata y difunde historias y tradiciones vecinales mediante entrevistas, fotos y talleres, convirtiendo recuerdos en un archivo vivo.\n\nBusca fortalecer la identidad local, visibilizar a los vecinos y dejar un legado cultural para las futuras generaciones."
+        "description": "'Nuestro Barrio, Nuestra Historia' es un proyecto comunitario de memoria colectiva que busca rescatar, organizar y difundir las historias, tradiciones y experiencias de los vecinos de un barrio. A través de entrevistas, fotografías antiguas, mapas afectivos, recorridos urbanos y pequeños talleres, el proyecto convierte recuerdos personales en un archivo vivo accesible para todos.\n\nSu objetivo es fortalecer el sentido de pertenencia, visibilizar a las personas que construyen el día a día del barrio y dejar un legado cultural para las nuevas generaciones."
       }
     }
   },
@@ -126,72 +127,66 @@
         "category": "Landing Page",
         "metrics": "Presencia digital, mejor portafolio, más ventas"
       },
+      "alexArtesano": {
+        "title": "Alex Artesano",
+        "description": "Portafolio artesanal que muestra productos hechos a mano con un enfoque en la narrativa visual y la identidad de marca.",
+        "category": "Portafolio",
+        "metrics": "Visibilidad de marca, exhibición de productos"
+      },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Sitio institucional con catálogo multilingüe, automatización vía WhatsApp y SEO regional.",
         "category": "Landing Page",
         "metrics": "Catálogo digital, contacto rápido"
       },
+      "diegoJoyero": {
+        "title": "Diego Joyero",
+        "description": "Experiencia premium para joyería que combina storytelling, chatbots con IA para citas y preparación de comercio de lujo.",
+        "category": "Landing Page",
+        "metrics": "Más clientes, mejor catálogo, más ventas"
+      },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
         "description": "Desarrollo de e-commerce de lujo con catálogo interactivo, checkout seguro y datos listos para CRM.",
         "category": "E-commerce",
         "metrics": "Lanzamiento 2024, ventas internacionales"
-      },
-      "petroamerica": {
-        "title": "Petroamérica",
-        "description": "Mockup corporativo para una empresa líder en distribución de combustibles, con descripciones de servicios, portales para clientes y formularios de contacto.",
-        "category": "Sitio Corporativo",
-        "metrics": "Presencia online mejorada, mayor compromiso de clientes"
       }
     }
   },
-  "socialFeed": {
-    "titleNormal": "Social ",
-    "titleAccent": "Feed",
-    "description": "Publicaciones recientes y actualizaciones desde nuestras redes sociales.",
-    "cta": "Ver más",
-    "embedPlaceholder": "Reemplaza este bloque con el código embebido de {platform} o comparte un enlace.",
-    "openPost": "Abrir publicación de {platform}",
-    "seo": {
-      "title": "Social Feed | Elaris Digital Solutions",
-      "description": "Descubre las últimas novedades y publicaciones de Elaris Digital Solutions en LinkedIn e Instagram."
-    }
-  },
   "process": {
-    "headingNormal": "Nuestro ",
-    "headingAccent": "Proceso",
-    "description": "Un flujo probado desde el discovery hasta la producción que combina agilidad, automatización y gobernanza para equipos B2B.",
+    "headingNormal": "Nuestros ",
+    "headingAccent": "Estándares",
+    "description": "Definimos y ejecutamos estándares claros de calidad, seguridad y operación para cada fase del proyecto.",
     "steps": {
       "analysis": {
-        "title": "01. Análisis",
-        "heading": "Evaluación de Necesidades",
-        "description": "Identificamos objetivos, riesgos normativos y las mejores oportunidades de integración de IA."
+        "title": "01. Diagnóstico",
+        "heading": "Contexto, objetivos y riesgos",
+        "description": "Levantamos requerimientos, restricciones técnicas y riesgos regulatorios para definir un punto de partida verificable."
       },
       "design": {
         "title": "02. Diseño",
-        "heading": "Arquitectura de Solución",
-        "description": "Mapeamos journeys, fuentes de datos y automatizaciones para alinear equipos y KPIs."
+        "heading": "Arquitectura y criterios de calidad",
+        "description": "Documentamos arquitectura, journeys críticos y criterios de aceptación para asegurar consistencia entre equipos."
       },
       "development": {
-        "title": "03. Desarrollo",
-        "heading": "Implementación y Entrenamiento",
-        "description": "Construimos la plataforma, integramos sistemas y entrenamos modelos con datos auditables."
+        "title": "03. Implementación",
+        "heading": "Construcción con trazabilidad",
+        "description": "Desarrollamos con buenas prácticas de código, versionado y evidencia técnica para cada entrega incremental."
       },
       "testing": {
-        "title": "04. Pruebas",
-        "heading": "Validación y Optimización",
-        "description": "Probamos rendimiento, accesibilidad y respuestas de IA para asegurar consistencia."
+        "title": "04. Validación",
+        "heading": "Pruebas funcionales, técnicas y de IA",
+        "description": "Ejecutamos validaciones de rendimiento, seguridad, accesibilidad y comportamiento de IA antes de publicar."
       },
       "deployment": {
         "title": "05. Despliegue",
-        "heading": "Lanzamiento y Monitoreo",
-        "description": "Orquestamos releases, configuramos observabilidad y preparamos a los equipos."
+        "heading": "Release controlado y observabilidad",
+        "description": "Publicamos con planes de rollback, monitoreo activo y checklist operativo para minimizar riesgos."
       },
       "support": {
         "title": "06. Soporte",
-        "heading": "Mejora Continua",
-        "description": "Iteramos, optimizamos automatizaciones y compartimos insights proactivos."
+        "heading": "Continuidad y mejora continua",
+        "description": "Mantenemos SLAs, gestionamos incidentes y aplicamos mejoras continuas basadas en datos y feedback."
       }
     }
   },
@@ -245,7 +240,7 @@
       "messageLabel": "Mensaje *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Agendar una reunión",
+      "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
       "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
       "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
       "responseTime": "Te responderemos dentro de las próximas 12 horas."
@@ -256,7 +251,8 @@
       "phone": "Teléfono",
       "office": "Oficina",
       "addressLines": [
-        "Jr. Jerónimo de Aliaga N 595, Santiago de Surco"
+        "Av. Primavera 2390",
+        "Santiago de Surco 15023"
       ]
     },
     "mapTitle": "Mapa de la oficina de Elaris en Lima"
@@ -277,8 +273,8 @@
         "title": "Navegación",
         "items": [
           "Servicios",
+          "Estándares",
           "Portafolio",
-          "Proceso",
           "Clientes",
           "Contacto"
         ]
@@ -287,7 +283,7 @@
         "title": "Contacto",
         "meetingLabel": "Agenda una reunión",
         "email": "contact@elarisdigitalsolutions.com",
-        "phone": "+51 973 663 807",
+        "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
         "location": "Surco"
       }

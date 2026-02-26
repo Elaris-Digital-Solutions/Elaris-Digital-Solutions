@@ -15,8 +15,8 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { id: "servicios", labelKey: "navbar.items.services", slug: "servicios" },
+  { id: "estandares", labelKey: "navbar.items.standards", slug: "estandares" },
   { id: "portafolio", labelKey: "navbar.items.portfolio", slug: "portafolio" },
-  { id: "proceso", labelKey: "navbar.items.process", slug: "proceso" },
   { id: "clientes", labelKey: "navbar.items.clients", slug: "clientes" },
   { id: "contacto", labelKey: "navbar.items.contact", slug: "contacto" },
 ];
@@ -276,8 +276,8 @@ const Navbar = () => {
       marginRight: "auto",
     },
     compact: {
-      width: "min(50vw, 780px)",
-      height: 80,
+      width: "min(66vw, 860px)",
+      height: 84,
       borderRadius: 64,
       padding: "16px 32px",
       marginLeft: "auto",
@@ -348,7 +348,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.6 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="flex h-full w-full flex-wrap items-center justify-center gap-8 px-4"
+                className="flex h-full w-full flex-nowrap items-center justify-center gap-5 px-5"
               >
                 {navItems.map((item) => (
                   <motion.button
@@ -356,7 +356,7 @@ const Navbar = () => {
                     onClick={() => navigateTo(item)}
                     whileHover={{ scale: 1.04, opacity: 1 }}
                     whileTap={{ scale: 0.96 }}
-                    className="bg-transparent px-0 text-base font-semibold tracking-[0.08em] text-blue-100 transition-colors duration-300 hover:text-white focus:outline-none"
+                    className="bg-transparent px-1 text-base font-semibold tracking-[0.08em] text-blue-100 transition-colors duration-300 hover:text-white focus:outline-none"
                   >
                     {t(item.labelKey)}
                   </motion.button>

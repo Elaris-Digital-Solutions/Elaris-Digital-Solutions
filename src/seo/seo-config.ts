@@ -4,7 +4,7 @@ export type SeoPage = "home" | "not-found";
 
 const SITE_URL = "https://elarisdigitalsolutions.com";
 const OG_IMAGE = `${SITE_URL}/assets/Elaris-Logo.webp`;
-const SECTION_SLUGS = ["servicios", "portafolio", "proceso", "clientes", "contacto"] as const;
+const SECTION_SLUGS = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto"] as const;
 const VALID_PATHS = new Set<string>([
   "/",
   ...SECTION_SLUGS.map((slug) => `/${slug}`),
@@ -145,12 +145,12 @@ const buildServiceSchema = () => ({
 
 const buildBreadcrumbSchema = (language: Language) => {
   const names = language === "es"
-    ? ["Inicio", "Servicios", "Portafolio", "Proceso", "Clientes", "Contacto"]
-    : ["Home", "Services", "Portfolio", "Process", "Clients", "Contact"];
+    ? ["Inicio", "Servicios", "Estándares", "Portafolio", "Productos", "Clientes", "Contacto"]
+    : ["Home", "Services", "Our Standards", "Portfolio", "Products", "Clients", "Contact"];
 
   const basePaths = language === "es"
-    ? ["/es", "/es/servicios", "/es/portafolio", "/es/proceso", "/es/clientes", "/es/contacto"]
-    : ["/", "/servicios", "/portafolio", "/proceso", "/clientes", "/contacto"];
+    ? ["/es", "/es/servicios", "/es/estandares", "/es/portafolio", "/es/productos", "/es/clientes", "/es/contacto"]
+    : ["/", "/servicios", "/estandares", "/portafolio", "/productos", "/clientes", "/contacto"];
 
   return {
     "@context": "https://schema.org",

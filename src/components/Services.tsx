@@ -260,6 +260,13 @@ export default function Services() {
   const renderServiceCard = (service: Service, index: number) => (
     <motion.div
       key={service.key}
+      id={
+        service.key === "services.items.web"
+          ? "servicios-web"
+          : service.key === "services.items.software"
+            ? "servicios-software"
+            : "servicios-ia"
+      }
       ref={(el) => {
         itemRefs.current[index] = el;
       }}

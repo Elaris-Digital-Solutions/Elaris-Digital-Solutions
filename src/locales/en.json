@@ -14,8 +14,9 @@
     "logoAlt": "Elaris Digital Solutions logotype",
     "items": {
       "services": "Services",
+      "standards": "Standards",
       "portfolio": "Portfolio",
-      "process": "Process",
+      "products": "Products",
       "clients": "Clients",
       "contact": "Contact"
     }
@@ -89,8 +90,8 @@
     }
   },
   "techForInclusion": {
-    "titleNormal": "Tech for ",
-    "titleAccent": "Inclusion",
+    "titleNormal": "Digital ",
+    "titleAccent": "Products",
     "description": "Technology that connects, includes, and empowers. We build digital tools to bridge gaps and strengthen communities across Latin America.",
     "projects": {
       "pictoLink": {
@@ -101,7 +102,7 @@
       "nuestroBarrio": {
         "title": "Our Neighborhood",
         "subtitle": "Local Identity",
-        "description": "'Our Neighborhood, Our Story' is an independent community initiative for which we provide non-profit technological infrastructure. This collective memory project rescues and diffuses neighborhood stories and traditions through interviews, photos, and workshops, turning memories into a living archive.\n\nIt seeks to strengthen local identity, make neighbors visible, and leave a cultural legacy for future generations."
+        "description": "'Our Neighborhood, Our Story' is a community project of collective memory that seeks to rescue, organize, and disseminate the stories, traditions, and experiences of the residents of a neighborhood. Through interviews, old photographs, affective maps, urban tours, and small workshops, the project turns personal memories into a living archive accessible to everyone.\n\nIts goal is to strengthen the sense of belonging, make visible the people who build the daily life of the neighborhood, and leave a cultural legacy for future generations."
       }
     }
   },
@@ -126,72 +127,66 @@
         "category": "Landing Page",
         "metrics": "Digital presence, stronger portfolio, more sales"
       },
+      "alexArtesano": {
+        "title": "Alex Artesano",
+        "description": "Artisan portfolio showcasing handcrafted products with a focus on visual storytelling and brand identity.",
+        "category": "Portfolio",
+        "metrics": "Brand visibility, product showcase"
+      },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Institutional site with multilingual catalog, workflow automation via WhatsApp, and regional SEO.",
         "category": "Landing Page",
         "metrics": "Digital catalog, faster inquiries"
       },
+      "diegoJoyero": {
+        "title": "Diego Joyero",
+        "description": "Premium jewelry experience blending storytelling, AI chatbots for appointments, and luxury commerce readiness.",
+        "category": "Landing Page",
+        "metrics": "More clients, better catalog, increased sales"
+      },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
         "description": "Luxury e-commerce development with interactive catalog, secure checkout, and CRM-ready data flows.",
         "category": "E-commerce",
         "metrics": "2024 launch, international sales"
-      },
-      "petroamerica": {
-        "title": "Petroamérica",
-        "description": "Corporate mockup site for a leading fuel distribution company, featuring service overviews, client portals, and contact forms.",
-        "category": "Corporate Website",
-        "metrics": "Enhanced online presence, improved client engagement"
       }
-    }
-  },
-  "socialFeed": {
-    "titleNormal": "Social ",
-    "titleAccent": "Feed",
-    "description": "Recent posts and updates from our social networks.",
-    "cta": "See more",
-    "embedPlaceholder": "Replace this block with the {platform} embed code or share a post URL.",
-    "openPost": "Open {platform} post",
-    "seo": {
-      "title": "Social Feed | Elaris Digital Solutions",
-      "description": "Explore the latest LinkedIn and Instagram updates from Elaris Digital Solutions in our social feed."
     }
   },
   "process": {
     "headingNormal": "Our ",
-    "headingAccent": "Process",
-    "description": "A proven flow from discovery to production that blends agile delivery, workflow automation, and governance for B2B teams.",
+    "headingAccent": "Standards",
+    "description": "We define and execute clear quality, security, and operational standards across every project phase.",
     "steps": {
       "analysis": {
-        "title": "01. Analysis",
-        "heading": "Needs Assessment",
-        "description": "We uncover growth targets, compliance constraints, and the best AI integration opportunities."
+        "title": "01. Discovery",
+        "heading": "Context, goals, and risk baseline",
+        "description": "We capture requirements, technical constraints, and compliance risks to establish a verifiable project baseline."
       },
       "design": {
         "title": "02. Design",
-        "heading": "Solution Architecture",
-        "description": "We map user journeys, data sources, and automation paths to align stakeholders and KPIs."
+        "heading": "Architecture and quality criteria",
+        "description": "We define architecture, critical journeys, and acceptance criteria to keep cross-team execution consistent."
       },
       "development": {
-        "title": "03. Development",
-        "heading": "Implementation & Training",
-        "description": "We build the platform, integrate systems, and train models with audit-ready datasets."
+        "title": "03. Implementation",
+        "heading": "Build with traceability",
+        "description": "We deliver with engineering best practices, version control, and technical evidence for each incremental release."
       },
       "testing": {
-        "title": "04. Testing",
-        "heading": "Validation & Optimization",
-        "description": "We stress-test performance, accessibility, and AI outputs to guarantee reliability."
+        "title": "04. Validation",
+        "heading": "Functional, technical, and AI testing",
+        "description": "We validate performance, security, accessibility, and AI behavior before any production rollout."
       },
       "deployment": {
         "title": "05. Deployment",
-        "heading": "Launch & Monitoring",
-        "description": "We orchestrate releases, configure observability, and prepare teams for adoption."
+        "heading": "Controlled release and observability",
+        "description": "We ship with rollback plans, active monitoring, and an operational checklist to minimize risk."
       },
       "support": {
         "title": "06. Support",
-        "heading": "Continuous Improvement",
-        "description": "We deliver enhancements, optimize automations, and share proactive insights."
+        "heading": "Continuity and continuous improvement",
+        "description": "We maintain SLAs, handle incidents, and prioritize iterative improvements based on data and feedback."
       }
     }
   },
@@ -245,7 +240,7 @@
       "messageLabel": "Message *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Schedule a meeting",
+      "reasonPlaceholder": "AI automation, Web development services, workflow automation...",
       "messagePlaceholder": "Share KPIs, markets, integrations, or compliance needs...",
       "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}",
       "responseTime": "We’ll get back to you within 12 hours."
@@ -256,7 +251,8 @@
       "phone": "Phone",
       "office": "Office",
       "addressLines": [
-        "Jr. Jerónimo de Aliaga N 595, Santiago de Surco"
+        "Av. Primavera 2390",
+        "Santiago de Surco 15023"
       ]
     },
     "mapTitle": "Map of the Elaris Lima office"
@@ -277,8 +273,8 @@
         "title": "Navigation",
         "items": [
           "Services",
+          "Standards",
           "Portfolio",
-          "Process",
           "Clients",
           "Contact"
         ]
@@ -287,7 +283,7 @@
         "title": "Contact",
         "meetingLabel": "Schedule a Meeting",
         "email": "contact@elarisdigitalsolutions.com",
-        "phone": "+51 973 663 807",
+        "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
         "location": "Surco"
       }

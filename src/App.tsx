@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 
 const queryClient = new QueryClient();
-const sectionSlugs = ["servicios", "portafolio", "proceso", "clientes", "contacto"] as const;
+const sectionSlugs = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto", "proceso"] as const;
 
 const LanguageSync = () => {
   const location = useLocation();
