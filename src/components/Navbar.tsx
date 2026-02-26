@@ -269,17 +269,17 @@ const Navbar = () => {
   const navVariants = {
     expanded: {
       width: "min(92vw, 1100px)",
-      height: 96,
+      height: 92,
       borderRadius: 32,
-      padding: "18px 32px",
+      padding: "16px 30px",
       marginLeft: "auto",
       marginRight: "auto",
     },
     compact: {
-      width: "min(66vw, 860px)",
-      height: 84,
+      width: "min(64vw, 820px)",
+      height: 80,
       borderRadius: 64,
-      padding: "16px 32px",
+      padding: "14px 28px",
       marginLeft: "auto",
       marginRight: "auto",
     },
@@ -348,7 +348,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.6 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="flex h-full w-full flex-nowrap items-center justify-center gap-5 px-5"
+                className="flex h-full w-full flex-nowrap items-center justify-center gap-4 px-4"
               >
                 {navItems.map((item) => (
                   <motion.button
@@ -356,7 +356,7 @@ const Navbar = () => {
                     onClick={() => navigateTo(item)}
                     whileHover={{ scale: 1.04, opacity: 1 }}
                     whileTap={{ scale: 0.96 }}
-                    className="bg-transparent px-1 text-base font-semibold tracking-[0.08em] text-blue-100 transition-colors duration-300 hover:text-white focus:outline-none"
+                    className="bg-transparent px-1 text-[0.94rem] font-semibold tracking-[0.06em] text-blue-100 transition-colors duration-300 hover:text-white focus:outline-none"
                   >
                     {t(item.labelKey)}
                   </motion.button>
@@ -369,7 +369,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="flex w-full items-center justify-between gap-10"
+                className="flex w-full items-center justify-between gap-8"
               >
                 <motion.button
                   onClick={scrollHome}
@@ -386,7 +386,7 @@ const Navbar = () => {
                   />
                 </motion.button>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   {navItems.map((item) => {
                     const targetPath = getPathForLanguage(language, item.slug);
                     const isActive = location.pathname === targetPath;
@@ -396,14 +396,14 @@ const Navbar = () => {
                         type="button"
                         aria-current={isActive ? "page" : undefined}
                         onClick={() => navigateTo(item)}
-                        className="group relative flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-4 py-1.5 text-sm font-medium tracking-tight text-blue-50 backdrop-blur-xl transition-all duration-500 hover:border-blue-200/60 hover:text-white hover:shadow-[0_20px_45px_rgba(29,78,216,0.4)]"
+                        className="group relative flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-1.5 text-[0.92rem] font-medium tracking-tight text-blue-50 backdrop-blur-xl transition-all duration-500 hover:border-blue-200/60 hover:text-white hover:shadow-[0_20px_45px_rgba(29,78,216,0.4)]"
                       >
                         {t(item.labelKey)}
                         <span className="absolute inset-x-2 bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transition-transform duration-500 group-hover:scale-x-100" />
                       </button>
                     );
                   })}
-                  {renderLanguageToggle("ml-2")}
+                  {renderLanguageToggle("ml-1")}
                 </div>
               </motion.div>
             )}

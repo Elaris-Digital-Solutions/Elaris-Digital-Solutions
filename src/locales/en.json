@@ -159,32 +159,32 @@
     "description": "We define and execute clear quality, security, and operational standards across every project phase.",
     "steps": {
       "analysis": {
-        "title": "01. Discovery",
+        "title": "Discovery",
         "heading": "Context, goals, and risk baseline",
         "description": "We capture requirements, technical constraints, and compliance risks to establish a verifiable project baseline."
       },
       "design": {
-        "title": "02. Design",
+        "title": "Design",
         "heading": "Architecture and quality criteria",
         "description": "We define architecture, critical journeys, and acceptance criteria to keep cross-team execution consistent."
       },
       "development": {
-        "title": "03. Implementation",
+        "title": "Implementation",
         "heading": "Build with traceability",
         "description": "We deliver with engineering best practices, version control, and technical evidence for each incremental release."
       },
       "testing": {
-        "title": "04. Validation",
+        "title": "Validation",
         "heading": "Functional, technical, and AI testing",
         "description": "We validate performance, security, accessibility, and AI behavior before any production rollout."
       },
       "deployment": {
-        "title": "05. Deployment",
+        "title": "Deployment",
         "heading": "Controlled release and observability",
         "description": "We ship with rollback plans, active monitoring, and an operational checklist to minimize risk."
       },
       "support": {
-        "title": "06. Support",
+        "title": "Support",
         "heading": "Continuity and continuous improvement",
         "description": "We maintain SLAs, handle incidents, and prioritize iterative improvements based on data and feedback."
       }

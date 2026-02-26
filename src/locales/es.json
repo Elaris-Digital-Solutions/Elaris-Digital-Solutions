@@ -159,32 +159,32 @@
     "description": "Definimos y ejecutamos estándares claros de calidad, seguridad y operación para cada fase del proyecto.",
     "steps": {
       "analysis": {
-        "title": "01. Diagnóstico",
+        "title": "Diagnóstico",
         "heading": "Contexto, objetivos y riesgos",
         "description": "Levantamos requerimientos, restricciones técnicas y riesgos regulatorios para definir un punto de partida verificable."
       },
       "design": {
-        "title": "02. Diseño",
+        "title": "Diseño",
         "heading": "Arquitectura y criterios de calidad",
         "description": "Documentamos arquitectura, journeys críticos y criterios de aceptación para asegurar consistencia entre equipos."
       },
       "development": {
-        "title": "03. Implementación",
+        "title": "Implementación",
         "heading": "Construcción con trazabilidad",
         "description": "Desarrollamos con buenas prácticas de código, versionado y evidencia técnica para cada entrega incremental."
       },
       "testing": {
-        "title": "04. Validación",
+        "title": "Validación",
         "heading": "Pruebas funcionales, técnicas y de IA",
         "description": "Ejecutamos validaciones de rendimiento, seguridad, accesibilidad y comportamiento de IA antes de publicar."
       },
       "deployment": {
-        "title": "05. Despliegue",
+        "title": "Despliegue",
         "heading": "Release controlado y observabilidad",
         "description": "Publicamos con planes de rollback, monitoreo activo y checklist operativo para minimizar riesgos."
       },
       "support": {
-        "title": "06. Soporte",
+        "title": "Soporte",
         "heading": "Continuidad y mejora continua",
         "description": "Mantenemos SLAs, gestionamos incidentes y aplicamos mejoras continuas basadas en datos y feedback."
       }
