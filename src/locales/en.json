@@ -22,7 +22,7 @@
     }
   },
   "hero": {
-    "title": "Custom software development for companies with a scaling vision.",
+    "title": "Custom software development for companies with a scaling vision",
     "description": "We craft AI for business experiences that feel human, fluid, and conversion-ready for teams across LATAM, the U.S., and Europe.",
     "badgeLabel": "Studio",
     "badgeText": "Software Solutions",
@@ -159,34 +159,34 @@
     "description": "We define and execute clear quality, security, and operational standards across every project phase.",
     "steps": {
       "analysis": {
-        "title": "Discovery",
-        "heading": "Context, goals, and risk baseline",
-        "description": "We capture requirements, technical constraints, and compliance risks to establish a verifiable project baseline."
+        "title": "Full ownership and system control",
+        "heading": "Code and data ownership",
+        "description": "You own 100% of your business logic and data. You receive full repository access and a lifetime license to use our base modules royalty-free."
       },
       "design": {
-        "title": "Design",
-        "heading": "Architecture and quality criteria",
-        "description": "We define architecture, critical journeys, and acceptance criteria to keep cross-team execution consistent."
+        "title": "Scale-ready architecture",
+        "heading": "Robust software built for growth",
+        "description": "We build with security, modularity, and automated testing standards so your system can scale without rewrites."
       },
       "development": {
-        "title": "Implementation",
-        "heading": "Build with traceability",
-        "description": "We deliver with engineering best practices, version control, and technical evidence for each incremental release."
+        "title": "Traceability and technical evidence",
+        "heading": "Transparency in every delivery",
+        "description": "Every delivered feature includes version control, effective minimum documentation, and verifiable technical evidence."
       },
       "testing": {
-        "title": "Validation",
-        "heading": "Functional, technical, and AI testing",
-        "description": "We validate performance, security, accessibility, and AI behavior before any production rollout."
+        "title": "Defined acceptance criteria",
+        "heading": "Nothing ships without clear validation",
+        "description": "Every feature is built and validated against pre-defined acceptance criteria to avoid ambiguity and rework."
       },
       "deployment": {
-        "title": "Deployment",
-        "heading": "Controlled release and observability",
-        "description": "We ship with rollback plans, active monitoring, and an operational checklist to minimize risk."
+        "title": "Safe and controlled deployment",
+        "heading": "Release without improvisation",
+        "description": "We implement releases with rollback plans, active monitoring, and operational checklists to reduce production risk."
       },
       "support": {
-        "title": "Support",
-        "heading": "Continuity and continuous improvement",
-        "description": "We maintain SLAs, handle incidents, and prioritize iterative improvements based on data and feedback."
+        "title": "Structured support with clear boundaries",
+        "heading": "Continuity without indefinite dependency",
+        "description": "We define clear support windows, specific SLAs, and continuous improvement mechanisms without creating unstructured dependency."
       }
     }
   },
