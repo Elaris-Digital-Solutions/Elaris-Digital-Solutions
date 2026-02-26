@@ -22,7 +22,7 @@
     }
   },
   "hero": {
-    "title": "Elaris Digital Solutions",
+    "title": "Desarrollo de software a medida para empresas con visión de escala.",
     "description": "Diseñamos experiencias con integración de IA que se sienten humanas, fluidas y listas para convertir clientes en LATAM, Estados Unidos y Europa.",
     "badgeLabel": "Estudio",
     "badgeText": "Soluciones de software",
@@ -31,13 +31,13 @@
       "secondary": "Agenda una llamada"
     },
     "consolePhrases": [
-      "Lanzando pilotos de automatización con IA para industrias reguladas...",
-      "Diseñando servicios de desarrollo web con impacto SEO medible...",
-      "Construyendo landing pages SEO que califican leads corporativos...",
-      "Conectando soluciones de automatización con CRMs y ERPs...",
-      "Entrenando chatbots con IA para equipos multilingües...",
-      "Entregando desarrollo de software a medida con retorno claro...",
-      "Combinando análisis de datos para negocios con diseño de producto premium..."
+      "Optimizamos tus procesos de negocio con soluciones digitales...",
+      "Desarrollando arquitecturas de software robustas y escalables...",
+      "Diseñando interfaces orientadas a la conversión y retención...",
+      "Implementando infraestructuras cloud de alta disponibilidad...",
+      "Conectando sistemas empresariales con APIs seguras y trazables...",
+      "Automatizando procesos críticos sin interrumpir la operación...",
+      "Optimizando rendimiento y experiencia para escalar sin fricción..."
     ]
   },
   "tech": {
