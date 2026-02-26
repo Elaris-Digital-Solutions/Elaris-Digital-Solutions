@@ -22,7 +22,7 @@
     }
   },
   "hero": {
-    "title": "Elaris Digital Solutions",
+    "title": "Custom software development for companies with a scaling vision.",
     "description": "We craft AI for business experiences that feel human, fluid, and conversion-ready for teams across LATAM, the U.S., and Europe.",
     "badgeLabel": "Studio",
     "badgeText": "Software Solutions",
@@ -31,13 +31,13 @@
       "secondary": "Schedule a Call"
     },
     "consolePhrases": [
-      "Launching AI automation pilots for regulated industries...",
-      "Building Web development services with measurable SEO impact...",
-      "Designing SEO-optimized landing pages that convert enterprise leads...",
-      "Deploying workflow automation across CRMs and ERPs...",
-      "Shipping AI chatbots that support multilingual teams...",
-      "Delivering custom software development with clear ROI...",
-      "Pairing business data analysis with premium product design..."
+      "We optimize your business processes with digital solutions...",
+      "Building robust and scalable software architectures...",
+      "Designing interfaces focused on conversion and retention...",
+      "Implementing highly available cloud infrastructures...",
+      "Connecting enterprise systems through secure, traceable APIs...",
+      "Automating mission-critical processes without operational disruption...",
+      "Optimizing performance and UX to scale without friction..."
     ]
   },
   "tech": {
