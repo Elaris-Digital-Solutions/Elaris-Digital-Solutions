@@ -23,7 +23,7 @@ const FloatingWhatsappButton: React.FC = () => {
           // no-op
         }
       }}
-      className="fixed bottom-6 right-6 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] text-white shadow-[0_18px_45px_rgba(37,211,102,0.45)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba56] hover:shadow-[0_24px_70px_rgba(37,211,102,0.55)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 md:h-16 md:w-16"
+      className="fixed bottom-20 right-6 md:bottom-17 md:right-8 z-[60] inline-flex h-14 w-14 items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] text-white shadow-[0_18px_45px_rgba(37,211,102,0.45)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba56] hover:shadow-[0_24px_70px_rgba(37,211,102,0.55)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 md:h-16 md:w-16"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

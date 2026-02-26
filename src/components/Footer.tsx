@@ -129,7 +129,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Column (replaces previous "Legal") */}
-          <div key="Contacto">
+          <div key="Contacto" className="lg:-ml-8 xl:-ml-12">
             <h3 className="font-semibold mb-4">{contactSection.title}</h3>
             <ul className="space-y-2">
               <li>

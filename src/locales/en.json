@@ -235,14 +235,12 @@
     "description": "Whether you need AI automation, digital development or innovation strategy — tell us what you’re working on, and we’ll help you move forward.",
     "form": {
       "fullNameLabel": "Full Name *",
-      "emailLabel": "Corporate Email *",
-      "reasonLabel": "Reason *",
+      "emailLabel": "Email *",
       "messageLabel": "Message *",
-      "fullNamePlaceholder": "John Doe",
-      "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "AI automation, Web development services, workflow automation...",
+      "fullNamePlaceholder": "e.g. John Doe",
+      "emailPlaceholder": "contact@company.com",
       "messagePlaceholder": "Share KPIs, markets, integrations, or compliance needs...",
-      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}",
+      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nMessage: {message}",
       "responseTime": "We’ll get back to you within 12 hours."
     },
     "info": {
@@ -285,7 +283,7 @@
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
-        "location": "Surco"
+        "location": "Lima, Peru"
       }
     },
     "bottom": {

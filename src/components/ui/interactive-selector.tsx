@@ -10,6 +10,7 @@ import {
 	ShoppingBag,
 	Smartphone,
 	ExternalLink,
+	Users,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
@@ -22,7 +23,12 @@ interface Option {
 }
 
 const projectConfigs = [
-
+	{
+		slug: "nuestroBarrio",
+		image: "/assets/nuestro-barrio-nuestra-historia.webp",
+		Icon: Users,
+		url: "",
+	},
 	{
 		slug: "karMa",
 		image: "/assets/kar-ma.webp",
