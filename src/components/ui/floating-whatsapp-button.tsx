@@ -64,7 +64,7 @@ const FloatingWhatsappButton: React.FC = () => {
               <div className="flex items-center gap-2.5">
                 <div className="relative h-10 w-10 rounded-full border border-white/80 bg-black/30">
                   <img
-                    src="/assets/whatsapp-pfp.png"
+                    src="/assets/sergio-herrera-jave.png"
                     alt={t("floatingWhatsapp.agentName")}
                     className="h-full w-full rounded-full object-cover"
                     loading="lazy"

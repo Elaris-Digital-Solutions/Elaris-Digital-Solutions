@@ -169,26 +169,60 @@ const Navbar = () => {
         viewWork: "Ver trabajos",
         mobileLeadTitle: "¿Listo para escalar tu plataforma digital?",
         mobileLeadText: "Conversemos y te damos una hoja de ruta clara para ejecutar.",
-        servicesCols: {
-          digital: "Plataformas Digitales",
-          engineering: "Ingeniería de Software",
-          aiData: "IA y Datos",
-        },
-        servicesItems: [
-          "Websites Empresariales",
-          "Sistemas de E-commerce",
-          "Plataformas Web a Medida",
-          "Software a Medida",
-          "Automatización de Procesos",
-          "Integración de Sistemas",
-          "Implementación de IA",
-          "Asistentes con IA",
-          "Inteligencia de Datos",
-          "Integraciones LLM",
+        servicesCategories: [
+          {
+            title: "Plataformas Digitales de Alto Rendimiento",
+            items: [
+              "Desarrollo de Software a Medida",
+              "Arquitectura de Plataformas Digitales",
+              "Modernización de Sistemas Legacy",
+              "Websites y Plataformas Web de Alto Rendimiento",
+            ],
+          },
+          {
+            title: "IA y Automatización Inteligente",
+            items: [
+              "Implementación de LLMs en Flujos de Trabajo",
+              "Asistentes Conversacionales y Agendamiento",
+              "Modelos Predictivos e Inteligencia de Datos",
+              "Procesamiento Inteligente de Documentos",
+            ],
+          },
+          {
+            title: "Integración de Ecosistemas Empresariales",
+            items: [
+              "Conectores y APIs Personalizadas",
+              "Integración con ERP, SAP y CRM",
+              "Orquestación de Flujos Digitales",
+              "Migración y Sincronización de Datos",
+            ],
+          },
+          {
+            title: "Gestión de Operaciones e Industria 4.0",
+            items: [
+              "Implementación de CMMS",
+              "Control de Producción, Inventarios y Logística",
+              "Trazabilidad y Control Operativo",
+              "Digitalización de Procesos Industriales",
+            ],
+          },
+          {
+            title: "E-commerce y Soluciones Transaccionales",
+            items: [
+              "E-commerce a Medida",
+              "Sistemas de Pago e Integraciones Logísticas",
+              "Plataformas de Suscripción y Gestión Comercial",
+            ],
+          },
+          {
+            title: "Transformación Digital Empresarial",
+            items: [
+              "Diagnóstico y Roadmap de Digitalización",
+              "Auditoría de Arquitectura e Infraestructura",
+              "Optimización de Procesos y Costos TI",
+            ],
+          },
         ],
-        servicesCtaTitle: "¿Necesitas una solución a medida?",
-        servicesCtaText: "Hablemos para definir arquitectura, alcance y roadmap de entrega.",
-        servicesCtaButton: "Agendar estrategia",
         productsItems: [
           "Pictolink — Plataforma de comunicación accesible (Activo)",
           "LeIA — Asistente empresarial impulsado por IA (Beta)",
@@ -227,26 +261,60 @@ const Navbar = () => {
       viewWork: "View Work",
       mobileLeadTitle: "Ready to scale your digital platform?",
       mobileLeadText: "Talk to our team and get a clear roadmap for delivery.",
-      servicesCols: {
-        digital: "Digital Platforms",
-        engineering: "Software Engineering",
-        aiData: "AI & Data",
-      },
-      servicesItems: [
-        "Enterprise Websites",
-        "E-commerce Systems",
-        "Custom Web Platforms",
-        "Custom Software",
-        "Process Automation",
-        "System Integration",
-        "AI Implementation",
-        "AI Assistants",
-        "Data Intelligence",
-        "LLM Integrations",
+      servicesCategories: [
+        {
+          title: "High-Performance Digital Platforms",
+          items: [
+            "Custom Software Development",
+            "Digital Platform Architecture",
+            "Legacy System Modernization",
+            "High-Performance Websites & Web Platforms",
+          ],
+        },
+        {
+          title: "AI & Intelligent Automation",
+          items: [
+            "LLM Implementation in Workflows",
+            "Conversational Assistants & Scheduling",
+            "Predictive Models & Data Intelligence",
+            "Intelligent Document Processing",
+          ],
+        },
+        {
+          title: "Enterprise Ecosystem Integration",
+          items: [
+            "Custom Connectors and APIs",
+            "ERP, SAP and CRM Integrations",
+            "Digital Workflow Orchestration",
+            "Data Migration and Synchronization",
+          ],
+        },
+        {
+          title: "Operations Management & Industry 4.0",
+          items: [
+            "CMMS Implementation",
+            "Production, Inventory & Logistics Control",
+            "Traceability and Operational Control",
+            "Industrial Process Digitalization",
+          ],
+        },
+        {
+          title: "E-commerce & Transactional Solutions",
+          items: [
+            "Custom E-commerce",
+            "Payment Systems and Logistics Integrations",
+            "Subscription Platforms and Commercial Management",
+          ],
+        },
+        {
+          title: "Enterprise Digital Transformation",
+          items: [
+            "Digitalization Diagnosis and Roadmap",
+            "Architecture and Infrastructure Audits",
+            "IT Cost and Process Optimization",
+          ],
+        },
       ],
-      servicesCtaTitle: "Need a tailored solution?",
-      servicesCtaText: "Talk to our team to map architecture, delivery scope, and roadmap.",
-      servicesCtaButton: "Book strategy session",
       productsItems: [
         "Pictolink — Accessible communication platform (Live)",
         "LeIA — AI-driven enterprise assistant (Beta)",
@@ -274,7 +342,7 @@ const Navbar = () => {
     };
   }, [language]);
 
-  const mobileServicesItems = copy.servicesItems;
+  const mobileServicesCategories = copy.servicesCategories;
   const mobileProductItems = copy.productsItems;
   const mobileIndustryItems = copy.industriesItems;
   const productEntries = useMemo(
@@ -343,48 +411,27 @@ const Navbar = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className={cn("overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
             {openDesktopMenu === "services" && (
-              <div className="grid grid-cols-4 gap-6">
-                <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.digital}</p>
-                  <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[0]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[1]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[2]}</button>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.engineering}</p>
-                  <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[3]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[4]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[5]}</button>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.aiData}</p>
-                  <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[6]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[7]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[8]}</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[9]}</button>
-                  </div>
-                </div>
-
-                <div className={cn("rounded-xl p-4", isLightMode ? "bg-slate-50" : "bg-white/5")}>
-                  <p className="text-sm font-semibold">{copy.servicesCtaTitle}</p>
-                  <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>
-                    {copy.servicesCtaText}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => navigateToSection("contacto")}
-                    className="mt-4 inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              <div className="grid grid-cols-3 gap-x-7 gap-y-6">
+                {copy.servicesCategories.map((category) => (
+                  <div
+                    key={category.title}
+                    className={cn(
+                      "border-l pl-4",
+                      isLightMode ? "border-[#2F64FF]/35" : "border-[#2F64FF]/45"
+                    )}
                   >
-                    {copy.servicesCtaButton}
-                  </button>
-                </div>
+                    <p className={cn("mb-2.5 text-[0.8rem] font-bold uppercase tracking-[0.09em]", isLightMode ? "text-slate-900" : "text-white/95")}>
+                      {category.title}
+                    </p>
+                    <div className="space-y-1">
+                      {category.items.map((item) => (
+                        <button key={item} type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>
+                          {item}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
 
@@ -650,10 +697,17 @@ const Navbar = () => {
 
                   <div className={cn("space-y-1 border-t pt-3", isLightMode ? "border-black/10" : "border-white/15")}>
                     {mobileMenuView === "services" &&
-                      mobileServicesItems.map((item) => (
-                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("servicios")}>
-                          {item}
-                        </button>
+                      mobileServicesCategories.map((category) => (
+                        <div key={category.title} className="pt-2 first:pt-0">
+                          <p className={cn("mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em]", isLightMode ? "text-slate-500" : "text-white/55")}>
+                            {category.title}
+                          </p>
+                          {category.items.map((item) => (
+                            <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("servicios")}>
+                              {item}
+                            </button>
+                          ))}
+                        </div>
                       ))}
 
                     {mobileMenuView === "products" &&
