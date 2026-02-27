@@ -563,9 +563,10 @@ const Navbar = () => {
     if (!openDesktopMenu) return null;
 
     return (
-      <div className="pointer-events-auto -mt-px transition-all duration-300 ease-in-out">
+      <div className="-mt-px transition-all duration-300 ease-in-out">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={cn("overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
+          {/* pointer-events-auto is applied ONLY to the card so the sides of the screen don't block mouseLeave */}
+          <div className={cn("pointer-events-auto overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
             {openDesktopMenu === "services" && (() => {
               const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
               const ctaText = language === "es"
