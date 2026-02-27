@@ -43,21 +43,22 @@ export default function Contact() {
 
       <div className="container relative z-[1] mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 
-        {/* Header */}
-        <div className="mb-16 max-w-xl">
-          <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl leading-tight">
-            {t("contact.titleNormal")}
-            <span className="text-[#2F64FF]">{t("contact.titleAccent")}</span>
-          </h2>
-          <p className="mt-4 text-lg text-slate-500 leading-relaxed">
-            {t("contact.description")}
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
-          {/* Left — form (3/5 width) */}
-          <div className="lg:col-span-3 mt-0 self-start" ref={formRef}>
+          {/* Left — header + form (3/5 width) */}
+          <div className="lg:col-span-3 self-start" ref={formRef}>
+
+            {/* Header lives here so the right column aligns with it */}
+            <div className="mb-10">
+              <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl leading-tight">
+                {t("contact.titleNormal")}
+                <span className="text-[#2F64FF]">{t("contact.titleAccent")}</span>
+              </h2>
+              <p className="mt-4 text-lg text-slate-500 leading-relaxed">
+                {t("contact.description")}
+              </p>
+            </div>
+
             <form className="space-y-6" onSubmit={handleSubmit}>
 
               {/* Name */}
