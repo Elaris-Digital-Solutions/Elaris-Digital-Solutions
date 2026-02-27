@@ -49,7 +49,7 @@
   "services": {
     "headingNormal": "Our ",
     "headingAccent": "Services",
-    "description": "End-to-end Web development services, AI programs, and consulting sprints that accelerate enterprise modernization",
+    "description": "Software engineering, enterprise integration, and applied intelligence to modernize real-world operations.",
     "items": {
       "web": {
         "title": "Web Development",
@@ -109,7 +109,7 @@
   "portfolio": {
     "headingNormal": "Our ",
     "headingAccent": "Portfolio",
-    "description": "Real-world cases where design, technology, and automation align with B2B growth goals across LATAM, the U.S., and Europe.",
+    "description": "Projects where we design and build digital systems that solve real-world operations.",
     "controls": {
       "previous": "Previous project: {project}",
       "next": "Next project: {project}"
@@ -156,7 +156,7 @@
   "process": {
     "headingNormal": "Our ",
     "headingAccent": "Standards",
-    "description": "We define and execute clear quality, security, and operational standards across every project phase.",
+    "description": "We establish and execute engineering standards that guarantee quality, security, and operational continuity.",
     "steps": {
       "analysis": {
         "title": "Full ownership and system control",

@@ -49,7 +49,7 @@
   "services": {
     "headingNormal": "Nuestros ",
     "headingAccent": "Servicios",
-    "description": "Servicios de desarrollo web, programas de IA y consultoría digital para acelerar la modernización empresarial",
+    "description": "Ingeniería de software, integración empresarial e inteligencia aplicada para modernizar operaciones reales.",
     "items": {
       "web": {
         "title": "Desarrollo Web",
@@ -109,7 +109,7 @@
   "portfolio": {
     "headingNormal": "Nuestro ",
     "headingAccent": "Portafolio",
-    "description": "Casos reales donde diseño, tecnología y automatización se alinean con metas B2B en LATAM, Estados Unidos y Europa.",
+    "description": "Proyectos donde diseñamos y construimos sistemas digitales que resuelven operaciones reales.",
     "controls": {
       "previous": "Proyecto anterior: {project}",
       "next": "Siguiente proyecto: {project}"
@@ -156,7 +156,7 @@
   "process": {
     "headingNormal": "Nuestros ",
     "headingAccent": "Estándares",
-    "description": "Definimos y ejecutamos estándares claros de calidad, seguridad y operación para cada fase del proyecto.",
+    "description": "Establecemos y ejecutamos estándares de ingeniería que garantizan calidad, seguridad y continuidad operativa.",
     "steps": {
       "analysis": {
         "title": "Propiedad total y control del sistema",
