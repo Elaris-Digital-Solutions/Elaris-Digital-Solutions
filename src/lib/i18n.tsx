@@ -21,18 +21,12 @@ const dictionaries: Record<Language, TranslationValue> = {
 
 const STORAGE_KEY = "elaris-lang";
 
-const detectBrowserLanguage = (): Language => {
-  if (typeof navigator === "undefined") {
-    return "en";
-  }
-  const detected = navigator.language?.toLowerCase() ?? "";
-  if (detected.startsWith("es")) return "es";
-  return "en";
-};
-
 const getLanguageFromPathname = (pathname?: string): Language | null => {
   if (typeof pathname !== "string") {
     return null;
+  }
+  if (pathname === "/en" || pathname.startsWith("/en/")) {
+    return "en";
   }
   if (pathname === "/es" || pathname.startsWith("/es/")) {
     return "es";
@@ -42,17 +36,13 @@ const getLanguageFromPathname = (pathname?: string): Language | null => {
 
 const getInitialLanguage = (): Language => {
   if (typeof window === "undefined") {
-    return "en";
+    return "es";
   }
   const pathnameLang = getLanguageFromPathname(window.location.pathname);
   if (pathnameLang) {
     return pathnameLang;
   }
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "en" || stored === "es") {
-    return stored;
-  }
-  return detectBrowserLanguage();
+  return "es";
 };
 
 const resolveValue = (language: Language, key: string): TranslationValue | undefined => {

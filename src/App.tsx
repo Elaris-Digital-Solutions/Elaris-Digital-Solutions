@@ -17,7 +17,7 @@ const LanguageSync = () => {
   const location = useLocation();
   const { language, setLanguage } = useI18n();
   useEffect(() => {
-    const nextLanguage = location.pathname.startsWith("/es") ? "es" : "en";
+    const nextLanguage = location.pathname.startsWith("/en") ? "en" : "es";
     if (nextLanguage !== language) {
       setLanguage(nextLanguage);
     }
@@ -38,11 +38,15 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/meet" element={<MeetsRedirect />} />
               {sectionSlugs.map((slug) => (
-                <Route key={`en-${slug}`} path={`/${slug}`} element={<Index />} />
+                <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
               ))}
               <Route path="/es" element={<Index />} />
               {sectionSlugs.map((slug) => (
                 <Route key={`es-${slug}`} path={`/es/${slug}`} element={<Index />} />
+              ))}
+              <Route path="/en" element={<Index />} />
+              {sectionSlugs.map((slug) => (
+                <Route key={`en-${slug}`} path={`/en/${slug}`} element={<Index />} />
               ))}
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

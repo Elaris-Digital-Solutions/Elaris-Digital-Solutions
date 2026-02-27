@@ -109,7 +109,7 @@ export default function Services() {
       try {
         const href = s.image;
         // Avoid duplicating existing preload links
-        if (!document.querySelector(`link[rel=\"preload\"][href=\"${href}\"]`)) {
+        if (!document.querySelector(`link[rel="preload"][href="${href}"]`)) {
           const link = document.createElement("link");
           link.rel = "preload";
           link.as = "image";

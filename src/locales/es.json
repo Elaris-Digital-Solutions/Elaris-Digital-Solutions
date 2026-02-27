@@ -150,12 +150,6 @@
         "description": "Desarrollo de e-commerce de lujo con catálogo interactivo, checkout seguro y datos listos para CRM.",
         "category": "E-commerce",
         "metrics": "Lanzamiento 2024, ventas internacionales"
-      },
-      "petroamerica": {
-        "title": "Petroamérica",
-        "description": "Plataforma corporativa para líderes en energía, centrada en el abastecimiento de combustibles, GLP y lubricantes.",
-        "category": "Corporativo",
-        "metrics": "Presencia digital, catálogo de servicios"
       }
     }
   },
@@ -241,12 +235,14 @@
     "description": "Si necesitas automatización con IA, desarrollo digital o una estrategia de innovación, cuéntanos en qué estás trabajando y te ayudaremos a avanzar.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
-      "emailLabel": "Email *",
+      "emailLabel": "Email Corporativo *",
+      "reasonLabel": "Motivo *",
       "messageLabel": "Mensaje *",
-      "fullNamePlaceholder": "Ej. Juan Pérez",
-      "emailPlaceholder": "contacto@empresa.com",
+      "fullNamePlaceholder": "John Doe",
+      "emailPlaceholder": "johndoe@corp.com",
+      "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
       "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
-      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMensaje: {message}",
+      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
       "responseTime": "Te responderemos dentro de las próximas 12 horas."
     },
     "info": {
@@ -289,7 +285,7 @@
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
-        "location": "Lima, Perú"
+        "location": "Surco"
       }
     },
     "bottom": {
@@ -299,7 +295,13 @@
   },
   "floatingWhatsapp": {
     "defaultMessage": "Hola, me gustaría conversar sobre automatización con IA o desarrollo de e-commerce con Elaris.",
-    "ariaLabel": "Contactar por WhatsApp"
+    "ariaLabel": "Contactar por WhatsApp",
+    "agentName": "Sergio Herrera",
+    "agentStatus": "Online",
+    "welcomeMessage": "¡Hola! 👋 Soy Sergio de Elaris. Ayudamos a empresas a escalar con desarrollo de software a medida, automatización con IA y plataformas digitales listas para crecer.",
+    "ctaLabel": "Chatear por WhatsApp",
+    "openLabel": "Abrir asistente de WhatsApp",
+    "closeLabel": "Cerrar asistente de WhatsApp"
   },
   "notFound": {
     "title": "404",

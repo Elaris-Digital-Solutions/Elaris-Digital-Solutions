@@ -150,12 +150,6 @@
         "description": "Luxury e-commerce development with interactive catalog, secure checkout, and CRM-ready data flows.",
         "category": "E-commerce",
         "metrics": "2024 launch, international sales"
-      },
-      "petroamerica": {
-        "title": "Petroamérica",
-        "description": "Corporate platform for energy leaders, focused on the supply of fuels, LPG, and lubricants.",
-        "category": "Corporate",
-        "metrics": "Digital presence, service catalog"
       }
     }
   },
@@ -241,12 +235,14 @@
     "description": "Whether you need AI automation, digital development or innovation strategy — tell us what you’re working on, and we’ll help you move forward.",
     "form": {
       "fullNameLabel": "Full Name *",
-      "emailLabel": "Email *",
+      "emailLabel": "Corporate Email *",
+      "reasonLabel": "Reason *",
       "messageLabel": "Message *",
-      "fullNamePlaceholder": "e.g. John Doe",
-      "emailPlaceholder": "contact@company.com",
+      "fullNamePlaceholder": "John Doe",
+      "emailPlaceholder": "johndoe@corp.com",
+      "reasonPlaceholder": "AI automation, Web development services, workflow automation...",
       "messagePlaceholder": "Share KPIs, markets, integrations, or compliance needs...",
-      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nMessage: {message}",
+      "whatsappTemplate": "New contact from the website:\nName: {fullName}\nEmail: {email}\nReason: {reason}\nMessage: {message}",
       "responseTime": "We’ll get back to you within 12 hours."
     },
     "info": {
@@ -289,7 +285,7 @@
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
-        "location": "Lima, Peru"
+        "location": "Surco"
       }
     },
     "bottom": {
@@ -299,7 +295,13 @@
   },
   "floatingWhatsapp": {
     "defaultMessage": "Hi! I'd like to discuss AI automation or e-commerce development with Elaris.",
-    "ariaLabel": "Contact via WhatsApp"
+    "ariaLabel": "Contact via WhatsApp",
+    "agentName": "Sergio Herrera",
+    "agentStatus": "Online",
+    "welcomeMessage": "Hi! 👋 I'm Sergio from Elaris. We help companies scale with custom software development, AI automation, and digital platforms built for growth.",
+    "ctaLabel": "Chat on WhatsApp",
+    "openLabel": "Open WhatsApp assistant",
+    "closeLabel": "Close WhatsApp assistant"
   },
   "notFound": {
     "title": "404",

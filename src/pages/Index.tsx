@@ -29,10 +29,14 @@ const Index = () => {
           targetId = "estandares";
         }
       } else {
-        // Check for path matching a section slug (e.g. /contacto or /es/contacto)
+        // Check for path matching a section slug (e.g. /contacto, /es/contacto, /en/contacto)
         let cleanPath = location.pathname;
         if (cleanPath.startsWith("/es/")) {
           cleanPath = cleanPath.substring(4);
+        } else if (cleanPath.startsWith("/en/")) {
+          cleanPath = cleanPath.substring(4);
+        } else if (cleanPath === "/es" || cleanPath === "/en") {
+          cleanPath = "";
         } else if (cleanPath.startsWith("/")) {
           cleanPath = cleanPath.substring(1);
         }
