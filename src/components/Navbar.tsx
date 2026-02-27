@@ -154,6 +154,16 @@ const Navbar = () => {
     isLightMode ? "hover:bg-slate-100 text-slate-700 hover:text-slate-900" : "hover:bg-white/10 text-white/80 hover:text-white"
   );
 
+  const serviceItemTitleClass = cn(
+    "text-[0.99rem] font-semibold leading-tight transition-colors",
+    isLightMode ? "text-[#2F64FF] group-hover:text-[#1f4de0]" : "text-[#8fb2ff] group-hover:text-[#b5caff]"
+  );
+
+  const serviceItemDescriptionClass = cn(
+    "mt-0.5 text-[0.94rem] leading-snug",
+    isLightMode ? "text-slate-600" : "text-white/68"
+  );
+
   const logoSrc = isLightMode ? "/assets/ElarisLogo.png" : "/assets/ElarisLogoWhite.png";
 
   const copy = useMemo(() => {
@@ -173,53 +183,119 @@ const Navbar = () => {
           {
             title: "Plataformas Digitales de Alto Rendimiento",
             items: [
-              "Desarrollo de Software a Medida",
-              "Arquitectura de Plataformas Digitales",
-              "Modernización de Sistemas Legacy",
-              "Websites y Plataformas Web de Alto Rendimiento",
+              {
+                title: "Desarrollo de Software a Medida",
+                description: "Soluciones únicas diseñadas desde cero.",
+              },
+              {
+                title: "Arquitectura de Plataformas Digitales",
+                description: "Diseño de estructuras escalables y robustas.",
+              },
+              {
+                title: "Modernización de Sistemas Legacy",
+                description: "Actualización de software antiguo a tecnologías actuales.",
+              },
+              {
+                title: "Websites y Plataformas Web de Alto Rendimiento",
+                description: "Presencia digital corporativa y funcional.",
+              },
             ],
           },
           {
             title: "IA y Automatización Inteligente",
             items: [
-              "Implementación de LLMs en Flujos de Trabajo",
-              "Asistentes Conversacionales y Agendamiento",
-              "Modelos Predictivos e Inteligencia de Datos",
-              "Procesamiento Inteligente de Documentos",
+              {
+                title: "Implementación de LLMs en Flujos de Trabajo",
+                description: "Integración de modelos de lenguaje en procesos reales.",
+              },
+              {
+                title: "Asistentes Conversacionales y Agendamiento",
+                description: "IA para atención al cliente y gestión de citas/reservas.",
+              },
+              {
+                title: "Modelos Predictivos e Inteligencia de Datos",
+                description: "Análisis avanzado para la toma de decisiones.",
+              },
+              {
+                title: "Procesamiento Inteligente de Documentos",
+                description: "Clasificación y extracción automática de datos.",
+              },
             ],
           },
           {
             title: "Integración de Ecosistemas Empresariales",
             items: [
-              "Conectores y APIs Personalizadas",
-              "Integración con ERP, SAP y CRM",
-              "Orquestación de Flujos Digitales",
-              "Migración y Sincronización de Datos",
+              {
+                title: "Conectores y APIs Personalizadas",
+                description: "Comunicación fluida entre plataformas.",
+              },
+              {
+                title: "Integración con ERP, SAP y CRM",
+                description: "Unificación del núcleo transaccional y comercial.",
+              },
+              {
+                title: "Orquestación de Flujos Digitales",
+                description: "Automatización interdepartamental sin fricciones.",
+              },
+              {
+                title: "Migración y Sincronización de Datos",
+                description: "Garantía de integridad de información entre sistemas.",
+              },
             ],
           },
           {
             title: "Gestión de Operaciones e Industria 4.0",
             items: [
-              "Implementación de CMMS",
-              "Control de Producción, Inventarios y Logística",
-              "Trazabilidad y Control Operativo",
-              "Digitalización de Procesos Industriales",
+              {
+                title: "Implementación de CMMS",
+                description: "Gestión de mantenimiento computarizado.",
+              },
+              {
+                title: "Control de Producción, Inventarios y Logística",
+                description: "Software para logística y manufactura.",
+              },
+              {
+                title: "Trazabilidad y Control Operativo",
+                description: "Seguimiento en tiempo real de activos y procesos.",
+              },
+              {
+                title: "Digitalización de Procesos Industriales",
+                description: "El paso del papel/Excel a la planta digital.",
+              },
             ],
           },
           {
             title: "E-commerce y Soluciones Transaccionales",
             items: [
-              "E-commerce a Medida",
-              "Sistemas de Pago e Integraciones Logísticas",
-              "Plataformas de Suscripción y Gestión Comercial",
+              {
+                title: "E-commerce a Medida",
+                description: "Tiendas virtuales con requerimientos complejos.",
+              },
+              {
+                title: "Sistemas de Pago e Integraciones Logísticas",
+                description: "Conexión con pasarelas y couriers.",
+              },
+              {
+                title: "Plataformas de Suscripción y Gestión Comercial",
+                description: "Modelos de negocio recurrentes.",
+              },
             ],
           },
           {
             title: "Transformación Digital Empresarial",
             items: [
-              "Diagnóstico y Roadmap de Digitalización",
-              "Auditoría de Arquitectura e Infraestructura",
-              "Optimización de Procesos y Costos TI",
+              {
+                title: "Diagnóstico y Roadmap de Digitalización",
+                description: "Plan de ruta para la transformación.",
+              },
+              {
+                title: "Auditoría de Arquitectura e Infraestructura",
+                description: "Revisión técnica de sistemas actuales.",
+              },
+              {
+                title: "Optimización de Procesos y Costos TI",
+                description: "Eficiencia operativa desde la tecnología.",
+              },
             ],
           },
         ],
@@ -265,53 +341,119 @@ const Navbar = () => {
         {
           title: "High-Performance Digital Platforms",
           items: [
-            "Custom Software Development",
-            "Digital Platform Architecture",
-            "Legacy System Modernization",
-            "High-Performance Websites & Web Platforms",
+            {
+              title: "Custom Software Development",
+              description: "Tailored solutions designed from the ground up.",
+            },
+            {
+              title: "Digital Platform Architecture",
+              description: "Scalable and robust architecture design.",
+            },
+            {
+              title: "Legacy System Modernization",
+              description: "Upgrade outdated software to modern technologies.",
+            },
+            {
+              title: "High-Performance Websites & Web Platforms",
+              description: "Corporate and high-functionality digital presence.",
+            },
           ],
         },
         {
           title: "AI & Intelligent Automation",
           items: [
-            "LLM Implementation in Workflows",
-            "Conversational Assistants & Scheduling",
-            "Predictive Models & Data Intelligence",
-            "Intelligent Document Processing",
+            {
+              title: "LLM Implementation in Workflows",
+              description: "Embed language models into real operational processes.",
+            },
+            {
+              title: "Conversational Assistants & Scheduling",
+              description: "AI for customer support and appointment management.",
+            },
+            {
+              title: "Predictive Models & Data Intelligence",
+              description: "Advanced analytics for better decision-making.",
+            },
+            {
+              title: "Intelligent Document Processing",
+              description: "Automated classification and extraction of key data.",
+            },
           ],
         },
         {
           title: "Enterprise Ecosystem Integration",
           items: [
-            "Custom Connectors and APIs",
-            "ERP, SAP and CRM Integrations",
-            "Digital Workflow Orchestration",
-            "Data Migration and Synchronization",
+            {
+              title: "Custom Connectors and APIs",
+              description: "Seamless communication between platforms.",
+            },
+            {
+              title: "ERP, SAP and CRM Integrations",
+              description: "Unify transactional and commercial core systems.",
+            },
+            {
+              title: "Digital Workflow Orchestration",
+              description: "Cross-department automation without friction.",
+            },
+            {
+              title: "Data Migration and Synchronization",
+              description: "Preserve data integrity across systems.",
+            },
           ],
         },
         {
           title: "Operations Management & Industry 4.0",
           items: [
-            "CMMS Implementation",
-            "Production, Inventory & Logistics Control",
-            "Traceability and Operational Control",
-            "Industrial Process Digitalization",
+            {
+              title: "CMMS Implementation",
+              description: "Computerized maintenance management deployment.",
+            },
+            {
+              title: "Production, Inventory & Logistics Control",
+              description: "Software for logistics and manufacturing operations.",
+            },
+            {
+              title: "Traceability and Operational Control",
+              description: "Real-time tracking of assets and operations.",
+            },
+            {
+              title: "Industrial Process Digitalization",
+              description: "Move from spreadsheets to digital plant operations.",
+            },
           ],
         },
         {
           title: "E-commerce & Transactional Solutions",
           items: [
-            "Custom E-commerce",
-            "Payment Systems and Logistics Integrations",
-            "Subscription Platforms and Commercial Management",
+            {
+              title: "Custom E-commerce",
+              description: "Online stores built for complex requirements.",
+            },
+            {
+              title: "Payment Systems and Logistics Integrations",
+              description: "Integrate gateways, couriers and transaction flows.",
+            },
+            {
+              title: "Subscription Platforms and Commercial Management",
+              description: "Recurring-revenue business models and operations.",
+            },
           ],
         },
         {
           title: "Enterprise Digital Transformation",
           items: [
-            "Digitalization Diagnosis and Roadmap",
-            "Architecture and Infrastructure Audits",
-            "IT Cost and Process Optimization",
+            {
+              title: "Digitalization Diagnosis and Roadmap",
+              description: "Strategic roadmap for enterprise transformation.",
+            },
+            {
+              title: "Architecture and Infrastructure Audits",
+              description: "Technical review of current systems.",
+            },
+            {
+              title: "IT Cost and Process Optimization",
+              description: "Operational efficiency driven by technology.",
+            },
           ],
         },
       ],
@@ -425,8 +567,9 @@ const Navbar = () => {
                     </p>
                     <div className="space-y-1">
                       {category.items.map((item) => (
-                        <button key={item} type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>
-                          {item}
+                        <button key={item.title} type="button" className="group w-full rounded-md px-0.5 py-1.5 text-left" onClick={() => navigateToSection("servicios")}>
+                          <p className={serviceItemTitleClass}>{item.title}</p>
+                          <p className={serviceItemDescriptionClass}>{item.description}</p>
                         </button>
                       ))}
                     </div>
@@ -703,8 +846,9 @@ const Navbar = () => {
                             {category.title}
                           </p>
                           {category.items.map((item) => (
-                            <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("servicios")}>
-                              {item}
+                            <button key={item.title} type="button" className={cn("w-full rounded-lg px-1 py-1.5 text-left", isLightMode ? "hover:bg-black/5" : "hover:bg-white/5")} onClick={() => navigateToSection("servicios")}>
+                              <p className={cn("text-sm font-semibold", isLightMode ? "text-[#2F64FF]" : "text-[#9fb8ff]")}>{item.title}</p>
+                              <p className={cn("text-xs", isLightMode ? "text-slate-600" : "text-white/65")}>{item.description}</p>
                             </button>
                           ))}
                         </div>
