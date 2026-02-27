@@ -22,6 +22,7 @@ const FloatingWhatsappButton: React.FC = () => {
   const { t } = useI18n();
   const [isHiddenByMobileMenu, setIsHiddenByMobileMenu] = React.useState(false);
   const [isWidgetOpen, setIsWidgetOpen] = React.useState(false);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const defaultMessage = t("floatingWhatsapp.defaultMessage");
   const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(defaultMessage)}`;
 
@@ -43,6 +44,18 @@ const FloatingWhatsappButton: React.FC = () => {
     }
   }, [isHiddenByMobileMenu]);
 
+  // Close when clicking outside the widget
+  React.useEffect(() => {
+    if (!isWidgetOpen) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsWidgetOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [isWidgetOpen]);
+
   const trackLead = () => {
     try {
       (window as any).fbq("track", "Lead");
@@ -56,7 +69,7 @@ const FloatingWhatsappButton: React.FC = () => {
     : "translate-y-0 scale-100 opacity-100";
 
   return (
-    <div className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-[60] transition-all duration-300 ${containerVisibilityClass}`}>
+    <div ref={containerRef} className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-[60] transition-all duration-300 ${containerVisibilityClass}`}>
       <div className="flex w-[min(84vw,300px)] flex-col items-end gap-2.5 md:w-[300px]">
         {isWidgetOpen && (
           <div className="w-full overflow-hidden rounded-2xl border border-[#25D366]/25 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
