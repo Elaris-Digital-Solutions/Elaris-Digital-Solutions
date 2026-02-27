@@ -883,34 +883,96 @@ const Navbar = () => {
                   <h3 className="text-lg font-semibold">{currentMobileTitle}</h3>
 
                   <div className="space-y-1 border-t border-black/10 pt-3">
-                    {mobileMenuView === "services" &&
-                      mobileServicesCategories.map((category) => (
-                        <div key={category.title} className="pt-2 first:pt-0">
-                          <p className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-500">
-                            {category.title}
-                          </p>
-                          {category.items.map((item) => (
-                            <button key={item.title} type="button" className="w-full rounded-lg px-1 py-1.5 text-left hover:bg-black/5" onClick={() => navigateToSection("servicios")}>
-                              <p className="text-sm font-semibold text-[#2F64FF]">{item.title}</p>
-                              <p className="text-xs text-slate-600">{item.description}</p>
-                            </button>
-                          ))}
+                    {mobileMenuView === "services" && (() => {
+                      const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
+                      return mobileServicesCategories.map((category, catIndex) => {
+                        const Icon = categoryIcons[catIndex] ?? Monitor;
+                        return (
+                          <div key={category.title} className="rounded-xl bg-slate-50 border border-slate-100 p-3 mb-2 last:mb-0">
+                            <div className="flex items-center gap-2 mb-2">
+                              <div className="w-6 h-6 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
+                                <Icon className="w-3 h-3 text-[#2F64FF]" />
+                              </div>
+                              <p className="text-[0.68rem] font-bold uppercase tracking-wide text-slate-500 leading-tight">
+                                {category.title}
+                              </p>
+                            </div>
+                            <div className="space-y-0.5">
+                              {category.items.map((item) => (
+                                <button key={item.title} type="button" className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all" onClick={() => navigateToSection("servicios")}>
+                                  <p className="text-sm font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors">{item.title}</p>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      });
+                    })()}
+
+                    {mobileMenuView === "products" && (() => {
+                      const productIconMap: Record<string, React.ElementType> = {
+                        Pictolink: Link2,
+                        LeIA: Bot,
+                        OpsPilot: GitBranch,
+                      };
+                      return productEntries.map((item) => {
+                        const Icon = productIconMap[item.name] ?? Bot;
+                        return (
+                          <button
+                            key={item.name}
+                            type="button"
+                            className="group flex items-start gap-3 w-full rounded-xl bg-slate-50 border border-slate-100 p-3 text-left hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors mb-2 last:mb-0"
+                            onClick={() => navigateToSection("portafolio")}
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
+                              <Icon className="w-4 h-4 text-[#2F64FF]" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-2 mb-0.5">
+                                <p className="text-sm font-bold text-slate-900 group-hover:text-[#2F64FF] transition-colors">{item.name}</p>
+                                <span className={cn(
+                                  "rounded-full px-1.5 py-0.5 text-[0.6rem] font-semibold leading-none",
+                                  item.tone === "live" ? "bg-emerald-100 text-emerald-700"
+                                    : item.tone === "beta" ? "bg-amber-100 text-amber-700"
+                                      : "bg-slate-100 text-slate-500"
+                                )}>{item.status}</span>
+                              </div>
+                              <p className="text-xs text-slate-500 leading-snug">{item.description}</p>
+                            </div>
+                          </button>
+                        );
+                      });
+                    })()}
+
+                    {mobileMenuView === "industries" && (() => {
+                      const industryIconList: React.ElementType[] = [
+                        GraduationCap, Users, Palette, Gem,
+                        FileText, Printer, ShoppingBag, Truck,
+                        UtensilsCrossed, HeartPulse, Factory, Wrench,
+                        Building2, Plane, Film, Hotel,
+                        ShoppingCart, Rocket, Briefcase, Cpu,
+                      ];
+                      return (
+                        <div className="grid grid-cols-2 gap-2">
+                          {mobileIndustryItems.map((item, i) => {
+                            const Icon = industryIconList[i] ?? Building2;
+                            return (
+                              <button
+                                key={item}
+                                type="button"
+                                className="group flex items-center gap-2.5 rounded-xl bg-slate-50 border border-slate-100 px-3 py-2.5 text-left hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors"
+                                onClick={() => navigateToSection("contacto")}
+                              >
+                                <div className="w-6 h-6 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
+                                  <Icon className="w-3 h-3 text-[#2F64FF]" />
+                                </div>
+                                <span className="text-[0.82rem] font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors leading-tight">{item}</span>
+                              </button>
+                            );
+                          })}
                         </div>
-                      ))}
-
-                    {mobileMenuView === "products" &&
-                      mobileProductItems.map((item) => (
-                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("portafolio")}>
-                          {item}
-                        </button>
-                      ))}
-
-                    {mobileMenuView === "industries" &&
-                      mobileIndustryItems.map((item) => (
-                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("contacto")}>
-                          {item}
-                        </button>
-                      ))}
+                      );
+                    })()}
                   </div>
                 </div>
               )}
