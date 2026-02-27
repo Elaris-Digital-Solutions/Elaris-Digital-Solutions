@@ -21,7 +21,7 @@ const WhatsAppGlyph = ({ className }: { className?: string }) => (
 const FloatingWhatsappButton: React.FC = () => {
   const { t } = useI18n();
   const [isHiddenByMobileMenu, setIsHiddenByMobileMenu] = React.useState(false);
-  const [isWidgetOpen, setIsWidgetOpen] = React.useState(true);
+  const [isWidgetOpen, setIsWidgetOpen] = React.useState(false);
   const defaultMessage = t("floatingWhatsapp.defaultMessage");
   const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(defaultMessage)}`;
 

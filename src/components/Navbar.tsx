@@ -886,7 +886,7 @@ const Navbar = () => {
                     {mobileMenuView === "services" &&
                       mobileServicesCategories.map((category) => (
                         <div key={category.title} className="pt-2 first:pt-0">
-                          <p className={cn("mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em]", isLightMode ? "text-slate-500" : "text-white/55")}>
+                          <p className="mb-1 text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-slate-500">
                             {category.title}
                           </p>
                           {category.items.map((item) => (
