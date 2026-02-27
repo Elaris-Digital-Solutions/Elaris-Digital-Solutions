@@ -2,6 +2,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SmartImage from "@/components/ui/smart-image";
+import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 type DesktopMenuKey = "services" | "products" | "industries" | null;
@@ -9,7 +10,9 @@ type MobileMenuView = "root" | "services" | "products" | "industries";
 
 const getLanguageBasePath = (pathname: string) => {
   const segments = pathname.split("/").filter(Boolean);
-  return segments[0] === "es" ? "/es" : "/";
+  if (segments[0] === "en") return "/en";
+  if (segments[0] === "es") return "/es";
+  return "/";
 };
 
 const Navbar = () => {
@@ -25,6 +28,7 @@ const Navbar = () => {
   const closeTimerRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { language, t } = useI18n();
 
   const basePath = useMemo(() => getLanguageBasePath(location.pathname), [location.pathname]);
 
@@ -152,36 +156,172 @@ const Navbar = () => {
 
   const logoSrc = isLightMode ? "/assets/ElarisLogo.png" : "/assets/ElarisLogoWhite.png";
 
-  const mobileServicesItems = [
-    "Enterprise Websites",
-    "E-commerce Systems",
-    "Custom Web Platforms",
-    "Custom Software",
-    "Process Automation",
-    "System Integration",
-    "AI Implementation",
-    "AI Assistants",
-    "Data Intelligence",
-    "LLM Integrations",
-  ];
+  const copy = useMemo(() => {
+    if (language === "es") {
+      return {
+        services: "Servicios",
+        products: "Productos",
+        industries: "Industrias",
+        standards: "Estándares",
+        clients: "Clientes",
+        contactSales: "Contacta con ventas",
+        back: "Volver",
+        viewWork: "Ver trabajos",
+        mobileLeadTitle: "¿Listo para escalar tu plataforma digital?",
+        mobileLeadText: "Conversemos y te damos una hoja de ruta clara para ejecutar.",
+        servicesCols: {
+          digital: "Plataformas Digitales",
+          engineering: "Ingeniería de Software",
+          aiData: "IA y Datos",
+        },
+        servicesItems: [
+          "Websites Empresariales",
+          "Sistemas de E-commerce",
+          "Plataformas Web a Medida",
+          "Software a Medida",
+          "Automatización de Procesos",
+          "Integración de Sistemas",
+          "Implementación de IA",
+          "Asistentes con IA",
+          "Inteligencia de Datos",
+          "Integraciones LLM",
+        ],
+        servicesCtaTitle: "¿Necesitas una solución a medida?",
+        servicesCtaText: "Hablemos para definir arquitectura, alcance y roadmap de entrega.",
+        servicesCtaButton: "Agendar estrategia",
+        productsItems: [
+          "Pictolink — Plataforma de comunicación accesible (Activo)",
+          "LeIA — Asistente empresarial impulsado por IA (Beta)",
+          "OpsPilot — Automatización de flujos operativos (Próximamente)",
+        ],
+        productsHighlightTitle: "Explora nuestro ecosistema de productos",
+        productsHighlightText: "Desde comunicación hasta operaciones con IA, soluciones diseñadas para escalar.",
+        productsHighlightButton: "Ver todos los productos",
+        badges: {
+          live: "Activo",
+          beta: "Beta",
+          soon: "Próximamente",
+        },
+        industriesItems: [
+          "Salud",
+          "Educación",
+          "Retail",
+          "Logística",
+          "Finanzas",
+          "Gobierno",
+          "Startups",
+          "PYMES",
+          "Empresas",
+        ],
+      };
+    }
 
-  const mobileProductItems = [
-    "Pictolink — Accessible communication platform (Live)",
-    "LeIA — AI-driven enterprise assistant (Beta)",
-    "OpsPilot — Workflow automation (Coming soon)",
-  ];
+    return {
+      services: "Services",
+      products: "Products",
+      industries: "Industries",
+      standards: "Standards",
+      clients: "Clients",
+      contactSales: "Contact sales",
+      back: "Back",
+      viewWork: "View Work",
+      mobileLeadTitle: "Ready to scale your digital platform?",
+      mobileLeadText: "Talk to our team and get a clear roadmap for delivery.",
+      servicesCols: {
+        digital: "Digital Platforms",
+        engineering: "Software Engineering",
+        aiData: "AI & Data",
+      },
+      servicesItems: [
+        "Enterprise Websites",
+        "E-commerce Systems",
+        "Custom Web Platforms",
+        "Custom Software",
+        "Process Automation",
+        "System Integration",
+        "AI Implementation",
+        "AI Assistants",
+        "Data Intelligence",
+        "LLM Integrations",
+      ],
+      servicesCtaTitle: "Need a tailored solution?",
+      servicesCtaText: "Talk to our team to map architecture, delivery scope, and roadmap.",
+      servicesCtaButton: "Book strategy session",
+      productsItems: [
+        "Pictolink — Accessible communication platform (Live)",
+        "LeIA — AI-driven enterprise assistant (Beta)",
+        "OpsPilot — Workflow automation for operations teams (Coming soon)",
+      ],
+      productsHighlightTitle: "Explore our product ecosystem",
+      productsHighlightText: "From communication to AI operations, discover solutions built for scale.",
+      productsHighlightButton: "View all products",
+      badges: {
+        live: "Live",
+        beta: "Beta",
+        soon: "Coming soon",
+      },
+      industriesItems: [
+        "Healthcare",
+        "Education",
+        "Retail",
+        "Logistics",
+        "Finance",
+        "Government",
+        "Startups",
+        "SMEs",
+        "Enterprise",
+      ],
+    };
+  }, [language]);
 
-  const mobileIndustryItems = [
-    "Healthcare",
-    "Education",
-    "Retail",
-    "Logistics",
-    "Finance",
-    "Government",
-    "Startups",
-    "SMEs",
-    "Enterprise",
-  ];
+  const mobileServicesItems = copy.servicesItems;
+  const mobileProductItems = copy.productsItems;
+  const mobileIndustryItems = copy.industriesItems;
+  const productEntries = useMemo(
+    () =>
+      language === "es"
+        ? [
+            {
+              name: "Pictolink",
+              description: "Plataforma de comunicación accesible",
+              status: copy.badges.live,
+              tone: "live" as const,
+            },
+            {
+              name: "LeIA",
+              description: "Asistente empresarial impulsado por IA",
+              status: copy.badges.beta,
+              tone: "beta" as const,
+            },
+            {
+              name: "OpsPilot",
+              description: "Automatización de flujos operativos",
+              status: copy.badges.soon,
+              tone: "soon" as const,
+            },
+          ]
+        : [
+            {
+              name: "Pictolink",
+              description: "Accessible communication platform",
+              status: copy.badges.live,
+              tone: "live" as const,
+            },
+            {
+              name: "LeIA",
+              description: "AI-driven enterprise assistant",
+              status: copy.badges.beta,
+              tone: "beta" as const,
+            },
+            {
+              name: "OpsPilot",
+              description: "Workflow automation for operations teams",
+              status: copy.badges.soon,
+              tone: "soon" as const,
+            },
+          ],
+    [copy.badges.beta, copy.badges.live, copy.badges.soon, language]
+  );
 
   const mobilePanelItemClass = cn(
     "w-full rounded-lg px-1 py-1.5 text-left text-sm transition-colors",
@@ -190,10 +330,10 @@ const Navbar = () => {
 
   const currentMobileTitle =
     mobileMenuView === "services"
-      ? "Services"
+      ? copy.services
       : mobileMenuView === "products"
-        ? "Products"
-        : "Industries";
+        ? copy.products
+        : copy.industries;
 
   const renderDesktopMegaMenu = () => {
     if (!openDesktopMenu) return null;
@@ -205,104 +345,113 @@ const Navbar = () => {
             {openDesktopMenu === "services" && (
               <div className="grid grid-cols-4 gap-6">
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">Digital Platforms</p>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.digital}</p>
                   <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Enterprise Websites</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>E-commerce Systems</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Custom Web Platforms</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[0]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[1]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[2]}</button>
                   </div>
                 </div>
 
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">Software Engineering</p>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.engineering}</p>
                   <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Custom Software</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Process Automation</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>System Integration</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[3]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[4]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[5]}</button>
                   </div>
                 </div>
 
                 <div>
-                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">AI & Data</p>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">{copy.servicesCols.aiData}</p>
                   <div className="space-y-1">
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>AI Implementation</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>AI Assistants</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Data Intelligence</button>
-                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>LLM Integrations</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[6]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[7]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[8]}</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>{copy.servicesItems[9]}</button>
                   </div>
                 </div>
 
                 <div className={cn("rounded-xl p-4", isLightMode ? "bg-slate-50" : "bg-white/5")}>
-                  <p className="text-sm font-semibold">Need a tailored solution?</p>
+                  <p className="text-sm font-semibold">{copy.servicesCtaTitle}</p>
                   <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>
-                    Talk to our team to map architecture, delivery scope, and roadmap.
+                    {copy.servicesCtaText}
                   </p>
                   <button
                     type="button"
                     onClick={() => navigateToSection("contacto")}
                     className="mt-4 inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
-                    Book strategy session
+                    {copy.servicesCtaButton}
                   </button>
                 </div>
               </div>
             )}
 
             {openDesktopMenu === "products" && (
-              <div className="grid grid-cols-[1.7fr_1fr] gap-6">
-                <div className="grid grid-cols-2 gap-3">
-                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="text-sm font-semibold">Pictolink</p>
-                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-emerald-100 text-emerald-700" : "bg-emerald-500/20 text-emerald-300")}>Live</span>
-                    </div>
-                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>Accessible communication platform</p>
-                  </button>
-
-                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="text-sm font-semibold">LeIA</p>
-                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-amber-100 text-amber-700" : "bg-amber-500/20 text-amber-300")}>Beta</span>
-                    </div>
-                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>AI-driven enterprise assistant</p>
-                  </button>
-
-                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="text-sm font-semibold">OpsPilot</p>
-                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-slate-100 text-slate-700" : "bg-slate-500/25 text-slate-300")}>Coming soon</span>
-                    </div>
-                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>Workflow automation for operations teams</p>
-                  </button>
+              <div className="grid grid-cols-[1.45fr_0.95fr] gap-8">
+                <div className={cn("rounded-xl border px-5 py-3", isLightMode ? "border-slate-200/90 bg-white" : "border-white/10 bg-white/[0.03]")}>
+                  {productEntries.map((item) => (
+                    <button
+                      key={item.name}
+                      type="button"
+                      onClick={() => navigateToSection("portafolio")}
+                      className={cn(
+                        "group flex w-full items-start justify-between gap-4 border-b py-3 text-left last:border-b-0",
+                        isLightMode ? "border-slate-200 hover:bg-slate-50/70" : "border-white/10 hover:bg-white/5"
+                      )}
+                    >
+                      <div>
+                        <p className="text-[0.98rem] font-semibold leading-none">{item.name}</p>
+                        <p className={cn("mt-1.5 text-[0.92rem]", isLightMode ? "text-slate-600" : "text-white/70")}>{item.description}</p>
+                      </div>
+                      <span
+                        className={cn(
+                          "mt-0.5 rounded-full px-2 py-0.5 text-[0.68rem] font-semibold",
+                          item.tone === "live"
+                            ? isLightMode
+                              ? "bg-emerald-100 text-emerald-700"
+                              : "bg-emerald-500/20 text-emerald-300"
+                            : item.tone === "beta"
+                              ? isLightMode
+                                ? "bg-amber-100 text-amber-700"
+                                : "bg-amber-500/20 text-amber-300"
+                              : isLightMode
+                                ? "bg-slate-100 text-slate-700"
+                                : "bg-slate-500/25 text-slate-300"
+                        )}
+                      >
+                        {item.status}
+                      </span>
+                    </button>
+                  ))}
                 </div>
 
-                <div className={cn("rounded-xl p-4", isLightMode ? "bg-slate-50" : "bg-white/5")}>
-                  <p className="text-sm font-semibold">Explore our product ecosystem</p>
-                  <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>From communication to AI operations, discover solutions built for scale.</p>
-                  <button
-                    type="button"
-                    onClick={() => navigateToSection("portafolio")}
-                    className="mt-4 inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  >
-                    View all products
-                  </button>
+                <div className={cn("overflow-hidden rounded-xl border", isLightMode ? "border-slate-200 bg-white" : "border-white/10 bg-white/[0.03]")}>
+                  <img
+                    src={language === "es" ? "/assets/picto-link-landing-es.webp" : "/assets/picto-link-landing-en.webp"}
+                    alt={copy.productsHighlightTitle}
+                    className="h-28 w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="p-4">
+                    <p className="text-[1rem] font-semibold leading-snug">{copy.productsHighlightTitle}</p>
+                    <p className={cn("mt-2 text-[0.93rem]", isLightMode ? "text-slate-600" : "text-white/70")}>{copy.productsHighlightText}</p>
+                    <button
+                      type="button"
+                      onClick={() => navigateToSection("portafolio")}
+                      className="mt-4 inline-flex items-center text-sm font-semibold text-[#2F64FF] transition-opacity hover:opacity-80"
+                    >
+                      {copy.productsHighlightButton}
+                    </button>
+                  </div>
                 </div>
               </div>
             )}
 
             {openDesktopMenu === "industries" && (
               <div className="grid grid-cols-3 gap-2">
-                {[
-                  "Healthcare",
-                  "Education",
-                  "Retail",
-                  "Logistics",
-                  "Finance",
-                  "Government",
-                  "Startups",
-                  "SMEs",
-                  "Enterprise",
-                ].map((industry) => (
+                {copy.industriesItems.map((industry) => (
                   <button
                     key={industry}
                     type="button"
@@ -326,14 +475,17 @@ const Navbar = () => {
         aria-label="Primary"
         className={cn("h-[80px] backdrop-blur-[12px] transition-all duration-300 ease-in-out", navThemeClasses)}
       >
-        <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className={cn(
+          "container mx-auto h-full px-4 sm:px-6 lg:px-8",
+          isDesktop ? "grid grid-cols-[auto_1fr_auto] items-center" : "flex items-center justify-between"
+        )}>
           <button type="button" onClick={() => navigateToSection()} className="inline-flex items-center">
-            <SmartImage src={logoSrc} alt="Elaris" priority width={160} height={64} className="h-10 w-auto" />
+            <SmartImage src={logoSrc} alt={t("navbar.logoAlt")} priority width={160} height={64} className="h-10 w-auto" />
           </button>
 
           {isDesktop ? (
-            <div className="flex items-center gap-7">
-              <ul className="flex items-center gap-5" role="menubar">
+            <>
+              <ul className="mx-auto flex items-center gap-8" role="menubar">
                 <li
                   role="none"
                   onMouseEnter={() => {
@@ -342,7 +494,7 @@ const Navbar = () => {
                   }}
                 >
                   <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "services"}>
-                    Services <ChevronDown className="ml-1 h-4 w-4" />
+                    {copy.services} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
@@ -354,7 +506,7 @@ const Navbar = () => {
                   }}
                 >
                   <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "products"}>
-                    Products <ChevronDown className="ml-1 h-4 w-4" />
+                    {copy.products} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
@@ -366,19 +518,19 @@ const Navbar = () => {
                   }}
                 >
                   <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "industries"}>
-                    Industries <ChevronDown className="ml-1 h-4 w-4" />
+                    {copy.industries} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
                 <li role="none">
                   <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("estandares")}>
-                    Standards
+                    {copy.standards}
                   </button>
                 </li>
 
                 <li role="none">
                   <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("clientes")}>
-                    Clients
+                    {copy.clients}
                   </button>
                 </li>
               </ul>
@@ -387,15 +539,15 @@ const Navbar = () => {
                 type="button"
                 onMouseEnter={() => setOpenDesktopMenu(null)}
                 onClick={() => navigateToSection("contacto")}
-                className="inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                className="justify-self-end inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
               >
-                Book a Call
+                {copy.contactSales}
               </button>
-            </div>
+            </>
           ) : (
             <button
               type="button"
-              aria-label="Toggle navigation menu"
+              aria-label={language === "es" ? "Abrir menú de navegación" : "Toggle navigation menu"}
               onClick={() => {
                 setIsMobileMenuOpen((prev) => {
                   const next = !prev;
@@ -440,9 +592,9 @@ const Navbar = () => {
               {mobileMenuView === "root" ? (
                 <div className="space-y-1">
                   {([
-                    { key: "services", label: "Services" },
-                    { key: "products", label: "Products" },
-                    { key: "industries", label: "Industries" },
+                    { key: "services", label: copy.services },
+                    { key: "products", label: copy.products },
+                    { key: "industries", label: copy.industries },
                   ] as Array<{ key: Exclude<MobileMenuView, "root">; label: string }>).map((menu) => (
                     <button
                       key={menu.key}
@@ -466,7 +618,7 @@ const Navbar = () => {
                       isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
                     )}
                   >
-                    <span>Standards</span>
+                    <span>{copy.standards}</span>
                   </button>
 
                   <button
@@ -477,7 +629,7 @@ const Navbar = () => {
                       isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
                     )}
                   >
-                    <span>Clients</span>
+                    <span>{copy.clients}</span>
                   </button>
                 </div>
               ) : (
@@ -491,7 +643,7 @@ const Navbar = () => {
                     )}
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Back
+                    {copy.back}
                   </button>
 
                   <h3 className="text-lg font-semibold">{currentMobileTitle}</h3>
@@ -531,9 +683,9 @@ const Navbar = () => {
                     : "border-white/15 bg-[rgba(255,255,255,0.03)]"
                 )}
               >
-                <p className="text-sm font-semibold">Ready to scale your digital platform?</p>
+                <p className="text-sm font-semibold">{copy.mobileLeadTitle}</p>
                 <p className={cn("mt-1 text-xs", isLightMode ? "text-slate-600" : "text-white/70")}>
-                  Talk to our team and get a clear roadmap for delivery.
+                  {copy.mobileLeadText}
                 </p>
 
                 <div className="mt-3 grid grid-cols-2 gap-2">
@@ -542,7 +694,7 @@ const Navbar = () => {
                     onClick={() => navigateToSection("contacto")}
                     className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-[#2F64FF] px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
-                    Book a Call
+                    {copy.contactSales}
                   </button>
 
                   <button
@@ -555,7 +707,7 @@ const Navbar = () => {
                         : "border-white/20 text-white/90 hover:bg-white/10"
                     )}
                   >
-                    View Work
+                    {copy.viewWork}
                   </button>
                 </div>
               </div>

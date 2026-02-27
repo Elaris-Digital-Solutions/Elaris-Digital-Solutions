@@ -8,6 +8,8 @@ const SECTION_SLUGS = ["servicios", "estandares", "portafolio", "productos", "cl
 const VALID_PATHS = new Set<string>([
   "/",
   ...SECTION_SLUGS.map((slug) => `/${slug}`),
+  "/en",
+  ...SECTION_SLUGS.map((slug) => `/en/${slug}`),
   "/es",
   ...SECTION_SLUGS.map((slug) => `/es/${slug}`),
 ]);
@@ -69,22 +71,31 @@ const normalizePath = (pathname: string): string => {
   if (VALID_PATHS.has(pathname)) {
     return pathname;
   }
-  return pathname.startsWith("/es") ? "/es" : "/";
+  if (pathname.startsWith("/en")) return "/en";
+  if (pathname.startsWith("/es")) return "/es";
+  return "/";
 };
 
 const toEnglishPath = (pathname: string): string => {
+  if (pathname.startsWith("/en")) {
+    return pathname;
+  }
   if (!pathname.startsWith("/es")) {
     return pathname || "/";
   }
   const trimmed = pathname.replace(/^\/es/, "");
-  return trimmed === "" ? "/" : trimmed;
+  return trimmed === "" ? "/en" : `/en${trimmed}`;
 };
 
 const toSpanishPath = (pathname: string): string => {
   if (pathname.startsWith("/es")) {
     return pathname;
   }
-  return pathname === "/" ? "/es" : `/es${pathname}`;
+  if (pathname.startsWith("/en")) {
+    const trimmed = pathname.replace(/^\/en/, "");
+    return trimmed === "" ? "/" : trimmed;
+  }
+  return pathname;
 };
 
 const getLocaleCode = (language: Language) => (language === "es" ? "es-ES" : "en-US");
@@ -150,7 +161,7 @@ const buildBreadcrumbSchema = (language: Language) => {
 
   const basePaths = language === "es"
     ? ["/es", "/es/servicios", "/es/estandares", "/es/portafolio", "/es/productos", "/es/clientes", "/es/contacto"]
-    : ["/", "/servicios", "/estandares", "/portafolio", "/productos", "/clientes", "/contacto"];
+    : ["/en", "/en/servicios", "/en/estandares", "/en/portafolio", "/en/productos", "/en/clientes", "/en/contacto"];
 
   return {
     "@context": "https://schema.org",
@@ -174,7 +185,7 @@ export const getSeoMetadata = ({
   language: Language;
 }) => {
   const normalizedPath = normalizePath(pathname);
-  const currentLanguage = normalizedPath.startsWith("/es") ? "es" : language;
+  const currentLanguage = normalizedPath.startsWith("/en") ? "en" : "es";
   const englishHref = `${SITE_URL}${toEnglishPath(normalizedPath)}`;
   const spanishHref = `${SITE_URL}${toSpanishPath(normalizedPath)}`;
   const canonical = `${SITE_URL}${normalizedPath === "/" ? "/" : normalizedPath}`;

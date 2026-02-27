@@ -62,8 +62,13 @@ const FloatingWhatsappButton: React.FC = () => {
           <div className="w-full overflow-hidden rounded-2xl border border-[#25D366]/25 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
             <div className="flex items-center justify-between bg-[#07983f] px-3.5 py-2.5 text-white">
               <div className="flex items-center gap-2.5">
-                <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/80 bg-black/30 text-[0.95rem] font-semibold">
-                  SH
+                <div className="relative h-10 w-10 rounded-full border border-white/80 bg-black/30">
+                  <img
+                    src="/assets/whatsapp-pfp.png"
+                    alt={t("floatingWhatsapp.agentName")}
+                    className="h-full w-full rounded-full object-cover"
+                    loading="lazy"
+                  />
                   <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#07983f] bg-[#30d65e]" />
                 </div>
                 <div>
