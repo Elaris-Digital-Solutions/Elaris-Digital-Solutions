@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Menu, X, Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, ArrowRight, HeartPulse, GraduationCap, Truck, Landmark, Building2, Rocket, Briefcase, Factory, Link2, Bot, GitBranch, Users, Palette, Gem, FileText, Printer, UtensilsCrossed, Wrench, Plane, Film, Hotel, ShoppingCart, Cpu } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SmartImage from "@/components/ui/smart-image";
@@ -23,7 +23,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState<MobileMenuView>("root");
   const [openDesktopMenu, setOpenDesktopMenu] = useState<DesktopMenuKey>(null);
-  const [isLightMode, setIsLightMode] = useState(false);
 
   const closeTimerRef = useRef<number | null>(null);
   const navigate = useNavigate();
@@ -92,26 +91,7 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
 
-      window.requestAnimationFrame(() => {
-        const threshold = Math.max(window.innerHeight - 120, 160);
-        setIsLightMode(window.scrollY > threshold);
-        ticking = false;
-      });
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   useEffect(() => {
     return () => {
@@ -136,35 +116,24 @@ const Navbar = () => {
     };
   }, [isDesktop, isMobileMenuOpen]);
 
-  const navThemeClasses = isLightMode
-    ? "bg-[rgba(255,255,255,0.85)] text-[#111] border-b border-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
-    : "bg-[rgba(10,10,15,0.4)] text-white border-b border-white/10";
+  const navThemeClasses = "bg-[rgba(255,255,255,0.92)] text-[#111] border-b border-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)]";
 
-  const dropdownThemeClasses = isLightMode
-    ? "bg-white border border-black/10 shadow-[0_22px_50px_rgba(15,23,42,0.12)]"
-    : "bg-[rgba(10,10,15,0.72)] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.35)] text-white";
+  const dropdownThemeClasses = "bg-white border border-black/10 shadow-[0_22px_50px_rgba(15,23,42,0.12)]";
 
-  const navItemClass = cn(
-    "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium transition-colors",
-    isLightMode ? "text-[#111] hover:text-black" : "text-white/90 hover:text-white"
-  );
+  const navItemClass = "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-black";
 
-  const dropdownItemClass = cn(
-    "w-full rounded-lg px-3 py-2 text-left text-sm transition-colors",
-    isLightMode ? "hover:bg-slate-100 text-slate-700 hover:text-slate-900" : "hover:bg-white/10 text-white/80 hover:text-white"
-  );
+  // Dropdown panel is always bg-white, so inner text always uses light-mode colors
+  // regardless of scroll position (isLightMode).
+  const dropdownItemClass =
+    "w-full rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-slate-100 text-slate-700 hover:text-slate-900";
 
-  const serviceItemTitleClass = cn(
-    "text-[0.99rem] font-semibold leading-tight transition-colors",
-    isLightMode ? "text-[#2F64FF] group-hover:text-[#1f4de0]" : "text-[#8fb2ff] group-hover:text-[#b5caff]"
-  );
+  const serviceItemTitleClass =
+    "text-[0.99rem] font-semibold leading-tight transition-colors text-[#2F64FF] group-hover:text-[#1f4de0]";
 
-  const serviceItemDescriptionClass = cn(
-    "mt-0.5 text-[0.94rem] leading-snug",
-    isLightMode ? "text-slate-600" : "text-white/68"
-  );
+  const serviceItemDescriptionClass =
+    "mt-0.5 text-[0.94rem] leading-snug text-slate-600";
 
-  const logoSrc = isLightMode ? "/assets/ElarisLogo.png" : "/assets/ElarisLogoWhite.png";
+  const logoSrc = "/assets/ElarisLogo.png";
 
   const copy = useMemo(() => {
     if (language === "es") {
@@ -313,15 +282,26 @@ const Navbar = () => {
           soon: "Próximamente",
         },
         industriesItems: [
-          "Salud",
           "Educación",
+          "Proyectos Sociales",
+          "Cultura",
+          "Joyerías",
+          "Papelerías",
+          "Imprentas",
           "Retail",
           "Logística",
-          "Finanzas",
-          "Gobierno",
+          "Restaurantes",
+          "Clínicas Privadas",
+          "Industria",
+          "Manufactura",
+          "Empresas Corporativas",
+          "Aviación Virtual",
+          "Entretenimiento",
+          "Hospitalidad",
+          "E-commerce",
           "Startups",
           "PYMES",
-          "Empresas",
+          "Tecnología",
         ],
       };
     }
@@ -471,15 +451,26 @@ const Navbar = () => {
         soon: "Coming soon",
       },
       industriesItems: [
-        "Healthcare",
         "Education",
+        "Social Projects",
+        "Culture",
+        "Jewelry",
+        "Stationery",
+        "Print Shops",
         "Retail",
         "Logistics",
-        "Finance",
-        "Government",
+        "Restaurants",
+        "Private Clinics",
+        "Industry",
+        "Manufacturing",
+        "Corporate Enterprise",
+        "Virtual Aviation",
+        "Entertainment",
+        "Hospitality",
+        "E-commerce",
         "Startups",
         "SMEs",
-        "Enterprise",
+        "Technology",
       ],
     };
   }, [language]);
@@ -491,52 +482,50 @@ const Navbar = () => {
     () =>
       language === "es"
         ? [
-            {
-              name: "Pictolink",
-              description: "Plataforma de comunicación accesible",
-              status: copy.badges.live,
-              tone: "live" as const,
-            },
-            {
-              name: "LeIA",
-              description: "Asistente empresarial impulsado por IA",
-              status: copy.badges.beta,
-              tone: "beta" as const,
-            },
-            {
-              name: "OpsPilot",
-              description: "Automatización de flujos operativos",
-              status: copy.badges.soon,
-              tone: "soon" as const,
-            },
-          ]
+          {
+            name: "Pictolink",
+            description: "Plataforma de comunicación accesible",
+            status: copy.badges.live,
+            tone: "live" as const,
+          },
+          {
+            name: "LeIA",
+            description: "Asistente empresarial impulsado por IA",
+            status: copy.badges.beta,
+            tone: "beta" as const,
+          },
+          {
+            name: "OpsPilot",
+            description: "Automatización de flujos operativos",
+            status: copy.badges.soon,
+            tone: "soon" as const,
+          },
+        ]
         : [
-            {
-              name: "Pictolink",
-              description: "Accessible communication platform",
-              status: copy.badges.live,
-              tone: "live" as const,
-            },
-            {
-              name: "LeIA",
-              description: "AI-driven enterprise assistant",
-              status: copy.badges.beta,
-              tone: "beta" as const,
-            },
-            {
-              name: "OpsPilot",
-              description: "Workflow automation for operations teams",
-              status: copy.badges.soon,
-              tone: "soon" as const,
-            },
-          ],
+          {
+            name: "Pictolink",
+            description: "Accessible communication platform",
+            status: copy.badges.live,
+            tone: "live" as const,
+          },
+          {
+            name: "LeIA",
+            description: "AI-driven enterprise assistant",
+            status: copy.badges.beta,
+            tone: "beta" as const,
+          },
+          {
+            name: "OpsPilot",
+            description: "Workflow automation for operations teams",
+            status: copy.badges.soon,
+            tone: "soon" as const,
+          },
+        ],
     [copy.badges.beta, copy.badges.live, copy.badges.soon, language]
   );
 
-  const mobilePanelItemClass = cn(
-    "w-full rounded-lg px-1 py-1.5 text-left text-sm transition-colors",
-    isLightMode ? "text-slate-700 hover:text-slate-900" : "text-white/80 hover:text-white"
-  );
+  const mobilePanelItemClass =
+    "w-full rounded-lg px-1 py-1.5 text-left text-sm transition-colors text-slate-700 hover:text-slate-900";
 
   const currentMobileTitle =
     mobileMenuView === "services"
@@ -552,107 +541,174 @@ const Navbar = () => {
       <div className="pointer-events-auto -mt-px transition-all duration-300 ease-in-out">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className={cn("overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
-            {openDesktopMenu === "services" && (
-              <div className="grid grid-cols-3 gap-x-7 gap-y-6">
-                {copy.servicesCategories.map((category) => (
-                  <div
-                    key={category.title}
-                    className={cn(
-                      "border-l pl-4",
-                      isLightMode ? "border-[#2F64FF]/35" : "border-[#2F64FF]/45"
-                    )}
-                  >
-                    <p className={cn("mb-2.5 text-[0.8rem] font-bold uppercase tracking-[0.09em]", isLightMode ? "text-slate-900" : "text-white/95")}>
-                      {category.title}
-                    </p>
-                    <div className="space-y-1">
-                      {category.items.map((item) => (
-                        <button key={item.title} type="button" className="group w-full rounded-md px-0.5 py-1.5 text-left" onClick={() => navigateToSection("servicios")}>
-                          <p className={serviceItemTitleClass}>{item.title}</p>
-                          <p className={serviceItemDescriptionClass}>{item.description}</p>
-                        </button>
-                      ))}
+            {openDesktopMenu === "services" && (() => {
+              const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
+              const ctaText = language === "es"
+                ? { title: "¿Necesitas una solución a medida?", sub: "Hablemos y diseñamos la arquitectura ideal para tu negocio.", btn: "Agenda una llamada" }
+                : { title: "Need a tailored solution?", sub: "Let's talk and design the right architecture for your business.", btn: "Book a call" };
+              return (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-3 gap-3">
+                    {copy.servicesCategories.map((category, catIndex) => {
+                      const Icon = categoryIcons[catIndex] ?? Monitor;
+                      return (
+                        <div key={category.title} className="rounded-xl bg-slate-50 border border-slate-100 p-4 hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors">
+                          <div className="flex items-center gap-2.5 mb-3">
+                            <div className="w-7 h-7 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
+                              <Icon className="w-3.5 h-3.5 text-[#2F64FF]" />
+                            </div>
+                            <p className="text-[0.72rem] font-bold uppercase tracking-wide text-slate-500 leading-tight">
+                              {category.title}
+                            </p>
+                          </div>
+                          <div className="space-y-0.5">
+                            {category.items.map((item) => (
+                              <button
+                                key={item.title}
+                                type="button"
+                                className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all duration-150"
+                                onClick={() => navigateToSection("servicios")}
+                              >
+                                <p className="text-[0.84rem] font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors leading-snug">
+                                  {item.title}
+                                </p>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl border border-[#2F64FF]/15 bg-gradient-to-r from-[#2F64FF]/5 to-blue-50/60 px-5 py-3.5">
+                    <div>
+                      <p className="text-[0.92rem] font-semibold text-slate-900">{ctaText.title}</p>
+                      <p className="text-[0.82rem] text-slate-500 mt-0.5">{ctaText.sub}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {openDesktopMenu === "products" && (
-              <div className="grid grid-cols-[1.45fr_0.95fr] gap-8">
-                <div className={cn("rounded-xl border px-5 py-3", isLightMode ? "border-slate-200/90 bg-white" : "border-white/10 bg-white/[0.03]")}>
-                  {productEntries.map((item) => (
-                    <button
-                      key={item.name}
-                      type="button"
-                      onClick={() => navigateToSection("portafolio")}
-                      className={cn(
-                        "group flex w-full items-start justify-between gap-4 border-b py-3 text-left last:border-b-0",
-                        isLightMode ? "border-slate-200 hover:bg-slate-50/70" : "border-white/10 hover:bg-white/5"
-                      )}
-                    >
-                      <div>
-                        <p className="text-[0.98rem] font-semibold leading-none">{item.name}</p>
-                        <p className={cn("mt-1.5 text-[0.92rem]", isLightMode ? "text-slate-600" : "text-white/70")}>{item.description}</p>
-                      </div>
-                      <span
-                        className={cn(
-                          "mt-0.5 rounded-full px-2 py-0.5 text-[0.68rem] font-semibold",
-                          item.tone === "live"
-                            ? isLightMode
-                              ? "bg-emerald-100 text-emerald-700"
-                              : "bg-emerald-500/20 text-emerald-300"
-                            : item.tone === "beta"
-                              ? isLightMode
-                                ? "bg-amber-100 text-amber-700"
-                                : "bg-amber-500/20 text-amber-300"
-                              : isLightMode
-                                ? "bg-slate-100 text-slate-700"
-                                : "bg-slate-500/25 text-slate-300"
-                        )}
-                      >
-                        {item.status}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-
-                <div className={cn("overflow-hidden rounded-xl border", isLightMode ? "border-slate-200 bg-white" : "border-white/10 bg-white/[0.03]")}>
-                  <img
-                    src={language === "es" ? "/assets/picto-link-landing-es.webp" : "/assets/picto-link-landing-en.webp"}
-                    alt={copy.productsHighlightTitle}
-                    className="h-28 w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="p-4">
-                    <p className="text-[1rem] font-semibold leading-snug">{copy.productsHighlightTitle}</p>
-                    <p className={cn("mt-2 text-[0.93rem]", isLightMode ? "text-slate-600" : "text-white/70")}>{copy.productsHighlightText}</p>
                     <button
                       type="button"
-                      onClick={() => navigateToSection("portafolio")}
-                      className="mt-4 inline-flex items-center text-sm font-semibold text-[#2F64FF] transition-opacity hover:opacity-80"
+                      onClick={() => navigateToSection("contacto")}
+                      className="ml-6 flex-shrink-0 inline-flex h-9 items-center gap-1.5 rounded-xl bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                     >
-                      {copy.productsHighlightButton}
+                      {ctaText.btn}
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
-            {openDesktopMenu === "industries" && (
-              <div className="grid grid-cols-3 gap-2">
-                {copy.industriesItems.map((industry) => (
-                  <button
-                    key={industry}
-                    type="button"
-                    className={dropdownItemClass}
-                    onClick={() => navigateToSection("contacto")}
-                  >
-                    {industry}
-                  </button>
-                ))}
-              </div>
-            )}
+            {openDesktopMenu === "products" && (() => {
+              // Each entry maps a product name to a lucide icon — add more as the product line grows
+              const productIconMap: Record<string, React.ElementType> = {
+                Pictolink: Link2,
+                LeIA: Bot,
+                OpsPilot: GitBranch,
+              };
+              const ctaProducts = language === "es"
+                ? { title: "El ecosistema de productos Elaris crece constantemente.", btn: "Ver todos los productos" }
+                : { title: "The Elaris product ecosystem keeps growing.", btn: "View all products" };
+              return (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-3">
+                    {productEntries.map((item) => {
+                      const Icon = productIconMap[item.name] ?? Bot;
+                      return (
+                        <button
+                          key={item.name}
+                          type="button"
+                          onClick={() => navigateToSection("portafolio")}
+                          className="group flex items-start gap-4 rounded-xl bg-slate-50 border border-slate-100 p-4 text-left hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors"
+                        >
+                          <div className="w-9 h-9 rounded-xl bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Icon className="w-4 h-4 text-[#2F64FF]" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <p className="text-[0.92rem] font-bold text-slate-900 group-hover:text-[#2F64FF] transition-colors">{item.name}</p>
+                              <span
+                                className={cn(
+                                  "rounded-full px-2 py-0.5 text-[0.62rem] font-semibold leading-none",
+                                  item.tone === "live"
+                                    ? "bg-emerald-100 text-emerald-700"
+                                    : item.tone === "beta"
+                                      ? "bg-amber-100 text-amber-700"
+                                      : "bg-slate-100 text-slate-500"
+                                )}
+                              >
+                                {item.status}
+                              </span>
+                            </div>
+                            <p className="text-[0.8rem] text-slate-500 leading-snug line-clamp-2">{item.description}</p>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl border border-[#2F64FF]/15 bg-gradient-to-r from-[#2F64FF]/5 to-blue-50/60 px-5 py-3">
+                    <p className="text-[0.82rem] text-slate-600">{ctaProducts.title}</p>
+                    <button
+                      type="button"
+                      onClick={() => navigateToSection("portafolio")}
+                      className="ml-6 flex-shrink-0 inline-flex h-9 items-center gap-1.5 rounded-xl bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    >
+                      {ctaProducts.btn}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {openDesktopMenu === "industries" && (() => {
+              const industryIconList: React.ElementType[] = [
+                GraduationCap, Users, Palette, Gem,
+                FileText, Printer, ShoppingBag, Truck,
+                UtensilsCrossed, HeartPulse, Factory, Wrench,
+                Building2, Plane, Film, Hotel,
+                ShoppingCart, Rocket, Briefcase, Cpu,
+              ];
+              const ctaIndustries = language === "es"
+                ? { title: "¿Tu sector no aparece?", sub: "Trabajamos con cualquier industria. Contáctanos.", btn: "Hablar con un experto" }
+                : { title: "Don't see your sector?", sub: "We work across any industry. Get in touch.", btn: "Talk to an expert" };
+              return (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-4 gap-2">
+                    {copy.industriesItems.map((industry, i) => {
+                      const Icon = industryIconList[i] ?? Building2;
+                      return (
+                        <button
+                          key={industry}
+                          type="button"
+                          onClick={() => navigateToSection("contacto")}
+                          className="group flex items-center gap-3 rounded-xl bg-slate-50 border border-slate-100 px-4 py-3 text-left hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-3.5 h-3.5 text-[#2F64FF]" />
+                          </div>
+                          <span className="text-[0.88rem] font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors">
+                            {industry}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  <div className="flex items-center justify-between rounded-xl border border-[#2F64FF]/15 bg-gradient-to-r from-[#2F64FF]/5 to-blue-50/60 px-5 py-3.5">
+                    <div>
+                      <p className="text-[0.92rem] font-semibold text-slate-900">{ctaIndustries.title}</p>
+                      <p className="text-[0.82rem] text-slate-500 mt-0.5">{ctaIndustries.sub}</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => navigateToSection("contacto")}
+                      className="ml-6 flex-shrink-0 inline-flex h-9 items-center gap-1.5 rounded-xl bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    >
+                      {ctaIndustries.btn}
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </div>
@@ -749,7 +805,7 @@ const Navbar = () => {
               }}
               className={cn(
                 "inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors",
-                isLightMode ? "border-black/15 hover:bg-black/5" : "border-white/15 hover:bg-white/10"
+                "border-black/15 hover:bg-black/5"
               )}
             >
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -790,10 +846,7 @@ const Navbar = () => {
                       key={menu.key}
                       type="button"
                       onClick={() => setMobileMenuView(menu.key)}
-                      className={cn(
-                        "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
-                        isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
-                      )}
+                      className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-black"
                     >
                       <span>{menu.label}</span>
                       <ChevronRight className="h-4 w-4" />
@@ -803,10 +856,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => navigateToSection("estandares")}
-                    className={cn(
-                      "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
-                      isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
-                    )}
+                    className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-black"
                   >
                     <span>{copy.standards}</span>
                   </button>
@@ -814,10 +864,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => navigateToSection("clientes")}
-                    className={cn(
-                      "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
-                      isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
-                    )}
+                    className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-black"
                   >
                     <span>{copy.clients}</span>
                   </button>
@@ -827,10 +874,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => setMobileMenuView("root")}
-                    className={cn(
-                      "inline-flex items-center gap-1.5 text-sm font-medium",
-                      isLightMode ? "text-slate-700 hover:text-slate-900" : "text-white/80 hover:text-white"
-                    )}
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-slate-900"
                   >
                     <ChevronLeft className="h-4 w-4" />
                     {copy.back}
@@ -838,7 +882,7 @@ const Navbar = () => {
 
                   <h3 className="text-lg font-semibold">{currentMobileTitle}</h3>
 
-                  <div className={cn("space-y-1 border-t pt-3", isLightMode ? "border-black/10" : "border-white/15")}>
+                  <div className="space-y-1 border-t border-black/10 pt-3">
                     {mobileMenuView === "services" &&
                       mobileServicesCategories.map((category) => (
                         <div key={category.title} className="pt-2 first:pt-0">
@@ -846,9 +890,9 @@ const Navbar = () => {
                             {category.title}
                           </p>
                           {category.items.map((item) => (
-                            <button key={item.title} type="button" className={cn("w-full rounded-lg px-1 py-1.5 text-left", isLightMode ? "hover:bg-black/5" : "hover:bg-white/5")} onClick={() => navigateToSection("servicios")}>
-                              <p className={cn("text-sm font-semibold", isLightMode ? "text-[#2F64FF]" : "text-[#9fb8ff]")}>{item.title}</p>
-                              <p className={cn("text-xs", isLightMode ? "text-slate-600" : "text-white/65")}>{item.description}</p>
+                            <button key={item.title} type="button" className="w-full rounded-lg px-1 py-1.5 text-left hover:bg-black/5" onClick={() => navigateToSection("servicios")}>
+                              <p className="text-sm font-semibold text-[#2F64FF]">{item.title}</p>
+                              <p className="text-xs text-slate-600">{item.description}</p>
                             </button>
                           ))}
                         </div>
@@ -872,17 +916,12 @@ const Navbar = () => {
               )}
             </div>
 
-            <div className={cn("pt-4", isLightMode ? "border-t border-black/10" : "border-t border-white/15")}>
+            <div className="border-t border-black/10 pt-4">
               <div
-                className={cn(
-                  "rounded-xl border p-3.5",
-                  isLightMode
-                    ? "border-black/10 bg-white/70"
-                    : "border-white/15 bg-[rgba(255,255,255,0.03)]"
-                )}
+                className="rounded-xl border border-black/10 bg-white/70 p-3.5"
               >
                 <p className="text-sm font-semibold">{copy.mobileLeadTitle}</p>
-                <p className={cn("mt-1 text-xs", isLightMode ? "text-slate-600" : "text-white/70")}>
+                <p className="mt-1 text-xs text-slate-600">
                   {copy.mobileLeadText}
                 </p>
 
@@ -898,12 +937,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => navigateToSection("portafolio")}
-                    className={cn(
-                      "inline-flex h-10 w-full items-center justify-center rounded-lg border px-3 text-sm font-semibold transition-colors",
-                      isLightMode
-                        ? "border-black/15 text-slate-800 hover:bg-black/5"
-                        : "border-white/20 text-white/90 hover:bg-white/10"
-                    )}
+                    className="inline-flex h-10 w-full items-center justify-center rounded-lg border border-black/15 px-3 text-sm font-semibold text-slate-800 transition-colors hover:bg-black/5"
                   >
                     {copy.viewWork}
                   </button>

@@ -151,7 +151,7 @@ const SyntheticHero = ({
   return (
     <section
       ref={sectionRef}
-      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-black"
+      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-[#F0F4FF]"
     >
       <div className="absolute inset-0 z-0">
         <NeuralNoise
@@ -162,14 +162,15 @@ const SyntheticHero = ({
         />
       </div>
 
+
       <div className="relative z-10 flex flex-col items-center text-center px-6">
         <div ref={badgeWrapperRef}>
-          <Badge className="mb-6 bg-white/10 hover:bg-white/15 text-[#ADC6FF] backdrop-blur-md border border-white/20 uppercase tracking-[0.3em] font-medium flex items-center gap-2 px-4 py-1.5">
-            <span className="text-[10px] font-light tracking-[0.18em] text-[#E1E9FF]/80">
+          <Badge className="mb-6 bg-white/80 hover:bg-white/90 text-[#2F64FF] backdrop-blur-md border border-white/40 uppercase tracking-[0.3em] font-medium flex items-center gap-2 px-4 py-1.5">
+            <span className="text-[10px] font-light tracking-[0.18em] text-[#2F64FF]/80">
               {badgeLabel}
             </span>
             <span className="h-1 w-1 rounded-full bg-[#2F64FF]/70" />
-            <span className="text-xs font-light tracking-tight text-[#ADC6FF]">
+            <span className="text-xs font-light tracking-tight text-[#071540]">
               {badgeText}
             </span>
           </Badge>
@@ -177,7 +178,7 @@ const SyntheticHero = ({
 
         <h1
           ref={headingRef}
-          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-white mb-6"
+          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-[#071540] mb-6"
         >
           {title}
         </h1>
@@ -186,11 +187,11 @@ const SyntheticHero = ({
           ref={consoleRef}
           className="w-full max-w-2xl mx-auto mb-10"
         >
-          <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.45)] overflow-hidden">
-            <div className="flex items-center justify-end gap-2 px-3 py-2 bg-white/10 border-b border-white/15">
+          <div className="rounded-2xl border border-white/30 bg-white/70 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden">
+            <div className="flex items-center gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
               <div className="w-2.5 h-2.5 rounded-full bg-[#FF4858]/80 shadow-sm" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#FFC961]/80 shadow-sm" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]/80 shadow-sm" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80 shadow-sm" />
             </div>
             <TypingConsole
               phrases={consolePhrases}
@@ -199,7 +200,7 @@ const SyntheticHero = ({
               typingSpeed={60}
               deletingSpeed={30}
               pauseDelay={1500}
-              className="text-[#D8E3FF]/90"
+              className="text-[#071540]/95"
               cursorClassName="bg-[#2F64FF]"
             />
           </div>
@@ -243,7 +244,7 @@ const SyntheticHero = ({
         {microDetails.length > 0 && (
           <ul
             ref={microRef}
-            className="mt-8 flex flex-wrap justify-center gap-6 text-xs font-light tracking-tight text-[#A9BFFF]/80"
+            className="mt-8 flex flex-wrap justify-center gap-6 text-xs font-light tracking-tight text-[#071540]/60"
           >
             {microDetails.map((detail, index) => (
               <li key={index} className="flex items-center gap-2">
