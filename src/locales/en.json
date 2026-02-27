@@ -150,6 +150,12 @@
         "description": "Luxury e-commerce development with interactive catalog, secure checkout, and CRM-ready data flows.",
         "category": "E-commerce",
         "metrics": "2024 launch, international sales"
+      },
+      "petroamerica": {
+        "title": "Petroamérica",
+        "description": "Corporate platform for energy leaders, focused on the supply of fuels, LPG, and lubricants.",
+        "category": "Corporate",
+        "metrics": "Digital presence, service catalog"
       }
     }
   },
