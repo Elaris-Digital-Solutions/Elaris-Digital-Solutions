@@ -1,415 +1,568 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import SmartImage from "@/components/ui/smart-image";
-import { useI18n, type Language } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
-type NavItem = {
-  id: string;
-  labelKey: string;
-  slug: string;
-};
+type DesktopMenuKey = "services" | "products" | "industries" | null;
+type MobileMenuView = "root" | "services" | "products" | "industries";
 
-const navItems: NavItem[] = [
-  { id: "servicios", labelKey: "navbar.items.services", slug: "servicios" },
-  { id: "estandares", labelKey: "navbar.items.standards", slug: "estandares" },
-  { id: "portafolio", labelKey: "navbar.items.portfolio", slug: "portafolio" },
-  { id: "clientes", labelKey: "navbar.items.clients", slug: "clientes" },
-  { id: "contacto", labelKey: "navbar.items.contact", slug: "contacto" },
-];
-
-const languages: Language[] = ["es", "en"];
-
-const MobileAnimatedBackdrop = () => (
-  <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-    <div className="absolute inset-[-25%] blur-[60px] opacity-[0.85]">
-      <NeuralNoise opacity={0.85} pointerStrength={0.8} timeScale={0.6} />
-    </div>
-    <div className="absolute inset-0 bg-gradient-to-br from-[#010616]/70 via-[#071237]/65 to-[#0b1d3f]/60" />
-    <div className="absolute inset-0 bg-[#010a1d]/65 backdrop-blur-[26px]" />
-  </div>
-);
-
-const getPathForLanguage = (lang: Language, slug?: string) => {
-  const prefix = lang === "es" ? "/es" : "";
-  if (!slug) {
-    return prefix === "" ? "/" : prefix;
-  }
-  return `${prefix}/${slug}`;
+const getLanguageBasePath = (pathname: string) => {
+  const segments = pathname.split("/").filter(Boolean);
+  return segments[0] === "es" ? "/es" : "/";
 };
 
 const Navbar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isDesktop, setIsDesktop] = useState<boolean>(() => {
+  const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window === "undefined") return true;
-    return window.innerWidth >= 768;
+    return window.innerWidth >= 1024;
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuView, setMobileMenuView] = useState<MobileMenuView>("root");
+  const [openDesktopMenu, setOpenDesktopMenu] = useState<DesktopMenuKey>(null);
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  const closeTimerRef = useRef<number | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, setLanguage, t } = useI18n();
 
-  const brandAssets = {
-    default: "/assets/ElarisLogoWhite.png",
-    width: 160,
-    height: 64,
-  } as const;
+  const basePath = useMemo(() => getLanguageBasePath(location.pathname), [location.pathname]);
 
-  const basePath = getPathForLanguage(language);
-
-  const resolveCurrentSlug = () => {
-    const segments = location.pathname.split("/").filter(Boolean);
-    const slug = segments[0] === "es" ? segments[1] : segments[0];
-    if (!slug) return undefined;
-    return navItems.some((item) => item.slug === slug) ? slug : undefined;
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
   };
 
-  const handleLanguageChange = (lang: Language) => {
-    const currentSlug = resolveCurrentSlug();
-    const currentHash = location.hash?.replace("#", "") || undefined;
-    const targetPath = getPathForLanguage(lang, currentSlug);
+  const scheduleDesktopClose = () => {
+    clearCloseTimer();
+    closeTimerRef.current = window.setTimeout(() => {
+      setOpenDesktopMenu(null);
+    }, 120);
+  };
 
-    setLanguage(lang);
-    if (typeof window === "undefined") return;
+  const navigateToSection = (sectionId?: string) => {
+    const destinationPath = basePath;
+    const runScroll = () => {
+      if (!sectionId) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
 
-    const needsNavigation = window.location.pathname !== targetPath;
-    if (needsNavigation) {
-      navigate(targetPath, { replace: false });
+      const target = document.getElementById(sectionId);
+      if (!target) return;
+
+      const offsetTop = target.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top: Math.max(offsetTop, 0), behavior: "smooth" });
+      const finalUrl = sectionId ? `${destinationPath}#${sectionId}` : destinationPath;
+      window.history.replaceState({}, "", finalUrl);
+    };
+
+    if (window.location.pathname !== destinationPath) {
+      navigate(destinationPath, { replace: false });
+      window.setTimeout(runScroll, 120);
+    } else {
+      runScroll();
     }
 
-    requestAnimationFrame(() => {
-      updateHash(targetPath, currentHash);
-      if (currentHash) {
-        const target = document.getElementById(currentHash);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-    });
-  };
-
-  const updateHash = (path: string, hash?: string) => {
-    if (typeof window === "undefined") return;
-    const finalUrl = hash ? `${path}#${hash}` : path;
-    window.history.replaceState({}, "", finalUrl);
+    setIsMobileMenuOpen(false);
+    setMobileMenuView("root");
+    setOpenDesktopMenu(null);
   };
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const handleResize = () => {
-      const desktop = window.innerWidth >= 768;
+    const onResize = () => {
+      const desktop = window.innerWidth >= 1024;
       setIsDesktop(desktop);
-      if (!desktop) {
-        setIsCollapsed(false);
+      if (desktop) {
+        setIsMobileMenuOpen(false);
+        setMobileMenuView("root");
+      } else {
+        setOpenDesktopMenu(null);
       }
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (!isDesktop) {
-            setIsCollapsed(false);
-          } else {
-            const collapseThreshold = window.innerHeight * 0.25;
-            setIsCollapsed(window.scrollY > collapseThreshold);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const threshold = Math.max(window.innerHeight - 120, 160);
+        setIsLightMode(window.scrollY > threshold);
+        ticking = false;
+      });
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isDesktop]);
 
-  const scrollHome = () => {
-    if (typeof window === "undefined") return;
-
-    if (window.location.pathname !== basePath) {
-      navigate(basePath, { replace: false });
-    }
-
-    setIsMobileMenuOpen(false);
-
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-    requestAnimationFrame(() => {
-      scrollToTop();
-      setTimeout(scrollToTop, 160);
-      updateHash(basePath);
-    });
-  };
-
-  const navigateTo = (item: NavItem) => {
-    if (typeof window === "undefined") return;
-
-    const targetPath = getPathForLanguage(language);
-    if (window.location.pathname !== targetPath) {
-      navigate(targetPath, { replace: false });
-    }
-
-    setIsMobileMenuOpen(false);
-
-    const scrollToTarget = () => {
-      const target = document.getElementById(item.id);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        updateHash(targetPath, item.id);
-        return true;
-      }
-      return false;
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
+  }, []);
 
-    requestAnimationFrame(() => {
-      if (!scrollToTarget()) {
-        setTimeout(scrollToTarget, 180);
-      }
-    });
-  };
+  useEffect(() => {
+    return () => {
+      clearCloseTimer();
+    };
+  }, []);
 
-  if (!isDesktop) {
-    const renderLanguageToggle = () => (
-      <div
-        className="flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-2 py-1 text-xs font-semibold text-blue-50/80"
-        role="group"
-        aria-label={t("common.languageToggle.ariaLabel")}
-      >
-        {languages.map((lang) => (
-          <button
-            key={lang}
-            type="button"
-            onClick={() => handleLanguageChange(lang)}
-            className={cn(
-              "rounded-full px-2 py-1 transition-colors",
-              language === lang ? "bg-blue-500/40 text-white" : "hover:text-white"
-            )}
-          >
-            {t(`common.languageToggle.${lang}`)}
-          </button>
-        ))}
-      </div>
+  useEffect(() => {
+    const shouldHideFloating = !isDesktop && isMobileMenuOpen;
+    window.dispatchEvent(
+      new CustomEvent("elaris:mobile-menu-visibility", {
+        detail: { open: shouldHideFloating },
+      })
     );
 
+    return () => {
+      window.dispatchEvent(
+        new CustomEvent("elaris:mobile-menu-visibility", {
+          detail: { open: false },
+        })
+      );
+    };
+  }, [isDesktop, isMobileMenuOpen]);
+
+  const navThemeClasses = isLightMode
+    ? "bg-[rgba(255,255,255,0.85)] text-[#111] border-b border-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+    : "bg-[rgba(10,10,15,0.4)] text-white border-b border-white/10";
+
+  const dropdownThemeClasses = isLightMode
+    ? "bg-white border border-black/10 shadow-[0_22px_50px_rgba(15,23,42,0.12)]"
+    : "bg-[rgba(10,10,15,0.72)] border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.35)] text-white";
+
+  const navItemClass = cn(
+    "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium transition-colors",
+    isLightMode ? "text-[#111] hover:text-black" : "text-white/90 hover:text-white"
+  );
+
+  const dropdownItemClass = cn(
+    "w-full rounded-lg px-3 py-2 text-left text-sm transition-colors",
+    isLightMode ? "hover:bg-slate-100 text-slate-700 hover:text-slate-900" : "hover:bg-white/10 text-white/80 hover:text-white"
+  );
+
+  const logoSrc = isLightMode ? "/assets/ElarisLogo.png" : "/assets/ElarisLogoWhite.png";
+
+  const mobileServicesItems = [
+    "Enterprise Websites",
+    "E-commerce Systems",
+    "Custom Web Platforms",
+    "Custom Software",
+    "Process Automation",
+    "System Integration",
+    "AI Implementation",
+    "AI Assistants",
+    "Data Intelligence",
+    "LLM Integrations",
+  ];
+
+  const mobileProductItems = [
+    "Pictolink — Accessible communication platform (Live)",
+    "LeIA — AI-driven enterprise assistant (Beta)",
+    "OpsPilot — Workflow automation (Coming soon)",
+  ];
+
+  const mobileIndustryItems = [
+    "Healthcare",
+    "Education",
+    "Retail",
+    "Logistics",
+    "Finance",
+    "Government",
+    "Startups",
+    "SMEs",
+    "Enterprise",
+  ];
+
+  const mobilePanelItemClass = cn(
+    "w-full rounded-lg px-1 py-1.5 text-left text-sm transition-colors",
+    isLightMode ? "text-slate-700 hover:text-slate-900" : "text-white/80 hover:text-white"
+  );
+
+  const currentMobileTitle =
+    mobileMenuView === "services"
+      ? "Services"
+      : mobileMenuView === "products"
+        ? "Products"
+        : "Industries";
+
+  const renderDesktopMegaMenu = () => {
+    if (!openDesktopMenu) return null;
+
     return (
-      <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="relative overflow-hidden shadow-[0_16px_45px_rgba(30,64,175,0.45)]">
-          <MobileAnimatedBackdrop />
-          <nav className="relative border-b border-white/10">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex h-14 items-center justify-between">
-                <button
-                  className="flex items-center gap-3"
-                  onClick={scrollHome}
-                >
-                  <SmartImage
-                    src={brandAssets.default}
-                    alt={t("navbar.logoAlt")}
-                    priority
-                    width={brandAssets.width}
-                    height={brandAssets.height}
-                    className="h-10 w-auto drop-shadow-lg"
-                  />
-                </button>
+      <div className="pointer-events-auto -mt-px transition-all duration-300 ease-in-out">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={cn("overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
+            {openDesktopMenu === "services" && (
+              <div className="grid grid-cols-4 gap-6">
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">Digital Platforms</p>
+                  <div className="space-y-1">
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Enterprise Websites</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>E-commerce Systems</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Custom Web Platforms</button>
+                  </div>
+                </div>
 
-                <button
-                  onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                  className="rounded-full border border-blue-400/40 bg-blue-500/15 p-3 text-blue-100 shadow-[0_12px_35px_rgba(29,78,216,0.4)] transition-transform duration-300 hover:scale-110"
-                >
-                  {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-                </button>
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">Software Engineering</p>
+                  <div className="space-y-1">
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Custom Software</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Process Automation</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>System Integration</button>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-3 text-xs font-semibold uppercase tracking-[0.12em] opacity-70">AI & Data</p>
+                  <div className="space-y-1">
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>AI Implementation</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>AI Assistants</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>Data Intelligence</button>
+                    <button type="button" className={dropdownItemClass} onClick={() => navigateToSection("servicios")}>LLM Integrations</button>
+                  </div>
+                </div>
+
+                <div className={cn("rounded-xl p-4", isLightMode ? "bg-slate-50" : "bg-white/5")}>
+                  <p className="text-sm font-semibold">Need a tailored solution?</p>
+                  <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>
+                    Talk to our team to map architecture, delivery scope, and roadmap.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("contacto")}
+                    className="mt-4 inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  >
+                    Book strategy session
+                  </button>
+                </div>
               </div>
-            </div>
-          </nav>
+            )}
 
-          <div
-            className={`relative overflow-hidden border-t border-white/10 transition-all duration-500 ${isMobileMenuOpen ? "max-h-96" : "max-h-0"
-              }`}
-          >
-            <div className="container mx-auto px-6 py-6">
-              <div className="flex flex-col space-y-4">
-                {navItems.map((item) => {
-                  const targetPath = getPathForLanguage(language, item.slug);
-                  const isActive = location.pathname === targetPath;
-                  return (
+            {openDesktopMenu === "products" && (
+              <div className="grid grid-cols-[1.7fr_1fr] gap-6">
+                <div className="grid grid-cols-2 gap-3">
+                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-sm font-semibold">Pictolink</p>
+                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-emerald-100 text-emerald-700" : "bg-emerald-500/20 text-emerald-300")}>Live</span>
+                    </div>
+                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>Accessible communication platform</p>
+                  </button>
+
+                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-sm font-semibold">LeIA</p>
+                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-amber-100 text-amber-700" : "bg-amber-500/20 text-amber-300")}>Beta</span>
+                    </div>
+                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>AI-driven enterprise assistant</p>
+                  </button>
+
+                  <button type="button" className={cn("rounded-xl border p-4 text-left", isLightMode ? "border-slate-200 hover:bg-slate-50" : "border-white/10 bg-white/5 hover:bg-white/10")} onClick={() => navigateToSection("portafolio")}>
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-sm font-semibold">OpsPilot</p>
+                      <span className={cn("rounded-full px-2 py-0.5 text-[0.7rem] font-semibold", isLightMode ? "bg-slate-100 text-slate-700" : "bg-slate-500/25 text-slate-300")}>Coming soon</span>
+                    </div>
+                    <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>Workflow automation for operations teams</p>
+                  </button>
+                </div>
+
+                <div className={cn("rounded-xl p-4", isLightMode ? "bg-slate-50" : "bg-white/5")}>
+                  <p className="text-sm font-semibold">Explore our product ecosystem</p>
+                  <p className={cn("mt-2 text-sm", isLightMode ? "text-slate-600" : "text-white/70")}>From communication to AI operations, discover solutions built for scale.</p>
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("portafolio")}
+                    className="mt-4 inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  >
+                    View all products
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {openDesktopMenu === "industries" && (
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  "Healthcare",
+                  "Education",
+                  "Retail",
+                  "Logistics",
+                  "Finance",
+                  "Government",
+                  "Startups",
+                  "SMEs",
+                  "Enterprise",
+                ].map((industry) => (
+                  <button
+                    key={industry}
+                    type="button"
+                    className={dropdownItemClass}
+                    onClick={() => navigateToSection("contacto")}
+                  >
+                    {industry}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <header className="fixed left-0 right-0 top-0 z-50" onMouseLeave={scheduleDesktopClose}>
+      <nav
+        aria-label="Primary"
+        className={cn("h-[80px] backdrop-blur-[12px] transition-all duration-300 ease-in-out", navThemeClasses)}
+      >
+        <div className="container mx-auto flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
+          <button type="button" onClick={() => navigateToSection()} className="inline-flex items-center">
+            <SmartImage src={logoSrc} alt="Elaris" priority width={160} height={64} className="h-10 w-auto" />
+          </button>
+
+          {isDesktop ? (
+            <div className="flex items-center gap-7">
+              <ul className="flex items-center gap-5" role="menubar">
+                <li
+                  role="none"
+                  onMouseEnter={() => {
+                    clearCloseTimer();
+                    setOpenDesktopMenu("services");
+                  }}
+                >
+                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "services"}>
+                    Services <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </li>
+
+                <li
+                  role="none"
+                  onMouseEnter={() => {
+                    clearCloseTimer();
+                    setOpenDesktopMenu("products");
+                  }}
+                >
+                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "products"}>
+                    Products <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </li>
+
+                <li
+                  role="none"
+                  onMouseEnter={() => {
+                    clearCloseTimer();
+                    setOpenDesktopMenu("industries");
+                  }}
+                >
+                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "industries"}>
+                    Industries <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                </li>
+
+                <li role="none">
+                  <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("estandares")}>
+                    Standards
+                  </button>
+                </li>
+
+                <li role="none">
+                  <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("clientes")}>
+                    Clients
+                  </button>
+                </li>
+              </ul>
+
+              <button
+                type="button"
+                onMouseEnter={() => setOpenDesktopMenu(null)}
+                onClick={() => navigateToSection("contacto")}
+                className="inline-flex h-10 items-center rounded-lg bg-[#2F64FF] px-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Book a Call
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              aria-label="Toggle navigation menu"
+              onClick={() => {
+                setIsMobileMenuOpen((prev) => {
+                  const next = !prev;
+                  if (next) {
+                    setMobileMenuView("root");
+                  }
+                  return next;
+                });
+              }}
+              className={cn(
+                "inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors",
+                isLightMode ? "border-black/15 hover:bg-black/5" : "border-white/15 hover:bg-white/10"
+              )}
+            >
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          )}
+        </div>
+      </nav>
+
+      {isDesktop ? (
+        <div
+          className={cn(
+            "pointer-events-none transition-all duration-300 ease-in-out",
+            openDesktopMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+          )}
+          onMouseEnter={clearCloseTimer}
+          onMouseLeave={scheduleDesktopClose}
+        >
+          {renderDesktopMegaMenu()}
+        </div>
+      ) : (
+        <div
+          className={cn(
+            "overflow-hidden border-b backdrop-blur-[12px] transition-all duration-300 ease-in-out",
+            navThemeClasses,
+            isMobileMenuOpen ? "h-[calc(100vh-80px)]" : "h-0 border-transparent"
+          )}
+        >
+          <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
+            <div className="flex-1 overflow-y-auto pr-1">
+              {mobileMenuView === "root" ? (
+                <div className="space-y-1">
+                  {([
+                    { key: "services", label: "Services" },
+                    { key: "products", label: "Products" },
+                    { key: "industries", label: "Industries" },
+                  ] as Array<{ key: Exclude<MobileMenuView, "root">; label: string }>).map((menu) => (
                     <button
-                      key={item.id}
+                      key={menu.key}
                       type="button"
-                      onClick={() => navigateTo(item)}
-                      aria-current={isActive ? "page" : undefined}
-                      className="rounded-xl border border-blue-400/25 bg-blue-500/10 px-4 py-3 text-left text-blue-100 shadow-[0_12px_35px_rgba(29,78,216,0.35)] transition-all duration-300 hover:bg-blue-500/20"
+                      onClick={() => setMobileMenuView(menu.key)}
+                      className={cn(
+                        "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
+                        isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
+                      )}
                     >
-                      {t(item.labelKey)}
+                      <span>{menu.label}</span>
+                      <ChevronRight className="h-4 w-4" />
                     </button>
-                  );
-                })}
-                {renderLanguageToggle()}
+                  ))}
+
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("estandares")}
+                    className={cn(
+                      "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
+                      isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
+                    )}
+                  >
+                    <span>Standards</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("clientes")}
+                    className={cn(
+                      "flex w-full items-center justify-between border-b border-dashed py-3 text-left text-[1.05rem] font-medium",
+                      isLightMode ? "border-black/10 hover:text-black" : "border-white/15 hover:text-white"
+                    )}
+                  >
+                    <span>Clients</span>
+                  </button>
+                </div>
+              ) : (
+                <div className="space-y-4 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setMobileMenuView("root")}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 text-sm font-medium",
+                      isLightMode ? "text-slate-700 hover:text-slate-900" : "text-white/80 hover:text-white"
+                    )}
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    Back
+                  </button>
+
+                  <h3 className="text-lg font-semibold">{currentMobileTitle}</h3>
+
+                  <div className={cn("space-y-1 border-t pt-3", isLightMode ? "border-black/10" : "border-white/15")}>
+                    {mobileMenuView === "services" &&
+                      mobileServicesItems.map((item) => (
+                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("servicios")}>
+                          {item}
+                        </button>
+                      ))}
+
+                    {mobileMenuView === "products" &&
+                      mobileProductItems.map((item) => (
+                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("portafolio")}>
+                          {item}
+                        </button>
+                      ))}
+
+                    {mobileMenuView === "industries" &&
+                      mobileIndustryItems.map((item) => (
+                        <button key={item} type="button" className={mobilePanelItemClass} onClick={() => navigateToSection("contacto")}>
+                          {item}
+                        </button>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className={cn("pt-4", isLightMode ? "border-t border-black/10" : "border-t border-white/15")}>
+              <div
+                className={cn(
+                  "rounded-xl border p-3.5",
+                  isLightMode
+                    ? "border-black/10 bg-white/70"
+                    : "border-white/15 bg-[rgba(255,255,255,0.03)]"
+                )}
+              >
+                <p className="text-sm font-semibold">Ready to scale your digital platform?</p>
+                <p className={cn("mt-1 text-xs", isLightMode ? "text-slate-600" : "text-white/70")}>
+                  Talk to our team and get a clear roadmap for delivery.
+                </p>
+
+                <div className="mt-3 grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("contacto")}
+                    className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-[#2F64FF] px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  >
+                    Book a Call
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => navigateToSection("portafolio")}
+                    className={cn(
+                      "inline-flex h-10 w-full items-center justify-center rounded-lg border px-3 text-sm font-semibold transition-colors",
+                      isLightMode
+                        ? "border-black/15 text-slate-800 hover:bg-black/5"
+                        : "border-white/20 text-white/90 hover:bg-white/10"
+                    )}
+                  >
+                    View Work
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </header>
-    );
-  }
-
-  const navVariants = {
-    expanded: {
-      width: "min(92vw, 1100px)",
-      height: 92,
-      borderRadius: 32,
-      padding: "16px 30px",
-      marginLeft: "auto",
-      marginRight: "auto",
-    },
-    compact: {
-      width: "min(64vw, 820px)",
-      height: 80,
-      borderRadius: 64,
-      padding: "14px 28px",
-      marginLeft: "auto",
-      marginRight: "auto",
-    },
-  } as const;
-
-  const renderLanguageToggle = (wrapperClass?: string) => (
-    <div
-      className={cn(
-        "flex items-center gap-1 rounded-full border border-blue-400/25 bg-blue-500/10 p-1 text-[0.7rem] font-semibold uppercase text-blue-50/80",
-        wrapperClass
       )}
-      role="group"
-      aria-label={t("common.languageToggle.ariaLabel")}
-    >
-      {languages.map((lang) => (
-        <button
-          key={lang}
-          type="button"
-          onClick={() => handleLanguageChange(lang)}
-          className={cn(
-            "rounded-full px-3 py-1 transition-all",
-            language === lang ? "bg-blue-500/40 text-white shadow-inner" : "hover:text-white"
-          )}
-        >
-          {t(`common.languageToggle.${lang}`)}
-        </button>
-      ))}
-    </div>
-  );
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="pointer-events-none flex justify-center px-4 pt-4 lg:px-8">
-        <motion.nav
-          variants={navVariants}
-          initial={false}
-          animate={isCollapsed ? "compact" : "expanded"}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="relative flex items-center justify-center overflow-hidden"
-          style={
-            isCollapsed
-              ? {
-                pointerEvents: "auto",
-                background:
-                  "linear-gradient(135deg, rgba(37,99,235,0.55), rgba(30,64,175,0.6), rgba(15,23,42,0.55))",
-                border: "1px solid rgba(96, 165, 250, 0.45)",
-                boxShadow: "0 30px 90px rgba(30, 64, 175, 0.45)",
-                backdropFilter: "blur(18px)",
-                WebkitBackdropFilter: "blur(18px)",
-              }
-              : {
-                pointerEvents: "auto",
-                background: "transparent",
-                border: "none",
-                boxShadow: "none",
-                backdropFilter: "none",
-                WebkitBackdropFilter: "none",
-              }
-          }
-        >
-          <AnimatePresence mode="wait">
-            {isCollapsed ? (
-              <motion.div
-                key="compact"
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.6 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="flex h-full w-full flex-nowrap items-center justify-center gap-4 px-4"
-              >
-                {navItems.map((item) => (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => navigateTo(item)}
-                    whileHover={{ scale: 1.04, opacity: 1 }}
-                    whileTap={{ scale: 0.96 }}
-                    className="bg-transparent px-1 text-[0.94rem] font-semibold tracking-[0.06em] text-blue-100 transition-colors duration-300 hover:text-white focus:outline-none"
-                  >
-                    {t(item.labelKey)}
-                  </motion.button>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div
-                key="expanded"
-                initial={{ opacity: 0, y: -12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="flex w-full items-center justify-between gap-8"
-              >
-                <motion.button
-                  onClick={scrollHome}
-                  className="flex items-center text-left"
-                  whileHover={{ scale: 1.08 }}
-                >
-                  <SmartImage
-                    src={brandAssets.default}
-                    alt={t("navbar.logoAlt")}
-                    priority
-                    width={brandAssets.width}
-                    height={brandAssets.height}
-                    className="h-12 w-auto drop-shadow-[0_6px_28px_rgba(96,165,250,0.65)] transition-all duration-300"
-                  />
-                </motion.button>
-
-                <div className="flex items-center gap-3">
-                  {navItems.map((item) => {
-                    const targetPath = getPathForLanguage(language, item.slug);
-                    const isActive = location.pathname === targetPath;
-                    return (
-                      <button
-                        key={item.id}
-                        type="button"
-                        aria-current={isActive ? "page" : undefined}
-                        onClick={() => navigateTo(item)}
-                        className="group relative flex items-center gap-2 rounded-full border border-blue-400/25 bg-blue-500/10 px-3.5 py-1.5 text-[0.92rem] font-medium tracking-tight text-blue-50 backdrop-blur-xl transition-all duration-500 hover:border-blue-200/60 hover:text-white hover:shadow-[0_20px_45px_rgba(29,78,216,0.4)]"
-                      >
-                        {t(item.labelKey)}
-                        <span className="absolute inset-x-2 bottom-1 h-px origin-left scale-x-0 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transition-transform duration-500 group-hover:scale-x-100" />
-                      </button>
-                    );
-                  })}
-                  {renderLanguageToggle("ml-1")}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.nav>
-      </div>
     </header>
   );
 };
