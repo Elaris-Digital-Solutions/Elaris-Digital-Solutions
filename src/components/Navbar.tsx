@@ -23,6 +23,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState<MobileMenuView>("root");
   const [openDesktopMenu, setOpenDesktopMenu] = useState<DesktopMenuKey>(null);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isNavHovered, setIsNavHovered] = useState(false);
 
   const closeTimerRef = useRef<number | null>(null);
   const navigate = useNavigate();
@@ -91,7 +93,26 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    const getTriggerY = () => {
+      const badge = document.querySelector("[data-hero-badge]") as HTMLElement | null;
+      if (badge) {
+        // getBoundingClientRect gives viewport position; add scrollY for document position
+        const docTop = badge.getBoundingClientRect().top + window.scrollY;
+        if (docTop > 0) return docTop - 80;
+      }
+      return window.innerHeight;
+    };
+    const onScroll = () => setIsAtTop(window.scrollY < getTriggerY());
 
+    // Defer initial check to after first paint so the hero section is fully laid out
+    const raf = requestAnimationFrame(onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -116,7 +137,11 @@ const Navbar = () => {
     };
   }, [isDesktop, isMobileMenuOpen]);
 
-  const navThemeClasses = "bg-[rgba(255,255,255,0.92)] text-[#111] border-b border-black/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)]";
+  const isOpaque = !isAtTop || isNavHovered || !!openDesktopMenu || isMobileMenuOpen;
+
+  const navThemeClasses = isOpaque
+    ? "bg-white text-[#111] border-b border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+    : "bg-transparent text-[#111] border-b border-transparent shadow-none";
 
   const dropdownThemeClasses = "bg-white border border-black/10 shadow-[0_22px_50px_rgba(15,23,42,0.12)]";
 
@@ -625,16 +650,7 @@ const Navbar = () => {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
                               <p className="text-[0.92rem] font-bold text-slate-900 group-hover:text-[#2F64FF] transition-colors">{item.name}</p>
-                              <span
-                                className={cn(
-                                  "rounded-full px-2 py-0.5 text-[0.62rem] font-semibold leading-none",
-                                  item.tone === "live"
-                                    ? "bg-emerald-100 text-emerald-700"
-                                    : item.tone === "beta"
-                                      ? "bg-amber-100 text-amber-700"
-                                      : "bg-slate-100 text-slate-500"
-                                )}
-                              >
+                              <span className="rounded-full px-2 py-0.5 text-[0.62rem] font-semibold leading-none bg-slate-100 text-slate-500">
                                 {item.status}
                               </span>
                             </div>
@@ -716,10 +732,14 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50" onMouseLeave={scheduleDesktopClose}>
+    <header
+      className="fixed left-0 right-0 top-0 z-50"
+      onMouseEnter={() => { clearCloseTimer(); setIsNavHovered(true); }}
+      onMouseLeave={() => { scheduleDesktopClose(); setIsNavHovered(false); }}
+    >
       <nav
         aria-label="Primary"
-        className={cn("h-[80px] backdrop-blur-[12px] transition-all duration-300 ease-in-out", navThemeClasses)}
+        className={cn("h-[80px] transition-[background-color,border-color,box-shadow] duration-200 ease-in-out", navThemeClasses)}
       >
         <div className={cn(
           "container mx-auto h-full px-4 sm:px-6 lg:px-8",
@@ -930,12 +950,7 @@ const Navbar = () => {
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-0.5">
                                 <p className="text-sm font-bold text-slate-900 group-hover:text-[#2F64FF] transition-colors">{item.name}</p>
-                                <span className={cn(
-                                  "rounded-full px-1.5 py-0.5 text-[0.6rem] font-semibold leading-none",
-                                  item.tone === "live" ? "bg-emerald-100 text-emerald-700"
-                                    : item.tone === "beta" ? "bg-amber-100 text-amber-700"
-                                      : "bg-slate-100 text-slate-500"
-                                )}>{item.status}</span>
+                                <span className="rounded-full px-1.5 py-0.5 text-[0.6rem] font-semibold leading-none bg-slate-100 text-slate-500">{item.status}</span>
                               </div>
                               <p className="text-xs text-slate-500 leading-snug">{item.description}</p>
                             </div>

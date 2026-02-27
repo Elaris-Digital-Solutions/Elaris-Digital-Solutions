@@ -11,6 +11,9 @@ type NeuralNoiseProps = {
   timeScale?: number;
   /** Class to override wrapper layout; defaults to full-bleed vertical sections */
   className?: string;
+  /** When set, bypasses the dynamic scroll progress and uses this fixed value instead.
+   *  Pass 0 to match the Hero's colour palette regardless of page position. */
+  fixedScrollProgress?: number;
 };
 
 function NeuralNoise({
@@ -18,6 +21,7 @@ function NeuralNoise({
   pointerStrength = 1,
   timeScale = 1,
   className = "relative min-h-[300vh] bg-[#151912] overflow-x-hidden",
+  fixedScrollProgress,
 }: NeuralNoiseProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const glRef = useRef<WebGLRenderingContext | null>(null);
@@ -202,10 +206,14 @@ function NeuralNoise({
     window.addEventListener("pointermove", onPointerMove);
     window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("click", onClick);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    if (fixedScrollProgress !== undefined) {
+      scrollProgress.current = fixedScrollProgress;
+    } else {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
 
     resize();
-    onScroll();
 
     // animation loop
     startTS.current = performance.now();
@@ -237,7 +245,9 @@ function NeuralNoise({
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("click", onClick);
-      window.removeEventListener("scroll", onScroll);
+      if (fixedScrollProgress === undefined) {
+        window.removeEventListener("scroll", onScroll);
+      }
       // cleanup GL resources
       gl.deleteBuffer(vbo);
       gl.deleteProgram(program);
