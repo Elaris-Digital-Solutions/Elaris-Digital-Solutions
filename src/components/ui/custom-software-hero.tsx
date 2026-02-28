@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Brain, Link2, BarChart3, TrendingUp } from "lucide-react";
+import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 
 // ─── Floating cards data ────────────────────────────────────────────────────
 const floatingCards = [
@@ -109,7 +110,12 @@ const DashboardMock = () => (
 // ─── Main component ──────────────────────────────────────────────────────────
 export default function CustomSoftwareHero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
+    <section className="relative min-h-[92vh] lg:h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] pt-[40px]">
+      {/* Neural noise background */}
+      <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
+        <NeuralNoise opacity={0.8} pointerStrength={1.2} timeScale={0.5} fixedScrollProgress={0} className="absolute inset-0" />
+      </div>
+
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none select-none">
         <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
@@ -117,14 +123,21 @@ export default function CustomSoftwareHero() {
         <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-violet-400/[0.04] rounded-full blur-2xl" />
       </div>
 
-      <div className="container mx-auto px-6 max-w-7xl py-28 lg:py-36 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+      <div className="container mx-auto px-6 max-w-7xl py-16 relative z-10">
+        {/*
+          Mobile order  → DOM order: [1] badge+title  [2] mockup  [3] desc+CTA
+          Desktop order → CSS grid:  col-1/row-1 = badge+title
+                                     col-2/row-1+2 = mockup
+                                     col-1/row-2 = desc+CTA
+        */}
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-[auto_auto] gap-8 lg:gap-x-16 xl:gap-x-24 lg:gap-y-10 lg:items-center">
 
-          {/* ── Left column ── */}
+          {/* ── [1] Badge + Title ── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
+            className="lg:col-start-1 lg:row-start-1 lg:self-end"
           >
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-xs font-bold tracking-[0.12em] uppercase mb-8 shadow-sm">
@@ -133,35 +146,19 @@ export default function CustomSoftwareHero() {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12] mb-7">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12]">
               Desarrollamos software
               <span className="font-semibold text-[#2F64FF]"> a medida</span>
               <span className="block mt-1">que impulsa tu crecimiento</span>
             </h1>
-
-            {/* Description */}
-            <p className="text-lg text-slate-600 font-light leading-relaxed mb-10 max-w-[30rem]">
-              Creamos soluciones tecnológicas personalizadas que se adaptan a tus
-              procesos, integran inteligencia artificial y escalan junto con tu
-              operación empresarial&nbsp;— sin fricciones.
-            </p>
-
-            {/* CTA */}
-            <a
-              href="#contacto"
-              className="inline-flex items-center gap-2.5 bg-[#2F64FF] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-all duration-300 group"
-            >
-              Agendar consultoría
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-            </a>
           </motion.div>
 
-          {/* ── Right column – mockup ── */}
+          {/* ── [2] Mockup ── */}
           <motion.div
             initial={{ opacity: 0, x: 36 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85, delay: 0.2, ease: "easeOut" }}
-            className="relative hidden lg:block"
+            className="relative mt-2 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:row-span-2"
           >
             {/* Dashboard */}
             <DashboardMock />
@@ -188,6 +185,29 @@ export default function CustomSoftwareHero() {
             {/* Ambient glow behind card */}
             <div className="absolute inset-0 bg-[#2F64FF]/[0.07] rounded-3xl blur-3xl -z-10 scale-95" />
           </motion.div>
+
+          {/* ── [3] Description + CTA ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
+            className="lg:col-start-1 lg:row-start-2 lg:self-start"
+          >
+            <p className="text-lg text-slate-600 font-light leading-relaxed mb-10 max-w-[30rem]">
+              Creamos soluciones tecnológicas personalizadas que se adaptan a tus
+              procesos, integran inteligencia artificial y escalan junto con tu
+              operación empresarial&nbsp;— sin fricciones.
+            </p>
+
+            <a
+              href="#contacto"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#2F64FF] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-all duration-300 group w-full lg:w-auto"
+            >
+              Agendar consultoría
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            </a>
+          </motion.div>
+
         </div>
       </div>
     </section>

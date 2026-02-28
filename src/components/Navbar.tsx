@@ -94,18 +94,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const getTriggerY = () => {
-      const badge = document.querySelector("[data-hero-badge]") as HTMLElement | null;
-      if (badge) {
-        // getBoundingClientRect gives viewport position; add scrollY for document position
-        const docTop = badge.getBoundingClientRect().top + window.scrollY;
-        if (docTop > 0) return docTop - 80;
-      }
-      return window.innerHeight;
-    };
-    const onScroll = () => setIsAtTop(window.scrollY < getTriggerY());
+    const onScroll = () => setIsAtTop(window.scrollY < 40);
 
-    // Defer initial check to after first paint so the hero section is fully laid out
     const raf = requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {

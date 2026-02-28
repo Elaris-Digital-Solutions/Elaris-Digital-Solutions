@@ -425,12 +425,7 @@ export default function CustomSoftware() {
             <Footer />
             <FloatingWhatsappButton />
 
-            {/* CRO: STICKY MOBILE CTA */}
-            <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-[60]">
-                <a href="#contacto" className="flex items-center justify-center w-full bg-[#2F64FF] text-white text-base py-3.5 rounded-full font-semibold shadow-[0_8px_24px_rgba(47,100,255,0.4)] active:scale-95 transition-transform backdrop-blur-md">
-                    Agendar Consultoría
-                </a>
-            </div>
+
         </div>
     );
 }
