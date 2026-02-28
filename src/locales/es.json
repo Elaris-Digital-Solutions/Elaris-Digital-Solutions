@@ -487,6 +487,14 @@
         {
           "q": "¿Ofrecen soporte técnico y mantenimiento post-lanzamiento?",
           "a": "Sí, nuestros estándares contemplan Service Level Agreements (SLA) para monitoreo activo, parches de seguridad y acompañamiento técnico del área operativa."
+        },
+        {
+          "q": "¿Cómo es el proceso de desarrollo y cómo me mantengo al tanto?",
+          "a": "Trabajamos en sprints quincenales con metodología ágil. Cada ciclo termina con una demo funcional, reporte de avance y sesión de feedback contigo. Tienes visibilidad total en todo momento a través de nuestro tablero de proyecto compartido."
+        },
+        {
+          "q": "¿Qué tecnologías utilizan y puedo elegir el stack?",
+          "a": "Utilizamos stacks modernos como React, Next.js, Node.js, Python y servicios cloud en AWS/GCP según el caso. Si ya cuentas con tecnología instalada en tu empresa, la evaluamos y, cuando es viable, construimos sobre ella para proteger tu inversión existente."
         }
       ]
     },

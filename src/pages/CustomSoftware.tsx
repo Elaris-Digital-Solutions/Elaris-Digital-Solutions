@@ -400,18 +400,30 @@ export default function CustomSoftware() {
                 </section>
 
                 {/* 9. FAQ SEO */}
-                <section className="py-24 lg:py-28 bg-white">
-                    <div className="container mx-auto px-6 max-w-3xl">
+                <section className="py-24 lg:py-32 bg-white">
+                    <div className="container mx-auto px-6 max-w-6xl">
+                        {/* Header */}
                         <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] mb-6">
+                            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#2F64FF] mb-4">
+                                Preguntas Frecuentes
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#071540] mb-5 leading-tight">
                                 {copy.faq.titleNormal}
-                                <span className="font-semibold text-[#2F64FF]">
-                                    {copy.faq.titleAccent}
-                                </span>
+                                <span className="text-[#2F64FF]">{copy.faq.titleAccent}</span>
                             </h2>
+                            <p className="text-slate-500 text-lg font-light max-w-xl mx-auto leading-relaxed">
+                                Todo lo que necesitas saber sobre nuestro proceso, tiempos y resultados.
+                            </p>
+                            <a
+                                href="#contacto"
+                                className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full border border-[#2F64FF]/30 text-[#2F64FF] font-semibold text-sm hover:bg-[#2F64FF] hover:text-white transition-all duration-200"
+                            >
+                                Hablar con un experto →
+                            </a>
                         </div>
 
-                        <div className="space-y-4">
+                        {/* 2-column FAQ grid */}
+                        <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-20">
                             {copy.faq.items.map((item, idx) => (
                                 <FaqItem key={idx} faq={item} />
                             ))}
@@ -433,15 +445,17 @@ export default function CustomSoftware() {
 const FaqItem = ({ faq }: { faq: { q: string, a: string } }) => {
     const [open, setOpen] = useState(false);
     return (
-        <div className="border border-slate-200 bg-white rounded-2xl overflow-hidden transition-all duration-300">
+        <div className="border-b border-slate-200 py-6">
             <button
                 onClick={() => setOpen(!open)}
-                className="w-full flex justify-between items-center p-6 text-left hover:bg-slate-50 transition-colors"
+                className="w-full flex justify-between items-center gap-6 text-left group"
             >
-                <span className="text-lg font-medium text-[#071540] pr-8">{faq.q}</span>
-                <div className={`flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center transition-transform duration-300 ${open ? 'rotate-180 bg-[#2F64FF] border-[#2F64FF] text-white' : 'text-slate-400'}`}>
-                    <ChevronDown className="w-5 h-5" />
-                </div>
+                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? 'text-[#2F64FF]' : 'text-[#071540] group-hover:text-[#2F64FF]'}`}>
+                    {faq.q}
+                </span>
+                <ChevronDown
+                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? 'rotate-180 text-[#2F64FF]' : 'text-slate-400 group-hover:text-[#2F64FF]'}`}
+                />
             </button>
             <AnimatePresence>
                 {open && (
@@ -449,10 +463,11 @@ const FaqItem = ({ faq }: { faq: { q: string, a: string } }) => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25, ease: 'easeInOut' }}
                     >
-                        <div className="px-6 pb-6 text-slate-600 font-light leading-relaxed border-t border-slate-100 pt-4 mt-2 mx-6">
+                        <p className="pt-4 text-slate-500 font-light leading-relaxed text-sm">
                             {faq.a}
-                        </div>
+                        </p>
                     </motion.div>
                 )}
             </AnimatePresence>
