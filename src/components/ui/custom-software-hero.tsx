@@ -25,7 +25,7 @@ const fadeRight = {
 const cardVariant = (i: number) => ({
   initial: { opacity: 0, scale: 0.85 },
   animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.45, delay: 0.55 + i * 0.1, ease: "easeOut" },
+  transition: { duration: 0.45, delay: 0.55 + i * 0.1, ease: "easeOut" as const },
 });
 
 // ─── Static data (module-level → never recreated) ────────────────────────────

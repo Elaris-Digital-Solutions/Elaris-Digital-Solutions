@@ -289,9 +289,9 @@ export default function Services() {
         <p className="text-black text-base md:text-lg line-clamp-2">{service.description}</p>
 
         <ul className="mt-4 space-y-2">
-          {service.features.map((feature, featureIndex) => (
+          {service.features.map((feature) => (
             <li
-              key={featureIndex}
+              key={feature}
               className={cn(
                 "flex items-center gap-3 transition-opacity duration-300",
                 index === current ? "opacity-100" : "opacity-70"

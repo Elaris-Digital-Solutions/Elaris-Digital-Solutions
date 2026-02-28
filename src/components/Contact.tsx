@@ -1,4 +1,5 @@
 import React, { useState, useRef, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
@@ -45,7 +46,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
           {/* Left — header + form (3/5 width) */}
-          <div className="lg:col-span-3 self-start" ref={formRef}>
+          <motion.div className="lg:col-span-3 self-start" ref={formRef} initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
 
             {/* Header lives here so the right column aligns with it */}
             <div className="mb-10">
@@ -105,10 +106,10 @@ export default function Contact() {
                 <p className="mt-3 text-sm text-slate-400">{t("contact.form.responseTime")}</p>
               </div>
             </form>
-          </div>
+          </motion.div>
 
           {/* Right — contact info + map (2/5 width) */}
-          <div className="lg:col-span-2 space-y-10" ref={contactInfoRef}>
+          <motion.div className="lg:col-span-2 space-y-10" ref={contactInfoRef} initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
 
             {/* Contact items — no panel, pure text with icon */}
             <div className="space-y-6">
@@ -143,7 +144,7 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

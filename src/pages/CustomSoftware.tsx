@@ -47,7 +47,7 @@ export default function CustomSoftware() {
                     <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
                         {/* ── ENCABEZADO ── */}
-                        <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <motion.div className="text-center mb-16 max-w-3xl mx-auto" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
                             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] mb-5">
                                 Software que genera{" "}
                                 <span className="font-semibold text-[#2F64FF]">resultados medibles</span>
@@ -55,10 +55,10 @@ export default function CustomSoftware() {
                             <p className="text-slate-500 text-lg font-light leading-relaxed">
                                 Cada proyecto se traduce en operaciones más ágiles, equipos más eficientes y decisiones respaldadas en datos reales.
                             </p>
-                        </div>
+                        </motion.div>
 
                         {/* ── BLOQUE PRINCIPAL 2 COLUMNAS ── */}
-                        <div className="grid lg:grid-cols-2 gap-6 mb-6">
+                        <motion.div className="grid lg:grid-cols-2 gap-6 mb-6" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.65, ease: "easeOut" }}>
 
                             {/* Columna izquierda — contexto estratégico */}
                             <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300">
@@ -98,7 +98,7 @@ export default function CustomSoftware() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* ── CARDS DE MÉTRICAS INFERIORES ── */}
                         <div className="grid md:grid-cols-3 gap-6">
@@ -119,16 +119,20 @@ export default function CustomSoftware() {
                                     desc: "Decisiones más rápidas y certeras respaldadas por información en tiempo real."
                                 }
                             ].map((metric, idx) => (
-                                <div
+                                <motion.div
                                     key={idx}
                                     className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300 cursor-default"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                                 >
                                     <div className="text-[#2F64FF] font-bold text-4xl md:text-5xl mb-3 leading-none">
                                         {metric.value}
                                     </div>
                                     <p className="text-[#071540] font-medium text-base mb-2">{metric.label}</p>
                                     <p className="text-slate-500 text-sm font-light leading-relaxed">{metric.desc}</p>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
 
@@ -143,7 +147,7 @@ export default function CustomSoftware() {
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                             {/* Columna de texto */}
-                            <div className="flex flex-col justify-center">
+                            <motion.div className="flex flex-col justify-center" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                                 <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
                                     <span className="w-5 h-px bg-[#2F64FF]" />
                                     Control operativo
@@ -171,10 +175,10 @@ export default function CustomSoftware() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
 
                             {/* Columna visual — Dashboard mockup */}
-                            <div className="relative">
+                            <motion.div className="relative" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
                                 <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(7,21,64,0.08)] border border-slate-100 overflow-hidden">
                                     {/* Header bar */}
                                     <div className="bg-[#071540] px-5 py-3.5 flex items-center gap-3">
@@ -244,14 +248,14 @@ export default function CustomSoftware() {
                                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                                     Automatización activa
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* ── BLOQUE 2: Colaboración y Escalabilidad — Mockup izq / Texto der ── */}
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                             {/* Columna visual — Collaboration mockup (orden invertido en desktop) */}
-                            <div className="relative order-2 lg:order-1">
+                            <motion.div className="relative order-2 lg:order-1" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                                 <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(7,21,64,0.08)] border border-slate-100 overflow-hidden">
                                     {/* Header */}
                                     <div className="bg-[#071540] px-5 py-3.5 flex items-center gap-3">
@@ -348,10 +352,10 @@ export default function CustomSoftware() {
                                     <span className="w-2 h-2 rounded-full bg-[#071540] animate-pulse" />
                                     Equipo sincronizado
                                 </div>
-                            </div>
+                            </motion.div>
 
                             {/* Columna de texto */}
-                            <div className="flex flex-col justify-center order-1 lg:order-2">
+                            <motion.div className="flex flex-col justify-center order-1 lg:order-2" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
                                 <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
                                     <span className="w-5 h-px bg-[#2F64FF]" />
                                     Escalabilidad y colaboración
@@ -379,7 +383,7 @@ export default function CustomSoftware() {
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.div>
                         </div>
 
                     </div>
@@ -387,7 +391,7 @@ export default function CustomSoftware() {
 
                 {/* 7.5 SOCIAL PROOF */}
                 <section className="py-24 lg:py-28 bg-white border-b border-t border-slate-100 overflow-hidden relative">
-                    <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                    <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                         <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
                         <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
                             "Migrar de múltiples sistemas genéricos a una plataforma centralizada y desarrollada a medida por ELARIS fue la mejor decisión técnica para escalar. Ahora la tecnología se adapta a nuestras reglas de negocio, y no al revés."
@@ -396,14 +400,14 @@ export default function CustomSoftware() {
                             <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
                             <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </section>
 
                 {/* 9. FAQ SEO */}
                 <section className="py-24 lg:py-32 bg-white">
                     <div className="container mx-auto px-6 max-w-6xl">
                         {/* Header */}
-                        <div className="text-center mb-16">
+                        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
                             <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#2F64FF] mb-4">
                                 Preguntas Frecuentes
                             </span>
@@ -420,7 +424,7 @@ export default function CustomSoftware() {
                             >
                                 Hablar con un experto →
                             </a>
-                        </div>
+                        </motion.div>
 
                         {/* 2-column FAQ grid */}
                         <div className="grid md:grid-cols-2 gap-x-12 lg:gap-x-20">

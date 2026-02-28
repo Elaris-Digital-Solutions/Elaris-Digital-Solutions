@@ -6,15 +6,12 @@ import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
-import { Logos3 } from "@/components/ui/logos3";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
-import { useI18n } from "@/lib/i18n";
 import SeoHead from "@/components/SeoHead";
 
 const Index = () => {
-  const { t } = useI18n();
   const location = useLocation();
 
   useEffect(() => {

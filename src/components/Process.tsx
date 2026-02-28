@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useMemo } from 'react'
+import { motion } from 'framer-motion'
 import { Timeline } from '@/components/ui/timeline'
 import { Bot, Code2, FileCode2, LineChart, Network, Stars } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
@@ -15,7 +16,7 @@ const processSteps = [
 export default function Process() {
   const { t } = useI18n()
 
-  const processData = processSteps.map(({ key, Icon }) => ({
+  const processData = useMemo(() => processSteps.map(({ key, Icon }) => ({
     title: t(`process.steps.${key}.title`),
     content: (
       <div className="space-y-6">
@@ -34,19 +35,19 @@ export default function Process() {
         </div>
       </div>
     ),
-  }))
+  })), [t])
 
   return (
     <section id="estandares" className="py-12 sm:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
+        <motion.div className="text-center mb-8" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{t('process.headingNormal')}</span><span style={{ color: '#2F64FF' }}>{t('process.headingAccent')}</span>
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto mt-4">
             {t('process.description')}
           </p>
-        </div>
+        </motion.div>
         <Timeline data={processData} />
       </div>
     </section>
