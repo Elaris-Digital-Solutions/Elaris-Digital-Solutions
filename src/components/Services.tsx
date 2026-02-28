@@ -52,7 +52,6 @@ const serviceContent: ServiceDescriptor[] = [
   },
 ];
 
-// Use the newer API per framer-motion deprecation: motion.create()
 const MotionSmartImage = motion.create ? motion.create(SmartImage) : motion(SmartImage);
 
 export default function Services() {
@@ -96,26 +95,21 @@ export default function Services() {
     });
   }, [currentIndex, isMobile, services]);
 
-  // Preload images to ensure smooth transitions: insert <link rel="preload"> and
-  // create Image objects to warm the browser cache. Remove link tags on cleanup.
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const createdLinks: HTMLLinkElement[] = [];
     const preloadedImgs: HTMLImageElement[] = [];
 
-    serviceContent.forEach((s) => {
-      if (!s.image) return;
+    serviceContent.forEach((serviceItem) => {
+      if (!serviceItem.image) return;
       try {
-        const href = s.image;
-        // Avoid duplicating existing preload links
+        const href = serviceItem.image;
         if (!document.querySelector(`link[rel="preload"][href="${href}"]`)) {
           const link = document.createElement("link");
           link.rel = "preload";
           link.as = "image";
           link.href = href;
-          // Some browsers support fetchpriority; set if available
-          // @ts-ignore
           link.setAttribute("importance", "high");
           document.head.appendChild(link);
           createdLinks.push(link);
@@ -125,21 +119,21 @@ export default function Services() {
         img.decoding = "async";
         img.src = href;
         preloadedImgs.push(img);
-      } catch (e) {
-        // ignore preload errors
+      } catch {
+        return;
       }
     });
 
     return () => {
-      createdLinks.forEach((l) => l.parentNode && l.parentNode.removeChild(l));
-      // allow Image objects to be GC'd
+      createdLinks.forEach((link) => {
+        if (link.parentNode) {
+          link.parentNode.removeChild(link);
+        }
+      });
       preloadedImgs.length = 0;
     };
-    // services is static in this file; keep empty deps to run once
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Local light theme override to ensure a white background like the Hero
   const lightTheme: React.CSSProperties = {
     ["--background" as any]: "0 0% 100%",
     ["--foreground" as any]: "222 47% 11%",
@@ -151,43 +145,42 @@ export default function Services() {
     ["--muted-foreground" as any]: "215 16% 47%",
     ["--border" as any]: "0 0% 90%",
     ["--input" as any]: "0 0% 90%",
-    // Keep brand accent for focus rings/interactions
     ["--ring" as any]: "217 91% 60%",
   };
 
-  // Calculate alignment offset inside the section for sticky panel
-  const alignVisualToCard = useCallback((index: number) => {
-    if (typeof window === "undefined" || isMobile) return;
+  const alignVisualToCard = useCallback(
+    (index: number) => {
+      if (typeof window === "undefined" || isMobile) return;
 
-    requestAnimationFrame(() => {
-      const card = itemRefs.current[index];
-      const visual = visualRef.current;
-      const section = sectionRef.current;
-      if (!card || !visual || !section) return;
+      requestAnimationFrame(() => {
+        const card = itemRefs.current[index];
+        const visual = visualRef.current;
+        const section = sectionRef.current;
+        if (!card || !visual || !section) return;
 
-      // Get card position relative to the section
-      const cardRect = card.getBoundingClientRect();
-      const sectionRect = section.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const sectionRect = section.getBoundingClientRect();
 
-      let stickyOffset = 0;
-      const width = window.innerWidth;
-      if (width >= 1024) {
-        stickyOffset = 310; // lg:top-32
-      } else if (width >= 768) {
-        stickyOffset = 112; // md:top-28
-      }
+        let stickyOffset = 0;
+        const width = window.innerWidth;
+        if (width >= 1024) {
+          stickyOffset = 310;
+        } else if (width >= 768) {
+          stickyOffset = 112;
+        }
 
-      const relativeY = cardRect.top - sectionRect.top;
-      const target = relativeY - stickyOffset;
+        const relativeY = cardRect.top - sectionRect.top;
+        const target = relativeY - stickyOffset;
 
-      const visualHeight = visual.offsetHeight;
-      const max = section.offsetHeight - visualHeight;
-      const clamped = Math.max(0, Math.min(target, max));
-      setVisualY(clamped);
-    });
-  }, [isMobile]);
+        const visualHeight = visual.offsetHeight;
+        const max = section.offsetHeight - visualHeight;
+        const clamped = Math.max(0, Math.min(target, max));
+        setVisualY(clamped);
+      });
+    },
+    [isMobile]
+  );
 
-  // Recalculate on resize for responsiveness
   useEffect(() => {
     if (typeof window === "undefined" || isMobile) return;
 
@@ -206,9 +199,6 @@ export default function Services() {
     return () => window.removeEventListener("resize", onResize);
   }, [alignVisualToCard, current, isMobile]);
 
-  // IntersectionObserver: observe each card and activate it when it
-  // enters the centered virtual area. Configuration required by spec:
-  // root: null, threshold: 0.25, rootMargin: "-30% 0px -30% 0px"
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -216,9 +206,8 @@ export default function Services() {
       for (const entry of entries) {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLDivElement;
-          const index = itemRefs.current.findIndex((el) => el === target);
+          const index = itemRefs.current.findIndex((element) => element === target);
           if (index !== -1) {
-            // Per instructions: call setCurrent then alignVisualToCard
             setCurrent(index);
             alignVisualToCard(index);
           }
@@ -232,18 +221,15 @@ export default function Services() {
       rootMargin: "-30% 0px -30% 0px",
     });
 
-    // Observe elements once refs are attached
-    itemRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
+    itemRefs.current.forEach((element) => {
+      if (element) observer.observe(element);
     });
 
     return () => {
       observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [services.length, isMobile]);
+  }, [alignVisualToCard, services.length]);
 
-  // Initial alignment after mount
   useEffect(() => {
     alignVisualToCard(current);
   }, [alignVisualToCard, current]);
@@ -267,8 +253,8 @@ export default function Services() {
             ? "servicios-software"
             : "servicios-ia"
       }
-      ref={(el) => {
-        itemRefs.current[index] = el;
+      ref={(element) => {
+        itemRefs.current[index] = element;
       }}
       viewport={{ amount: 0.35, once: false }}
       className={cn(
@@ -303,16 +289,16 @@ export default function Services() {
         <p className="text-black text-base md:text-lg line-clamp-2">{service.description}</p>
 
         <ul className="mt-4 space-y-2">
-          {service.features.map((f, i) => (
+          {service.features.map((feature, featureIndex) => (
             <li
-              key={i}
+              key={featureIndex}
               className={cn(
                 "flex items-center gap-3 transition-opacity duration-300",
                 index === current ? "opacity-100" : "opacity-70"
               )}
             >
               <ChevronRight className="w-4 h-4 text-black shrink-0" />
-              <span className="text-sm md:text-base text-black truncate">{f}</span>
+              <span className="text-sm md:text-base text-black truncate">{feature}</span>
             </li>
           ))}
         </ul>
@@ -331,11 +317,9 @@ export default function Services() {
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl mb-4">
             <span className="text-slate-900">{t("services.headingNormal")}</span>
-            <span style={{ color: '#2F64FF' }}>{t("services.headingAccent")}</span>
+            <span style={{ color: "#2F64FF" }}>{t("services.headingAccent")}</span>
           </h2>
-          <p className="text-lg text-black max-w-2xl mx-auto">
-            {t("services.description")}
-          </p>
+          <p className="text-lg text-black max-w-2xl mx-auto">{t("services.description")}</p>
         </div>
 
         <div className="relative">
