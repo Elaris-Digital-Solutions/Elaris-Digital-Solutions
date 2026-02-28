@@ -85,6 +85,15 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
+  /* ── Lock visual design to 1536px design width.
+     On any desktop screen, the page scales proportionally
+     so it looks identical to the 1536×864 reference screen. ── */
+  @media screen and (min-width: 1024px) {
+    html {
+      zoom: calc(100vw / 1536);
+    }
+  }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
