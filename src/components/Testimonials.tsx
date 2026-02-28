@@ -19,13 +19,9 @@ export default function Testimonials() {
 
   return (
     <section id="clientes" className="py-20 sm:py-32 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] left-[10%] w-[50%] h-[50%] bg-blue-100/50 rounded-full blur-3xl" />
-      </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{t('testimonials.headingNormal')}</span><span style={{ color: '#2F64FF' }}>{t('testimonials.headingAccent')}</span>
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto mt-4">

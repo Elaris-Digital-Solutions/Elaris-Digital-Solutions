@@ -33,8 +33,7 @@ export default function Contact() {
   return (
     <section
       id="contacto"
-      className="relative overflow-hidden py-24 sm:py-36"
-      style={{ backgroundColor: "#ffffff" }}
+      className="relative overflow-hidden py-24 sm:py-36 bg-[#F0F4FF]"
     >
       {/* NeuralNoise locked to hero colours */}
       <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">

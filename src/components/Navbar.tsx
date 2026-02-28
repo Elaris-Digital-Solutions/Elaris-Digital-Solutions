@@ -167,7 +167,7 @@ const Navbar = () => {
         products: "Productos",
         industries: "Industrias",
         standards: "Estándares",
-        clients: "Clientes",
+        clients: "Testimonios",
         contactSales: "Contacta con ventas",
         back: "Volver",
         viewWork: "Ver trabajos",
