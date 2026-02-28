@@ -1,63 +1,32 @@
-import { useEffect } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import CustomSoftware from "./pages/CustomSoftware";
 import MeetsRedirect from "./pages/MeetsRedirect";
 import NotFound from "./pages/NotFound";
-import CustomSoftware from "./pages/CustomSoftware";
-import { I18nProvider, useI18n } from "@/lib/i18n";
+import { I18nProvider } from "@/lib/i18n";
 
-const queryClient = new QueryClient();
 const sectionSlugs = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto", "proceso"] as const;
-
-const LanguageSync = () => {
-  const location = useLocation();
-  const { language, setLanguage } = useI18n();
-  useEffect(() => {
-    const nextLanguage = location.pathname.startsWith("/en") ? "en" : "es";
-    if (nextLanguage !== language) {
-      setLanguage(nextLanguage);
-    }
-  }, [language, location.pathname, setLanguage]);
-  return null;
-};
 
 const App = () => (
   <HelmetProvider>
     <I18nProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-            <LanguageSync />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/meet" element={<MeetsRedirect />} />
-              {sectionSlugs.map((slug) => (
-                <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
-              ))}
-              <Route path="/es" element={<Index />} />
-              {sectionSlugs.map((slug) => (
-                <Route key={`es-${slug}`} path={`/es/${slug}`} element={<Index />} />
-              ))}
-              <Route path="/en" element={<Index />} />
-              {sectionSlugs.map((slug) => (
-                <Route key={`en-${slug}`} path={`/en/${slug}`} element={<Index />} />
-              ))}
-              <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
-              <Route path="/es/desarrollo-software-medida" element={<CustomSoftware />} />
-              <Route path="/en/custom-software-development" element={<CustomSoftware />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/meet" element={<MeetsRedirect />} />
+          <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
+          {sectionSlugs.map((slug) => (
+            <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
+          ))}
+          <Route path="/es" element={<Index />} />
+          {sectionSlugs.map((slug) => (
+            <Route key={`es-${slug}`} path={`/es/${slug}`} element={<Index />} />
+          ))}
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </I18nProvider>
   </HelmetProvider>
 );

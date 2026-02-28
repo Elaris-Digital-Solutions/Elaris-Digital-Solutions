@@ -5,12 +5,6 @@ import { useI18n } from '@/lib/i18n';
 
 const projectConfigs = [
   {
-    slug: 'nuestroBarrio',
-    image: '/assets/nuestro-barrio-nuestra-historia.webp',
-    stack: ['React', 'Next.js', 'Tailwind'],
-    url: ''
-  },
-  {
     slug: 'karMa',
     image: '/assets/kar-ma.webp',
     stack: ['React', 'Tailwind', 'Vite'],
@@ -23,16 +17,22 @@ const projectConfigs = [
     url: 'https://papelera-latinoamericana.netlify.app'
   },
   {
+    slug: 'diegoJoyero',
+    image: '/assets/diego-joyero.webp',
+    stack: ['React', 'Tailwind', 'Netlify'],
+    url: 'https://diego-joyero.netlify.app/'
+  },
+  {
+    slug: 'alexArtesano',
+    image: '/assets/alex-artesano.png',
+    stack: ['React', 'Tailwind', 'Netlify'],
+    url: 'https://alex-artesano.netlify.app/'
+  },
+  {
     slug: 'salcedoJewels',
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
     url: 'https://salcedo-jewels.vercel.app/'
-  },
-  {
-    slug: 'petroamerica',
-    image: '/assets/petroamerica.png',
-    stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
-    url: 'https://petroamerica-demo.netlify.app/'
   }
 ] as const;
 

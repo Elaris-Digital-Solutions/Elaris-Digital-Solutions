@@ -120,6 +120,14 @@ const SyntheticHero = ({
           0.1,
         );
 
+        if (consoleRef.current) {
+          tl.to(
+            consoleRef.current,
+            { autoAlpha: 1, y: 0, duration: 0.5 },
+            "-=0.55",
+          );
+        }
+
         if (ctaRef.current) {
           tl.to(
             ctaRef.current,
@@ -154,9 +162,8 @@ const SyntheticHero = ({
         />
       </div>
 
-
       <div className="relative z-10 flex flex-col items-center text-center px-6">
-        <div ref={badgeWrapperRef} data-hero-badge>
+        <div ref={badgeWrapperRef}>
           <Badge className="mb-6 bg-white/80 hover:bg-white/90 text-[#2F64FF] backdrop-blur-md border border-white/40 uppercase tracking-[0.3em] font-medium flex items-center gap-2 px-4 py-1.5">
             <span className="text-[10px] font-light tracking-[0.18em] text-[#2F64FF]/80">
               {badgeLabel}
@@ -170,10 +177,33 @@ const SyntheticHero = ({
 
         <h1
           ref={headingRef}
-          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-[#071540] mb-10"
+          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-[#071540] mb-6"
         >
           {title}
         </h1>
+
+        <div
+          ref={consoleRef}
+          className="w-full max-w-2xl mx-auto mb-10"
+        >
+          <div className="rounded-2xl border border-white/30 bg-white/70 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden">
+            <div className="flex items-center gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FF4858]/80 shadow-sm" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FFC961]/80 shadow-sm" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80 shadow-sm" />
+            </div>
+            <TypingConsole
+              phrases={consolePhrases}
+              loop={true}
+              prefix=">"
+              typingSpeed={60}
+              deletingSpeed={30}
+              pauseDelay={1500}
+              className="text-[#071540]/95"
+              cursorClassName="bg-[#2F64FF]"
+            />
+          </div>
+        </div>
 
         <div
           ref={ctaRef}
@@ -182,8 +212,8 @@ const SyntheticHero = ({
           {ctaButtons.map((button, index) => {
             const isPrimary = button.primary ?? index === 0;
             const classes = isPrimary
-              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-[#2F64FF]/85 hover:bg-[#2F64FF]/75 text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-all duration-300 cursor-pointer"
-              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 text-[#2F64FF] hover:bg-white/10 hover:text-[#2F64FF] backdrop-blur-lg transition-all duration-300 cursor-pointer";
+              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-[#2F64FF]/85 hover:bg-[#2F64FF]/75 text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-[background-color,box-shadow] duration-300 cursor-pointer"
+              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 text-[#2F64FF] hover:bg-white/10 hover:text-[#2F64FF] backdrop-blur-lg transition-[background-color,color] duration-300 cursor-pointer";
 
             if (button.href) {
               return (

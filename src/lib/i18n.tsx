@@ -1,53 +1,17 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, type ReactNode } from "react";
 import es from "@/locales/es.json";
-import en from "@/locales/en.json";
-
-type Language = "es" | "en";
 type TranslationPrimitive = string | number | boolean | null;
 type TranslationValue = TranslationPrimitive | TranslationValue[] | { [key: string]: TranslationValue };
 type TranslationParams = Record<string, string | number>;
 
 type I18nContextValue = {
-  language: Language;
-  setLanguage: (lang: Language) => void;
   t: (key: string, params?: TranslationParams) => string;
   tArray: (key: string) => string[];
 };
 
-const dictionaries: Record<Language, TranslationValue> = {
-  es,
-  en,
-};
-
-const STORAGE_KEY = "elaris-lang";
-
-const getLanguageFromPathname = (pathname?: string): Language | null => {
-  if (typeof pathname !== "string") {
-    return null;
-  }
-  if (pathname === "/en" || pathname.startsWith("/en/")) {
-    return "en";
-  }
-  if (pathname === "/es" || pathname.startsWith("/es/")) {
-    return "es";
-  }
-  return null;
-};
-
-const getInitialLanguage = (): Language => {
-  if (typeof window === "undefined") {
-    return "es";
-  }
-  const pathnameLang = getLanguageFromPathname(window.location.pathname);
-  if (pathnameLang) {
-    return pathnameLang;
-  }
-  return "es";
-};
-
-const resolveValue = (language: Language, key: string): TranslationValue | undefined => {
+const resolveValue = (key: string): TranslationValue | undefined => {
   const segments = key.split(".");
-  let current: TranslationValue | undefined = dictionaries[language];
+  let current: TranslationValue | undefined = es as TranslationValue;
 
   for (const segment of segments) {
     if (current == null) {
@@ -85,24 +49,15 @@ const formatValue = (value: string, params?: TranslationParams) => {
 const I18nContext = createContext<I18nContextValue | undefined>(undefined);
 
 export const I18nProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>(() => getInitialLanguage());
-
   useEffect(() => {
     if (typeof document !== "undefined") {
-      document.documentElement.lang = language;
+      document.documentElement.lang = "es";
     }
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(STORAGE_KEY, language);
-    }
-  }, [language]);
-
-  const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
   }, []);
 
   const translate = useCallback(
-    (key: string, params?: TranslationParams) => {
-      const value = resolveValue(language, key);
+    (key: string, params?: TranslationParams): string => {
+      const value = resolveValue(key);
       if (typeof value === "string") {
         return formatValue(value, params);
       }
@@ -111,28 +66,26 @@ export const I18nProvider = ({ children }: { children: ReactNode }) => {
       }
       return key;
     },
-    [language]
+    []
   );
 
   const translateArray = useCallback(
-    (key: string) => {
-      const value = resolveValue(language, key);
+    (key: string): string[] => {
+      const value = resolveValue(key);
       if (Array.isArray(value)) {
         return value.map((item) => String(item));
       }
       return [];
     },
-    [language]
+    []
   );
 
   const contextValue = useMemo<I18nContextValue>(
     () => ({
-      language,
-      setLanguage,
       t: translate,
       tArray: translateArray,
     }),
-    [language, setLanguage, translate, translateArray]
+    [translate, translateArray]
   );
 
   return <I18nContext.Provider value={contextValue}>{children}</I18nContext.Provider>;
@@ -146,4 +99,4 @@ export const useI18n = () => {
   return ctx;
 };
 
-export type { Language };
+

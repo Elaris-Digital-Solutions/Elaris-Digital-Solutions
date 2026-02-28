@@ -129,7 +129,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Column (replaces previous "Legal") */}
-          <div key="Contacto" className="lg:-ml-8 xl:-ml-12">
+          <div key="Contacto">
             <h3 className="font-semibold mb-4">{contactSection.title}</h3>
             <ul className="space-y-2">
               <li>
@@ -175,9 +175,6 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-white/80 text-sm">
               {t("footer.bottom.rights", { year: currentYear })}
-            </p>
-            <p className="text-white/80 text-sm">
-              {t("footer.bottom.tagline")}
             </p>
           </div>
         </div>

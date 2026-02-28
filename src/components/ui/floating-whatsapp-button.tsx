@@ -31,106 +31,94 @@ const FloatingWhatsappButton: React.FC = () => {
       const customEvent = event as CustomEvent<{ open?: boolean }>;
       setIsHiddenByMobileMenu(Boolean(customEvent.detail?.open));
     };
-
     window.addEventListener("elaris:mobile-menu-visibility", handler as EventListener);
-    return () => {
-      window.removeEventListener("elaris:mobile-menu-visibility", handler as EventListener);
-    };
+    return () => window.removeEventListener("elaris:mobile-menu-visibility", handler as EventListener);
   }, []);
 
   React.useEffect(() => {
-    if (isHiddenByMobileMenu) {
-      setIsWidgetOpen(false);
-    }
+    if (isHiddenByMobileMenu) setIsWidgetOpen(false);
   }, [isHiddenByMobileMenu]);
 
-  // Close when clicking outside the widget
   React.useEffect(() => {
     if (!isWidgetOpen) return;
-    const onMouseDown = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setIsWidgetOpen(false);
       }
     };
-    document.addEventListener("mousedown", onMouseDown);
-    return () => document.removeEventListener("mousedown", onMouseDown);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isWidgetOpen]);
 
   const trackLead = () => {
-    try {
-      (window as any).fbq("track", "Lead");
-    } catch {
-      // no-op
-    }
+    try { (window as any).fbq("track", "Lead"); } catch { /* no-op */ }
   };
 
-  const containerVisibilityClass = isHiddenByMobileMenu
+  const visibilityClass = isHiddenByMobileMenu
     ? "translate-y-3 scale-95 opacity-0 pointer-events-none"
     : "translate-y-0 scale-100 opacity-100";
 
   return (
-    <div ref={containerRef} className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-[60] transition-all duration-300 ${containerVisibilityClass}`}>
-      <div className="flex w-[min(84vw,300px)] flex-col items-end gap-2.5 md:w-[300px]">
-        {isWidgetOpen && (
-          <div className="w-full overflow-hidden rounded-2xl border border-[#25D366]/25 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
-            <div className="flex items-center justify-between bg-[#07983f] px-3.5 py-2.5 text-white">
-              <div className="flex items-center gap-2.5">
-                <div className="relative h-10 w-10 rounded-full border border-white/80 bg-black/30">
-                  <img
-                    src="/assets/sergio-herrera-jave.png"
-                    alt={t("floatingWhatsapp.agentName")}
-                    className="h-full w-full rounded-full object-cover"
-                    loading="lazy"
-                  />
-                  <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#07983f] bg-[#30d65e]" />
-                </div>
-                <div>
-                  <p className="text-[0.92rem] font-semibold leading-tight">{t("floatingWhatsapp.agentName")}</p>
-                  <p className="text-[0.82rem] text-white/90">{t("floatingWhatsapp.agentStatus")}</p>
-                </div>
+    <div
+      ref={containerRef}
+      className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-40 flex w-[min(84vw,300px)] flex-col items-end gap-2.5 md:w-[300px] transition-all duration-300 ${visibilityClass}`}
+    >
+      {isWidgetOpen && (
+        <div className="w-full overflow-hidden rounded-2xl border border-[#25D366]/25 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
+          <div className="flex items-center justify-between bg-[#07983f] px-3.5 py-2.5 text-white">
+            <div className="flex items-center gap-2.5">
+              <div className="relative h-10 w-10 rounded-full border border-white/80 bg-black/30">
+                <img
+                  src="/assets/sergio-herrera-jave.png"
+                  alt={t("floatingWhatsapp.agentName")}
+                  className="h-full w-full rounded-full object-cover"
+                  loading="lazy"
+                />
+                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#07983f] bg-[#30d65e]" />
               </div>
-
-              <button
-                type="button"
-                aria-label={t("floatingWhatsapp.closeLabel")}
-                onClick={() => setIsWidgetOpen(false)}
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/30"
-              >
-                <X className="h-4 w-4" />
-              </button>
+              <div>
+                <p className="text-[0.92rem] font-semibold leading-tight">{t("floatingWhatsapp.agentName")}</p>
+                <p className="text-[0.82rem] text-white/90">{t("floatingWhatsapp.agentStatus")}</p>
+              </div>
             </div>
-
-            <div className="space-y-2.5 p-3.5">
-              <p className="rounded-xl bg-slate-100 p-3 text-[0.93rem] leading-relaxed text-slate-800">
-                {t("floatingWhatsapp.welcomeMessage")}
-              </p>
-
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("floatingWhatsapp.ariaLabel")}
-                onClick={trackLead}
-                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#18c759] px-4 text-[1rem] font-semibold text-white shadow-[0_10px_24px_rgba(24,199,89,0.3)] transition-all duration-300 hover:bg-[#14b44f]"
-              >
-                <WhatsAppGlyph className="h-5 w-5" />
-                {t("floatingWhatsapp.ctaLabel")}
-              </a>
-            </div>
+            <button
+              type="button"
+              aria-label={t("floatingWhatsapp.closeLabel")}
+              onClick={() => setIsWidgetOpen(false)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/30"
+            >
+              <X className="h-4 w-4" />
+            </button>
           </div>
-        )}
-
-        <button
-          type="button"
-          aria-label={t("floatingWhatsapp.openLabel")}
-          onClick={() => setIsWidgetOpen((prev) => !prev)}
-          className="inline-flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] text-white shadow-[0_16px_36px_rgba(37,211,102,0.42)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba56] hover:shadow-[0_22px_56px_rgba(37,211,102,0.5)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 md:h-14 md:w-14"
-        >
-          <WhatsAppGlyph className="h-6 w-6 md:h-7 md:w-7" />
-        </button>
-      </div>
+          <div className="space-y-2.5 p-3.5">
+            <p className="rounded-xl bg-slate-100 p-3 text-[0.93rem] leading-relaxed text-slate-800">
+              {t("floatingWhatsapp.welcomeMessage")}
+            </p>
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("floatingWhatsapp.ariaLabel")}
+              onClick={trackLead}
+              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#18c759] px-4 text-[1rem] font-semibold text-white shadow-[0_10px_24px_rgba(24,199,89,0.3)] transition-all duration-300 hover:bg-[#14b44f]"
+            >
+              <WhatsAppGlyph className="h-5 w-5" />
+              {t("floatingWhatsapp.ctaLabel")}
+            </a>
+          </div>
+        </div>
+      )}
+      <button
+        type="button"
+        aria-label={t("floatingWhatsapp.openLabel")}
+        onClick={() => setIsWidgetOpen((prev) => !prev)}
+        className="inline-flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] text-white shadow-[0_16px_36px_rgba(37,211,102,0.42)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba56] hover:shadow-[0_22px_56px_rgba(37,211,102,0.5)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 md:h-14 md:w-14"
+      >
+        <WhatsAppGlyph className="h-6 w-6 md:h-7 md:w-7" />
+      </button>
     </div>
   );
 };
 
 export default FloatingWhatsappButton;
+

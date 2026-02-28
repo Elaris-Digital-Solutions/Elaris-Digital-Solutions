@@ -1,19 +1,12 @@
 import { ChevronDown, ChevronLeft, ChevronRight, Menu, X, Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, ArrowRight, HeartPulse, GraduationCap, Truck, Landmark, Building2, Rocket, Briefcase, Factory, Link2, Bot, GitBranch, Users, Palette, Gem, FileText, Printer, UtensilsCrossed, Wrench, Plane, Film, Hotel, ShoppingCart, Cpu } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 type DesktopMenuKey = "services" | "products" | "industries" | null;
 type MobileMenuView = "root" | "services" | "products" | "industries";
-
-const getLanguageBasePath = (pathname: string) => {
-  const segments = pathname.split("/").filter(Boolean);
-  if (segments[0] === "en") return "/en";
-  if (segments[0] === "es") return "/es";
-  return "/";
-};
 
 const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(() => {
@@ -28,10 +21,9 @@ const Navbar = () => {
 
   const closeTimerRef = useRef<number | null>(null);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { language, t } = useI18n();
+  const { t } = useI18n();
 
-  const basePath = useMemo(() => getLanguageBasePath(location.pathname), [location.pathname]);
+  const basePath = "/";
 
   const clearCloseTimer = () => {
     if (closeTimerRef.current) {
@@ -151,8 +143,7 @@ const Navbar = () => {
   const logoSrc = "/assets/ElarisLogo.png";
 
   const copy = useMemo(() => {
-    if (language === "es") {
-      return {
+    return {
         services: "Servicios",
         products: "Productos",
         industries: "Industrias",
@@ -319,226 +310,34 @@ const Navbar = () => {
           "PYMES",
           "Tecnología",
         ],
-      };
-    }
-
-    return {
-      services: "Services",
-      products: "Products",
-      industries: "Industries",
-      standards: "Standards",
-      clients: "Clients",
-      contactSales: "Contact sales",
-      back: "Back",
-      viewWork: "View Work",
-      mobileLeadTitle: "Ready to scale your digital platform?",
-      mobileLeadText: "Talk to our team and get a clear roadmap for delivery.",
-      servicesCategories: [
-        {
-          title: "High-Performance Digital Platforms",
-          items: [
-            {
-              title: "Custom Software Development",
-              description: "Tailored solutions designed from the ground up.",
-              href: "/en/custom-software-development",
-            },
-            {
-              title: "Digital Platform Architecture",
-              description: "Scalable and robust architecture design.",
-            },
-            {
-              title: "Legacy System Modernization",
-              description: "Upgrade outdated software to modern technologies.",
-            },
-            {
-              title: "High-Performance Websites & Web Platforms",
-              description: "Corporate and high-functionality digital presence.",
-            },
-          ],
-        },
-        {
-          title: "AI & Intelligent Automation",
-          items: [
-            {
-              title: "LLM Implementation in Workflows",
-              description: "Embed language models into real operational processes.",
-            },
-            {
-              title: "Conversational Assistants & Scheduling",
-              description: "AI for customer support and appointment management.",
-            },
-            {
-              title: "Predictive Models & Data Intelligence",
-              description: "Advanced analytics for better decision-making.",
-            },
-            {
-              title: "Intelligent Document Processing",
-              description: "Automated classification and extraction of key data.",
-            },
-          ],
-        },
-        {
-          title: "Enterprise Ecosystem Integration",
-          items: [
-            {
-              title: "Custom Connectors and APIs",
-              description: "Seamless communication between platforms.",
-            },
-            {
-              title: "ERP, SAP and CRM Integrations",
-              description: "Unify transactional and commercial core systems.",
-            },
-            {
-              title: "Digital Workflow Orchestration",
-              description: "Cross-department automation without friction.",
-            },
-            {
-              title: "Data Migration and Synchronization",
-              description: "Preserve data integrity across systems.",
-            },
-          ],
-        },
-        {
-          title: "Operations Management & Industry 4.0",
-          items: [
-            {
-              title: "CMMS Implementation",
-              description: "Computerized maintenance management deployment.",
-            },
-            {
-              title: "Production, Inventory & Logistics Control",
-              description: "Software for logistics and manufacturing operations.",
-            },
-            {
-              title: "Traceability and Operational Control",
-              description: "Real-time tracking of assets and operations.",
-            },
-            {
-              title: "Industrial Process Digitalization",
-              description: "Move from spreadsheets to digital plant operations.",
-            },
-          ],
-        },
-        {
-          title: "E-commerce & Transactional Solutions",
-          items: [
-            {
-              title: "Custom E-commerce",
-              description: "Online stores built for complex requirements.",
-            },
-            {
-              title: "Payment Systems and Logistics Integrations",
-              description: "Integrate gateways, couriers and transaction flows.",
-            },
-            {
-              title: "Subscription Platforms and Commercial Management",
-              description: "Recurring-revenue business models and operations.",
-            },
-          ],
-        },
-        {
-          title: "Enterprise Digital Transformation",
-          items: [
-            {
-              title: "Digitalization Diagnosis and Roadmap",
-              description: "Strategic roadmap for enterprise transformation.",
-            },
-            {
-              title: "Architecture and Infrastructure Audits",
-              description: "Technical review of current systems.",
-            },
-            {
-              title: "IT Cost and Process Optimization",
-              description: "Operational efficiency driven by technology.",
-            },
-          ],
-        },
-      ],
-      productsItems: [
-        "Pictolink — Accessible communication platform (Live)",
-        "LeIA — AI-driven enterprise assistant (Beta)",
-        "OpsPilot — Workflow automation for operations teams (Coming soon)",
-      ],
-      productsHighlightTitle: "Explore our product ecosystem",
-      productsHighlightText: "From communication to AI operations, discover solutions built for scale.",
-      productsHighlightButton: "View all products",
-      badges: {
-        live: "Live",
-        beta: "Beta",
-        soon: "Coming soon",
-      },
-      industriesItems: [
-        "Education",
-        "Social Projects",
-        "Culture",
-        "Jewelry",
-        "Stationery",
-        "Print Shops",
-        "Retail",
-        "Logistics",
-        "Restaurants",
-        "Private Clinics",
-        "Industry",
-        "Manufacturing",
-        "Corporate Enterprise",
-        "Virtual Aviation",
-        "Entertainment",
-        "Hospitality",
-        "E-commerce",
-        "Startups",
-        "SMEs",
-        "Technology",
-      ],
     };
-  }, [language]);
+  }, []);
 
   const mobileServicesCategories = copy.servicesCategories;
   const mobileProductItems = copy.productsItems;
   const mobileIndustryItems = copy.industriesItems;
   const productEntries = useMemo(
-    () =>
-      language === "es"
-        ? [
-          {
-            name: "Pictolink",
-            description: "Plataforma de comunicación accesible",
-            status: copy.badges.live,
-            tone: "live" as const,
-          },
-          {
-            name: "LeIA",
-            description: "Asistente empresarial impulsado por IA",
-            status: copy.badges.beta,
-            tone: "beta" as const,
-          },
-          {
-            name: "OpsPilot",
-            description: "Automatización de flujos operativos",
-            status: copy.badges.soon,
-            tone: "soon" as const,
-          },
-        ]
-        : [
-          {
-            name: "Pictolink",
-            description: "Accessible communication platform",
-            status: copy.badges.live,
-            tone: "live" as const,
-          },
-          {
-            name: "LeIA",
-            description: "AI-driven enterprise assistant",
-            status: copy.badges.beta,
-            tone: "beta" as const,
-          },
-          {
-            name: "OpsPilot",
-            description: "Workflow automation for operations teams",
-            status: copy.badges.soon,
-            tone: "soon" as const,
-          },
-        ],
-    [copy.badges.beta, copy.badges.live, copy.badges.soon, language]
+    () => [
+      {
+        name: "Pictolink",
+        description: "Plataforma de comunicación accesible",
+        status: copy.badges.live,
+        tone: "live" as const,
+      },
+      {
+        name: "LeIA",
+        description: "Asistente empresarial impulsado por IA",
+        status: copy.badges.beta,
+        tone: "beta" as const,
+      },
+      {
+        name: "OpsPilot",
+        description: "Automatización de flujos operativos",
+        status: copy.badges.soon,
+        tone: "soon" as const,
+      },
+    ],
+    [copy.badges.beta, copy.badges.live, copy.badges.soon]
   );
 
   const mobilePanelItemClass =
@@ -561,9 +360,7 @@ const Navbar = () => {
           <div className={cn("pointer-events-auto overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
             {openDesktopMenu === "services" && (() => {
               const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
-              const ctaText = language === "es"
-                ? { title: "¿Necesitas una solución a medida?", sub: "Hablemos y diseñamos la arquitectura ideal para tu negocio.", btn: "Agenda una llamada" }
-                : { title: "Need a tailored solution?", sub: "Let's talk and design the right architecture for your business.", btn: "Book a call" };
+              const ctaText = { title: "¿Necesitas una solución a medida?", sub: "Hablemos y diseñamos la arquitectura ideal para tu negocio.", btn: "Agenda una llamada" };
               return (
                 <div className="space-y-4">
                   <div className="grid grid-cols-3 gap-3">
@@ -632,9 +429,7 @@ const Navbar = () => {
                 LeIA: Bot,
                 OpsPilot: GitBranch,
               };
-              const ctaProducts = language === "es"
-                ? { title: "El ecosistema de productos Elaris crece constantemente.", btn: "Ver todos los productos" }
-                : { title: "The Elaris product ecosystem keeps growing.", btn: "View all products" };
+              const ctaProducts = { title: "El ecosistema de productos Elaris crece constantemente.", btn: "Ver todos los productos" };
               return (
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
@@ -686,9 +481,7 @@ const Navbar = () => {
                 Building2, Plane, Film, Hotel,
                 ShoppingCart, Rocket, Briefcase, Cpu,
               ];
-              const ctaIndustries = language === "es"
-                ? { title: "¿Tu sector no aparece?", sub: "Trabajamos con cualquier industria. Contáctanos.", btn: "Hablar con un experto" }
-                : { title: "Don't see your sector?", sub: "We work across any industry. Get in touch.", btn: "Talk to an expert" };
+              const ctaIndustries = { title: "¿Tu sector no aparece?", sub: "Trabajamos con cualquier industria. Contáctanos.", btn: "Hablar con un experto" };
               return (
                 <div className="space-y-4">
                   <div className="grid grid-cols-4 gap-2">
@@ -816,7 +609,7 @@ const Navbar = () => {
           ) : (
             <button
               type="button"
-              aria-label={language === "es" ? "Abrir menú de navegación" : "Toggle navigation menu"}
+              aria-label="Abrir menú de navegación"
               onClick={() => {
                 setIsMobileMenuOpen((prev) => {
                   const next = !prev;

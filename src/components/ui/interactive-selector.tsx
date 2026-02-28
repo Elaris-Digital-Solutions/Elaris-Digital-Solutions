@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
+import { useInView } from "framer-motion";
 import {
 	AppWindow,
 	Bot,
@@ -10,7 +11,6 @@ import {
 	ShoppingBag,
 	Smartphone,
 	ExternalLink,
-	Users,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
@@ -23,12 +23,7 @@ interface Option {
 }
 
 const projectConfigs = [
-	{
-		slug: "nuestroBarrio",
-		image: "/assets/nuestro-barrio-nuestra-historia.webp",
-		Icon: Users,
-		url: "",
-	},
+
 	{
 		slug: "karMa",
 		image: "/assets/kar-ma.webp",
@@ -42,24 +37,31 @@ const projectConfigs = [
 		url: "https://papelera-latinoamericana.netlify.app",
 	},
 	{
+		slug: "diegoJoyero",
+		image: "/assets/diego-joyero.webp",
+		Icon: ShoppingBag,
+		url: "https://diego-joyero.netlify.app/",
+	},
+	{
+		slug: "alexArtesano",
+		image: "/assets/alex-artesano.png",
+		Icon: AppWindow,
+		url: "https://alex-artesano.netlify.app/",
+	},
+	{
 		slug: "salcedoJewels",
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,
-		url: "https://salcedojewels.com/",
-	},
-	{
-		slug: "petroamerica",
-		image: "/assets/petroamerica.png",
-		Icon: AppWindow,
-		url: "https://petroamerica-demo.netlify.app/",
+		url: "https://salcedo-jewels.vercel.app/",
 	},
 ] as const;
 
 const InteractiveSelector = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [animatedOptions, setAnimatedOptions] = useState<number[]>([]);
-	const [headerVisible, setHeaderVisible] = useState(false);
 	const { t } = useI18n();
+	const sectionRef = useRef<HTMLElement>(null);
+	const headerVisible = useInView(sectionRef, { once: true, margin: "-80px 0px" });
 
 	const options = useMemo<Option[]>(
 		() =>
@@ -74,10 +76,7 @@ const InteractiveSelector = () => {
 	);
 
 	useEffect(() => {
-		setHeaderVisible(true);
-	}, []);
-
-	useEffect(() => {
+		if (!headerVisible) return;
 		const timers = options.map((_, index) =>
 			window.setTimeout(() => {
 				setAnimatedOptions((prev) =>
@@ -89,7 +88,7 @@ const InteractiveSelector = () => {
 		return () => {
 			timers.forEach((timer) => window.clearTimeout(timer));
 		};
-	}, [options]);
+	}, [headerVisible, options]);
 
 	const handleOptionClick = (index: number) => {
 		if (index !== activeIndex) {
@@ -104,7 +103,7 @@ const InteractiveSelector = () => {
 	};
 
 	return (
-		<section className="relative flex w-full flex-col items-center justify-center overflow-visible bg-transparent px-4 py-12 text-slate-900">
+		<section ref={sectionRef} className="relative flex w-full flex-col items-center justify-center overflow-visible bg-transparent px-4 py-12 text-slate-900">
 			<div className="w-full max-w-4xl text-center">
 				<h2
 					className="text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl"
