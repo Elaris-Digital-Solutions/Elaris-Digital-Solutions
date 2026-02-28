@@ -156,20 +156,20 @@ export default function CustomSoftwareHero() {
         <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-violet-400/[0.04] rounded-full blur-2xl transform-gpu" />
       </div>
 
-      <div className="container mx-auto px-6 max-w-7xl py-16 relative z-10">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-[auto_auto] gap-8 lg:gap-x-16 xl:gap-x-24 lg:gap-y-10 lg:items-center">
+      <div className="container mx-auto px-4 xl:px-6 max-w-7xl py-6 xl:py-8 2xl:py-16 relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:grid-rows-[auto_auto] gap-6 lg:gap-x-10 xl:gap-x-14 2xl:gap-x-24 lg:gap-y-4 2xl:gap-y-10 lg:items-center">
 
           {/* ── [1] Badge + Title ── */}
           <motion.div
             {...fadeUp}
             className="lg:col-start-1 lg:row-start-1 lg:self-end"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-xs font-bold tracking-[0.12em] uppercase mb-8 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 xl:px-4 xl:py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-[10px] xl:text-xs font-bold tracking-[0.12em] uppercase mb-3 xl:mb-4 2xl:mb-8 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
               Desarrollo de Software a Medida
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12]">
+            <h1 className="text-4xl md:text-5xl lg:text-[2.6rem] xl:text-[2.8rem] 2xl:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12]">
               Desarrollamos software
               <span className="font-semibold text-[#2F64FF]"> a medida</span>
               <span className="block mt-1">que impulsa tu crecimiento</span>
@@ -179,7 +179,7 @@ export default function CustomSoftwareHero() {
           {/* ── [2] Mockup ── */}
           <motion.div
             {...fadeRight}
-            className="relative mt-2 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:row-span-2"
+            className="relative mt-2 lg:mt-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:scale-90 xl:scale-95 2xl:scale-100 origin-right"
           >
             <DashboardMock />
 
@@ -208,7 +208,7 @@ export default function CustomSoftwareHero() {
             {...fadeUpSub}
             className="lg:col-start-1 lg:row-start-2 lg:self-start"
           >
-            <p className="text-lg text-slate-600 font-light leading-relaxed mb-10 max-w-[30rem]">
+            <p className="text-sm xl:text-base 2xl:text-lg text-slate-600 font-light leading-relaxed mb-4 xl:mb-5 2xl:mb-10 max-w-[30rem]">
               Creamos soluciones tecnológicas personalizadas que se adaptan a tus
               procesos, integran inteligencia artificial y escalan junto con tu
               operación empresarial&nbsp;— sin fricciones.
@@ -216,7 +216,7 @@ export default function CustomSoftwareHero() {
 
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#2F64FF] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-[#2F64FF] text-white px-6 py-3 xl:px-7 xl:py-3.5 2xl:px-8 2xl:py-4 rounded-full font-semibold text-sm xl:text-sm 2xl:text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
             >
               Agendar consultoría
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
