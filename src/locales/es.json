@@ -303,6 +303,199 @@
     "openLabel": "Abrir asistente de WhatsApp",
     "closeLabel": "Cerrar asistente de WhatsApp"
   },
+  "customSoftware": {
+    "hero": {
+      "title": "Desarrollo de Software a Medida que Escala tu Negocio",
+      "description": "Sistemas robustos y automatización de procesos complejos. Construimos bases tecnológicas sólidas, eliminamos cuellos de botella y transformamos operaciones manuales en software corporativo escalable que lidera el mercado.",
+      "badgeLabel": "Servicio Core",
+      "badgeText": "Ingeniería a Medida",
+      "ctas": {
+        "primary": "Agendar Consultoría Gratuita"
+      },
+      "consolePhrases": [
+        "Analizando requerimientos de negocio...",
+        "Diseñando arquitectura escalable...",
+        "Desarrollando solución core...",
+        "Optimizando rendimiento y seguridad...",
+        "Automatizando flujos operativos..."
+      ],
+      "benefits": [
+        "Código 100% tuyo",
+        "Arquitectura Cloud Native",
+        "Integración Empresarial"
+      ]
+    },
+    "problems": {
+      "titleNormal": "El Costo Oculto del ",
+      "titleAccent": "Software Genérico",
+      "items": [
+        {
+          "title": "Procesos Manuales Lentos",
+          "description": "Tu equipo invierte horas en tareas repetitivas y copy-paste entre múltiples plataformas no conectadas o planillas de cálculo, incrementando criticamente el riesgo de error humano."
+        },
+        {
+          "title": "Dependencia y Costos (SaaS)",
+          "description": "Pagas facturas recurrentes y costosas por licencias donde no utilizas el 80% de los módulos y, con cada nuevo usuario, el presupuesto de tecnología se castiga."
+        },
+        {
+          "title": "Cuellos de Botella Técnicos",
+          "description": "Tus ventas crecen pero la operación está limitada. Tu software central se cuelga, no se integra con tu contabilidad y bloquea la capacidad de escalar con eficiencia."
+        }
+      ]
+    },
+    "solution": {
+      "titleNormal": "Nuestra ",
+      "titleAccent": "Solución",
+      "description": "Basta de adaptar tu empresa y procesos a los límites de una herramienta comercial genérica. Mediante ingeniería moderna, diseñamos y construimos plataformas hechas exactamente a tu medida, respetando la lógica real de tu negocio y pensadas para crecer contigo sin ataduras."
+    },
+    "benefits": {
+      "titleNormal": "Beneficios ",
+      "titleAccent": "Clave",
+      "items": [
+        {
+          "title": "Escalabilidad Total",
+          "description": "Sistemas preparados para multiplicar su capacidad transaccional sin fricción ni rediseños catastróficos."
+        },
+        {
+          "title": "Automatización Real",
+          "description": "Incrementamos el ROI operativo digitalizando tareas críticas de manera desatendida y predecible."
+        },
+        {
+          "title": "Propiedad Intelectual",
+          "description": "Tu infraestructura es tuya, segura, privada, y sin depender del licenciamiento a largo plazo."
+        },
+        {
+          "title": "Integración Perfecta",
+          "description": "Sincronizamos tu nuevo núcleo con SAP, Salesforce, CRMs o el ecosistema de APIs de tu industria."
+        }
+      ]
+    },
+    "types": {
+      "titleNormal": "Lo que ",
+      "titleAccent": "Construimos",
+      "items": [
+        {
+          "title": "Sistemas Empresariales (ERP / CRM propios)",
+          "description": "Gestión centralizada para ventas, inventario y recursos."
+        },
+        {
+          "title": "Plataformas Web y Dashboards",
+          "description": "Interfaces potentes para análisis en tiempo real y KPI."
+        },
+        {
+          "title": "Productos Digitales (SaaS) y Plataformas Multi-tenant",
+          "description": "Lleva tu modelo de negocio al formato de software cloud."
+        },
+        {
+          "title": "MVPs para Startups Tecnológicas",
+          "description": "Lanzamiento ágil con bases fuertes para rondas de inversión."
+        },
+        {
+          "title": "Sistemas de Integración API, ETL e IA",
+          "description": "Conexión de sistemas legado con tecnología e IA de última generación."
+        }
+      ]
+    },
+    "process": {
+      "titleNormal": "Nuestro ",
+      "titleAccent": "Proceso",
+      "steps": [
+        {
+          "name": "Discovery y Arquitectura",
+          "desc": "Definimos flujos operacionales, arquitectura de datos y requerimientos no funcionales."
+        },
+        {
+          "name": "Diseño UX/UI",
+          "desc": "Prototipado de interfaces predictivas enfocadas en la usabilidad del operario y cliente final."
+        },
+        {
+          "name": "Desarrollo Ágil",
+          "desc": "Ingeniería de software en sprints planificados y versionados con transparencia total."
+        },
+        {
+          "name": "QA & Testing",
+          "desc": "Tests automatizados, de vulnerabilidad, estrés de carga y comprobación funcional."
+        },
+        {
+          "name": "Despliegue (Deploy)",
+          "desc": "Configuración en entornos cloud seguros (AWS, Azure) con pipelines CI/CD."
+        },
+        {
+          "name": "Mantenimiento y Evolución",
+          "desc": "Monitoreo constante y SLA respaldado para dar continuidad a la operación."
+        }
+      ]
+    },
+    "tech": {
+      "titleNormal": "Nuestro ",
+      "titleAccent": "Stack Tecnológico",
+      "tags": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "PostgreSQL",
+        "MongoDB",
+        "Docker",
+        "Redis",
+        "Figma",
+        "Tailwind CSS"
+      ]
+    },
+    "differentials": {
+      "titleNormal": "¿Por qué ",
+      "titleAccent": "ELARIS?",
+      "items": [
+        "Enfoque en ROI B2B desde el día 1",
+        "Verdadera Ingeniería de software, no solo templates",
+        "Diseño UX/UI de nivel mundial integrado al código",
+        "Transparencia radical en nuestros estándares"
+      ]
+    },
+    "useCases": {
+      "titleNormal": "Casos de ",
+      "titleAccent": "Uso",
+      "items": [
+        {
+          "title": "Portal de Clientes Autogestionado",
+          "desc": "Automatiza la recepción de pedidos B2B y seguimientos en un entorno unificado 24/7."
+        },
+        {
+          "title": "Facturación y Core Operativo",
+          "desc": "Sistemas que administran el 100% de la actividad transaccional interna sin pérdida de datos."
+        }
+      ]
+    },
+    "faq": {
+      "titleNormal": "Preguntas ",
+      "titleAccent": "Frecuentes",
+      "items": [
+        {
+          "q": "¿Cuánto tiempo toma desarrollar un software a medida?",
+          "a": "Depende de la complejidad funcional. Un MVP toma en promedio de 8 a 12 semanas, mientras que plataformas corporativas pueden abarcar de 4 a 6 meses. Trabajamos en iteraciones para generar valor desde el primer mes."
+        },
+        {
+          "q": "¿Realmente necesito software a medida o me sirve un SaaS?",
+          "a": "Si un SaaS cubre el 90% de un proceso estándar, es útil. Pero si limita tus ventajas competitivas, tu regla de negocio o involucra altísimos costos y fricciones en escala, el desarrollo propio es estrictamente superior en ROI."
+        },
+        {
+          "q": "¿Quién es el dueño del código fuente?",
+          "a": "Tú, absolutamente. Con la entrega y consolidación del sistema, licenciamos la propiedad intelectual hacia el cliente sin regalías asociadas."
+        },
+        {
+          "q": "¿Ofrecen soporte técnico y mantenimiento post-lanzamiento?",
+          "a": "Sí, nuestros estándares contemplan Service Level Agreements (SLA) para monitoreo activo, parches de seguridad y acompañamiento técnico del área operativa."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Desarrollo de Software a Medida | Sistemas Escalables Empresariales - ELARIS",
+      "description": "Agencia de desarrollo de software a medida, aplicaciones empresariales, MVPs y SaaS. Ingenieros y diseñadores creando tecnología confiable para escalar tu negocio en Miami, LATAM y Europa.",
+      "keywords": "desarrollo de software a medida, desarrollo de plataformas web, empresa desarrollo SaaS, desarrollo MVP para startups, sistemas empresariales, desarrollo web react, python backend"
+    }
+  },
   "notFound": {
     "title": "404",
     "description": "¡Ups! Página no encontrada",

@@ -2,16 +2,46 @@ import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { useI18n } from "@/lib/i18n";
-import { getSeoMetadata, type SeoPage } from "@/seo/seo-config";
+import { getSeoMetadata, SITE_URL, type SeoPage } from "@/seo/seo-config";
 
-const SeoHead = ({ page }: { page: SeoPage }) => {
+interface SeoHeadProps {
+  page?: SeoPage;
+  title?: string;
+  description?: string;
+}
+
+const SeoHead = ({ page, title, description }: SeoHeadProps) => {
   const location = useLocation();
   const { language } = useI18n();
 
-  const metadata = useMemo(
-    () => getSeoMetadata({ pathname: location.pathname, page, language }),
-    [language, location.pathname, page]
-  );
+  const metadata = useMemo(() => {
+    // If explicit title/description are provided, build metadata dynamically
+    if (title && description) {
+      const canonical = `${SITE_URL}${location.pathname}`;
+      const englishHref = `${SITE_URL}${location.pathname.replace(/^\/es/, '/en')}`;
+      const spanishHref = `${SITE_URL}${location.pathname.replace(/^\/en/, '/es')}`;
+      const lang = location.pathname.startsWith("/en") ? "en" : "es";
+
+      return {
+        title,
+        description,
+        canonical,
+        lang,
+        robots: "index,follow,max-image-preview:large",
+        ogImage: `${SITE_URL}/assets/Elaris-Logo.webp`,
+        alternates: [
+          { href: englishHref, hrefLang: "en" },
+          { href: spanishHref, hrefLang: "es" },
+          { href: englishHref, hrefLang: "x-default" },
+        ],
+        locale: lang === "es" ? "es_ES" : "en_US",
+        structuredData: []
+      };
+    }
+
+    // Otherwise fallback to existing logic for "home" or "not-found"
+    return getSeoMetadata({ pathname: location.pathname, page: page || "home", language });
+  }, [language, location.pathname, page, title, description]);
 
   return (
     <Helmet prioritizeSeoTags>

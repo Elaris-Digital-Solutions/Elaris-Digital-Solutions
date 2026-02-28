@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import MeetsRedirect from "./pages/MeetsRedirect";
 import NotFound from "./pages/NotFound";
+import CustomSoftware from "./pages/CustomSoftware";
 import { I18nProvider, useI18n } from "@/lib/i18n";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,9 @@ const App = () => (
               {sectionSlugs.map((slug) => (
                 <Route key={`en-${slug}`} path={`/en/${slug}`} element={<Index />} />
               ))}
+              <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
+              <Route path="/es/desarrollo-software-medida" element={<CustomSoftware />} />
+              <Route path="/en/custom-software-development" element={<CustomSoftware />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -180,6 +180,7 @@ const Navbar = () => {
               {
                 title: "Desarrollo de Software a Medida",
                 description: "Soluciones únicas diseñadas desde cero.",
+                href: "/desarrollo-software-medida",
               },
               {
                 title: "Arquitectura de Plataformas Digitales",
@@ -349,6 +350,7 @@ const Navbar = () => {
             {
               title: "Custom Software Development",
               description: "Tailored solutions designed from the ground up.",
+              href: "/en/custom-software-development",
             },
             {
               title: "Digital Platform Architecture",
@@ -593,7 +595,17 @@ const Navbar = () => {
                                 key={item.title}
                                 type="button"
                                 className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all duration-150"
-                                onClick={() => navigateToSection("servicios")}
+                                onClick={() => {
+                                  if ('href' in item && item.href) {
+                                    setIsMobileMenuOpen(false);
+                                    setMobileMenuView("root");
+                                    setOpenDesktopMenu(null);
+                                    navigate(item.href);
+                                    window.scrollTo(0, 0);
+                                  } else {
+                                    navigateToSection("servicios");
+                                  }
+                                }}
                               >
                                 <p className="text-[0.84rem] font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors leading-snug">
                                   {item.title}
@@ -920,7 +932,22 @@ const Navbar = () => {
                             </div>
                             <div className="space-y-0.5">
                               {category.items.map((item) => (
-                                <button key={item.title} type="button" className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all" onClick={() => navigateToSection("servicios")}>
+                                <button
+                                  key={item.title}
+                                  type="button"
+                                  className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all"
+                                  onClick={() => {
+                                    if ('href' in item && item.href) {
+                                      setIsMobileMenuOpen(false);
+                                      setMobileMenuView("root");
+                                      setOpenDesktopMenu(null);
+                                      navigate(item.href);
+                                      window.scrollTo(0, 0);
+                                    } else {
+                                      navigateToSection("servicios");
+                                    }
+                                  }}
+                                >
                                   <p className="text-sm font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors">{item.title}</p>
                                 </button>
                               ))}
