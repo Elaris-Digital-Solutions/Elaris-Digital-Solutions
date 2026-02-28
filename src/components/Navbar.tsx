@@ -183,6 +183,7 @@ const Navbar = () => {
               {
                 title: "Implementación de LLMs en Flujos de Trabajo",
                 description: "Integración de modelos de lenguaje en procesos reales.",
+                href: "/implementacion-llms",
               },
               {
                 title: "Asistentes Conversacionales y Agendamiento",

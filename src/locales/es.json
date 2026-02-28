@@ -343,5 +343,41 @@
         }
       ]
     }
+  },
+  "llmWorkflows": {
+    "seo": {
+      "title": "Implementación de LLMs en Flujos de Trabajo | Elaris Digital Solutions",
+      "description": "Integramos GPT-4o, Claude y modelos open-source en los flujos críticos de tu empresa. Automatización cognitiva, RAG con tus datos y orquestación multi-modelo."
+    },
+    "faq": {
+      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleAccent": "implementación de LLMs",
+      "items": [
+        {
+          "q": "¿Qué tipos de tareas puede automatizar un LLM en mi empresa?",
+          "a": "Los LLMs pueden automatizar análisis y extracción de documentos (contratos, facturas, reportes), clasificación de correos y tickets, generación de resúmenes ejecutivos, respuesta a consultas sobre bases de conocimiento internas, redacción de borradores y mucho más. Si involucra texto, lenguaje o datos no estructurados, hay un caso de uso viable."
+        },
+        {
+          "q": "¿Necesito datos propios entrenados para empezar?",
+          "a": "No necesariamente. Muchos casos de uso funcionan excelente con los modelos base (GPT-4o, Claude 3.5) combinados con RAG — es decir, conectando el modelo a tus documentos y bases de datos sin fine-tuning. El fine-tuning se evalúa cuando tenés un volumen alto de ejemplos específicos de tu industria y querés optimizar latencia o costo."
+        },
+        {
+          "q": "¿Cuánto tiempo tarda una primera implementación?",
+          "a": "Un caso de uso concreto y bien definido (por ejemplo, análisis automático de contratos o clasificación de correos) puede estar en producción en 3 a 5 semanas. Empezamos siempre por un proof of concept rápido para validar el impacto antes de escalar."
+        },
+        {
+          "q": "¿Qué pasa con la privacidad y seguridad de mis datos?",
+          "a": "La privacidad es una prioridad. Podemos implementar soluciones completamente on-premise con modelos como Llama o Mistral, o usar Azure OpenAI con residencia de datos en tu región. Ningún dato sale de tu infraestructura si así lo requiere tu empresa. También firmamos acuerdos de confidencialidad y garantizamos que los datos no se usan para entrenar modelos externos."
+        },
+        {
+          "q": "¿Qué modelos de lenguaje utilizan y cómo los eligen?",
+          "a": "Trabajamos con GPT-4o, Claude 3.5, Gemini, Llama 3.1 y otros modelos open-source. La elección depende del caso de uso: algunos priorizan precisión (GPT-4o/Claude), otros velocidad y costo (Llama en hardware propio). Siempre evaluamos latencia, costo por token, precisión en tu caso específico y restricciones de privacidad antes de recomendar."
+        },
+        {
+          "q": "¿Puedo empezar con un caso de uso pequeño y escalar después?",
+          "a": "Absolutamente. De hecho, así recomendamos empezar: identificamos el flujo de mayor impacto y menor riesgo, lo implementamos, medimos resultados reales y luego escalamos. No hace falta un proyecto de 6 meses para tener valor en semanas. La arquitectura que diseñamos permite agregar nuevos flujos y modelos sin rediseñar desde cero."
+        }
+      ]
+    }
   }
 }

@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import CustomSoftware from "./pages/CustomSoftware";
+import LLMWorkflows from "./pages/LLMWorkflows";
 import MeetsRedirect from "./pages/MeetsRedirect";
 import NotFound from "./pages/NotFound";
 import { I18nProvider } from "@/lib/i18n";
@@ -16,6 +17,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/meet" element={<MeetsRedirect />} />
           <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
+          <Route path="/implementacion-llms" element={<LLMWorkflows />} />
           {sectionSlugs.map((slug) => (
             <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
           ))}
