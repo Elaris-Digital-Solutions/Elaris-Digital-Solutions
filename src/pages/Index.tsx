@@ -78,7 +78,6 @@ const Index = () => {
       <Navbar />
       <Hero />
       <main className="site-sections">
-        <Services />
         <Process />
         <Portfolio />
         <Testimonials />
