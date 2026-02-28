@@ -5,7 +5,7 @@ import {
     ChevronDown, Hexagon, Code2, Link2,
     Settings2, Activity, ShieldCheck, Zap,
     LayoutDashboard, Server, Brain, Building2, CheckCircle2,
-    Database, Cloud, Lock
+    Database, Cloud, Lock, Quote
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -227,6 +227,20 @@ export default function CustomSoftware() {
                     </div>
                 </section>
 
+                {/* 7.5 SOCIAL PROOF */}
+                <section className="py-20 lg:py-24 bg-white border-b border-t border-slate-100 overflow-hidden relative">
+                    <div className="container mx-auto px-6 max-w-4xl text-center relative z-10">
+                        <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
+                        <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
+                            "Migrar de múltiples sistemas genéricos a una plataforma centralizada y desarrollada a medida por ELARIS fue la mejor decisión técnica para escalar. Ahora la tecnología se adapta a nuestras reglas de negocio, y no al revés."
+                        </p>
+                        <div>
+                            <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
+                            <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
+                        </div>
+                    </div>
+                </section>
+
                 {/* 8. CASOS DE USO */}
                 <section className="py-20 lg:py-28 bg-[#F8FAFC]">
                     <div className="container mx-auto px-6 max-w-7xl">
@@ -271,12 +285,30 @@ export default function CustomSoftware() {
                         </div>
                     </div>
                 </section>
-
                 <Contact />
+
+                {/* 9.5 FOMO / SCARCITY BANNER */}
+                <section className="py-6 pb-20 bg-white border-t border-slate-100 relative z-10">
+                    <div className="container mx-auto px-6 max-w-3xl text-center">
+                        <div className="border border-yellow-400/50 bg-yellow-50/80 rounded-2xl p-5 shadow-sm">
+                            <p className="text-yellow-800 font-medium text-sm sm:text-base leading-relaxed">
+                                <span className="font-bold underline text-yellow-900 mr-2">Importante:</span>
+                                Solo aceptamos 3 nuevos proyectos de ingeniería profunda por trimestre para garantizar calidad. Agenda hoy.
+                            </p>
+                        </div>
+                    </div>
+                </section>
             </main>
 
             <Footer />
             <FloatingWhatsappButton />
+
+            {/* CRO: STICKY MOBILE CTA */}
+            <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-[60]">
+                <a href="#contacto" className="flex items-center justify-center w-full bg-[#2F64FF] text-white text-base py-3.5 rounded-full font-semibold shadow-[0_8px_24px_rgba(47,100,255,0.4)] active:scale-95 transition-transform backdrop-blur-md">
+                    Agendar Consultoría
+                </a>
+            </div>
         </div>
     );
 }
