@@ -120,14 +120,6 @@ const SyntheticHero = ({
           0.1,
         );
 
-        if (consoleRef.current) {
-          tl.to(
-            consoleRef.current,
-            { autoAlpha: 1, y: 0, duration: 0.5 },
-            "-=0.55",
-          );
-        }
-
         if (ctaRef.current) {
           tl.to(
             ctaRef.current,
@@ -178,33 +170,10 @@ const SyntheticHero = ({
 
         <h1
           ref={headingRef}
-          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-[#071540] mb-6"
+          className="text-4xl md:text-6xl max-w-4xl font-light tracking-tight text-[#071540] mb-10"
         >
           {title}
         </h1>
-
-        <div
-          ref={consoleRef}
-          className="w-full max-w-2xl mx-auto mb-10"
-        >
-          <div className="rounded-2xl border border-white/30 bg-white/70 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden">
-            <div className="flex items-center gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FF4858]/80 shadow-sm" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FFC961]/80 shadow-sm" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80 shadow-sm" />
-            </div>
-            <TypingConsole
-              phrases={consolePhrases}
-              loop={true}
-              prefix=">"
-              typingSpeed={60}
-              deletingSpeed={30}
-              pauseDelay={1500}
-              className="text-[#071540]/95"
-              cursorClassName="bg-[#2F64FF]"
-            />
-          </div>
-        </div>
 
         <div
           ref={ctaRef}
