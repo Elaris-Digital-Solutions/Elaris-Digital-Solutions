@@ -31,13 +31,13 @@
       "secondary": "Agenda una llamada"
     },
     "consolePhrases": [
-      "Optimizamos tus procesos de negocio con soluciones digitales...",
-      "Desarrollando arquitecturas de software robustas y escalables...",
-      "Diseñando interfaces orientadas a la conversión y retención...",
-      "Implementando infraestructuras cloud de alta disponibilidad...",
-      "Conectando sistemas empresariales con APIs seguras y trazables...",
-      "Automatizando procesos críticos sin interrumpir la operación...",
-      "Optimizando rendimiento y experiencia para escalar sin fricción..."
+      "Automatiza tareas manuales para recuperar el tiempo de tu equipo.",
+      "Apps web de alta velocidad con experiencia nativa en móvil.",
+      "Flujos sin fricción donde los usuarios nunca se pierden.",
+      "Infraestructura cloud lista para 10x de tráfico sin caídas.",
+      "Una UI tan clara que tus clientes no necesitarán un manual.",
+      "Velocidades de carga menores a 2s para el 100% de tu audiencia.",
+      "Software preparado para escalar junto con tu crecimiento."
     ]
   },
   "tech": {
@@ -251,8 +251,8 @@
       "phone": "Teléfono",
       "office": "Oficina",
       "addressLines": [
-        "Av. Primavera 2390",
-        "Santiago de Surco 15023"
+        "Jr. Jerónimo de Aliaga N 595",
+        "Santiago de Surco 15037"
       ]
     },
     "mapTitle": "Mapa de la oficina de Elaris en Lima"
@@ -285,7 +285,7 @@
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 987 450 340",
         "instagram": "@elarisdigitalsolutions",
-        "location": "Surco"
+        "location": "Lima, Perú"
       }
     },
     "bottom": {

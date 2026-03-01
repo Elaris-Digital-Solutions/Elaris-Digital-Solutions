@@ -9,6 +9,8 @@ export default function Contact() {
   const addressLines = useMemo(() => tArray("contact.info.addressLines"), [tArray]);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [fullNameFocused, setFullNameFocused] = useState(false);
+  const [emailFocused, setEmailFocused] = useState(false);
 
   const phoneNumber = "51973663807";
   const formRef = useRef<HTMLDivElement | null>(null);
@@ -62,33 +64,47 @@ export default function Contact() {
             <form className="space-y-6" onSubmit={handleSubmit}>
 
               {/* Name */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
+              <div className="relative pt-4">
+                <label
+                  className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
+                    fullNameFocused || fullName
+                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      : "top-4 text-[1.05rem] text-slate-400"
+                  }`}
+                >
                   {t("contact.form.fullNameLabel")}
                 </label>
                 <input
                   type="text"
                   name="name"
-                  placeholder={t("contact.form.fullNamePlaceholder")}
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 text-slate-900 placeholder:text-slate-300 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
+                  onFocus={() => setFullNameFocused(true)}
+                  onBlur={() => setFullNameFocused(false)}
                   required
                 />
               </div>
 
               {/* Email */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
+              <div className="relative pt-4">
+                <label
+                  className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
+                    emailFocused || email
+                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      : "top-4 text-[1.05rem] text-slate-400"
+                  }`}
+                >
                   {t("contact.form.emailLabel")}
                 </label>
                 <input
                   type="email"
                   name="email"
-                  placeholder={t("contact.form.emailPlaceholder")}
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 text-slate-900 placeholder:text-slate-300 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  onFocus={() => setEmailFocused(true)}
+                  onBlur={() => setEmailFocused(false)}
                   required
                 />
               </div>

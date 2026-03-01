@@ -187,10 +187,10 @@ const SyntheticHero = ({
           className="w-full max-w-2xl mx-auto mb-10"
         >
           <div className="rounded-2xl border border-white/30 bg-white/70 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden">
-            <div className="flex items-center gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FF4858]/80 shadow-sm" />
+            <div className="flex items-center justify-end gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]/80 shadow-sm" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#FFC961]/80 shadow-sm" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80 shadow-sm" />
+              <div className="w-2.5 h-2.5 rounded-full bg-[#FF4858]/80 shadow-sm" />
             </div>
             <TypingConsole
               phrases={consolePhrases}
@@ -198,7 +198,7 @@ const SyntheticHero = ({
               prefix=">"
               typingSpeed={60}
               deletingSpeed={30}
-              pauseDelay={1500}
+              pauseDelay={3500}
               className="text-[#071540]/95"
               cursorClassName="bg-[#2F64FF]"
             />
