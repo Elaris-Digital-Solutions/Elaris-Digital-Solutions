@@ -20,6 +20,12 @@ const Navbar = () => {
   const [isNavHovered, setIsNavHovered] = useState(false);
 
   const closeTimerRef = useRef<number | null>(null);
+  const dropdownPanelRef = useRef<HTMLDivElement | null>(null);
+  const activeTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const servicesTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const productsTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const industriesTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const standardsBtnRef = useRef<HTMLButtonElement | null>(null);
   const navigate = useNavigate();
   const { t } = useI18n();
 
@@ -29,6 +35,58 @@ const Navbar = () => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
+    }
+  };
+
+  const focusFirstPanelItem = () => {
+    window.setTimeout(() => {
+      const panel = dropdownPanelRef.current;
+      if (!panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      focusable[0]?.focus();
+    }, 30);
+  };
+
+  const focusLastPanelItem = () => {
+    window.setTimeout(() => {
+      const panel = dropdownPanelRef.current;
+      if (!panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+      );
+      focusable[focusable.length - 1]?.focus();
+    }, 30);
+  };
+
+  const handlePanelKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setOpenDesktopMenu(null);
+      activeTriggerRef.current?.focus();
+      return;
+    }
+    const panel = dropdownPanelRef.current;
+    if (!panel) return;
+    const focusable = Array.from(
+      panel.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    // Shift+Tab on first item → return to trigger
+    if (e.key === "Tab" && e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      setOpenDesktopMenu(null);
+      activeTriggerRef.current?.focus();
+    }
+    // Tab on last item → close panel, move to next nav item manually
+    if (e.key === "Tab" && !e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      setOpenDesktopMenu(null);
+      if (openDesktopMenu === "services") productsTriggerRef.current?.focus();
+      else if (openDesktopMenu === "products") industriesTriggerRef.current?.focus();
+      else if (openDesktopMenu === "industries") standardsBtnRef.current?.focus();
     }
   };
 
@@ -533,6 +591,12 @@ const Navbar = () => {
       className="fixed left-0 right-0 top-0 z-50"
       onMouseEnter={() => { clearCloseTimer(); setIsNavHovered(true); }}
       onMouseLeave={() => { scheduleDesktopClose(); setIsNavHovered(false); }}
+      onBlur={(e) => {
+        // Close desktop dropdown when focus leaves the entire header
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          setOpenDesktopMenu(null);
+        }
+      }}
     >
       <nav
         aria-label="Primary"
@@ -551,48 +615,118 @@ const Navbar = () => {
               <ul className="mx-auto flex items-center gap-8" role="menubar">
                 <li
                   role="none"
-                  onMouseEnter={() => {
-                    clearCloseTimer();
-                    setOpenDesktopMenu("services");
-                  }}
+                  onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("services"); }}
                 >
-                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "services"}>
+                  <button
+                    ref={servicesTriggerRef}
+                    type="button"
+                    className={navItemClass}
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded={openDesktopMenu === "services"}
+                    onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("services"); }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Tab" && !e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = servicesTriggerRef.current;
+                        setOpenDesktopMenu("services");
+                        focusFirstPanelItem();
+                      }
+                      if (e.key === "Tab" && e.shiftKey) { setOpenDesktopMenu(null); }
+                      if (e.key === "Escape") setOpenDesktopMenu(null);
+                    }}
+                  >
                     {copy.services} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
                 <li
                   role="none"
-                  onMouseEnter={() => {
-                    clearCloseTimer();
-                    setOpenDesktopMenu("products");
-                  }}
+                  onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("products"); }}
                 >
-                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "products"}>
+                  <button
+                    ref={productsTriggerRef}
+                    type="button"
+                    className={navItemClass}
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded={openDesktopMenu === "products"}
+                    onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("products"); }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Tab" && !e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = productsTriggerRef.current;
+                        setOpenDesktopMenu("products");
+                        focusFirstPanelItem();
+                      }
+                      if (e.key === "Tab" && e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = servicesTriggerRef.current;
+                        setOpenDesktopMenu("services");
+                        focusLastPanelItem();
+                      }
+                      if (e.key === "Escape") setOpenDesktopMenu(null);
+                    }}
+                  >
                     {copy.products} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
                 <li
                   role="none"
-                  onMouseEnter={() => {
-                    clearCloseTimer();
-                    setOpenDesktopMenu("industries");
-                  }}
+                  onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("industries"); }}
                 >
-                  <button type="button" className={navItemClass} role="menuitem" aria-expanded={openDesktopMenu === "industries"}>
+                  <button
+                    ref={industriesTriggerRef}
+                    type="button"
+                    className={navItemClass}
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded={openDesktopMenu === "industries"}
+                    onMouseEnter={() => { clearCloseTimer(); setOpenDesktopMenu("industries"); }}
+                    onKeyDown={(e) => {
+                      if (e.key === "Tab" && !e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = industriesTriggerRef.current;
+                        setOpenDesktopMenu("industries");
+                        focusFirstPanelItem();
+                      }
+                      if (e.key === "Tab" && e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = productsTriggerRef.current;
+                        setOpenDesktopMenu("products");
+                        focusLastPanelItem();
+                      }
+                      if (e.key === "Escape") setOpenDesktopMenu(null);
+                    }}
+                  >
                     {copy.industries} <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                 </li>
 
                 <li role="none">
-                  <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("estandares")}>
+                  <button
+                    ref={standardsBtnRef}
+                    type="button"
+                    className={navItemClass}
+                    role="menuitem"
+                    onMouseEnter={() => setOpenDesktopMenu(null)}
+                    onClick={() => navigateToSection("estandares")}
+                    onKeyDown={(e) => {
+                      if (e.key === "Tab" && e.shiftKey) {
+                        e.preventDefault();
+                        activeTriggerRef.current = industriesTriggerRef.current;
+                        setOpenDesktopMenu("industries");
+                        focusLastPanelItem();
+                      }
+                    }}
+                  >
                     {copy.standards}
                   </button>
                 </li>
 
                 <li role="none">
-                  <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("clientes")}>
+                  <button type="button" className={navItemClass} role="menuitem" onMouseEnter={() => setOpenDesktopMenu(null)} onFocus={() => setOpenDesktopMenu(null)} onClick={() => navigateToSection("clientes")}>
                     {copy.clients}
                   </button>
                 </li>
@@ -633,12 +767,15 @@ const Navbar = () => {
 
       {isDesktop ? (
         <div
+          ref={dropdownPanelRef}
+          {...(!openDesktopMenu ? { inert: "" } : {})}
           className={cn(
-            "pointer-events-none transition-all duration-300 ease-in-out",
-            openDesktopMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"
+            "transition-all duration-300 ease-in-out",
+            openDesktopMenu ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
           )}
           onMouseEnter={clearCloseTimer}
           onMouseLeave={scheduleDesktopClose}
+          onKeyDown={handlePanelKeyDown}
         >
           {renderDesktopMegaMenu()}
         </div>
