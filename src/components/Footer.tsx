@@ -5,14 +5,8 @@ import { useI18n } from "@/lib/i18n";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t, tArray } = useI18n();
-  const serviceLinks = tArray("footer.sections.services.items");
-  const serviceTargets = ["servicios-web", "servicios-software", "servicios-ia", "estandares"];
-  const serviceItems = serviceTargets.map((id, index) => ({
-    id,
-    label: serviceLinks[index] ?? "",
-  }));
   const navLabels = tArray("footer.sections.navigation.items");
-  const navTargets = ["servicios", "estandares", "portafolio", "clientes", "contacto"];
+  const navTargets = ["", "estandares", "portafolio", "clientes", "contacto"];
   const navItems = navTargets.map((id, index) => ({
     id,
     label: navLabels[index] ?? "",
@@ -29,7 +23,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#030E2C] border-t border-white/10 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
@@ -73,33 +67,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          {/* Links Columns */}
-          <div>
-            <h3 className="font-semibold mb-4">{t("footer.sections.services.title")}</h3>
-            <ul className="space-y-2">
-              {serviceItems.map(({ id, label }) => (
-                <li key={`${label}-${id}`}>
-                  <a
-                    href={`#${id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const el = document.getElementById(id);
-                      if (el) {
-                        el.scrollIntoView({ behavior: "smooth", block: "start" });
-                      } else {
-                        window.location.href = `/#${id}`;
-                      }
-                    }}
-                    className="text-white/80 text-sm hover:text-white transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Navegación Column (links to page sections with smooth scroll) */}
+          {/* Navegación Column */}
           <div key="Navegacion">
             <h3 className="font-semibold mb-4">{t("footer.sections.navigation.title")}</h3>
             <ul className="space-y-2">
@@ -107,9 +75,13 @@ const Footer = () => {
                 return (
                   <li key={`${label}-${id}`}>
                     <a
-                      href={`#${id}`}
+                      href={id ? `#${id}` : "/"}
                       onClick={(e) => {
                         e.preventDefault();
+                        if (!id) {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                          return;
+                        }
                         const el = document.getElementById(id);
                         if (el) {
                           el.scrollIntoView({ behavior: "smooth", block: "start" });
