@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronLeft, ChevronRight, Menu, X, Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, ArrowRight, HeartPulse, GraduationCap, Truck, Landmark, Building2, Rocket, Briefcase, Factory, Link2, Bot, GitBranch, Users, Palette, Gem, FileText, Printer, UtensilsCrossed, Wrench, Plane, Film, Hotel, ShoppingCart, Cpu } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Menu, X, Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, ArrowRight, HeartPulse, GraduationCap, Truck, Landmark, Building2, Rocket, Briefcase, Factory, Link2, Bot, GitBranch, Users, Palette, Gem, FileText, Printer, UtensilsCrossed, Wrench, Plane, Film, Hotel, ShoppingCart, Cpu, Eye, Search, Cloud } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SmartImage from "@/components/ui/smart-image";
@@ -232,7 +232,7 @@ const Navbar = () => {
             ],
           },
           {
-            title: "IA y Automatización Inteligente",
+            title: "IA, Automatización Inteligente, Conversión & Analítica Avanzada",
             items: [
               {
                 title: "Implementación de LLMs en Flujos de Trabajo",
@@ -254,6 +254,14 @@ const Navbar = () => {
                {
                 title: "Automatización de Flujos de Trabajo con IA",
                 description: "Automatización inteligente de procesos empresariales.",
+              },
+              {
+                title: "Optimización de Tasa de Conversión (CRO)",
+                description: "Mejora continua de conversiones mediante datos y experimentación.",
+              },
+              {
+                title: "Implementación de sistemas de análisis de comportamiento",
+                description: "Integración de Google Analytics, Pixel y Microsoft Clarity.",
               },
             ],
           },
@@ -330,6 +338,61 @@ const Navbar = () => {
               {
                 title: "Optimización de Procesos y Costos TI",
                 description: "Eficiencia operativa desde la tecnología.",
+              },
+            ],
+          },
+          {
+            title: "Accesibilidad Digital e Inclusión",
+            items: [
+              {
+                title: "Auditorías de usabilidad accesible AA / AAA (WCAG)",
+                description: "Evaluación de conformidad con estándares de accesibilidad web.",
+              },
+              {
+                title: "Diseño web UI/UX",
+                description: "Interfaces centradas en el usuario, inclusivas y de alto impacto.",
+              },
+              {
+                title: "Testing con tecnologías asistivas",
+                description: "Validación con lectores de pantalla y dispositivos de asistencia.",
+              },
+            ],
+          },
+          {
+            title: "Posicionamiento Estratégico SEO y Visibilidad Digital",
+            items: [
+              {
+                title: "Implementación de Arquitectura técnica SEO-first",
+                description: "Estructura web optimizada para motores de búsqueda desde la base.",
+              },
+              {
+                title: "Implementación de datos estructurados avanzados",
+                description: "Schema Markup y microdatos para mayor visibilidad en SERPs.",
+              },
+              {
+                title: "Posicionamiento web en motores de IA (GEO/LLMO/AEO)",
+                description: "Estrategias de visibilidad en respuestas generadas por IA.",
+              },
+            ],
+          },
+          {
+            title: "Arquitectura Cloud Empresarial",
+            items: [
+              {
+                title: "Diseño de arquitecturas en AWS / Azure / GCP",
+                description: "Arquitecturas robustas y escalables en los principales proveedores cloud.",
+              },
+              {
+                title: "Migración de infraestructura on-premise a cloud",
+                description: "Transición segura y planificada desde servidores locales a la nube.",
+              },
+              {
+                title: "Reingeniería de aplicaciones legacy hacia cloud-native",
+                description: "Modernización de aplicaciones para aprovechar el modelo cloud.",
+              },
+              {
+                title: "Optimización de costos en la nube (FinOps)",
+                description: "Reducción y control del gasto en infraestructura cloud.",
               },
             ],
           },
@@ -418,7 +481,7 @@ const Navbar = () => {
           {/* pointer-events-auto is applied ONLY to the card so the sides of the screen don't block mouseLeave */}
           <div className={cn("pointer-events-auto overflow-hidden rounded-2xl backdrop-blur-xl p-6", dropdownThemeClasses)}>
             {openDesktopMenu === "services" && (() => {
-              const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
+              const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, Eye, Search, Cloud];
               const ctaText = { title: "¿Necesitas una solución a medida?", sub: "Hablemos y diseñamos la arquitectura ideal para tu negocio.", btn: "Agenda una llamada" };
               return (
                 <div className="space-y-4">
@@ -838,7 +901,7 @@ const Navbar = () => {
 
                   <div className="space-y-1 border-t border-black/10 pt-3">
                     {mobileMenuView === "services" && (() => {
-                      const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp];
+                      const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, Eye, Search, Cloud];
                       return mobileServicesCategories.map((category, catIndex) => {
                         const Icon = categoryIcons[catIndex] ?? Monitor;
                         return (
