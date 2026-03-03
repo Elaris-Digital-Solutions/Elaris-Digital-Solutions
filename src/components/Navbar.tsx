@@ -272,6 +272,7 @@ const Navbar = () => {
               {
                 title: "Creación de APIs Personalizadas",
                 description: "Comunicación fluida entre plataformas.",
+                href: "/apis-personalizadas",
               },
               {
                 title: "Integración de sistemas con ERP, SAP y CRM",

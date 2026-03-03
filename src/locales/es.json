@@ -344,6 +344,42 @@
       ]
     }
   },
+  "apiIntegration": {
+    "seo": {
+      "title": "Creación de APIs Personalizadas | Elaris Digital Solutions",
+      "description": "Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas — ERP, CRM, plataformas externas y aplicaciones propias — sin fricciones."
+    },
+    "faq": {
+      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleAccent": "APIs personalizadas",
+      "items": [
+        {
+          "q": "¿Qué diferencia hay entre una API personalizada y usar un conector genérico?",
+          "a": "Los conectores genéricos (como Zapier o Make) funcionan bien para flujos simples y datos estándar. Pero cuando tus procesos tienen lógica propia, volúmenes altos, necesidades de seguridad o requieren transformaciones complejas, una API a medida es la única solución que te da control total, rendimiento predecible y costos sin sorpresas."
+        },
+        {
+          "q": "¿Cuánto tiempo tarda construir una API lista para producción?",
+          "a": "Un primer endpoint funcional puede estar en staging en 1 a 2 semanas. Una API completa con autenticación, documentación y pruebas de carga generalmente tarda entre 4 y 8 semanas según la cantidad de integraciones y la complejidad de los datos. Trabajamos en sprints para que puedas usar los endpoints terminados mientras desarrollamos el resto."
+        },
+        {
+          "q": "¿Cómo garantizan la seguridad de la API?",
+          "a": "Implementamos OAuth 2.0, JWT con rotación automática, API Keys con scopes específicos, rate limiting por cliente, validación estricta de inputs y logs de auditoría completos. Si tu empresa requiere despliegue en red privada o VPN, también lo soportamos."
+        },
+        {
+          "q": "¿La API vendrá documentada?",
+          "a": "Sí, siempre. Generamos documentación OpenAPI 3.0 (Swagger) automáticamente desde el código, con ejemplos reales de request/response para cada endpoint. Tu equipo técnico y los equipos de integración tendrán un playground interactivo listo para usar desde el día uno."
+        },
+        {
+          "q": "¿Pueden integrar sistemas legados que no tienen API propia?",
+          "a": "Sí. Para sistemas legados (ERPs antiguos, bases de datos directas, archivos SFTP, etc.) diseñamos capas de adaptación que exponen los datos de forma segura y moderna sin necesidad de migrar ni modificar el sistema original. Creamos una fachada API que traduce el protocolo del sistema legado al estándar REST o GraphQL."
+        },
+        {
+          "q": "¿Qué pasa si el sistema receptor falla? ¿Perdemos datos?",
+          "a": "No. Para webhooks y eventos diseñamos mecanismos de entrega garantizada con colas persistentes, reintentos automáticos con backoff exponencial y registro de todos los intentos fallidos. Los eventos nunca se pierden — se reintentan hasta confirmar la recepción o se almacenan para procesamiento manual posterior."
+        }
+      ]
+    }
+  },
   "llmWorkflows": {
     "seo": {
       "title": "Implementación de LLMs en Flujos de Trabajo | Elaris Digital Solutions",
