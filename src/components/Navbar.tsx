@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobileMenuView, setMobileMenuView] = useState<MobileMenuView>("root");
   const [openDesktopMenu, setOpenDesktopMenu] = useState<DesktopMenuKey>(null);
+  const [activeServiceCategory, setActiveServiceCategory] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavHovered, setIsNavHovered] = useState(false);
 
@@ -483,27 +484,60 @@ const Navbar = () => {
             {openDesktopMenu === "services" && (() => {
               const categoryIcons = [Monitor, Brain, Plug, Settings2, ShoppingBag, TrendingUp, Eye, Search, Cloud];
               const ctaText = { title: "¿Necesitas una solución a medida?", sub: "Hablemos y diseñamos la arquitectura ideal para tu negocio.", btn: "Agenda una llamada" };
+              const activeCategory = copy.servicesCategories[activeServiceCategory];
               return (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-3">
-                    {copy.servicesCategories.map((category, catIndex) => {
-                      const Icon = categoryIcons[catIndex] ?? Monitor;
-                      return (
-                        <div key={category.title} className="rounded-xl bg-slate-50 border border-slate-100 p-4 hover:border-[#2F64FF]/20 hover:bg-blue-50/30 transition-colors">
-                          <div className="flex items-center gap-2.5 mb-3">
-                            <div className="w-7 h-7 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
-                              <Icon className="w-3.5 h-3.5 text-[#2F64FF]" />
+                <div className="space-y-3">
+                  {/* ── Split panel: left nav + right content ── */}
+                  <div className="grid grid-cols-[440px_1fr] rounded-xl overflow-hidden border border-slate-100 bg-white" style={{ minHeight: 340 }}>
+
+                    {/* Left: category nav */}
+                    <nav className="border-r border-slate-100 bg-[#F8FAFC] flex flex-col py-1">
+                      {copy.servicesCategories.map((category, catIndex) => {
+                        const Icon = categoryIcons[catIndex] ?? Monitor;
+                        const isActive = catIndex === activeServiceCategory;
+                        return (
+                          <button
+                            key={category.title}
+                            type="button"
+                            className={`relative w-full flex items-center gap-2.5 px-3.5 py-2.5 text-left transition-all duration-150 group ${
+                              isActive ? "bg-white shadow-sm" : "hover:bg-white/70"
+                            }`}
+                            onMouseEnter={() => setActiveServiceCategory(catIndex)}
+                            onClick={() => setActiveServiceCategory(catIndex)}
+                          >
+                            {isActive && (
+                              <span className="absolute left-0 top-2 bottom-2 w-[3px] rounded-r-full bg-[#2F64FF]" />
+                            )}
+                            <div className={`w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0 transition-colors duration-150 ${
+                              isActive ? "bg-[#2F64FF]/10" : "bg-slate-100 group-hover:bg-[#2F64FF]/10"
+                            }`}>
+                              <Icon className={`w-3 h-3 transition-colors duration-150 ${
+                                isActive ? "text-[#2F64FF]" : "text-slate-400 group-hover:text-[#2F64FF]"
+                              }`} />
                             </div>
-                            <p className="text-[0.72rem] font-bold uppercase tracking-wide text-slate-500 leading-tight">
+                            <span className={`text-[0.75rem] font-semibold leading-tight transition-colors duration-150 ${
+                              isActive ? "text-[#071540]" : "text-slate-500 group-hover:text-[#071540]"
+                            }`}>
                               {category.title}
-                            </p>
-                          </div>
-                          <div className="space-y-0.5">
-                            {category.items.map((item) => (
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </nav>
+
+                    {/* Right: active category items */}
+                    <div className="p-5 bg-white">
+                      {activeCategory && (
+                        <>
+                          <p className="text-[0.67rem] font-bold uppercase tracking-[0.15em] text-[#2F64FF] mb-3">
+                            {activeCategory.title}
+                          </p>
+                          <div className="grid grid-cols-2 gap-1">
+                            {activeCategory.items.map((item) => (
                               <button
                                 key={item.title}
                                 type="button"
-                                className="group w-full rounded-lg px-2 py-1.5 text-left hover:bg-white hover:shadow-sm transition-all duration-150"
+                                className="group flex items-start gap-2.5 rounded-lg px-3 py-2.5 text-left hover:bg-[#F0F4FF] transition-colors duration-150"
                                 onClick={() => {
                                   if ('href' in item && item.href) {
                                     setIsMobileMenuOpen(false);
@@ -516,17 +550,27 @@ const Navbar = () => {
                                   }
                                 }}
                               >
-                                <p className="text-[0.84rem] font-medium text-slate-800 group-hover:text-[#2F64FF] transition-colors leading-snug">
-                                  {item.title}
-                                </p>
+                                <span className="mt-[3px] w-1.5 h-1.5 rounded-full bg-[#2F64FF]/40 flex-shrink-0 group-hover:bg-[#2F64FF] transition-colors duration-150" />
+                                <div>
+                                  <p className="text-[0.84rem] font-semibold text-slate-800 group-hover:text-[#2F64FF] leading-snug transition-colors duration-150">
+                                    {item.title}
+                                  </p>
+                                  {'description' in item && item.description && (
+                                    <p className="text-[0.74rem] text-slate-400 font-light mt-0.5 leading-snug">
+                                      {item.description}
+                                    </p>
+                                  )}
+                                </div>
                               </button>
                             ))}
                           </div>
-                        </div>
-                      );
-                    })}
+                        </>
+                      )}
+                    </div>
                   </div>
-                  <div className="flex items-center justify-between rounded-xl border border-[#2F64FF]/15 bg-gradient-to-r from-[#2F64FF]/5 to-blue-50/60 px-5 py-3.5">
+
+                  {/* CTA bar */}
+                  <div className="flex items-center justify-between rounded-xl border border-[#2F64FF]/15 bg-gradient-to-r from-[#2F64FF]/5 to-blue-50/60 px-5 py-3">
                     <div>
                       <p className="text-[0.92rem] font-semibold text-slate-900">{ctaText.title}</p>
                       <p className="text-[0.82rem] text-slate-500 mt-0.5">{ctaText.sub}</p>

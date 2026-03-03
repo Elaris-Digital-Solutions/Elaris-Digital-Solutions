@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ServicesSplitPanel from "@/components/ui/services-split-panel";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
@@ -74,6 +75,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <main className="site-sections">
+        <ServicesSplitPanel />
         <Process />
         <Portfolio />
         <Testimonials />
