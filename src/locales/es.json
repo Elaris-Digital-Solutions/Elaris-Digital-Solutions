@@ -196,19 +196,19 @@
     "description": "Organizaciones que confían en nosotros para soluciones digitales, automatización con IA y upgrades de comercio.",
     "items": {
       "daniela": {
-        "quote": "El trabajo superó mis expectativas. Su método y capacidad para convertir mis ideas en experiencias digitales fue clave. Estoy realmente agradecida.",
+        "quote": "\u201cEl trabajo superó mis expectativas. Su método y capacidad para convertir mis ideas en experiencias digitales fue clave. Estoy realmente agradecida.\u201d",
         "name": "Daniela Bussalleu",
         "designation": "Bióloga y Comunicadora",
         "src": "/assets/daniela-bussalleu.webp"
       },
       "milagros": {
-        "quote": "La web es intuitiva, el e-commerce fluye perfecto y la base de datos es sencilla de gestionar. Trabajo impecable para Salcedo Jewels.",
+        "quote": "\u201cLa web es intuitiva, el e-commerce fluye perfecto y la base de datos es sencilla de gestionar. Trabajo impecable para Salcedo Jewels.\u201d",
         "name": "Milagros Salcedo",
         "designation": "CEO de Salcedo Jewels S.A.C.",
         "src": "/assets/milagros-salcedo.webp"
       },
       "martina": {
-        "quote": "La mejora de la página web superó mis expectativas. La atención al detalle y el servicio profesional hicieron la diferencia. ¡Totalmente recomendado!",
+        "quote": "\u201cLa mejora de la página web superó mis expectativas. La atención al detalle y el servicio profesional hicieron la diferencia. ¡Totalmente recomendado!\u201d",
         "name": "Miguel del Solar",
         "designation": "CEO de Papelera Latinoamericana SAC",
         "src": "/assets/miguel-del-solar.webp"
