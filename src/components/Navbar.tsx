@@ -294,6 +294,7 @@ const Navbar = () => {
               {
                 title: "Desarrollo de Implementación de CMMS",
                 description: "Gestión de mantenimiento computarizado.",
+                href: "/implementacion-cmms",
               },
               {
                 title: "Desarrollo de Software de Producción, Inventarios y Logística",
