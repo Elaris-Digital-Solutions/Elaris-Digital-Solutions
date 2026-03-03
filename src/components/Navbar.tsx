@@ -248,7 +248,7 @@ const Navbar = () => {
                 description: "Análisis avanzado para la toma de decisiones.",
               },
               {
-                title: "Procesamiento Inteligente de Documentos",
+                title: "Automatización de Procesos Clasificación y extracción de Documentos",
                 description: "Clasificación y extracción automática de datos.",
               },
                {
