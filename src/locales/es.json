@@ -415,5 +415,41 @@
         }
       ]
     }
+  },
+  "cmms": {
+    "seo": {
+      "title": "Desarrollo e Implementación de CMMS | Elaris Digital Solutions",
+      "description": "Implementamos sistemas CMMS a medida para digitalizar el mantenimiento industrial. Órdenes de trabajo, mantenimiento preventivo, inventario de repuestos e integración IoT para reducir paradas no planificadas."
+    },
+    "faq": {
+      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleAccent": "implementación de CMMS",
+      "items": [
+        {
+          "q": "¿Qué es un CMMS y qué tipo de empresas lo necesitan?",
+          "a": "Un CMMS (Sistema de Gestión de Mantenimiento Computarizado) es una plataforma que digitaliza toda la operación de mantenimiento: órdenes de trabajo, programación de mantenimientos preventivos, gestión de activos e inventario de repuestos. Es ideal para empresas con activos físicos que mantener — manufactura, minería, energía, logística, facilities y cualquier operación industrial o de infraestructura donde el tiempo de parada representa un costo significativo."
+        },
+        {
+          "q": "¿Cuánto tiempo tarda la implementación de un CMMS?",
+          "a": "Una implementación estándar con módulos de órdenes de trabajo, activos y mantenimiento preventivo puede estar operativa en 6 a 10 semanas. Si incluimos integraciones con ERP, sensores IoT o migración de datos históricos, el tiempo varía entre 10 y 20 semanas. Trabajamos en etapas para que el equipo empiece a usar el sistema desde las primeras semanas mientras completamos las integraciones más complejas."
+        },
+        {
+          "q": "¿El CMMS puede integrarse con nuestro ERP actual (SAP, Oracle, Infor, etc.)?",
+          "a": "Sí. Diseñamos conectores específicos para los principales ERPs del mercado. La integración cubre sincronización de órdenes de compra para repuestos, costos de mantenimiento hacia contabilidad, registro de horas de mano de obra y gestión de proveedores. Si el ERP tiene API disponible, la integración es bidireccional y en tiempo real. Para sistemas más antiguos, diseñamos capas de adaptación que no requieren modificar el ERP existente."
+        },
+        {
+          "q": "¿Soporta integración con sensores IoT y sistemas SCADA para mantenimiento predictivo?",
+          "a": "Sí, es una de nuestras capacidades diferenciales. Conectamos el CMMS a sensores de temperatura, vibración, presión, corriente y otros parámetros operativos. Cuando un sensor supera su umbral configurado, el sistema genera automáticamente una orden de trabajo y notifica al técnico asignado. Para plantas que ya tienen SCADA o PLCs, diseñamos la integración para aprovechar la infraestructura existente sin reemplazarla."
+        },
+        {
+          "q": "¿Los técnicos pueden usar el CMMS desde su celular en planta?",
+          "a": "Sí. La aplicación móvil está diseñada para técnicos en campo: recibe y cierra órdenes de trabajo, registra tiempos, adjunta fotos de evidencia y firma digitalmente las intervenciones. Funciona en modo offline para zonas sin cobertura dentro de planta — cuando el dispositivo recupera señal, sincroniza automáticamente todos los registros pendientes."
+        },
+        {
+          "q": "¿Qué pasa con los datos históricos de mantenimiento que ya tenemos en Excel u otro sistema?",
+          "a": "Hacemos la migración de datos históricos como parte del proyecto. Esto incluye el catálogo de activos, historial de intervenciones, planes de mantenimiento preventivo existentes e inventario de repuestos. La calidad y estructura de los datos actuales determina el esfuerzo de migración, pero en todos los casos aseguramos que el equipo arranque con la historia completa disponible desde el primer día de operación del nuevo sistema."
+        }
+      ]
+    }
   }
 }

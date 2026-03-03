@@ -5,6 +5,7 @@ import CustomSoftware from "./pages/CustomSoftware";
 import LLMWorkflows from "./pages/LLMWorkflows";
 import ApiIntegration from "./pages/ApiIntegration";
 import MeetsRedirect from "./pages/MeetsRedirect";
+import CMMS from "./pages/CMMS";
 import NotFound from "./pages/NotFound";
 import { I18nProvider } from "@/lib/i18n";
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
           <Route path="/implementacion-llms" element={<LLMWorkflows />} />
           <Route path="/apis-personalizadas" element={<ApiIntegration />} />
+          <Route path="/implementacion-cmms" element={<CMMS />} />
           {sectionSlugs.map((slug) => (
             <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
           ))}
