@@ -66,10 +66,10 @@ export default function LLMWorkflows() {
                             transition={{ duration: 0.65, ease: "easeOut" }}
                         >
                             {/* Left — context */}
-                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-violet-300/50 hover:shadow-md transition-all duration-300">
+                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300">
                                 <div>
-                                    <div className="w-12 h-12 rounded-xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-8">
-                                        <FileText className="w-6 h-6 text-violet-600" />
+                                    <div className="w-12 h-12 rounded-xl bg-[#2F64FF]/10 border border-[#2F64FF]/20 flex items-center justify-center mb-8">
+                                        <FileText className="w-6 h-6 text-[#2F64FF]" />
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-medium text-[#071540] mb-5 leading-snug">
                                         Automatice el trabajo cognitivo intensivo desde el primer mes
