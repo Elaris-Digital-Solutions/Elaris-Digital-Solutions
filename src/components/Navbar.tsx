@@ -222,15 +222,11 @@ const Navbar = () => {
                 href: "/desarrollo-software-medida",
               },
               {
-                title: "Arquitectura de Plataformas Digitales",
-                description: "Diseño de estructuras escalables y robustas.",
-              },
-              {
                 title: "Modernización de Sistemas Legacy",
                 description: "Actualización de software antiguo a tecnologías actuales.",
               },
               {
-                title: "Websites y Plataformas Web de Alto Rendimiento",
+                title: "Desarrollo de Websites de Alto Rendimiento",
                 description: "Presencia digital corporativa y funcional.",
               },
             ],
@@ -244,16 +240,20 @@ const Navbar = () => {
                 href: "/implementacion-llms",
               },
               {
-                title: "Asistentes Conversacionales y Agendamiento",
+                title: "Implementación de Asistentes Conversacionales y Agendamiento",
                 description: "IA para atención al cliente y gestión de citas/reservas.",
               },
               {
-                title: "Modelos Predictivos e Inteligencia de Datos",
+                title: "Desarrollo e Implementación de Modelos Predictivos e Inteligencia de Datos",
                 description: "Análisis avanzado para la toma de decisiones.",
               },
               {
                 title: "Procesamiento Inteligente de Documentos",
                 description: "Clasificación y extracción automática de datos.",
+              },
+               {
+                title: "Automatización de Flujos de Trabajo con IA",
+                description: "Automatización inteligente de procesos empresariales.",
               },
             ],
           },
@@ -261,16 +261,16 @@ const Navbar = () => {
             title: "Integración de Ecosistemas Empresariales",
             items: [
               {
-                title: "Conectores y APIs Personalizadas",
+                title: "Creación de APIs Personalizadas",
                 description: "Comunicación fluida entre plataformas.",
               },
               {
-                title: "Integración con ERP, SAP y CRM",
+                title: "Integración de sistemas con ERP, SAP y CRM",
                 description: "Unificación del núcleo transaccional y comercial.",
               },
               {
-                title: "Orquestación de Flujos Digitales",
-                description: "Automatización interdepartamental sin fricciones.",
+                title: "Orquestación de Sistemas Interdepartamentales sin fricciones",
+                description: "Conexión de sistemas dispares para flujos de trabajo sin interrupciones.",
               },
               {
                 title: "Migración y Sincronización de Datos",
@@ -282,16 +282,12 @@ const Navbar = () => {
             title: "Gestión de Operaciones e Industria 4.0",
             items: [
               {
-                title: "Implementación de CMMS",
+                title: "Desarrollo de Implementación de CMMS",
                 description: "Gestión de mantenimiento computarizado.",
               },
               {
-                title: "Control de Producción, Inventarios y Logística",
+                title: "Desarrollo de Software de Producción, Inventarios y Logística",
                 description: "Software para logística y manufactura.",
-              },
-              {
-                title: "Trazabilidad y Control Operativo",
-                description: "Seguimiento en tiempo real de activos y procesos.",
               },
               {
                 title: "Digitalización de Procesos Industriales",
@@ -303,15 +299,19 @@ const Navbar = () => {
             title: "E-commerce y Soluciones Transaccionales",
             items: [
               {
-                title: "E-commerce a Medida",
+                title: "Desarrollo de E-commerce a Medida",
                 description: "Tiendas virtuales con requerimientos complejos.",
               },
               {
-                title: "Sistemas de Pago e Integraciones Logísticas",
+                title: "Integración de Pasarelas de Pago y Couriers",
                 description: "Conexión con pasarelas y couriers.",
               },
               {
-                title: "Plataformas de Suscripción y Gestión Comercial",
+                title: "Integración de Pasarelas de Pago",
+                description: "Conexión con pasarelas y couriers.",
+              },
+              {
+                title: "Integración y Desarrollo de Plataformas de Suscripción",
                 description: "Modelos de negocio recurrentes.",
               },
             ],
