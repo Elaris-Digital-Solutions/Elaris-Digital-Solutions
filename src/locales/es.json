@@ -50,41 +50,38 @@
     "description": "Dos caminos, un objetivo: que tu empresa opere en posición de ventaja. Generamos ingresos o reducimos costos — la mayoría de nuestros clientes termina necesitando ambos.",
     "items": {
       "web": {
-        "title": "Generador de Ingresos",
-        "description": "Tu canal digital más rentable, diseñado desde cero para convertir. Cada flujo, cada pantalla y cada integración tiene un único objetivo: más ventas, más margen, más clientes — operando 24/7 sin que tu equipo intervenga.",
-        "visualTitle": "Resultados Medibles",
+        "title": "Optimización Digital para Crecimiento",
+        "description": "Si tu presencia digital no está generando ingresos, es un gasto. Desarrollamos plataformas de alto rendimiento enfocadas en captar clientes, cerrar ventas y fidelizar usuarios con experiencias de compra impecables.",
+        "visualTitle": "Diseño & Performance",
         "visualDescription": "Canales de venta que trabajan mientras tu equipo duerme.",
         "features": [
-          "E-commerce a medida con checkout optimizado para conversión máxima",
-          "Landing pages que convierten tráfico pagado en clientes en horas",
-          "SEO técnico integrado desde la arquitectura para capturar búsquedas de alto valor",
-          "Integración nativa con pasarelas de pago, logística y CRM sin fricciones"
+          "Desarrollo de E-commerce a Medida: Creamos tiendas virtuales con requerimientos complejos, integrando desde gestores de inventario avanzados hasta trazabilidad de pedidos en tiempo real.",
+          "Integración de Pasarelas de Pago y Logística: Conexión fluida con pasarelas y couriers para que la transacción y la entrega sean procesos automatizados y sin errores.",
+          "Arquitectura Técnica SEO-first: Estructura web optimizada para motores de búsqueda desde la base, asegurando que tus clientes te encuentren cuando estén listos para comprar."
         ],
         "cta": "Quiero más ventas online →"
       },
       "ai": {
-        "title": "Optimizador de Costos",
-        "description": "Automatización inteligente para los procesos que más te cuestan. Menos horas manuales, menos errores operativos, más capacidad de ejecución — sin contratar más personal ni aumentar tu estructura fija.",
-        "visualTitle": "Eficiencia Sostenida",
-        "visualDescription": "IA aplicada a los flujos reales de tu operación para liberar tiempo y reducir costos estructurales.",
+        "title": "Automatización Inteligente de Procesos",
+        "description": "No solo integramos IA. Automatizamos los procesos que hoy te cuestan tiempo y dinero. Liberamos a tu equipo de tareas repetitivas y propensas al error humano, conectando tus áreas, unificando tu información y acelerando tu operatividad diaria.",
+        "visualTitle": "Automatización Inteligente",
+        "visualDescription": "IA aplicada a tu operaciones para liberar tiempo y reducir costos.",
         "features": [
-          "Automatización de flujos documentales con IA: cero digitación manual",
-          "Integración con ERP, SAP, CRM y sistemas legados sin rediseñar tu stack",
-          "Copilotos y agentes internos que responden y ejecutan sin supervisión constante",
-          "Ecosistemas conectados donde los datos fluyen solos entre todas tus herramientas"
+          "IA Aplicada a Flujos de Trabajo: Implementación de LLMs en procesos reales para potenciar la productividad interna de tu equipo.",
+          "Gestión Documental Inteligente: Automatización de procesos de clasificación y extracción de documentos, pasando del caos del papel a la eficiencia digital.",
+          "Ecosistemas Conectados: Integración de sistemas con ERP, SAP y CRM para lograr una comunicación fluida entre plataformas y unificar el núcleo transaccional de tu empresa."
         ],
         "cta": "Quiero automatizar mi operación →"
       },
       "software": {
-        "title": "Respaldo Técnico",
-        "description": "Arquitectura sólida para que todo lo que construiste siga funcionando cuando más lo necesites. La base técnica que permite crecer sin riesgos, sin reescrituras y sin depender de un solo proveedor.",
-        "visualTitle": "Infraestructura Robusta",
-        "visualDescription": "Sistemas diseñados para resistir el crecimiento, no para frenarlo.",
+        "title": "Arquitectura y Modernización Tecnológica",
+        "description": "Cada día que operando sobre sistemas frágiles u obsoletos, tu empresa pierde velocidad y dinero. Eliminamos la deuda técnica, modernizamos tu infraestructura y construimos la base que necesitás para escalar sin que la tecnología sea el cuello de botella.",
+        "visualTitle": "Modernización Tecnológica",
+        "visualDescription": "Sistemas diseñados para el crecimiento, no para frenarlo.",
         "features": [
-          "Migración a cloud (AWS, GCP, Azure) sin interrumpir la operación actual",
-          "Eliminación de deuda técnica que frena la velocidad de entrega de tu equipo",
-          "Arquitectura modular que permite agregar capacidades sin reescribir desde cero",
-          "Observabilidad total: sabés qué falla antes de que afecte a tus clientes"
+          "Modernización de Sistemas Legacy: migramos tus plataformas antiguas a arquitecturas modernas sin interrumpir la operación.",
+          "Arquitecturas Cloud Robustas: diseñamos y migramos a AWS, GCP o Azure con las mejores prácticas de seguridad y resiliencia.",
+          "Optimización de Costos de Infraestructura TI: reducimos el gasto operativo para que escalar nunca sea un problema."
         ],
         "cta": "Hablar con un arquitecto →"
       }
