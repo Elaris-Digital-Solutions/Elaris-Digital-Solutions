@@ -208,7 +208,7 @@ const Navbar = () => {
         industries: "Industrias",
         standards: "Estándares",
         clients: "Testimonios",
-        contactSales: "Contacta con ventas",
+        contactSales: "Agendar asesoría",
         back: "Volver",
         viewWork: "Ver trabajos",
         mobileLeadTitle: "¿Listo para escalar tu plataforma digital?",

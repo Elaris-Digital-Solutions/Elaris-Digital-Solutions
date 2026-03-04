@@ -32,7 +32,7 @@ const SERVICE_CONFIG: Record<
   },
   software: {
     Icon: Code2,
-    accentColor: "#071540",
+    accentColor: "#2F64FF",
     href: "/software-a-medida",
     badge: "Arquitectura escalable",
   },
@@ -44,7 +44,7 @@ const SERVICE_CONFIG: Record<
   },
 };
 
-const SERVICE_KEYS = ["web", "software", "ai"] as const;
+const SERVICE_KEYS = ["web", "ai", "software"] as const;
 
 // ─── Feature Bullet component ──────────────────────────────────────────────────
 const FeatureBullet = ({
@@ -119,17 +119,6 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
             <FeatureBullet key={i} text={feat} index={i} />
           ))}
         </ul>
-      </div>
-
-      {/* CTA */}
-      <div className="mt-8 pt-7 border-t border-slate-100">
-        <a
-          href={href}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F64FF] group hover:gap-3 transition-all duration-200"
-        >
-          Ver casos de uso
-          <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-        </a>
       </div>
     </motion.div>
   );
@@ -401,16 +390,12 @@ export default function ServicesSplitPanel() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         {/* ── Section header ── */}
         <motion.div
-          className="mb-12 max-w-xl"
+          className="mb-12 max-w-2xl mx-auto text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-flex items-center gap-2 text-[#2F64FF] text-xs font-bold uppercase tracking-[0.18em] mb-5">
-            <span className="w-6 h-px bg-[#2F64FF]" />
-            {t("services.headingNormal")}{t("services.headingAccent")}
-          </span>
           <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] leading-tight mb-4">
             Tecnología que{" "}
             <span className="font-semibold text-[#2F64FF]">transforma</span>{" "}

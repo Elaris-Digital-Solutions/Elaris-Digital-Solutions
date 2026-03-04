@@ -22,22 +22,20 @@
     }
   },
   "hero": {
-    "title": "Desarrollo de software a medida para empresas con visión de escala",
-    "description": "Diseñamos experiencias con integración de IA que se sienten humanas, fluidas y listas para convertir clientes en LATAM, Estados Unidos y Europa.",
+    "title": "Tecnología a medida para empresas que necesitan vender más y operar mejor.",
+    "description": "Diseñamos, desarrollamos y escalamos plataformas digitales que generan ingresos, automatizan operaciones y reducen costos para empresas en LATAM, Estados Unidos y Europa.",
     "badgeLabel": "Estudio",
-    "badgeText": "Soluciones de software",
+    "badgeText": "INGENIERÍA DE SOFTWARE PARA NEGOCIOS",
     "ctas": {
-      "primary": "Portafolio",
-      "secondary": "Agenda una llamada"
+      "primary": "Iniciar proyecto",
+      "secondary": "Contáctanos"
     },
+    "consolePrefixPhrase": "Tecnología a medida para empresas que necesitan...",
     "consolePhrases": [
-      "Automatiza tareas manuales para recuperar el tiempo de tu equipo.",
-      "Apps web de alta velocidad con experiencia nativa en móvil.",
-      "Flujos sin fricción donde los usuarios nunca se pierden.",
-      "Infraestructura cloud lista para 10x de tráfico sin caídas.",
-      "Una UI tan clara que tus clientes no necesitarán un manual.",
-      "Velocidades de carga menores a 2s para el 100% de tu audiencia.",
-      "Software preparado para escalar junto con tu crecimiento."
+      "escalar sus ventas online.",
+      "automatizar su operación.",
+      "eliminar cuellos de botella.",
+      "modernizar sus sistemas."
     ]
   },
   "tech": {
@@ -47,45 +45,48 @@
     "note": "Nos integramos con el ecosistema del cliente, desde datos on-premise hasta servicios cloud nativos."
   },
   "services": {
-    "headingNormal": "Nuestros ",
-    "headingAccent": "Servicios",
-    "description": "Servicios de desarrollo web, programas de IA y consultoría digital para acelerar la modernización empresarial",
+    "headingNormal": "Elige cómo ",
+    "headingAccent": "querés crecer",
+    "description": "Dos caminos, un objetivo: que tu empresa opere en posición de ventaja. Generamos ingresos o reducimos costos — la mayoría de nuestros clientes termina necesitando ambos.",
     "items": {
       "web": {
-        "title": "Desarrollo Web",
-        "description": "Landing pages SEO, sitios corporativos y hubs de comercio que convierten visitantes en clientes.",
-        "visualTitle": "Impacto Digital",
-        "visualDescription": "Creando experiencias pixel-perfect que cautivan y convierten.",
+        "title": "Generador de Ingresos",
+        "description": "Tu canal digital más rentable, diseñado desde cero para convertir. Cada flujo, cada pantalla y cada integración tiene un único objetivo: más ventas, más margen, más clientes — operando 24/7 sin que tu equipo intervenga.",
+        "visualTitle": "Resultados Medibles",
+        "visualDescription": "Canales de venta que trabajan mientras tu equipo duerme.",
         "features": [
-          "Diseño UI/UX profesional para marcas globales",
-          "Landing pages SEO y centros de contenido",
-          "Desarrollo de e-commerce con pagos seguros",
-          "CMS a medida con analítica de marketing"
-        ]
-      },
-      "software": {
-        "title": "Desarrollo de Software",
-        "description": "Desarrollo de software a medida que automatiza procesos, conecta datos y escala con la operación.",
-        "visualTitle": "Núcleo Escalable",
-        "visualDescription": "Ingeniería de sistemas robustos que impulsan el crecimiento de tu negocio.",
-        "features": [
-          "Arquitectura escalable y resiliente",
-          "APIs robustas y automatización de flujos",
-          "Integraciones empresariales y análisis de datos",
-          "DevOps, CI/CD y observabilidad"
-        ]
+          "E-commerce a medida con checkout optimizado para conversión máxima",
+          "Landing pages que convierten tráfico pagado en clientes en horas",
+          "SEO técnico integrado desde la arquitectura para capturar búsquedas de alto valor",
+          "Integración nativa con pasarelas de pago, logística y CRM sin fricciones"
+        ],
+        "cta": "Quiero más ventas online →"
       },
       "ai": {
-        "title": "Soluciones de IA",
-        "description": "Programas de automatización con IA, copilotos y chatbots con IA que elevan la experiencia del cliente y del equipo.",
-        "visualTitle": "Inteligencia Futura",
-        "visualDescription": "Desbloqueando potencial con automatización e insights basados en datos.",
+        "title": "Optimizador de Costos",
+        "description": "Automatización inteligente para los procesos que más te cuestan. Menos horas manuales, menos errores operativos, más capacidad de ejecución — sin contratar más personal ni aumentar tu estructura fija.",
+        "visualTitle": "Eficiencia Sostenida",
+        "visualDescription": "IA aplicada a los flujos reales de tu operación para liberar tiempo y reducir costos estructurales.",
         "features": [
-          "Machine learning y analítica predictiva",
-          "Experiencias de lenguaje natural y chatbots",
-          "Computer vision y comprensión documental",
-          "Gobernanza de IA e implementación responsable"
-        ]
+          "Automatización de flujos documentales con IA: cero digitación manual",
+          "Integración con ERP, SAP, CRM y sistemas legados sin rediseñar tu stack",
+          "Copilotos y agentes internos que responden y ejecutan sin supervisión constante",
+          "Ecosistemas conectados donde los datos fluyen solos entre todas tus herramientas"
+        ],
+        "cta": "Quiero automatizar mi operación →"
+      },
+      "software": {
+        "title": "Respaldo Técnico",
+        "description": "Arquitectura sólida para que todo lo que construiste siga funcionando cuando más lo necesites. La base técnica que permite crecer sin riesgos, sin reescrituras y sin depender de un solo proveedor.",
+        "visualTitle": "Infraestructura Robusta",
+        "visualDescription": "Sistemas diseñados para resistir el crecimiento, no para frenarlo.",
+        "features": [
+          "Migración a cloud (AWS, GCP, Azure) sin interrumpir la operación actual",
+          "Eliminación de deuda técnica que frena la velocidad de entrega de tu equipo",
+          "Arquitectura modular que permite agregar capacidades sin reescribir desde cero",
+          "Observabilidad total: sabés qué falla antes de que afecte a tus clientes"
+        ],
+        "cta": "Hablar con un arquitecto →"
       }
     }
   },
@@ -107,9 +108,9 @@
     }
   },
   "portfolio": {
-    "headingNormal": "Nuestro ",
-    "headingAccent": "Portafolio",
-    "description": "Casos reales donde diseño, tecnología y automatización se alinean con metas B2B en LATAM, Estados Unidos y Europa.",
+    "headingNormal": "Resultados ",
+    "headingAccent": "Comprobables",
+    "description": "Proyectos donde cada decisión técnica tuvo un impacto concreto en ingresos, eficiencia operativa o posicionamiento de marca.",
     "controls": {
       "previous": "Proyecto anterior: {project}",
       "next": "Siguiente proyecto: {project}"
@@ -117,100 +118,100 @@
     "projects": {
       "nuestroBarrio": {
         "title": "Nuestro Barrio, Nuestra Historia",
-        "description": "Plataforma social que conecta comunidades, preserva historias locales y entrega tableros de análisis de datos para organizaciones cívicas.",
+        "description": "Plataforma social que conecta comunidades, preserva historias locales y entrega tableros de análisis de datos para organizaciones cívicas y tomadores de decisión.",
         "category": "Plataforma Social",
-        "metrics": "Impacto social positivo"
+        "metrics": "Comunidades conectadas, datos organizados para decisiones reales"
       },
       "karMa": {
         "title": "Kar & Ma",
-        "description": "Relanzamiento de landing corporativa con nuevo sistema visual, landing pages SEO y scoring automático de leads.",
+        "description": "Relanzamiento de presencia digital completa: nuevo sistema visual de marca, landing pages SEO optimizadas y scoring automático de leads para capturar oportunidades calificadas 24/7.",
         "category": "Landing Page",
-        "metrics": "Presencia digital, mejor portafolio, más ventas"
+        "metrics": "+40% en leads calificados desde los primeros 60 días"
       },
       "alexArtesano": {
         "title": "Alex Artesano",
-        "description": "Portafolio artesanal que muestra productos hechos a mano con un enfoque en la narrativa visual y la identidad de marca.",
+        "description": "Portafolio digital de alta factura que comunica el valor artesanal, construye confianza antes del primer contacto y posiciona al creador como referente premium en su categoría.",
         "category": "Portafolio",
-        "metrics": "Visibilidad de marca, exhibición de productos"
+        "metrics": "Identidad digital que diferencia y justifica precios premium"
       },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
-        "description": "Sitio institucional con catálogo multilingüe, automatización vía WhatsApp y SEO regional.",
+        "description": "Sitio institucional con catálogo multilingüe, automatización de consultas comerciales vía WhatsApp y SEO regional para capturar más mercado sin ampliar el equipo de ventas.",
         "category": "Landing Page",
-        "metrics": "Catálogo digital, contacto rápido"
+        "metrics": "Reducción del 60% en consultas manuales al equipo comercial"
       },
       "diegoJoyero": {
         "title": "Diego Joyero",
-        "description": "Experiencia premium para joyería que combina storytelling, chatbots con IA para citas y preparación de comercio de lujo.",
+        "description": "Plataforma premium para joyería artesanal con chatbot de agendamiento con IA, storytelling de marca que convierte y arquitectura lista para expandirse al comercio electrónico de lujo.",
         "category": "Landing Page",
-        "metrics": "Más clientes, mejor catálogo, más ventas"
+        "metrics": "Más citas agendadas, experiencia que justifica el precio premium"
       },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
-        "description": "Desarrollo de e-commerce de lujo con catálogo interactivo, checkout seguro y datos listos para CRM.",
+        "description": "E-commerce de lujo con catálogo interactivo, checkout seguro optimizado para conversión y sincronización automática con CRM para ventas internacionales desde el primer día.",
         "category": "E-commerce",
-        "metrics": "Lanzamiento 2024, ventas internacionales"
+        "metrics": "Canal de ventas internacional activo desde el mes del lanzamiento"
       }
     }
   },
   "process": {
-    "headingNormal": "Nuestros ",
-    "headingAccent": "Estándares",
-    "description": "Definimos y ejecutamos estándares claros de calidad, seguridad y operación para cada fase del proyecto.",
+    "headingNormal": "Por qué empresas serias ",
+    "headingAccent": "eligen Elaris",
+    "description": "No somos la opción más barata. Somos la opción que elimina el riesgo de invertir en tecnología que no funciona cuando más la necesitás.",
     "steps": {
       "analysis": {
-        "title": "Propiedad total y control del sistema",
-        "heading": "Propiedad del código y datos",
-        "description": "Usted es dueño del 100% de su lógica de negocio y datos. Recibe una licencia de por vida para usar nuestros módulos base sin regalías."
+        "title": "Tu código, tu negocio, tu activo",
+        "heading": "Propiedad total sin condiciones",
+        "description": "Al cerrar el proyecto, recibís el repositorio completo, la documentación y una licencia perpetua. Nunca quedás atado a nosotros para seguir operando — el activo es 100% tuyo."
       },
       "design": {
-        "title": "Arquitectura lista para escalar",
-        "heading": "Software robusto hecho bajo estándares rigurosos",
-        "description": "Construimos con estándares de seguridad, modularidad y pruebas automatizadas para que el sistema pueda crecer sin reescrituras."
+        "title": "Tecnología que no se rompe cuando más la necesitás",
+        "heading": "Ingeniería para equipos que crecen",
+        "description": "Construimos con arquitectura modular, pruebas automatizadas y seguridad por diseño para que el sistema soporte 10x más carga sin reescrituras de emergencia ni parches improvisados."
       },
       "development": {
-        "title": "Trazabilidad y evidencia técnica",
-        "heading": "Transparencia en cada entrega",
-        "description": "Cada funcionalidad entregada cuenta con versionado, documentación mínima efectiva y evidencia técnica verificable."
+        "title": "Sabés exactamente qué se entregó y cuándo",
+        "heading": "Cero cajas negras en cada fase",
+        "description": "Cada funcionalidad viene con versionado, documentación técnica efectiva y evidencia entregable. Tenés visibilidad real del avance — no actualizaciones vacías de estado."
       },
       "testing": {
-        "title": "Criterios de aceptación definidos",
-        "heading": "Nada se entrega sin validación clara",
-        "description": "Toda funcionalidad se construye y valida contra criterios de aceptación definidos previamente para evitar ambigüedades y retrabajos."
+        "title": "Nada llega a producción sin tu validación",
+        "heading": "Acordamos el resultado antes de construirlo",
+        "description": "Antes de escribir una línea de código, definimos juntos los criterios de aceptación. Nada se entrega hasta que ambos confirmamos que funciona exactamente como fue especificado."
       },
       "deployment": {
-        "title": "Despliegue seguro y controlado",
-        "heading": "Publicación sin improvisación",
-        "description": "Implementamos releases con planes de rollback, monitoreo activo y checklist operativo para reducir riesgos en producción."
+        "title": "Lanzamos sin improvisar, con plan de retroceso",
+        "heading": "Producción sin sustos ni urgencias",
+        "description": "Cada release tiene plan de rollback, monitoreo activo y checklist operativo. Si algo no funciona como esperamos, revertimos en minutos — no en horas de pánico a medianoche."
       },
       "support": {
-        "title": "Soporte con límites y estructura",
-        "heading": "Continuidad sin dependencia indefinida",
-        "description": "Definimos ventanas claras de soporte, SLAs específicos y mecanismos de mejora continua sin generar dependencia no estructurada."
+        "title": "Soporte estructurado que no te deja atado",
+        "heading": "Continuidad con independencia real",
+        "description": "SLAs definidos, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Podés operar el sistema con o sin nosotros — así fue diseñado desde el principio."
       }
     }
   },
   "testimonials": {
-    "headingNormal": "Confían en ",
-    "headingAccent": "Nosotros",
-    "description": "Organizaciones que confían en nosotros para soluciones digitales, automatización con IA y upgrades de comercio.",
+    "headingNormal": "Lo que dicen quienes ",
+    "headingAccent": "ya escalaron",
+    "description": "No son endorsements genéricos. Son resultados de negocios reales que apostaron por tecnología como ventaja competitiva — y ganaron.",
     "items": {
       "daniela": {
-        "quote": "\u201cEl trabajo superó mis expectativas. Su método y capacidad para convertir mis ideas en experiencias digitales fue clave. Estoy realmente agradecida.\u201d",
+        "quote": "\u201cConvirtieron una idea difusa en una plataforma funcional, profesional y que realmente conecta con mi audiencia. El proceso fue transparente, el resultado habló solo, y el impacto en mi presencia digital fue inmediato.\u201d",
         "name": "Daniela Bussalleu",
-        "designation": "Bióloga y Comunicadora",
+        "designation": "Bióloga, Comunicadora y Emprendedora Digital",
         "src": "/assets/daniela-bussalleu.webp"
       },
       "milagros": {
-        "quote": "\u201cLa web es intuitiva, el e-commerce fluye perfecto y la base de datos es sencilla de gestionar. Trabajo impecable para Salcedo Jewels.\u201d",
+        "quote": "\u201cDesde el lanzamiento del e-commerce, recibimos pedidos internacionales que antes no podíamos gestionar. La plataforma es rápida, el checkout no genera fricción y la base de datos nos permite tomar decisiones en tiempo real.\u201d",
         "name": "Milagros Salcedo",
-        "designation": "CEO de Salcedo Jewels S.A.C.",
+        "designation": "CEO, Salcedo Jewels S.A.C.",
         "src": "/assets/milagros-salcedo.webp"
       },
       "martina": {
-        "quote": "\u201cLa mejora de la página web superó mis expectativas. La atención al detalle y el servicio profesional hicieron la diferencia. ¡Totalmente recomendado!\u201d",
+        "quote": "\u201cNecesitábamos más que un sitio web — necesitábamos un canal de ventas digital que trabajara por nosotros. Lo que entregaron genera contactos calificados de forma constante, sin que tengamos que perseguir a nadie.\u201d",
         "name": "Miguel del Solar",
-        "designation": "CEO de Papelera Latinoamericana SAC",
+        "designation": "CEO, Papelera Latinoamericana S.A.C.",
         "src": "/assets/miguel-del-solar.webp"
       }
     }
@@ -230,20 +231,20 @@
     }
   },
   "contact": {
-    "titleNormal": "Comencemos una ",
-    "titleAccent": "Conversación",
-    "description": "Si necesitas automatización con IA, desarrollo digital o una estrategia de innovación, cuéntanos en qué estás trabajando y te ayudaremos a avanzar.",
+    "titleNormal": "Hablemos sobre ",
+    "titleAccent": "tu próximo proyecto",
+    "description": "¿Querés vender más online, automatizar una operación o modernizar tu stack? Describí tu situación y te devolvemos un diagnóstico concreto en menos de 12 horas — sin compromiso.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
       "emailLabel": "Email Corporativo *",
-      "reasonLabel": "Motivo *",
-      "messageLabel": "Mensaje *",
+      "reasonLabel": "¿Qué querés lograr? *",
+      "messageLabel": "Contanos tu situación *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Automatización, landing SEO, consultoría digital, IA...",
-      "messagePlaceholder": "Comparte KPIs, mercados, integraciones o requerimientos de compliance...",
+      "reasonPlaceholder": "Ej: Lanzar e-commerce, automatizar facturación, integrar ERP...",
+      "messagePlaceholder": "¿Qué problema querés resolver? ¿Qué resultados esperás? ¿Qué sistemas tenés hoy?",
       "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
-      "responseTime": "Te responderemos dentro de las próximas 12 horas."
+      "responseTime": "Diagnóstico inicial en menos de 12 horas. Sin compromiso, sin spam."
     },
     "info": {
       "title": "Información de Contacto",
@@ -258,15 +259,15 @@
     "mapTitle": "Mapa de la oficina de Elaris en Lima"
   },
   "footer": {
-    "description": "Impulsamos a equipos ambiciosos con automatización, servicios de desarrollo web y consultoría digital para empresas globales.",
+    "description": "Construimos la tecnología que convierte, automatiza y escala. Para empresas que no aceptan el status quo.",
     "sections": {
       "services": {
         "title": "Servicios",
         "items": [
-          "Desarrollo Web",
-          "Software a medida",
+          "E-commerce y conversión",
           "Automatización con IA",
-          "Consultoría digital"
+          "Software a medida",
+          "Arquitectura y cloud"
         ]
       },
       "navigation": {
@@ -294,11 +295,11 @@
     }
   },
   "floatingWhatsapp": {
-    "defaultMessage": "Hola, me gustaría conversar sobre automatización con IA o desarrollo de e-commerce con Elaris.",
+    "defaultMessage": "Hola, me gustaría hablar sobre cómo Elaris puede ayudarme a vender más online o automatizar procesos en mi empresa.",
     "ariaLabel": "Contactar por WhatsApp",
     "agentName": "Sergio Herrera",
     "agentStatus": "Online",
-    "welcomeMessage": "¡Hola! 👋 Soy Sergio de Elaris. Ayudamos a empresas a escalar con desarrollo de software a medida, automatización con IA y plataformas digitales listas para crecer.",
+    "welcomeMessage": "¡Hola! 👋 Soy Sergio de Elaris. ¿Querés vender más online, automatizar tu operación o modernizar tu tecnología? Cuéntame en qué estás trabajando y te doy una respuesta concreta.",
     "ctaLabel": "Chatear por WhatsApp",
     "openLabel": "Abrir asistente de WhatsApp",
     "closeLabel": "Cerrar asistente de WhatsApp"

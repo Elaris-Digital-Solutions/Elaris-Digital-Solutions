@@ -19,6 +19,7 @@ interface HeroProps {
   ctaButtons?: Array<{ text: string; href?: string; primary?: boolean }>;
   microDetails?: Array<string>;
   consolePhrases?: string[];
+  consolePrefixPhrase?: string;
 }
 
 const SyntheticHero = ({
@@ -33,6 +34,7 @@ const SyntheticHero = ({
   ],
   microDetails = [],
   consolePhrases: consolePhrasesProp = [],
+  consolePrefixPhrase,
 }: HeroProps) => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const badgeWrapperRef = useRef<HTMLDivElement | null>(null);
@@ -196,6 +198,7 @@ const SyntheticHero = ({
               phrases={consolePhrases}
               loop={true}
               prefix=">"
+              staticPrefix={consolePrefixPhrase}
               typingSpeed={60}
               deletingSpeed={30}
               pauseDelay={3500}

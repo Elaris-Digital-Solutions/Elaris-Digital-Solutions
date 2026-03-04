@@ -7,6 +7,7 @@ interface TypingConsoleProps {
   phrases: string[];
   loop?: boolean;
   prefix?: string;
+  staticPrefix?: string;
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseDelay?: number;
@@ -19,6 +20,7 @@ const TypingConsole = ({
   phrases,
   loop = true,
   prefix = "$",
+  staticPrefix,
   typingSpeed = 50,
   deletingSpeed = 30,
   pauseDelay = 800,
@@ -106,6 +108,11 @@ const TypingConsole = ({
       <div className="flex items-start text-left">
         <span className="mr-2 flex-shrink-0 text-[#2F64FF] font-bold">{prefix}</span>
         <div className="flex-1 min-w-0">
+          {staticPrefix && (
+            <span className="text-[#071540]/60 break-words whitespace-pre-wrap">
+              {staticPrefix}{" "}
+            </span>
+          )}
           <span className="break-words whitespace-pre-wrap">{displayText}</span>
           {!hideCursor && (
             <span

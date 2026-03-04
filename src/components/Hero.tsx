@@ -6,15 +6,14 @@ const Hero = () => {
   const { t, tArray } = useI18n();
 
   const consolePhrases = useMemo(() => {
-    const base = tArray("hero.consolePhrases").map((phrase) => phrase.trim()).filter(Boolean);
-    const description = t("hero.description").trim();
-    if (!description || base.includes(description)) return base;
-    return [...base, description];
-  }, [t, tArray]);
+    return tArray("hero.consolePhrases").map((phrase) => phrase.trim()).filter(Boolean);
+  }, [tArray]);
+
+  const consolePrefixPhrase = useMemo(() => t("hero.consolePrefixPhrase"), [t]);
 
   const ctaButtons = useMemo(() => [
     { text: t("hero.ctas.primary"), href: "#portafolio", primary: true },
-    { text: "Contact", href: "#contacto" },
+    { text: t("hero.ctas.secondary"), href: "#contacto" },
   ], [t]);
 
   return (
@@ -25,6 +24,7 @@ const Hero = () => {
       badgeText={t("hero.badgeText")}
       ctaButtons={ctaButtons}
       consolePhrases={consolePhrases}
+      consolePrefixPhrase={consolePrefixPhrase}
     />
   );
 };
