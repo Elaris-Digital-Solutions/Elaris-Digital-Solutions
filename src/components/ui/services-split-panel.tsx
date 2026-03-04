@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Globe, Code2, Bot, Check, ArrowRight, ChevronDown } from "lucide-react";
+import { TrendingUp, Zap, Server, Check, ArrowRight, ChevronDown } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -25,22 +25,22 @@ const SERVICE_CONFIG: Record<
   { Icon: React.ElementType; accentColor: string; href: string; badge: string }
 > = {
   web: {
-    Icon: Globe,
+    Icon: TrendingUp,
     accentColor: "#2F64FF",
     href: "#portafolio",
     badge: "Diseño & Performance",
   },
-  software: {
-    Icon: Code2,
-    accentColor: "#2F64FF",
-    href: "/software-a-medida",
-    badge: "Arquitectura escalable",
-  },
   ai: {
-    Icon: Bot,
+    Icon: Zap,
     accentColor: "#2F64FF",
-    href: "/llm-workflows",
-    badge: "Automatización inteligente",
+    href: "/implementacion-llms",
+    badge: "Automatización Inteligente",
+  },
+  software: {
+    Icon: Server,
+    accentColor: "#2F64FF",
+    href: "#contacto",
+    badge: "Modernización Tecnológica",
   },
 };
 
@@ -79,26 +79,18 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
       exit={{ opacity: 0, x: 10 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
     >
-      {/* Top: icon + badge */}
+      {/* Top: combined icon + category pill */}
       <div>
-        <div className="flex items-start justify-between mb-6">
-          <div
-            className="w-14 h-14 rounded-2xl flex items-center justify-center border"
-            style={{
-              backgroundColor: `${accentColor}12`,
-              borderColor: `${accentColor}28`,
-            }}
-          >
-            <Icon className="w-7 h-7" style={{ color: accentColor }} />
-          </div>
+        <div className="mb-7">
           <span
-            className="inline-block text-[10px] font-semibold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full border"
+            className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] px-3.5 py-2 rounded-full border"
             style={{
               color: accentColor,
               borderColor: `${accentColor}30`,
               backgroundColor: `${accentColor}08`,
             }}
           >
+            <Icon className="w-3.5 h-3.5" />
             {badge}
           </span>
         </div>
@@ -119,6 +111,17 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
             <FeatureBullet key={i} text={feat} index={i} />
           ))}
         </ul>
+      </div>
+
+      {/* CTA */}
+      <div className="mt-8 pt-7 border-t border-slate-100">
+        <a
+          href={href}
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F64FF] group hover:gap-3 transition-all duration-200"
+        >
+          Ver casos de uso
+          <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+        </a>
       </div>
     </motion.div>
   );
@@ -390,18 +393,17 @@ export default function ServicesSplitPanel() {
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         {/* ── Section header ── */}
         <motion.div
-          className="mb-12 max-w-2xl mx-auto text-center"
+          className="mb-12 text-center mx-auto"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] leading-tight mb-4">
-            Tecnología que{" "}
-            <span className="font-semibold text-[#2F64FF]">transforma</span>{" "}
-            su operación
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl mb-4">
+            <span className="text-slate-900">Soluciones que impulsan </span>
+            <span style={{ color: "#2F64FF" }}>tu operación</span>
           </h2>
-          <p className="text-slate-500 text-lg font-light leading-relaxed">
+          <p className="text-lg text-slate-500 font-light max-w-2xl mx-auto mt-4 leading-relaxed">
             {t("services.description")}
           </p>
         </motion.div>

@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t, tArray } = useI18n();
   const navLabels = tArray("footer.sections.navigation.items");
-  const navTargets = ["", "estandares", "portafolio", "clientes", "contacto"];
+  const navTargets = ["", "servicios", "estandares", "portafolio", "clientes", "contacto"];
   const navItems = navTargets.map((id, index) => ({
     id,
     label: navLabels[index] ?? "",
