@@ -22,7 +22,7 @@
     }
   },
   "hero": {
-    "title": "Tecnología a medida para empresas que necesitan vender más y operar mejor.",
+    "title": "Tecnología a medida para negocios que necesitan vender más y operar mejor.",
     "description": "Diseñamos, desarrollamos y escalamos plataformas digitales que generan ingresos, automatizan operaciones y reducen costos para empresas en LATAM, Estados Unidos y Europa.",
     "badgeLabel": "Estudio",
     "badgeText": "INGENIERÍA DE SOFTWARE PARA NEGOCIOS",
@@ -47,7 +47,7 @@
   "services": {
     "headingNormal": "Elige cómo ",
     "headingAccent": "querés crecer",
-    "description": "Dos caminos, un objetivo: que tu empresa opere en posición de ventaja. Generamos ingresos o reducimos costos — la mayoría de nuestros clientes termina necesitando ambos.",
+    "description": "Vender más o reducir costos. La mayoría de las empresas necesita ambos para operar con ventaja. Diseñamos e implementamos soluciones enfocadas en estos objetivos a través de:",
     "items": {
       "web": {
         "title": "Optimización Digital para Crecimiento",
