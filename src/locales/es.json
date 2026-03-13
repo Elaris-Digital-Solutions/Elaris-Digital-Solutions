@@ -51,11 +51,11 @@
     "items": {
       "web": {
         "title": "Optimización Digital para Crecimiento",
-        "description": "Si tu presencia digital no está generando ingresos, es un gasto. Desarrollamos plataformas de alto rendimiento enfocadas en captar clientes, cerrar ventas y fidelizar usuarios con experiencias de compra impecables.",
+        "description": "Tu presencia digital debe ser tu mejor canal de ventas, no un gasto más. Desarrollamos plataformas de alto rendimiento enfocadas en captar clientes, automatizar tus ventas y fidelizar usuarios con experiencias de compra impecables desde el primer clic.",
         "visualTitle": "Diseño & Performance",
         "visualDescription": "Canales de venta que trabajan mientras tu equipo duerme.",
         "features": [
-          "Desarrollo de E-commerce a Medida: Creamos tiendas virtuales con requerimientos complejos, integrando desde gestores de inventario avanzados hasta trazabilidad de pedidos en tiempo real.",
+          "Desarrollo de E-commerce a Medida: Creamos tiendas virtuales con requerimientos específicos, integrando desde gestores de inventario avanzados hasta trazabilidad de pedidos en tiempo real.",
           "Integración de Pasarelas de Pago y Logística: Conexión fluida con pasarelas y couriers para que la transacción y la entrega sean procesos automatizados y sin errores.",
           "Arquitectura Técnica SEO-first: Estructura web optimizada para motores de búsqueda desde la base, asegurando que tus clientes te encuentren cuando estén listos para comprar."
         ],
@@ -67,21 +67,21 @@
         "visualTitle": "Automatización Inteligente",
         "visualDescription": "IA aplicada a tu operaciones para liberar tiempo y reducir costos.",
         "features": [
-          "IA Aplicada a Flujos de Trabajo: Implementación de LLMs en procesos reales para potenciar la productividad interna de tu equipo.",
+          "IA Aplicada a Flujos de Trabajo: Integración de asistentes y agentes de IA en procesos reales para potenciar la productividad interna de tu equipo.",
           "Gestión Documental Inteligente: Automatización de procesos de clasificación y extracción de documentos, pasando del caos del papel a la eficiencia digital.",
-          "Ecosistemas Conectados: Integración de sistemas con ERP, SAP y CRM para lograr una comunicación fluida entre plataformas y unificar el núcleo transaccional de tu empresa."
+          "Ecosistemas Conectados: Integración de sistemas con ERP, SAP y CRM para unificar la operación de tu empresa."
         ],
         "cta": "Quiero automatizar mi operación →"
       },
       "software": {
         "title": "Arquitectura y Modernización Tecnológica",
-        "description": "Cada día que operando sobre sistemas frágiles u obsoletos, tu empresa pierde velocidad y dinero. Eliminamos la deuda técnica, modernizamos tu infraestructura y construimos la base que necesitás para escalar sin que la tecnología sea el cuello de botella.",
+        "description": "Cada día que pasas operando sobre sistemas frágiles u obsoletos, tu empresa pierde velocidad y dinero. Modernizamos tu infraestructura, eliminamos los bloqueos tecnológicos y construimos la base que necesitas para escalar sin que la tecnología sea tu cuello de botella.",
         "visualTitle": "Modernización Tecnológica",
         "visualDescription": "Sistemas diseñados para el crecimiento, no para frenarlo.",
         "features": [
-          "Modernización de Sistemas Legacy: migramos tus plataformas antiguas a arquitecturas modernas sin interrumpir la operación.",
-          "Arquitecturas Cloud Robustas: diseñamos y migramos a AWS, GCP o Azure con las mejores prácticas de seguridad y resiliencia.",
-          "Optimización de Costos de Infraestructura TI: reducimos el gasto operativo para que escalar nunca sea un problema."
+          "Modernización de Sistemas: Modernizamos tus plataformas desactualizadas migrando tus sistemas hacia arquitecturas eficientes y escalables sin interrumpir la operación diaria de tu negocio.",
+          "Arquitecturas Cloud Robustas: Construimos arquitecturas cloud robustas diseñando desde cero o trasladando tu infraestructura a AWS, GCP o Azure bajo estrictas prácticas de seguridad y resiliencia.",
+          "Optimización de Costos de Infraestructura TI: Optimizamos tus costos de infraestructura TI reduciendo el gasto operativo recurrente para que el crecimiento tecnológico de tu empresa nunca represente un problema financiero."
         ],
         "cta": "Hablar con un arquitecto →"
       }
@@ -154,12 +154,12 @@
   "process": {
     "headingNormal": "Por qué empresas serias ",
     "headingAccent": "eligen Elaris",
-    "description": "No somos la opción más barata. Somos la opción que elimina el riesgo de invertir en tecnología que no funciona cuando más la necesitás.",
+    "description": "No somos la opción más barata. Somos la opción que elimina el riesgo de invertir en tecnología que no funciona cuando más la necesitas.",
     "steps": {
       "analysis": {
         "title": "Tu código, tu negocio, tu activo",
         "heading": "Propiedad total sin condiciones",
-        "description": "Al cerrar el proyecto, recibís el repositorio completo, la documentación y una licencia perpetua. Nunca quedás atado a nosotros para seguir operando — el activo es 100% tuyo."
+        "description": "Al cerrar el proyecto, recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando — el activo es 100% tuyo."
       },
       "design": {
         "title": "Tecnología que no se rompe cuando más la necesitás",
@@ -167,9 +167,9 @@
         "description": "Construimos con arquitectura modular, pruebas automatizadas y seguridad por diseño para que el sistema soporte 10x más carga sin reescrituras de emergencia ni parches improvisados."
       },
       "development": {
-        "title": "Sabés exactamente qué se entregó y cuándo",
+        "title": "Sabes exactamente qué se entregó y cuándo",
         "heading": "Cero cajas negras en cada fase",
-        "description": "Cada funcionalidad viene con versionado, documentación técnica efectiva y evidencia entregable. Tenés visibilidad real del avance — no actualizaciones vacías de estado."
+        "description": "Cada funcionalidad viene con versionado, documentación técnica efectiva y evidencia entregable. Tienes visibilidad real del avance — no actualizaciones vacías de estado."
       },
       "testing": {
         "title": "Nada llega a producción sin tu validación",
@@ -184,7 +184,7 @@
       "support": {
         "title": "Soporte estructurado que no te deja atado",
         "heading": "Continuidad con independencia real",
-        "description": "SLAs definidos, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Podés operar el sistema con o sin nosotros — así fue diseñado desde el principio."
+        "description": "SLAs definidos, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Puedes operar el sistema con o sin nosotros — así fue diseñado desde el principio."
       }
     }
   },
