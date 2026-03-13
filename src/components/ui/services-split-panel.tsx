@@ -79,21 +79,8 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
       exit={{ opacity: 0, x: 10 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
     >
-      {/* Top: combined icon + category pill */}
+      {/* Top */}
       <div>
-        <div className="mb-7">
-          <span
-            className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em] px-3.5 py-2 rounded-full border"
-            style={{
-              color: accentColor,
-              borderColor: `${accentColor}30`,
-              backgroundColor: `${accentColor}08`,
-            }}
-          >
-            <Icon className="w-3.5 h-3.5" />
-            {badge}
-          </span>
-        </div>
 
         {/* Title */}
         <h3 className="text-2xl md:text-3xl font-semibold text-[#071540] leading-snug mb-4 tracking-tight">
@@ -182,7 +169,7 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
                 </span>
               )}
 
-              <div className="flex items-center gap-3 mb-1.5">
+              <div className="flex items-center gap-3">
                 <Icon
                   className="w-4 h-4 flex-shrink-0 transition-colors duration-200"
                   style={{ color: isActive ? accentColor : "#94a3b8" }}
@@ -195,13 +182,6 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
                   {svc.title}
                 </span>
               </div>
-              <p
-                className={`text-xs font-light leading-snug pl-7 line-clamp-2 transition-colors duration-200 ${
-                  isActive ? "text-slate-400" : "text-slate-400/60"
-                }`}
-              >
-                {svc.visualDescription}
-              </p>
             </button>
           );
         })}
