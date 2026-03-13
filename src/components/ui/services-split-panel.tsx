@@ -119,7 +119,7 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
           href={href}
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F64FF] group hover:gap-3 transition-all duration-200"
         >
-          Ver casos de uso
+          Ver detalles
           <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
         </a>
       </div>
@@ -130,7 +130,15 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
 // ─── Desktop split-panel layout ────────────────────────────────────────────────
 const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
   const [activeKey, setActiveKey] = useState<string>(services[0]?.key ?? "web");
+  const [visitedKeys, setVisitedKeys] = useState<Set<string>>(
+    () => new Set([services[0]?.key ?? "web"])
+  );
   const activeService = services.find((s) => s.key === activeKey) ?? services[0];
+
+  const markVisited = (key: string) => {
+    setActiveKey(key);
+    setVisitedKeys((prev) => { const next = new Set(prev); next.add(key); return next; });
+  };
 
   return (
     <div className="hidden lg:grid lg:grid-cols-[280px_1fr] rounded-3xl border border-slate-200 overflow-hidden shadow-[0_8px_48px_rgba(7,21,64,0.07)] bg-white min-h-[520px]">
@@ -142,8 +150,8 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
           return (
             <button
               key={svc.key}
-              onClick={() => setActiveKey(svc.key)}
-              onMouseEnter={() => setActiveKey(svc.key)}
+              onClick={() => markVisited(svc.key)}
+              onMouseEnter={() => markVisited(svc.key)}
               className={`relative w-full text-left px-6 py-5 transition-all duration-200 group focus:outline-none ${
                 isActive
                   ? "bg-white shadow-sm"
@@ -158,6 +166,20 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
                   style={{ backgroundColor: accentColor }}
                   transition={{ duration: 0.22, ease: "easeOut" }}
                 />
+              )}
+
+              {/* Hover hint: pulsing dot on services not yet visited */}
+              {!isActive && !visitedKeys.has(svc.key) && (
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 flex h-2 w-2">
+                  <span
+                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
+                    style={{ backgroundColor: accentColor }}
+                  />
+                  <span
+                    className="relative inline-flex rounded-full h-2 w-2 opacity-40"
+                    style={{ backgroundColor: accentColor }}
+                  />
+                </span>
               )}
 
               <div className="flex items-center gap-3 mb-1.5">
@@ -184,15 +206,6 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
           );
         })}
 
-        {/* Bottom tag */}
-        <div className="mt-auto px-6 py-5 border-t border-slate-100">
-          <p className="text-[10px] uppercase tracking-[0.15em] text-slate-400 font-medium">
-            Todos los servicios
-          </p>
-          <p className="text-[11px] text-slate-400/70 font-light mt-1 leading-snug">
-            Soluciones integrales para empresas B2B en cualquier etapa.
-          </p>
-        </div>
       </nav>
 
       {/* ── Right panel ── */}
@@ -349,7 +362,7 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                       href={href}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2F64FF]"
                     >
-                      Ver casos de uso <ArrowRight className="w-3 h-3" />
+                      Ver detalles <ArrowRight className="w-3 h-3" />
                     </a>
                   </div>
                 </motion.div>
