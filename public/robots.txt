@@ -1,3 +1,20 @@
 User-agent: *
 Allow: /
+
+# Section anchor routes — all render the homepage, not separate content
+Disallow: /servicios
+Disallow: /estandares
+Disallow: /portafolio
+Disallow: /productos
+Disallow: /testimonios
+Disallow: /contacto
+Disallow: /proceso
+
+# Service landing pages — intentionally noindex
+Disallow: /desarrollo-software-medida
+Disallow: /implementacion-llms
+Disallow: /apis-personalizadas
+Disallow: /implementacion-cmms
+Disallow: /meet
+
 Sitemap: https://elarisdigitalsolutions.com/sitemap.xml
