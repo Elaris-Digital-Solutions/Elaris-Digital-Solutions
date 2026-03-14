@@ -139,7 +139,7 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
               key={svc.key}
               onClick={() => markVisited(svc.key)}
               onMouseEnter={() => markVisited(svc.key)}
-              className={`relative w-full text-left px-6 py-5 transition-all duration-200 group focus:outline-none ${
+              className={`relative w-full text-left pl-6 pr-10 py-5 transition-all duration-200 group focus:outline-none ${
                 isActive
                   ? "bg-white shadow-sm"
                   : "hover:bg-white/70"
