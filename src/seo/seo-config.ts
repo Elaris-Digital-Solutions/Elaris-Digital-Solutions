@@ -142,12 +142,4 @@ export const getServicePageSeoMetadata = (
   ogImage: OG_IMAGE,
   structuredData: [],
 });
-structuredData: [
-  buildOrganizationSchema(),
-  buildWebsiteSchema(currentLanguage),
-  ...(page === "home" ? [buildServiceSchema(), buildBreadcrumbSchema(currentLanguage)] : []),
-],
-  };
-};
-
 export { SITE_URL };
