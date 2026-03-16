@@ -7,6 +7,7 @@ import ApiIntegration from "./pages/ApiIntegration";
 import MeetsRedirect from "./pages/MeetsRedirect";
 import CMMS from "./pages/CMMS";
 import NotFound from "./pages/NotFound";
+import LandingImpulsaTuNegocio from "./pages/LandingImpulsaTuNegocio";
 import { I18nProvider } from "@/lib/i18n";
 
 const sectionSlugs = [
@@ -35,7 +36,7 @@ const App = () => (
           {/* Service landing pages — noindex */}
           <Route path="/meet" element={<MeetsRedirect />} />
           <Route path="/desarrollo-software-medida" element={<CustomSoftware />} />
-          <Route path="/impulsa-tu-negocio" element={<CustomSoftware />} />
+          <Route path="/impulsa-tu-negocio" element={<LandingImpulsaTuNegocio />} />
           <Route path="/implementacion-llms" element={<LLMWorkflows />} />
           <Route path="/apis-personalizadas" element={<ApiIntegration />} />
           <Route path="/implementacion-cmms" element={<CMMS />} />
