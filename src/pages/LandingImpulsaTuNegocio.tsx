@@ -2,17 +2,130 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { 
-    ArrowRight, ShoppingCart, Settings, GitMerge, 
-    LineChart, ShieldCheck, Clock, CheckCircle2, AlertCircle
+    ArrowRight, ShoppingCart, Settings, GitMerge,
+    ShieldCheck, Clock, CheckCircle2, AlertCircle, Phone, Mail, Instagram, MapPin
 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
+import SmartImage from "@/components/ui/smart-image";
+import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 
 const fadeUp = {
     initial: { opacity: 0, y: 28 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, ease: "easeOut" },
 } as const;
+
+const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLAnchorElement>) => void }) => {
+    const [isAtTop, setIsAtTop] = useState(true);
+    const [isNavHovered, setIsNavHovered] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setIsAtTop(window.scrollY < 40);
+        const raf = requestAnimationFrame(onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+            cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, []);
+
+    const isOpaque = !isAtTop || isNavHovered;
+
+    const navThemeClasses = isOpaque
+        ? "bg-white text-[#111] border-b border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+        : "bg-transparent text-[#111] border-b border-transparent shadow-none";
+
+    return (
+        <header
+            className="fixed left-0 right-0 top-0 z-50"
+            onMouseEnter={() => setIsNavHovered(true)}
+            onMouseLeave={() => setIsNavHovered(false)}
+        >
+            <nav
+                aria-label="Primary"
+                className={`h-[80px] transition-[background-color,border-color,box-shadow] duration-200 ease-in-out ${navThemeClasses}`}
+            >
+                <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 max-w-6xl flex items-center justify-between gap-3">
+                    <a href="/" aria-label="Elaris Digital Solutions" className="inline-flex items-center">
+                        <SmartImage
+                            src="/assets/ElarisLogo.png"
+                            alt="Elaris Digital Solutions"
+                            priority
+                            width={160}
+                            height={64}
+                            className="h-10 w-auto"
+                        />
+                    </a>
+
+                    <div className="flex items-center">
+                        <a
+                            href="#reserva"
+                            onClick={onCtaClick}
+                            className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-3 sm:px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                        >
+                            Contacta Ventas
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    );
+};
+
+const RedirectFooter = () => {
+    const currentYear = new Date().getFullYear();
+
+    return (
+        <footer className="bg-[#030E2C] border-t border-white/10 text-white">
+            <div className="container mx-auto px-6 lg:px-8 max-w-6xl py-12">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+                    <div className="max-w-md">
+                        <SmartImage
+                            src="/assets/ElarisLogoWhite.png"
+                            alt="Elaris Digital Solutions"
+                            priority
+                            width={180}
+                            height={72}
+                            className="h-16 w-auto mb-4"
+                        />
+                        <p className="text-white/80 text-sm leading-relaxed">
+                            Desarrollamos soluciones digitales, automatizaciones e integraciones para empresas que buscan crecer con procesos mas eficientes.
+                        </p>
+                    </div>
+
+                    <div className="space-y-3 text-sm text-white/85">
+                        <a href="mailto:contact@elarisdigitalsolutions.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                            <Mail className="h-4 w-4" />
+                            contact@elarisdigitalsolutions.com
+                        </a>
+                        <a href="tel:+51973663807" className="flex items-center gap-2 hover:text-white transition-colors">
+                            <Phone className="h-4 w-4" />
+                            +51 973 663 807
+                        </a>
+                        <a
+                            href="https://www.instagram.com/elarisdigitalsolutions"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 hover:text-white transition-colors"
+                        >
+                            <Instagram className="h-4 w-4" />
+                            @elarisdigitalsolutions
+                        </a>
+                        <p className="flex items-center gap-2">
+                            <MapPin className="h-4 w-4" />
+                            Lima, Peru
+                        </p>
+                    </div>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/10">
+                    <p className="text-xs text-white/70">© {currentYear} Elaris Digital Solutions. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    );
+};
 
 export default function LandingImpulsaTuNegocio() {
     const location = useLocation();
@@ -24,8 +137,8 @@ export default function LandingImpulsaTuNegocio() {
     // Form State
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
-    const [empresa, setEmpresa] = useState("");
-    const [problema, setProblema] = useState("");
+    const [nombreFocused, setNombreFocused] = useState(false);
+    const [emailFocused, setEmailFocused] = useState(false);
 
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -38,9 +151,7 @@ export default function LandingImpulsaTuNegocio() {
         const phoneNumber = "51973663807";
         const message = `Hola Elaris, me interesa un diagnóstico gratuito para mi negocio.
 *Nombre:* ${nombre}
-*Email:* ${email}
-*Empresa:* ${empresa}
-*Problema principal:* ${problema || "No especificado"}`;
+    *Email:* ${email}`;
         
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank", "noopener,noreferrer");
@@ -60,15 +171,17 @@ export default function LandingImpulsaTuNegocio() {
                 title="Impulsa tu negocio | Elaris Digital Solutions"
                 description="Automatiza procesos, vende online y conecta tus sistemas para que tu empresa crezca sin aumentar tu carga de trabajo."
             />
+            <RedirectNavbar onCtaClick={scrollToForm} />
 
             {/* SECTION 1 — HERO */}
-            <section className="relative flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] py-20 lg:py-32 xl:py-40">
+            <section className="relative min-h-[100svh] overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
                     <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
-                
-                <div className="container mx-auto px-6 lg:px-8 max-w-5xl relative z-10 text-center">
-                    <motion.div {...fadeUp}>
+
+                <div className="absolute inset-x-0 top-[80px] bottom-0 z-10 flex items-center">
+                    <div className="container mx-auto px-6 lg:px-8 max-w-5xl text-center py-10 lg:py-14">
+                        <motion.div {...fadeUp}>
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-xs font-bold tracking-[0.12em] uppercase mb-8 shadow-sm justify-center">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
                             Soluciones para empresas
@@ -110,7 +223,8 @@ export default function LandingImpulsaTuNegocio() {
                                 Sin compromiso · 20 minutos · Diagnóstico real para tu negocio
                             </p>
                         </div>
-                    </motion.div>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 
@@ -163,7 +277,7 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 3 — SOLUTION */}
-            <section className="py-20 lg:py-32 bg-[#F8FAFC]">
+            <section className="py-20 lg:py-32 bg-[#F0F4FF]">
                 <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
@@ -315,78 +429,89 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 7 — FINAL CTA (Booking Form) */}
-            <section id="reserva" className="py-20 lg:py-32 bg-[#F0F4FF] relative overflow-hidden">
-                <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full opacity-30">
-                    <NeuralNoise opacity={0.4} pointerStrength={1} timeScale={0.2} fixedScrollProgress={0} className="absolute inset-0" />
+            <section id="reserva" className="relative py-20 lg:py-32 bg-[#F0F4FF] overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
+                    <NeuralNoise opacity={0.8} pointerStrength={1.2} timeScale={0.5} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
 
-                <div className="container mx-auto px-6 lg:px-8 max-w-2xl relative z-10">
-                    <div className="bg-white rounded-3xl p-8 md:p-12 lg:p-14 shadow-[0_20px_60px_rgba(7,21,64,0.06)] border border-slate-100">
-                        <div className="text-center mb-10">
-                            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-[#071540] leading-tight mb-4">
-                                Agenda una llamada y descubre <br className="hidden md:block"/>
-                                <span className="text-[#2F64FF] font-semibold">cómo hacer crecer tu negocio</span>
+                <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
+                    <motion.div
+                        className="mx-auto w-full max-w-4xl"
+                        initial={{ opacity: 0, x: -32 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
+                        <div className="mb-10 text-center">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] leading-tight">
+                                Convirtamos tu operación en una máquina de ventas
+                                <span className="font-semibold text-[#2F64FF]"> desde este mes.</span>
                             </h2>
-                            <p className="text-slate-500 text-lg">Completa tus datos para iniciar.</p>
+                            <p className="mt-4 mx-auto text-lg text-slate-500 leading-relaxed max-w-3xl">
+                                Cuéntanos dónde se está frenando tu crecimiento y te devolvemos un plan accionable para vender más, automatizar procesos y escalar sin sumar complejidad.
+                            </p>
                         </div>
 
-                        <form onSubmit={handleFormSubmit} className="space-y-6">
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 tracking-wide mb-2 uppercase text-[0.7rem]">Nombre completo <span className="text-rose-500">*</span></label>
-                                <input 
-                                    type="text" 
-                                    required 
+                        <form onSubmit={handleFormSubmit} className="mx-auto w-full max-w-3xl space-y-6">
+                            <div className="relative pt-4">
+                                <label
+                                    className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
+                                        nombreFocused || nombre
+                                            ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                                            : "top-4 text-[1.05rem] text-slate-400"
+                                    }`}
+                                >
+                                    Nombre completo *
+                                </label>
+                                <input
+                                    type="text"
+                                    className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                                     value={nombre}
                                     onChange={(e) => setNombre(e.target.value)}
-                                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#2F64FF] focus:bg-white transition-colors"
-                                    placeholder="Ej. Juan Pérez"
+                                    onFocus={() => setNombreFocused(true)}
+                                    onBlur={() => setNombreFocused(false)}
+                                    required
                                 />
                             </div>
 
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 tracking-wide mb-2 uppercase text-[0.7rem]">Email comercial <span className="text-rose-500">*</span></label>
-                                <input 
-                                    type="email" 
-                                    required 
+                            <div className="relative pt-4">
+                                <label
+                                    className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
+                                        emailFocused || email
+                                            ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                                            : "top-4 text-[1.05rem] text-slate-400"
+                                    }`}
+                                >
+                                    Email *
+                                </label>
+                                <input
+                                    type="email"
+                                    className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#2F64FF] focus:bg-white transition-colors"
-                                    placeholder="juan@empresa.com"
+                                    onFocus={() => setEmailFocused(true)}
+                                    onBlur={() => setEmailFocused(false)}
+                                    required
                                 />
                             </div>
 
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 tracking-wide mb-2 uppercase text-[0.7rem]">Nombre de la Empresa <span className="text-rose-500">*</span></label>
-                                <input 
-                                    type="text" 
-                                    required 
-                                    value={empresa}
-                                    onChange={(e) => setEmpresa(e.target.value)}
-                                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#2F64FF] focus:bg-white transition-colors"
-                                    placeholder="Mi Empresa S.A."
-                                />
+                            <div className="pt-4 text-center">
+                                <button
+                                    type="submit"
+                                    className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
+                                >
+                                    Quiero mi diagnóstico estratégico
+                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                                </button>
+                                <p className="mt-3 text-sm text-slate-400">Respuesta en menos de 12 horas. Sin compromiso.</p>
                             </div>
-
-                            <div>
-                                <label className="block text-sm font-bold text-slate-700 tracking-wide mb-2 uppercase text-[0.7rem]">Problema a resolver (Opcional)</label>
-                                <textarea 
-                                    value={problema}
-                                    onChange={(e) => setProblema(e.target.value)}
-                                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3.5 focus:outline-none focus:border-[#2F64FF] focus:bg-white transition-colors min-h-[100px] resize-none"
-                                    placeholder="Ej. Quiero automatizar mis ventas en línea..."
-                                />
-                            </div>
-
-                            <button 
-                                type="submit"
-                                className="w-full bg-[#071540] text-white rounded-xl py-4 font-bold text-lg hover:bg-[#2F64FF] shadow-lg hover:shadow-[#2F64FF]/40 transition-all duration-300 transform hover:-translate-y-1 mt-4"
-                            >
-                                Reservar diagnóstico gratuito
-                            </button>
                         </form>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
+
+            <RedirectFooter />
+            <FloatingWhatsappButton />
         </div>
     );
 }

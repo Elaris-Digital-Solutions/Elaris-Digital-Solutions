@@ -1,5 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, type ReactNode } from "react";
 import es from "@/locales/es.json";
+
+export type Language = "es" | "en";
+
 type TranslationPrimitive = string | number | boolean | null;
 type TranslationValue = TranslationPrimitive | TranslationValue[] | { [key: string]: TranslationValue };
 type TranslationParams = Record<string, string | number>;

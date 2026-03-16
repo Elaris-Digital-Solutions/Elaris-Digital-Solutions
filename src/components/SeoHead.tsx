@@ -1,11 +1,7 @@
 import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
-import {
-  getHomeSeoMetadata,
-  getNotFoundSeoMetadata,
-  getServicePageSeoMetadata,
-  type SeoPage,
-} from "@/seo/seo-config";
+import { useLocation } from "react-router-dom";
+import { getSeoMetadata, type SeoPage } from "@/seo/seo-config";
 
 interface SeoHeadProps {
   page?: SeoPage;
@@ -16,23 +12,39 @@ interface SeoHeadProps {
 }
 
 const SeoHead = ({ page, title, description }: SeoHeadProps) => {
+  const location = useLocation();
+
   const metadata = useMemo(() => {
-    if (page === "not-found") {
-      return getNotFoundSeoMetadata();
-    }
+    const basePage: SeoPage = page === "not-found" ? "not-found" : "home";
+    const base = getSeoMetadata({
+      pathname: location.pathname,
+      page: basePage,
+      language: "es",
+    });
+
     if (title && description) {
-      return getServicePageSeoMetadata(title, description);
+      return {
+        ...base,
+        title,
+        description,
+        robots: "noindex,nofollow",
+        structuredData: [],
+      };
     }
-    return getHomeSeoMetadata();
-  }, [page, title, description]);
+
+    return base;
+  }, [location.pathname, page, title, description]);
 
   return (
     <Helmet prioritizeSeoTags>
-      <html lang="es" />
+      <html lang={metadata.lang} />
       <title>{metadata.title}</title>
       <meta name="description" content={metadata.description} />
       <meta name="robots" content={metadata.robots} />
       <link rel="canonical" href={metadata.canonical} />
+      {metadata.alternates.map(({ href, hrefLang }) => (
+        <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+      ))}
 
       {/* Open Graph */}
       <meta property="og:title" content={metadata.title} />
@@ -43,7 +55,7 @@ const SeoHead = ({ page, title, description }: SeoHeadProps) => {
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Logotipo de Elaris Digital Solutions" />
-      <meta property="og:locale" content="es_ES" />
+      <meta property="og:locale" content={metadata.locale} />
       <meta property="og:site_name" content="Elaris Digital Solutions" />
 
       {/* Twitter Card */}
