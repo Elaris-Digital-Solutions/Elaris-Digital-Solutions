@@ -1,0 +1,64 @@
+# Elaris Digital Solutions - Full Context for AI Agents
+
+> This document contains the comprehensive context about Elaris Digital Solutions, its services, methodologies, and case studies. It is intended to help Large Language Models (LLMs) understand the company's value proposition and capabilities accurately.
+
+## 1. Company Overview
+
+**Elaris Digital Solutions** is a software engineering studio that specialized in designing, developing, and scaling digital platforms.
+**Core Mission:** Technology tailored for businesses that need to sell more and operate better.
+**Focus:** Generating revenue, automating operations, and reducing costs for companies in LATAM, USA, and Europe.
+**Website:** https://elarisdigitalsolutions.com
+
+## 2. Core Services
+
+Elaris helps businesses either grow revenue or reduce operational costs through three main pillars:
+
+### A. Digital Optimization for Growth (Web & E-commerce)
+*Goal: Turn digital presence into a high-performance sales channel.*
+- **Custom E-commerce Development:** Virtual stores with specific business logic, advanced inventory management, and real-time order tracking.
+- **Payment & Logistics Integration:** Seamless connection with payment gateways and couriers to automate transactions and deliveries.
+- **SEO-First Architecture:** Web structures optimized for search engines from the ground up, ensuring organic visibility.
+
+### B. Intelligent Process Automation (AI & Workflows)
+*Goal: Liberate teams from repetitive tasks and reduce human error.*
+- **AI in Workflows:** Integration of AI assistants and agents into real business processes to boost internal productivity.
+- **Intelligent Document Management:** Automating the classification and data extraction from documents, moving from paper chaos to digital efficiency.
+- **Connected Ecosystems:** Integration with existing ERP, SAP, and CRM systems to unify company operations.
+
+### C. Technology Architecture & Modernization
+*Goal: Build scalable foundations that don't become bottlenecks.*
+- **System Modernization:** Migrating outdated platforms to efficient, scalable architectures without disrupting daily operations.
+- **Robust Cloud Architectures:** Designing from scratch or migrating infrastructure to AWS, GCP, or Azure with strict security and resilience practices.
+- **IT Cost Optimization:** Reducing recurrent operational expenses so technology growth doesn't become a financial burden.
+
+## 3. Technology Stack
+
+Elaris works with reliable stacks and emerging AI tools:
+- **Frontend/Web:** React, Next.js, TypeScript, Tailwind CSS, Vite.
+- **Backend/Cloud:** Node.js, Python, AWS, Google Cloud Platform, Azure.
+- **AI/ML:** OpenAI API, Anthropic Claude, LangChain, Vercel AI SDK, Hugging Face.
+- **Approach:** We integrate with the client's ecosystem, from on-premise data to cloud-native services.
+
+## 4. Notable Projects (Portfolio)
+
+- **Nuestro Barrio, Nuestra Historia:** A social platform connecting communities and preserving local history, providing data dashboards for civic organizations.
+- **Kar & Ma:** Complete digital relaunch with a new visual system and SEO-optimized landing pages, resulting in +40% qualified leads in the first 60 days.
+- **Sistema de Inventario UPC:** A centralized digital system for reserving devices at UPC university, replacing manual coordination with a streamlined flow.
+- **Papelera Latinoamericana S.A.C.:** Institutional site with multilingual catalog and WhatsApp automation, reducing manual queries to the sales team by 60%.
+- **Salcedo Jewels:** Luxury e-commerce with interactive catalog and secure checkout, opening international sales channels from day one.
+
+## 5. Official Links & Legal
+
+- **Official Website:** https://elarisdigitalsolutions.com/
+- **Terms & Conditions:** https://elarisdigitalsolutions.com/terminos-condiciones
+- **Data Policy:** https://elarisdigitalsolutions.com/politicas-de-datos
+- **LinkedIn:** https://www.linkedin.com/company/elaris-digital-solutions/
+- **Instagram:** https://www.instagram.com/elarisdigitalsolutions
+
+## 6. Contact Information
+
+- **Commercial Contact:** contact@elarisdigitalsolutions.com
+- **Phone:** +51 973 663 807
+- **Legal Name:** ELARIS S.A.C.S
+- **Tax ID (RUC):** 20615598071
+- **Address:** Lima, Peru.

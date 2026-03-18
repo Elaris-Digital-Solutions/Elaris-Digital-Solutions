@@ -30,6 +30,12 @@ const App = () => (
           <Route path="/politicas-de-datos" element={<DataPolicies />} />
           <Route path="/es/terminos-condiciones" element={<TermsAndConditions />} />
           <Route path="/es/politicas-de-datos" element={<DataPolicies />} />
+
+          {/* ORGANIC OFFENSIVE STRATEGY:
+              These "Pillar Pages" (/servicios, /portafolio, etc.) are indexed by Google.
+              Currently, they render the SPA Home but with specific canonical URLs (handled in SeoHead)
+              to serve as entry points for broad organic search terms.
+          */}
           {sectionSlugs.map((slug) => (
             <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
           ))}

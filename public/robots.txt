@@ -9,11 +9,12 @@ Disallow: /productos
 Disallow: /contacto
 Disallow: /proceso
 
-# Campaign/service pages intentionally excluded from indexing
-Disallow: /desarrollo-software-medida
-Disallow: /implementacion-llms
-Disallow: /apis-personalizadas
-Disallow: /implementacion-cmms
+# Campaign/service landing pages are used for Ads.
+# They remain crawlable for quality/context signals, and are controlled via meta robots (noindex) at page level.
 Disallow: /meet
 
 Sitemap: https://elarisdigitalsolutions.com/sitemap.xml
+
+# AI Context Discovery — Standard emerging practice to help LLMs understand the site structure.
+Sitemap: https://elarisdigitalsolutions.com/llms.txt
+Sitemap: https://elarisdigitalsolutions.com/llms-full.txt

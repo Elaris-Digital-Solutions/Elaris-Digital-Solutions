@@ -1,0 +1,20 @@
+# Force noindex for campaign/service landing pages used in ads.
+# This is evaluated at HTTP-header level (stronger than client-side meta tags).
+
+/desarrollo-software-medida*
+  X-Robots-Tag: noindex, follow
+
+/implementacion-llms*
+  X-Robots-Tag: noindex, follow
+
+/apis-personalizadas*
+  X-Robots-Tag: noindex, follow
+
+/implementacion-cmms*
+  X-Robots-Tag: noindex, follow
+
+/impulsa-tu-negocio*
+  X-Robots-Tag: noindex, follow
+
+/meet*
+  X-Robots-Tag: noindex, follow

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { getSeoMetadata, type SeoPage } from "@/seo/seo-config";
+import { getSeoMetadata, SITE_URL, type SeoPage } from "@/seo/seo-config";
 
 interface SeoHeadProps {
   page?: SeoPage;
@@ -23,11 +23,19 @@ const SeoHead = ({ page, title, description }: SeoHeadProps) => {
     });
 
     if (title && description) {
+      const canonicalPath = location.pathname || "/";
+      const canonical = `${SITE_URL}${canonicalPath === "/" ? "/" : canonicalPath}`;
+
       return {
         ...base,
         title,
         description,
-        robots: "noindex,nofollow",
+        canonical,
+        alternates: [
+          { href: canonical, hrefLang: "es" },
+          { href: canonical, hrefLang: "x-default" },
+        ],
+        robots: "noindex,follow",
         structuredData: [],
       };
     }
