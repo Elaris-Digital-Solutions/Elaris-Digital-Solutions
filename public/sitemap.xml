@@ -2,61 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://elarisdigitalsolutions.com/</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
+    <lastmod>2026-03-18T05:27:07.801Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://elarisdigitalsolutions.com/servicios</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/estandares</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/portafolio</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/productos</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/clientes</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/contacto</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://elarisdigitalsolutions.com/proceso</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://elarisdigitalsolutions.com/terminos-condiciones</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
+    <lastmod>2026-03-18T05:27:07.801Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://elarisdigitalsolutions.com/politicas-de-datos</loc>
-    <lastmod>2026-03-18T04:55:41.759Z</lastmod>
+    <lastmod>2026-03-18T05:27:07.801Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

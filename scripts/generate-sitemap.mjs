@@ -7,13 +7,6 @@ const now = new Date().toISOString();
 
 const sitemapEntries = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/servicios", changefreq: "weekly", priority: "0.9" },
-  { path: "/estandares", changefreq: "monthly", priority: "0.8" },
-  { path: "/portafolio", changefreq: "weekly", priority: "0.9" },
-  { path: "/productos", changefreq: "weekly", priority: "0.8" },
-  { path: "/clientes", changefreq: "weekly", priority: "0.8" },
-  { path: "/contacto", changefreq: "weekly", priority: "0.8" },
-  { path: "/proceso", changefreq: "monthly", priority: "0.7" },
   { path: "/terminos-condiciones", changefreq: "yearly", priority: "0.3" },
   { path: "/politicas-de-datos", changefreq: "yearly", priority: "0.3" },
 ];

@@ -122,12 +122,44 @@ const toSpanishPath = (pathname: string): string => {
 
 const getLocaleCode = (language: Language) => (language === "es" ? "es-ES" : "en-US");
 
+const isHomeAliasPath = (pathname: string) => {
+  const aliases = new Set<string>([
+    ...SECTION_SLUGS.map((slug) => `/${slug}`),
+    ...SECTION_SLUGS.map((slug) => `/es/${slug}`),
+    ...SECTION_SLUGS.map((slug) => `/en/${slug}`),
+  ]);
+  return aliases.has(pathname);
+};
+
+const canonicalForPage = (pathname: string, page: SeoPage) => {
+  if (page !== "home") return pathname;
+  if (!isHomeAliasPath(pathname)) return pathname;
+  if (pathname.startsWith("/en/")) return "/en";
+  if (pathname.startsWith("/es/")) return "/es";
+  return "/";
+};
+
 const buildOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Elaris Digital Solutions",
+  legalName: "ELARIS S.A.C.S",
+  taxID: "20615598071",
+  foundingDate: "2026-03-09",
   url: SITE_URL,
   logo: OG_IMAGE,
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "RUC",
+    value: "20615598071",
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "JR. TACNA NRO. 207 DPTO. 801 CND. SURCO VIEJO",
+    addressLocality: "Lima",
+    addressRegion: "Lima",
+    addressCountry: "PE",
+  },
   sameAs: [
     "https://www.linkedin.com/company/elaris-digital-solutions/",
     "https://www.instagram.com/elarisdigitalsolutions",
@@ -138,7 +170,7 @@ const buildOrganizationSchema = () => ({
     {
       "@type": "ContactPoint",
       email: "contact@elarisdigitalsolutions.com",
-      telephone: "+51-944-228-807",
+      telephone: "+51-973-663-807",
       contactType: "sales",
       areaServed: "Worldwide",
       availableLanguage: ["English", "Spanish"],
@@ -207,10 +239,11 @@ export const getSeoMetadata = ({
   language: Language;
 }) => {
   const normalizedPath = normalizePath(pathname);
+  const canonicalPath = canonicalForPage(normalizedPath, page);
   const currentLanguage = normalizedPath.startsWith("/en") ? "en" : "es";
-  const englishHref = `${SITE_URL}${toEnglishPath(normalizedPath)}`;
-  const spanishHref = `${SITE_URL}${toSpanishPath(normalizedPath)}`;
-  const canonical = `${SITE_URL}${normalizedPath === "/" ? "/" : normalizedPath}`;
+  const englishHref = `${SITE_URL}${toEnglishPath(canonicalPath)}`;
+  const spanishHref = `${SITE_URL}${toSpanishPath(canonicalPath)}`;
+  const canonical = `${SITE_URL}${canonicalPath === "/" ? "/" : canonicalPath}`;
   const baseCopy = seoCopy[page][currentLanguage];
   const robots = page === "not-found" ? "noindex,nofollow" : "index,follow,max-image-preview:large";
 

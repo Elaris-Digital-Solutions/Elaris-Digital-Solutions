@@ -1,16 +1,15 @@
 User-agent: *
 Allow: /
 
-# Section anchor routes — all render the homepage, not separate content
+# Home section alias routes — all render the same homepage experience
 Disallow: /servicios
 Disallow: /estandares
 Disallow: /portafolio
 Disallow: /productos
-Disallow: /testimonios
 Disallow: /contacto
 Disallow: /proceso
 
-# Service landing pages — intentionally noindex
+# Campaign/service pages intentionally excluded from indexing
 Disallow: /desarrollo-software-medida
 Disallow: /implementacion-llms
 Disallow: /apis-personalizadas
