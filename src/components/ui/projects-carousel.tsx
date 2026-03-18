@@ -17,22 +17,15 @@ const projectConfigs = [
     url: 'https://papelera-latinoamericana.netlify.app'
   },
   {
-    slug: 'diegoJoyero',
-    image: '/assets/diego-joyero.webp',
-    stack: ['React', 'Tailwind', 'Netlify'],
-    url: 'https://diego-joyero.netlify.app/'
-  },
-  {
-    slug: 'alexArtesano',
-    image: '/assets/alex-artesano.png',
-    stack: ['React', 'Tailwind', 'Netlify'],
-    url: 'https://alex-artesano.netlify.app/'
+    slug: 'sistemaInventarioUPC',
+    image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
+    stack: ['React', 'Tailwind', 'Vite']
   },
   {
     slug: 'salcedoJewels',
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
-    url: 'https://salcedo-jewels.vercel.app/'
+    url: 'https://salcedojewels.com'
   }
 ] as const;
 
@@ -160,15 +153,17 @@ const ProjectsCarousel: React.FC = () => {
                   <div>
                     <p className="text-sm font-semibold text-green-600">{projects[currentProject].metrics}</p>
                   </div>
-                  <div className="flex space-x-2">
-                    <button
-                      className="p-2 bg-gray-200 hover:bg-blue-600 hover:text-white rounded-lg transition-colors"
-                      onClick={() => projects[currentProject].url && window.open(projects[currentProject].url, '_blank')}
-                      aria-label={t('common.buttons.viewProject')}
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                  </div>
+                  {projects[currentProject].url && (
+                    <div className="flex space-x-2">
+                      <button
+                        className="p-2 bg-gray-200 hover:bg-blue-600 hover:text-white rounded-lg transition-colors"
+                        onClick={() => window.open(projects[currentProject].url, '_blank')}
+                        aria-label={t('common.buttons.viewProject')}
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

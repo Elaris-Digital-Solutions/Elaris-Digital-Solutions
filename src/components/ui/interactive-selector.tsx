@@ -8,7 +8,6 @@ import {
 	AppWindow,
 	Bot,
 	Rocket,
-	ShoppingBag,
 	Smartphone,
 	ExternalLink,
 } from "lucide-react";
@@ -37,22 +36,15 @@ const projectConfigs = [
 		url: "https://papelera-latinoamericana.netlify.app",
 	},
 	{
-		slug: "diegoJoyero",
-		image: "/assets/diego-joyero.webp",
-		Icon: ShoppingBag,
-		url: "https://diego-joyero.netlify.app/",
-	},
-	{
-		slug: "alexArtesano",
-		image: "/assets/alex-artesano.png",
+		slug: "sistemaInventarioUPC",
+		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
 		Icon: AppWindow,
-		url: "https://alex-artesano.netlify.app/",
 	},
 	{
 		slug: "salcedoJewels",
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,
-		url: "https://salcedo-jewels.vercel.app/",
+		url: "https://salcedojewels.com",
 	},
 ] as const;
 

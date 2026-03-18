@@ -125,23 +125,17 @@
         "category": "Landing Page",
         "metrics": "+40% en leads calificados desde los primeros 60 días"
       },
-      "alexArtesano": {
-        "title": "Alex Artesano",
-        "description": "Portafolio digital de alta factura que comunica el valor artesanal, construye confianza antes del primer contacto y posiciona al creador como referente premium en su categoría.",
-        "category": "Portafolio",
-        "metrics": "Identidad digital que diferencia y justifica precios premium"
+      "sistemaInventarioUPC": {
+        "title": "Sistema de Inventario UPC",
+        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
+        "category": "Sistema de Reservas",
+        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
       },
       "papeleraLatinoamericana": {
         "title": "Papelera Latinoamericana S.A.C.",
         "description": "Sitio institucional con catálogo multilingüe, automatización de consultas comerciales vía WhatsApp y SEO regional para capturar más mercado sin ampliar el equipo de ventas.",
         "category": "Landing Page",
         "metrics": "Reducción del 60% en consultas manuales al equipo comercial"
-      },
-      "diegoJoyero": {
-        "title": "Diego Joyero",
-        "description": "Plataforma premium para joyería artesanal con chatbot de agendamiento con IA, storytelling de marca que convierte y arquitectura lista para expandirse al comercio electrónico de lujo.",
-        "category": "Landing Page",
-        "metrics": "Más citas agendadas, experiencia que justifica el precio premium"
       },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
