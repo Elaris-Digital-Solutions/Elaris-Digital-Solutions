@@ -1,10 +1,11 @@
 import type { Language } from "@/lib/i18n";
 
-export type SeoPage = "home" | "not-found";
+export type SeoPage = "home" | "not-found" | "terms-and-conditions" | "data-policy";
 
 const SITE_URL = "https://elarisdigitalsolutions.com";
 const OG_IMAGE = `${SITE_URL}/assets/Elaris-Logo.webp`;
 const SECTION_SLUGS = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto"] as const;
+const LEGAL_PATHS = ["/terminos-condiciones", "/politicas-de-datos", "/es/terminos-condiciones", "/es/politicas-de-datos"] as const;
 const VALID_PATHS = new Set<string>([
   "/",
   ...SECTION_SLUGS.map((slug) => `/${slug}`),
@@ -12,6 +13,7 @@ const VALID_PATHS = new Set<string>([
   ...SECTION_SLUGS.map((slug) => `/en/${slug}`),
   "/es",
   ...SECTION_SLUGS.map((slug) => `/es/${slug}`),
+  ...LEGAL_PATHS,
 ]);
 
 const seoCopy: Record<SeoPage, Record<Language, { title: string; description: string }>> = {
@@ -35,6 +37,26 @@ const seoCopy: Record<SeoPage, Record<Language, { title: string; description: st
     es: {
       title: "Página no encontrada | Elaris Digital Solutions",
       description: "La página que buscas no existe. Descubre nuestros servicios de automatización con IA y desarrollo web.",
+    },
+  },
+  "terms-and-conditions": {
+    en: {
+      title: "Terms & Conditions | Elaris Digital Solutions",
+      description: "Review the terms and conditions that regulate the use of Elaris Digital Solutions digital channels and services.",
+    },
+    es: {
+      title: "Términos y Condiciones | Elaris Digital Solutions",
+      description: "Revisa los términos y condiciones que regulan el uso de los canales digitales y servicios de Elaris Digital Solutions.",
+    },
+  },
+  "data-policy": {
+    en: {
+      title: "Data Policy | Elaris Digital Solutions",
+      description: "Learn how Elaris Digital Solutions collects, uses, and protects personal data.",
+    },
+    es: {
+      title: "Políticas de Datos | Elaris Digital Solutions",
+      description: "Conoce cómo Elaris Digital Solutions recopila, utiliza y protege la información personal.",
     },
   },
 };

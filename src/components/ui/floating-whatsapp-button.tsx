@@ -21,6 +21,7 @@ const WhatsAppGlyph = ({ className }: { className?: string }) => (
 const FloatingWhatsappButton: React.FC = () => {
   const { t } = useI18n();
   const [isHiddenByMobileMenu, setIsHiddenByMobileMenu] = React.useState(false);
+  const [isHiddenByFooter, setIsHiddenByFooter] = React.useState(false);
   const [isWidgetOpen, setIsWidgetOpen] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const defaultMessage = t("floatingWhatsapp.defaultMessage");
@@ -40,6 +41,27 @@ const FloatingWhatsappButton: React.FC = () => {
   }, [isHiddenByMobileMenu]);
 
   React.useEffect(() => {
+    if (typeof document === "undefined") return;
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHiddenByFooter(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (isHiddenByFooter) setIsWidgetOpen(false);
+  }, [isHiddenByFooter]);
+
+  React.useEffect(() => {
     if (!isWidgetOpen) return;
     const handleClickOutside = (e: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -54,7 +76,9 @@ const FloatingWhatsappButton: React.FC = () => {
     try { (window as any).fbq("track", "Lead"); } catch { /* no-op */ }
   };
 
-  const visibilityClass = isHiddenByMobileMenu
+  const isTemporarilyHidden = isHiddenByMobileMenu || isHiddenByFooter;
+
+  const visibilityClass = isTemporarilyHidden
     ? "translate-y-3 scale-95 opacity-0 pointer-events-none"
     : "translate-y-0 scale-100 opacity-100";
 

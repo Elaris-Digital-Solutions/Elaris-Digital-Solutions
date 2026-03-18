@@ -282,6 +282,10 @@
     },
     "bottom": {
       "rights": "© {year} Elaris Digital Solutions. Todos los derechos reservados.",
+      "legalLinks": {
+        "terms": "Términos & Condiciones",
+        "dataPolicy": "Políticas de Datos"
+      },
       "tagline": "E.L.A.R.I.S - Enterprise Logic & AI Research Integrated Systems"
     }
   },

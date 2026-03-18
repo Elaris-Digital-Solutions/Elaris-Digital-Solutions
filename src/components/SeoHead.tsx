@@ -15,7 +15,7 @@ const SeoHead = ({ page, title, description }: SeoHeadProps) => {
   const location = useLocation();
 
   const metadata = useMemo(() => {
-    const basePage: SeoPage = page === "not-found" ? "not-found" : "home";
+    const basePage: SeoPage = page ?? "home";
     const base = getSeoMetadata({
       pathname: location.pathname,
       page: basePage,

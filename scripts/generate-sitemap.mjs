@@ -5,14 +5,29 @@ import path from "node:path";
 const SITE_URL = "https://elarisdigitalsolutions.com";
 const now = new Date().toISOString();
 
+const sitemapEntries = [
+  { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/servicios", changefreq: "weekly", priority: "0.9" },
+  { path: "/estandares", changefreq: "monthly", priority: "0.8" },
+  { path: "/portafolio", changefreq: "weekly", priority: "0.9" },
+  { path: "/productos", changefreq: "weekly", priority: "0.8" },
+  { path: "/clientes", changefreq: "weekly", priority: "0.8" },
+  { path: "/contacto", changefreq: "weekly", priority: "0.8" },
+  { path: "/proceso", changefreq: "monthly", priority: "0.7" },
+  { path: "/terminos-condiciones", changefreq: "yearly", priority: "0.3" },
+  { path: "/politicas-de-datos", changefreq: "yearly", priority: "0.3" },
+];
+
+const buildUrlTag = ({ path: routePath, changefreq, priority }) => `  <url>
+    <loc>${SITE_URL}${routePath}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${SITE_URL}/</loc>
-    <lastmod>${now}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+${sitemapEntries.map(buildUrlTag).join("\n")}
 </urlset>
 `;
 

@@ -7,6 +7,8 @@ import ApiIntegration from "./pages/ApiIntegration";
 import MeetsRedirect from "./pages/MeetsRedirect";
 import CMMS from "./pages/CMMS";
 import LandingImpulsaTuNegocio from "./pages/LandingImpulsaTuNegocio";
+import TermsAndConditions from "@/pages/TermsAndConditions";
+import DataPolicies from "@/pages/DataPolicies";
 import NotFound from "./pages/NotFound";
 import { I18nProvider } from "@/lib/i18n";
 
@@ -24,6 +26,10 @@ const App = () => (
           <Route path="/apis-personalizadas" element={<ApiIntegration />} />
           <Route path="/implementacion-cmms" element={<CMMS />} />
           <Route path="/impulsa-tu-negocio" element={<LandingImpulsaTuNegocio />} />
+          <Route path="/terminos-condiciones" element={<TermsAndConditions />} />
+          <Route path="/politicas-de-datos" element={<DataPolicies />} />
+          <Route path="/es/terminos-condiciones" element={<TermsAndConditions />} />
+          <Route path="/es/politicas-de-datos" element={<DataPolicies />} />
           {sectionSlugs.map((slug) => (
             <Route key={`es-default-${slug}`} path={`/${slug}`} element={<Index />} />
           ))}
