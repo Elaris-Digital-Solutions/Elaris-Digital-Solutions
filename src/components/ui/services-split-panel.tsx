@@ -117,15 +117,7 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
 // ─── Desktop split-panel layout ────────────────────────────────────────────────
 const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
   const [activeKey, setActiveKey] = useState<string>(services[0]?.key ?? "web");
-  const [visitedKeys, setVisitedKeys] = useState<Set<string>>(
-    () => new Set([services[0]?.key ?? "web"])
-  );
   const activeService = services.find((s) => s.key === activeKey) ?? services[0];
-
-  const markVisited = (key: string) => {
-    setActiveKey(key);
-    setVisitedKeys((prev) => { const next = new Set(prev); next.add(key); return next; });
-  };
 
   return (
     <div className="hidden lg:grid lg:grid-cols-[280px_1fr] rounded-3xl border border-slate-200 overflow-hidden shadow-[0_8px_48px_rgba(7,21,64,0.07)] bg-white min-h-[520px]">
@@ -137,8 +129,8 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
           return (
             <button
               key={svc.key}
-              onClick={() => markVisited(svc.key)}
-              onMouseEnter={() => markVisited(svc.key)}
+              onClick={() => setActiveKey(svc.key)}
+              onMouseEnter={() => setActiveKey(svc.key)}
               className={`relative w-full text-left pl-6 pr-10 py-5 transition-all duration-200 group focus:outline-none ${
                 isActive
                   ? "bg-white shadow-sm"
@@ -155,8 +147,8 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
                 />
               )}
 
-              {/* Hover hint: pulsing dot on services not yet visited */}
-              {!isActive && !visitedKeys.has(svc.key) && (
+              {/* Hover hint: pulsing dot on services not active */}
+              {!isActive && (
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 flex h-2 w-2">
                   <span
                     className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
