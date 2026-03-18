@@ -165,17 +165,7 @@ const SyntheticHero = ({
       </div>
 
       <div className="relative z-10 flex flex-col items-center text-center px-6">
-        <div ref={badgeWrapperRef}>
-          <Badge className="mb-6 bg-white/80 hover:bg-white/90 text-[#2F64FF] backdrop-blur-md border border-white/40 uppercase tracking-[0.3em] font-medium flex items-center gap-2 px-4 py-1.5">
-            <span className="text-[10px] font-light tracking-[0.18em] text-[#2F64FF]/80">
-              {badgeLabel}
-            </span>
-            <span className="h-1 w-1 rounded-full bg-[#2F64FF]/70" />
-            <span className="text-xs font-light tracking-tight text-[#071540]">
-              {badgeText}
-            </span>
-          </Badge>
-        </div>
+
 
         <h1
           ref={headingRef}
