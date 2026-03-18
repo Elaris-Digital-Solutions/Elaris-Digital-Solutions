@@ -217,7 +217,7 @@ export default function CustomSoftware() {
                                                 ))}
                                             </div>
                                             <div className="flex justify-between mt-1.5">
-                                                {["L","M","X","J","V","S","D"].map((d, i) => (
+                                                {["L", "M", "X", "J", "V", "S", "D"].map((d, i) => (
                                                     <span key={i} className="flex-1 text-center text-[9px] text-slate-400">{d}</span>
                                                 ))}
                                             </div>
@@ -241,12 +241,6 @@ export default function CustomSoftware() {
                                             ))}
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* Floating badge */}
-                                <div className="absolute -bottom-4 -left-4 bg-[#2F64FF] text-white rounded-2xl px-4 py-3 shadow-lg text-sm font-medium hidden md:flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                                    Automatización activa
                                 </div>
                             </motion.div>
                         </div>
@@ -272,9 +266,9 @@ export default function CustomSoftware() {
                                         <div className="flex items-center justify-between mb-4">
                                             <p className="text-slate-700 text-xs font-medium">Actividad del equipo</p>
                                             <div className="flex -space-x-2">
-                                                {["#2F64FF","#00E5A0","#F59E0B","#6366F1"].map((c, i) => (
+                                                {["#2F64FF", "#00E5A0", "#F59E0B", "#6366F1"].map((c, i) => (
                                                     <div key={i} className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center" style={{ backgroundColor: c }}>
-                                                        <span className="text-white text-[8px] font-bold">{String.fromCharCode(65+i)}</span>
+                                                        <span className="text-white text-[8px] font-bold">{String.fromCharCode(65 + i)}</span>
                                                     </div>
                                                 ))}
                                                 <div className="w-6 h-6 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center">
@@ -345,12 +339,6 @@ export default function CustomSoftware() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                {/* Floating badge */}
-                                <div className="absolute -bottom-4 -right-4 bg-[#00E5A0] text-[#071540] rounded-2xl px-4 py-3 shadow-lg text-sm font-semibold hidden md:flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-[#071540] animate-pulse" />
-                                    Equipo sincronizado
                                 </div>
                             </motion.div>
 
