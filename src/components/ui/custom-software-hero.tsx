@@ -183,21 +183,7 @@ export default function CustomSoftwareHero() {
           >
             <DashboardMock />
 
-            {floatingCards.map((card, i) => (
-              <motion.div
-                key={card.title}
-                {...cardVariant(i)}
-                className={`absolute ${card.position} bg-white rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-slate-100 px-4 py-3 flex items-center gap-3 z-10`}
-              >
-                <div className={`w-9 h-9 ${card.bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                  {card.icon}
-                </div>
-                <div>
-                  <div className="text-xs font-semibold text-[#071540] whitespace-nowrap">{card.title}</div>
-                  <div className="text-[10px] text-slate-500 whitespace-nowrap">{card.sub}</div>
-                </div>
-              </motion.div>
-            ))}
+
 
             {/* Ambient glow — transform-gpu for compositor layer */}
             <div className="absolute inset-0 bg-[#2F64FF]/[0.07] rounded-3xl blur-3xl -z-10 scale-95 transform-gpu" />
