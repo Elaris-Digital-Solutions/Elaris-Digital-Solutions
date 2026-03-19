@@ -140,8 +140,8 @@ export default function LandingImpulsaTuNegocio() {
     const [nombreFocused, setNombreFocused] = useState(false);
     const [emailFocused, setEmailFocused] = useState(false);
 
-    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleFormSubmit = (e?: React.FormEvent<HTMLFormElement> | React.MouseEvent) => {
+        if (e && e.preventDefault) e.preventDefault();
 
         // Track Lead event for Meta Ads
         if (typeof window !== 'undefined' && (window as any).fbq) {
@@ -489,13 +489,21 @@ export default function LandingImpulsaTuNegocio() {
                             </div>
 
                             <div className="pt-4 text-center">
-                                <button
-                                    type="submit"
-                                    className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
+                                <div
+                                    role="button"
+                                    onClick={(e) => {
+                                        const form = e.currentTarget.closest('form');
+                                        if (form && form.checkValidity()) {
+                                            handleFormSubmit(e);
+                                        } else {
+                                            form?.reportValidity();
+                                        }
+                                    }}
+                                    className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
                                 >
-                                    Quiero mi diagnóstico gratuito
+                                    <span>Quiero mi</span> <span>diagnóstico gratuito</span>
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                                </button>
+                                </div>
                                 <p className="mt-3 text-sm text-slate-400">Respuesta en menos de 12 horas. Sin compromiso.</p>
                             </div>
                         </form>

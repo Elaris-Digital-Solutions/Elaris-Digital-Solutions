@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import CustomSoftware from "./pages/CustomSoftware";
@@ -14,10 +15,51 @@ import { I18nProvider } from "@/lib/i18n";
 
 const sectionSlugs = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto", "proceso"] as const;
 
+const loadMetaPixel = () => {
+    if (typeof window === 'undefined') return;
+    if ((window as any).fbq) return;
+    
+    const f = window as any;
+    const b = document;
+    const e = 'script';
+    const v = 'https://connect.facebook.net/en_US/fbevents.js';
+    
+    let n: any = f.fbq = function () {
+      n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; 
+    let t = b.createElement(e) as HTMLScriptElement; t.async = !0;
+    t.src = v; 
+    let s = b.getElementsByTagName(e)[0];
+    if (s && s.parentNode) s.parentNode.insertBefore(t, s);
+    
+    f.fbq('init', '868251342283921');
+};
+
+const MetaPixelTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const isMainRoute = location.pathname === '/' || location.pathname === '/es' || location.pathname === '/es/';
+    
+    if (!isMainRoute) {
+      loadMetaPixel();
+      
+      if (!location.pathname.includes('/impulsa-tu-negocio')) {
+        (window as any).fbq('track', 'PageView');
+      }
+    }
+  }, [location.pathname]);
+
+  return null;
+};
+
 const App = () => (
   <HelmetProvider>
     <I18nProvider>
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <MetaPixelTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/meet" element={<MeetsRedirect />} />
