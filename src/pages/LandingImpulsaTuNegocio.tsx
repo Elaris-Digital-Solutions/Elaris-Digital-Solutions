@@ -457,7 +457,7 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 4 — RESULTS */}
-            <section className="py-20 lg:py-32 bg-white border-y border-slate-100 relative overflow-hidden">
+            <section className="py-20 lg:py-32 bg-[#F0F4FF] border-y border-slate-100 relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-50 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-6 lg:px-8 max-w-5xl relative z-10">
