@@ -45,10 +45,7 @@ const MetaPixelTracker = () => {
     
     if (!isMainRoute) {
       loadMetaPixel();
-      
-      if (!location.pathname.includes('/impulsa-tu-negocio')) {
-        (window as any).fbq('track', 'PageView');
-      }
+      (window as any).fbq('track', 'PageView');
     }
   }, [location.pathname]);
 
