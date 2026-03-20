@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
     ArrowRight, ShoppingCart, Settings, GitMerge,
@@ -120,7 +120,18 @@ const RedirectFooter = () => {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                    <p className="text-xs text-white/70">© {currentYear} Elaris Digital Solutions. Todos los derechos reservados.</p>
+                    <div className="flex flex-col justify-between gap-2.5 sm:flex-row sm:items-center sm:gap-4">
+                        <p className="text-xs text-white/70">© {currentYear} Elaris Digital Solutions. Todos los derechos reservados.</p>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/80 sm:text-sm">
+                            <Link to="/terminos-condiciones" className="hover:text-white transition-colors">
+                                Términos &amp; Condiciones
+                            </Link>
+                            <span aria-hidden="true" className="text-white/40">|</span>
+                            <Link to="/politicas-de-datos" className="hover:text-white transition-colors">
+                                Políticas de Datos
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -140,8 +151,8 @@ export default function LandingImpulsaTuNegocio() {
     const [nombreFocused, setNombreFocused] = useState(false);
     const [emailFocused, setEmailFocused] = useState(false);
 
-    const handleFormSubmit = (e?: React.FormEvent<HTMLFormElement> | React.MouseEvent) => {
-        if (e && e.preventDefault) e.preventDefault();
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
         // Track Lead event for Meta Ads
         if (typeof window !== 'undefined' && (window as any).fbq) {
@@ -415,7 +426,7 @@ export default function LandingImpulsaTuNegocio() {
             <section className="py-20 lg:py-32 bg-white border-b border-slate-100">
                 <div className="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] mb-6 leading-tight">
-                        Cada mes sin digitalización es una <span className="font-semibold">oportunidad perdida</span>
+                        Cada mes sin digitalización es una <span className="font-semibold text-red-500">oportunidad perdida</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
                         Las empresas que no modernizan sus operaciones están cediendo terreno. Mientras dudas, tus competidores están automatizando procesos, atrayendo a tus clientes online y reduciendo sus costos operativos. El momento de escalar de forma limpia es hoy.
@@ -489,21 +500,13 @@ export default function LandingImpulsaTuNegocio() {
                             </div>
 
                             <div className="pt-4 text-center">
-                                <div
-                                    role="button"
-                                    onClick={(e) => {
-                                        const form = e.currentTarget.closest('form');
-                                        if (form && form.checkValidity()) {
-                                            handleFormSubmit(e);
-                                        } else {
-                                            form?.reportValidity();
-                                        }
-                                    }}
-                                    className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
+                                <button
+                                    type="submit"
+                                    className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
                                 >
-                                    <span>Quiero mi</span> <span>diagnóstico gratuito</span>
+                                    Quiero mi diagnóstico gratuito
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                                </div>
+                                </button>
                                 <p className="mt-3 text-sm text-slate-400">Respuesta en menos de 12 horas. Sin compromiso.</p>
                             </div>
                         </form>
