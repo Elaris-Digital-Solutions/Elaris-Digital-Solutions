@@ -284,20 +284,20 @@ export default function LandingImpulsaTuNegocio() {
                     <div className="grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-x-10 xl:gap-x-14 2xl:gap-x-20 items-center">
                         <motion.div {...fadeUp} className="max-w-[44rem]">
                             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12] mb-6">
-                                Escala tu operación
+                                Haz crecer tu negocio
                                 <span className="block font-semibold text-[#2F64FF]">sin que el <span className="text-rose-500">caos</span> te detenga</span>
                             </h1>
 
                             <p className="text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-7 max-w-[34rem]">
-                                Deja de ser el cuello de botella de tu propia empresa. Implementamos soluciones de ingeniería que automatizan tus ventas y procesos para que crezcas sin multiplicar tu carga de trabajo
+                                Deja de ser el único que mueve los hilos. Te entregamos <span className="font-semibold text-[#2F64FF]">tu propia página web con un centro de control</span> para que dejes de anotar pedidos a mano y empieces a ver cómo tu negocio crece solo, sin que tú tengas que estar encima.
                             </p>
 
                             <div className="mb-8">
                                 <ul className="text-left space-y-3 lg:space-y-4">
                                     {[
-                                        "Vende 24/7 con tu propio e-commerce",
-                                        "Automatiza tareas que hoy te hacen perder tiempo",
-                                        "Conecta inventario, pagos y operaciones"
+                                        "Tu tienda online vende sola, 24/7",
+                                        "Despídete de las tareas aburridas",
+                                        "Todo bajo control en un solo lugar"
                                     ].map((bullet, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-slate-700 font-medium text-base lg:text-lg">
                                             <CheckCircle2 className="w-6 h-6 text-[#2F64FF] flex-shrink-0" />
@@ -313,11 +313,10 @@ export default function LandingImpulsaTuNegocio() {
                                     onClick={scrollToForm}
                                     className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                                 >
-                                    Agendar diagnóstico gratuito
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    Agendar asesoría gratis                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </a>
                                 <p className="mt-4 text-xs md:text-sm text-slate-500 font-medium">
-                                    Sin compromiso · 20 minutos · Diagnóstico real para tu negocio
+                                    Sin compromiso · 20 minutos · Una ruta clara para tu negocio
                                 </p>
                             </div>
                         </motion.div>
