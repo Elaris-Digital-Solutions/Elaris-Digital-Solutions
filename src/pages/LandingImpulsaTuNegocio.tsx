@@ -23,16 +23,16 @@ const fadeRight = {
 } as const;
 
 const heroKpis = [
-    { label: "Tiempo libre", value: "+47%", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
-    { label: "Pedidos auto.", value: "128", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
+    { label: "ahorradas esta semana", value: "32 horas", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
+    { label: "pedidos listos para enviar", value: "128", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
     { label: "Ventas hoy", value: "32", color: "text-violet-600", bg: "bg-violet-50 border-violet-100" },
 ] as const;
 
 const heroBarHeights = [28, 45, 38, 62, 50, 75, 58, 85, 68, 92, 78, 100] as const;
 
 const heroStatusRows = [
-    { name: "Pedidos procesados", pct: 92, statusText: "Al día" },
-    { name: "Sincronizando cuentas", pct: 78, statusText: "En curso" },
+    { name: "Inventario actualizado", pct: 92, statusText: "Al día" },
+    { name: "Mensajes respondidos", pct: 100, statusText: "Todos" },
 ] as const;
 
 const HeroDashboardMock = () => (
@@ -149,7 +149,7 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                             onClick={onCtaClick}
                             className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         >
-                            Quiero mi plan gratis
+                            clic para una asesoria gratis
                         </a>
                     </div>
                 </div>
@@ -175,7 +175,7 @@ const RedirectFooter = () => {
                             className="h-16 w-auto mb-4"
                         />
                         <p className="text-white/80 text-sm leading-relaxed">
-                            Desarrollamos soluciones digitales, automatizaciones e integraciones para empresas que buscan crecer con procesos mas eficientes.
+                            Ayudamos a los dueños de negocios a vender por internet de forma ordenada, para que recuperen su tiempo y el control de sus ventas.
                         </p>
                     </div>
 
@@ -289,7 +289,7 @@ export default function LandingImpulsaTuNegocio() {
                             </h1>
 
                             <p className="text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-7 max-w-[34rem]">
-                                Deja de ser el único que mueve los hilos. Te entregamos <span className="font-semibold text-[#2F64FF]">tu propia página web con un centro de control</span> para que dejes de anotar pedidos a mano y empieces a ver cómo tu negocio crece solo, sin que tú tengas que estar encima.
+                                Deja de hacer el trabajo de tres personas. Te armamos una página web sencilla donde tus clientes compran solos y un panel que organiza tu stock. Es hora de crecer en ventas, no en estrés.
                             </p>
 
                             <div className="mb-8">
@@ -313,7 +313,7 @@ export default function LandingImpulsaTuNegocio() {
                                     onClick={scrollToForm}
                                     className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                                 >
-                                    ¡Quiero mi Plan de Crecimiento Gratis!
+                                    Te regalamos una asesoría gratis
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </a>
                                 <p className="mt-4 text-xs md:text-sm text-slate-500 font-medium">
@@ -378,8 +378,22 @@ export default function LandingImpulsaTuNegocio() {
                 </div>
             </section>
 
+            {/* SECTION 2.5 — TESTIMONIAL QUOTE */}
+            <section className="py-24 lg:py-28 bg-[#F0F4FF] border-b border-t border-slate-100 overflow-hidden relative">
+                <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+                    <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
+                    <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
+                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y ganamos más porque todo está en orden."
+                    </p>
+                    <div>
+                        <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
+                        <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
+                    </div>
+                </motion.div>
+            </section>
+
             {/* SECTION 3 — SOLUTION */}
-            <section className="py-20 lg:py-32 bg-[#F0F4FF]">
+            <section className="py-20 lg:py-32 bg-white">
                 <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
@@ -445,20 +459,6 @@ export default function LandingImpulsaTuNegocio() {
                 </div>
             </section>
 
-            {/* SECTION 3.5 — TESTIMONIAL QUOTE */}
-            <section className="py-24 lg:py-28 bg-white border-b border-t border-slate-100 overflow-hidden relative">
-                <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-                    <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
-                    <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y ganamos más porque todo está en orden."
-                    </p>
-                    <div>
-                        <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
-                        <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
-                    </div>
-                </motion.div>
-            </section>
-
             {/* SECTION 4 — RESULTS */}
             <section className="py-20 lg:py-32 bg-[#F0F4FF] border-y border-slate-100 relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-50 to-transparent pointer-events-none" />
@@ -502,7 +502,7 @@ export default function LandingImpulsaTuNegocio() {
                             onClick={scrollToForm}
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[#2F64FF] text-[#2F64FF] font-bold hover:bg-[#2F64FF] hover:text-white transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                         >
-                            Quiero recuperar mi tiempo ahora
+                            Clic para una asesoría gratis
                             <ArrowRight className="w-5 h-5 flex-shrink-0" />
                         </a>
                     </div>
@@ -617,7 +617,7 @@ export default function LandingImpulsaTuNegocio() {
                                     type="submit"
                                     className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
                                 >
-                                    ¡Regálenmelo! Quiero mi plan de orden y ventas
+                                    Clic para una asesoría gratis
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                                 </button>
                                 <p className="mt-3 text-sm text-slate-400">Respuesta en menos de 12 horas. Sin compromiso.</p>
