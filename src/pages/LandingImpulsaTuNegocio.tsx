@@ -524,8 +524,9 @@ export default function LandingImpulsaTuNegocio() {
                         {[
                             "Hecho para durar y fácil de usar",
                             "Una herramienta hecha para tu negocio",
-                            "Conecta tus cuentas",
-                            "El sistema es tuyo para siempre, sin pagos ocultos"
+                            "Recibe pagos de forma segura y fácil",
+                            "Listo para usar desde el primer día",
+                            "El sistema es tuyo para siempre"
                         ].map((badge, idx) => (
                             <span key={idx} className="bg-white/10 border border-white/20 px-5 py-2 rounded-full text-sm font-medium tracking-wide">
                                 {badge}
