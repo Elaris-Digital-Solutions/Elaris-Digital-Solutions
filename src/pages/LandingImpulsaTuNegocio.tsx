@@ -23,16 +23,16 @@ const fadeRight = {
 } as const;
 
 const heroKpis = [
-    { label: "Eficiencia", value: "+47%", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
-    { label: "Procesos auto.", value: "128", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
-    { label: "Ahorro/sem.", value: "32h", color: "text-violet-600", bg: "bg-violet-50 border-violet-100" },
+    { label: "Tiempo libre", value: "+47%", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
+    { label: "Pedidos auto.", value: "128", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
+    { label: "Ventas hoy", value: "32", color: "text-violet-600", bg: "bg-violet-50 border-violet-100" },
 ] as const;
 
 const heroBarHeights = [28, 45, 38, 62, 50, 75, 58, 85, 68, 92, 78, 100] as const;
 
 const heroStatusRows = [
-    { name: "Módulo CRM integrado", pct: 92, statusText: "Activo" },
-    { name: "Sincronización ERP", pct: 78, statusText: "En curso" },
+    { name: "Pedidos procesados", pct: 92, statusText: "Al día" },
+    { name: "Sincronizando cuentas", pct: 78, statusText: "En curso" },
 ] as const;
 
 const HeroDashboardMock = () => (
@@ -92,8 +92,8 @@ const HeroDashboardMock = () => (
                     <TrendingUp className="w-4 h-4 text-[#2F64FF]" />
                 </div>
                 <div className="flex-1">
-                    <div className="text-xs font-semibold text-[#071540]">Tendencia de operaciones</div>
-                    <div className="text-[10px] text-slate-500">↑ 18% respecto al mes anterior</div>
+                    <div className="text-xs font-semibold text-[#071540]">Ventas de la semana</div>
+                    <div className="text-[10px] text-slate-500">↑ 18% respecto a la anterior</div>
                 </div>
                 <BarChart3 className="w-4 h-4 text-[#2F64FF]/50" />
             </div>
@@ -149,7 +149,7 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                             onClick={onCtaClick}
                             className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                         >
-                            Contacta con ventas
+                            Quiero mi plan gratis
                         </a>
                     </div>
                 </div>
@@ -265,7 +265,7 @@ export default function LandingImpulsaTuNegocio() {
         <div id="landing-page" className="relative min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden selection:bg-[#2F64FF]/20">
             <SeoHead
                 title="Impulsa tu negocio | Elaris Digital Solutions"
-                description="Automatiza procesos, vende online y conecta tus sistemas para que tu empresa crezca sin aumentar tu carga de trabajo."
+                description="Ordena tu negocio, recupera tu tiempo y haz que tu empresa crezca sola, sin que tú tengas que estar encima de todo."
             />
             <RedirectNavbar onCtaClick={scrollToForm} />
 
@@ -295,9 +295,9 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="mb-8">
                                 <ul className="text-left space-y-3 lg:space-y-4">
                                     {[
-                                        "Tu tienda online vende sola, 24/7",
-                                        "Despídete de las tareas aburridas",
-                                        "Todo bajo control en un solo lugar"
+                                        "Tu negocio vende incluso cuando no estás",
+                                        "Controla pedidos y stock en un solo lugar",
+                                        "Toda tu información ordenada, sin mensajes perdidos"
                                     ].map((bullet, idx) => (
                                         <li key={idx} className="flex items-center gap-3 text-slate-700 font-medium text-base lg:text-lg">
                                             <CheckCircle2 className="w-6 h-6 text-[#2F64FF] flex-shrink-0" />
@@ -313,10 +313,11 @@ export default function LandingImpulsaTuNegocio() {
                                     onClick={scrollToForm}
                                     className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                                 >
-                                    Agendar asesoría gratis                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    ¡Quiero mi Plan de Crecimiento Gratis!
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </a>
                                 <p className="mt-4 text-xs md:text-sm text-slate-500 font-medium">
-                                    Sin compromiso · 20 minutos · Una ruta clara para tu negocio
+                                    Gratis · 20 minutos · Te llevas una ruta clara para ordenar tu negocio
                                 </p>
                             </div>
                         </motion.div>
@@ -340,16 +341,16 @@ export default function LandingImpulsaTuNegocio() {
                         className="text-center mb-16 max-w-3xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
-                            Si tu negocio depende de procesos manuales, <span className="font-semibold text-rose-500">estás perdiendo dinero</span>
+                            Tu negocio tiene un límite, <span className="font-semibold text-rose-500">y ya lo alcanzaste.</span>
                         </h2>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-8 mb-16">
                         {[
-                            { icon: Clock, text: "Crecimiento frenado por procesos manuales que solo tú sabes hacer" },
-                            { icon: AlertCircle, text: "Errores humanos en inventarios que te cuestan dinero real" },
-                            { icon: ShoppingCart, text: "Ventas estancadas porque dependen de que alguien responda un mensaje" },
-                            { icon: GitMerge, text: "Sistemas que no se hablan entre sí y te obligan a duplicar tareas" }
+                            { icon: Clock, text: "Sientes que te faltan horas en el día, porque todo el negocio depende de ti y de tu celular." },
+                            { icon: AlertCircle, text: "Te ahogas anotando en cuadernos o Excel los pedidos y contando el stock a mano." },
+                            { icon: ShoppingCart, text: "Pierdes clientes y ventas solo porque demoras en responder sus mensajes." },
+                            { icon: GitMerge, text: "Tus competidores avanzan rápido, publican más y tú sigues estancado sin tiempo." }
                         ].map((problem, idx) => (
                             <motion.div
                                 key={idx}
@@ -371,7 +372,7 @@ export default function LandingImpulsaTuNegocio() {
 
                     <div className="bg-[#071540] text-center p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl mx-auto">
                         <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-                            "Muchos negocios pierden oportunidades clave de crecimiento diario simplemente porque sus operaciones <span className="font-semibold text-[#2F64FF]">aún no están digitalizadas</span>."
+                            "Si sigues apagando incendios y haciendo todo tú mismo, el desgaste te cobrará la factura y <span className="font-semibold text-[#2F64FF]">te quedarás atrapado en el desorden</span>."
                         </p>
                     </div>
                 </div>
@@ -382,8 +383,11 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
-                            Lo resolvemos con tecnología diseñada para <span className="font-semibold text-[#2F64FF]">hacer crecer tu negocio</span>
+                            Tu oficina virtual: todo lo que necesitas en <span className="font-semibold text-[#2F64FF]">una sola pantalla</span>
                         </h2>
+                        <p className="mt-6 text-lg text-slate-600">
+                            Construimos tu página web y te entregamos un centro de control privado. Es como tener un asistente que trabaja 24/7 y no comete errores.
+                        </p>
                     </div>
 
                     <div className="grid lg:grid-cols-3 gap-8">
@@ -398,9 +402,9 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2F64FF] mb-6">
                                 <ShoppingCart className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">E-commerce que vende</h3>
+                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Ver tus ventas en tiempo real</h3>
                             <p className="text-slate-600 leading-relaxed">
-                                Vende mientras descansas con tiendas online de alto rendimiento que gestionan inventarios, pagos y logística de forma automática y sin errores.
+                                Tu propia página web estará lista para recibir a tus clientes y vender tus productos sin tu intervención. Podrás saber exactamente cuánto ganas.
                             </p>
                         </motion.div>
 
@@ -415,9 +419,9 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 mb-6">
                                 <Settings className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Automatización inteligente</h3>
+                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Controlar tu stock</h3>
                             <p className="text-slate-600 leading-relaxed">
-                                Libera a tu equipo de tareas repetitivas mediante agentes de IA y flujos de trabajo inteligentes que trabajan las 24 horas procesando tus datos y documentos.
+                                Olvídate de los cuadernos. Tu pantalla te dirá qué talla y cuántas unidades te quedan de cada producto, evitando ofrecer lo que ya vendiste.
                             </p>
                         </motion.div>
 
@@ -432,9 +436,9 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500 mb-6">
                                 <GitMerge className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Sistemas conectados</h3>
+                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Gestionar tus pedidos</h3>
                             <p className="text-slate-600 leading-relaxed">
-                                Conecta toda tu información en un solo lugar integrando tus sistemas actuales (ERP, CRM o Excel) para que dejes de buscar datos y empieces a tomar decisiones.
+                                Sabrás qué enviarle a quién y cuándo en una lista súper ordenada. No perderás ni una sola venta y tu cabeza por fin podrá descansar.
                             </p>
                         </motion.div>
                     </div>
@@ -446,7 +450,7 @@ export default function LandingImpulsaTuNegocio() {
                 <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                     <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
                     <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                        "Estábamos creciendo, sí, pero por dentro era un caos. Todo pasaba por nuestras manos, los errores se acumulaban y terminábamos el día apagando incendios. Con Elaris ordenamos la operación y volvimos a tener control para crecer sin que la complejidad nos consuma."
+                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y ganamos más porque todo está en orden."
                     </p>
                     <div>
                         <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
@@ -463,16 +467,16 @@ export default function LandingImpulsaTuNegocio() {
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Un negocio que crece <br className="hidden md:block" />
-                            <span className="font-semibold text-[#2F64FF]">sin aumentar su complejidad</span>
+                            <span className="font-semibold text-[#2F64FF]">mientras tú descansas</span>
                         </h2>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {[
-                            { value: "Más", text: "Ventas online automáticas 24/7", color: "text-[#2F64FF]", bg: "bg-blue-50" },
-                            { value: "Menos", text: "Errores y tareas manuales agotadoras", color: "text-rose-500", bg: "bg-rose-50" },
-                            { value: "Mejor", text: "Eficiencia operativa real", color: "text-emerald-500", bg: "bg-emerald-50" },
-                            { value: "Datos", text: "Claridad absoluta para decidir tu próximo paso", color: "text-indigo-500", bg: "bg-indigo-50" }
+                            { value: "Más tiempo", text: "Para ti y tu familia", color: "text-[#2F64FF]", bg: "bg-blue-50" },
+                            { value: "Más control", text: "Sabes exactamente qué pasa", color: "text-emerald-500", bg: "bg-emerald-50" },
+                            { value: "Más ventas", text: "Tus clientes compran fácil", color: "text-indigo-500", bg: "bg-indigo-50" },
+                            { value: "Menos estrés", text: "Fin al caos y al desorden", color: "text-rose-500", bg: "bg-rose-50" }
                         ].map((stat, idx) => (
                             <motion.div
                                 key={idx}
@@ -498,7 +502,7 @@ export default function LandingImpulsaTuNegocio() {
                             onClick={scrollToForm}
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[#2F64FF] text-[#2F64FF] font-bold hover:bg-[#2F64FF] hover:text-white transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                         >
-                            Quiero estos resultados
+                            Quiero recuperar mi tiempo ahora
                             <ArrowRight className="w-5 h-5 flex-shrink-0" />
                         </a>
                     </div>
@@ -510,18 +514,18 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
                     <ShieldCheck className="w-16 h-16 text-[#2F64FF] mx-auto mb-8 opacity-80" />
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6 leading-tight">
-                        Tecnología robusta <span className="font-semibold">sin sorpresas</span>
+                        Fácil de usar, <span className="font-semibold">sin dolores de cabeza</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                        No somos una agencia de marketing; somos ingenieros que construyen activos para tu empresa. Entregamos soluciones con propiedad total del código, documentación clara y soporte que no te deja atado a nosotros
+                        Sabemos que estás enfocado en sacar adelante tu negocio y que no tienes por qué saber de tecnología. Por eso hacemos todo muy sencillo y pensado directamente para ti. No necesitas experiencia.
                     </p>
 
                     <div className="flex flex-wrap justify-center gap-4">
                         {[
-                            "Arquitectura Moderna",
-                            "Desarrollo a Medida",
-                            "Enfoque en Conversión",
-                            "Soporte Continuo"
+                            "Hecho para durar y fácil de usar",
+                            "Una herramienta hecha para tu negocio",
+                            "Conecta tus cuentas",
+                            "El sistema es tuyo para siempre, sin pagos ocultos"
                         ].map((badge, idx) => (
                             <span key={idx} className="bg-white/10 border border-white/20 px-5 py-2 rounded-full text-sm font-medium tracking-wide">
                                 {badge}
@@ -535,10 +539,10 @@ export default function LandingImpulsaTuNegocio() {
             <section className="py-20 lg:py-32 bg-white border-b border-slate-100">
                 <div className="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] mb-6 leading-tight">
-                        Cada mes sin digitalización es una <span className="font-semibold text-red-500">oportunidad perdida</span>
+                        Si no actúas ahora, tu negocio <span className="font-semibold text-red-500">seguirá estancado</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-                        Las empresas que no modernizan sus operaciones están cediendo terreno. Mientras dudas, tus competidores están automatizando procesos, atrayendo a tus clientes online y reduciendo sus costos operativos. El momento de escalar de forma limpia es hoy.
+                        Seguir anotando pedidos a mano, perdiendo clientes por demoras y viviendo sin tiempo libre no es manera de hacer crecer un negocio. Atrévete a soltar el caos y a recuperar el control de tu empresa hoy mismo.
                     </p>
                 </div>
             </section>
@@ -559,11 +563,11 @@ export default function LandingImpulsaTuNegocio() {
                     >
                         <div className="mb-10 text-center">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] leading-tight">
-                                Recibe un diagnóstico operativo de tu negocio
-                                <span className="font-semibold text-[#2F64FF]"> en menos de 12 horas</span>
+                                Estás a un paso de
+                                <span className="font-semibold text-[#2F64FF]"> trabajar menos y ganar más</span>
                             </h2>
                             <p className="mt-4 mx-auto text-lg text-slate-500 leading-relaxed max-w-3xl">
-                                Cuéntanos dónde se está frenando tu crecimiento y te devolvemos un plan accionable para vender más, automatizar procesos y escalar sin sumar complejidad.
+                                Te mostramos cómo podemos aplicar esto a tu caso en particular. Déjanos tus datos, hablamos contigo y te armamos un plan de orden y ventas en menos de 12 horas. ¡Completamente gratis!
                             </p>
                         </div>
 
@@ -613,7 +617,7 @@ export default function LandingImpulsaTuNegocio() {
                                     type="submit"
                                     className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
                                 >
-                                    Quiero mi diagnóstico gratuito
+                                    ¡Regálenmelo! Quiero mi plan de orden y ventas
                                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                                 </button>
                                 <p className="mt-3 text-sm text-slate-400">Respuesta en menos de 12 horas. Sin compromiso.</p>
