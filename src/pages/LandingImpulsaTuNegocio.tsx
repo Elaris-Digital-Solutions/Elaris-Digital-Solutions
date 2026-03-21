@@ -552,9 +552,14 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 7 — FINAL CTA (Booking Form) */}
-            <section id="reserva" className="relative py-20 lg:py-32 bg-[#F0F4FF] overflow-hidden">
+            <section id="reserva" className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
-                    <NeuralNoise opacity={0.8} pointerStrength={1.2} timeScale={0.5} fixedScrollProgress={0} className="absolute inset-0" />
+                    <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
+                </div>
+
+                <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
+                    <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
                 </div>
 
                 <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
