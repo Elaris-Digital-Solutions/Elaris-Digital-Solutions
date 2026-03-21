@@ -511,7 +511,7 @@ export default function LandingImpulsaTuNegocio() {
 
             {/* SECTION 5 — AUTHORITY */}
             <section className="py-20 lg:py-32 bg-[#071540] text-white">
-                <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
+                <div className="container mx-auto px-6 lg:px-8 max-w-6xl text-center">
                     <ShieldCheck className="w-16 h-16 text-[#2F64FF] mx-auto mb-8 opacity-80" />
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6 leading-tight">
                         Fácil de usar, <span className="font-semibold">sin dolores de cabeza</span>
@@ -520,7 +520,7 @@ export default function LandingImpulsaTuNegocio() {
                         Sabemos que estás enfocado en sacar adelante tu negocio y que no tienes por qué saber de tecnología. Por eso hacemos todo muy sencillo y pensado directamente para ti. No necesitas experiencia.
                     </p>
 
-                    <div className="flex flex-wrap justify-center gap-4">
+                    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-6">
                         {[
                             "Hecho para durar y fácil de usar",
                             "Una herramienta hecha para tu negocio",
@@ -528,7 +528,10 @@ export default function LandingImpulsaTuNegocio() {
                             "Listo para usar desde el primer día",
                             "El sistema es tuyo para siempre"
                         ].map((badge, idx) => (
-                            <span key={idx} className="bg-white/10 border border-white/20 px-5 py-2 rounded-full text-sm font-medium tracking-wide">
+                            <span
+                                key={idx}
+                                className={`justify-self-center bg-white/10 border border-white/20 px-6 py-2 rounded-full text-sm font-medium tracking-wide text-center w-full lg:col-span-2 lg:whitespace-nowrap ${idx === 3 ? "lg:col-start-2" : ""} ${idx === 4 ? "lg:col-start-4" : ""}`}
+                            >
                                 {badge}
                             </span>
                         ))}
