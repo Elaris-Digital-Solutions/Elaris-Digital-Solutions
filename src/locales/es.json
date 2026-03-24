@@ -46,7 +46,7 @@
   },
   "services": {
     "headingNormal": "Elige cómo ",
-    "headingAccent": "querés crecer",
+    "headingAccent": "quieres crecer",
     "description": "Vender más o reducir costos. La mayoría de las empresas necesita ambos para operar con ventaja. Diseñamos e implementamos soluciones enfocadas en estos objetivos a través de:",
     "items": {
       "web": {
@@ -156,7 +156,7 @@
         "description": "Al cerrar el proyecto, recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando — el activo es 100% tuyo."
       },
       "design": {
-        "title": "Tecnología que no se rompe cuando más la necesitás",
+        "title": "Tecnología que no se rompe cuando más la necesitas",
         "heading": "Ingeniería para equipos que crecen",
         "description": "Construimos con arquitectura modular, pruebas automatizadas y seguridad por diseño para que el sistema soporte 10x más carga sin reescrituras de emergencia ni parches improvisados."
       },
@@ -224,16 +224,16 @@
   "contact": {
     "titleNormal": "Hablemos sobre ",
     "titleAccent": "tu próximo proyecto",
-    "description": "¿Querés vender más online, automatizar una operación o modernizar tu stack? Describí tu situación y te devolvemos un diagnóstico concreto en menos de 12 horas — sin compromiso.",
+    "description": "¿Quieres vender más online, automatizar una operación o modernizar tu stack? Describe tu situación y te devolvemos un diagnóstico concreto en menos de 12 horas — sin compromiso.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
       "emailLabel": "Email Corporativo *",
-      "reasonLabel": "¿Qué querés lograr? *",
-      "messageLabel": "Contanos tu situación *",
+      "reasonLabel": "¿Qué quieres lograr? *",
+      "messageLabel": "Cuéntanos tu situación *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
       "reasonPlaceholder": "Ej: Lanzar e-commerce, automatizar facturación, integrar ERP...",
-      "messagePlaceholder": "¿Qué problema querés resolver? ¿Qué resultados esperás? ¿Qué sistemas tenés hoy?",
+      "messagePlaceholder": "¿Qué problema quieres resolver? ¿Qué resultados esperas? ¿Qué sistemas tienes hoy?",
       "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
       "responseTime": "Diagnóstico inicial en menos de 12 horas. Sin compromiso, sin spam."
     },
@@ -294,7 +294,7 @@
     "ariaLabel": "Contactar por WhatsApp",
     "agentName": "Sergio Herrera",
     "agentStatus": "Online",
-    "welcomeMessage": "¡Hola! 👋 Soy Sergio de Elaris. ¿Querés vender más online, automatizar tu operación o modernizar tu tecnología? Cuéntame en qué estás trabajando y te doy una respuesta concreta.",
+    "welcomeMessage": "¡Hola! 👋 Soy Sergio de Elaris. ¿Quieres vender más online, automatizar tu operación o modernizar tu tecnología? Cuéntame en qué estás trabajando y te doy una respuesta concreta.",
     "ctaLabel": "Chatear por WhatsApp",
     "openLabel": "Abrir asistente de WhatsApp",
     "closeLabel": "Cerrar asistente de WhatsApp"
@@ -310,7 +310,7 @@
       "description": "Desarrollamos plataformas de software a medida para empresas que necesitan escalar. Automatización, integraciones y arquitectura lista para crecer."
     },
     "faq": {
-      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleNormal": "Todo lo que necesitas saber sobre ",
       "titleAccent": "software a medida",
       "items": [
         {
@@ -319,23 +319,23 @@
         },
         {
           "q": "¿Realmente necesito software a medida o me sirve un SaaS?",
-          "a": "Si tus procesos son estándar, un SaaS puede ser suficiente. Pero cuando tus flujos de trabajo son únicos, necesitás integraciones específicas o querés escalar sin pagar por usuarios o límites, el software a medida se vuelve la opción más rentable a mediano plazo."
+          "a": "Si tus procesos son estándar, un SaaS puede ser suficiente. Pero cuando tus flujos de trabajo son únicos, necesitas integraciones específicas o quieres escalar sin pagar por usuarios o límites, el software a medida se vuelve la opción más rentable a mediano plazo."
         },
         {
           "q": "¿Quién es el dueño del código fuente?",
-          "a": "Vos. Al cerrar el proyecto, te entregamos el repositorio completo con toda la documentación. El código es 100% tuyo, sin licencias ni dependencias vendedor-cliente."
+          "a": "Tú. Al cerrar el proyecto, te entregamos el repositorio completo con toda la documentación. El código es 100% tuyo, sin licencias ni dependencias vendedor-cliente."
         },
         {
           "q": "¿Ofrecen soporte técnico y mantenimiento post-lanzamiento?",
-          "a": "Sí. Ofrecemos planes de mantenimiento mensual que incluyen corrección de bugs, actualizaciones de seguridad y mejoras incrementales. También podés contratarnos por horas para evoluciones puntuales."
+          "a": "Sí. Ofrecemos planes de mantenimiento mensual que incluyen corrección de bugs, actualizaciones de seguridad y mejoras incrementales. También puedes contratarnos por horas para evoluciones puntuales."
         },
         {
           "q": "¿Cómo es el proceso de desarrollo y cómo me mantengo al tanto?",
-          "a": "Trabajamos con sprints de 2 semanas. En cada sprint tenés acceso a una demo funcional, un reporte de avance y una reunión de revisión. Usamos tableros compartidos para que veas el estado del proyecto en tiempo real."
+          "a": "Trabajamos con sprints de 2 semanas. En cada sprint tienes acceso a una demo funcional, un reporte de avance y una reunión de revisión. Usamos tableros compartidos para que veas el estado del proyecto en tiempo real."
         },
         {
           "q": "¿Qué tecnologías utilizan y puedo elegir el stack?",
-          "a": "Trabajamos principalmente con React, Node.js, Python y bases de datos relacionales y no relacionales. Si ya tenés un stack definido, lo respetamos. Si no, te recomendamos la arquitectura más adecuada según tu caso de uso, escalabilidad esperada y equipo técnico."
+          "a": "Trabajamos principalmente con React, Node.js, Python y bases de datos relacionales y no relacionales. Si ya tienes un stack definido, lo respetamos. Si no, te recomendamos la arquitectura más adecuada según tu caso de uso, escalabilidad esperada y equipo técnico."
         }
       ]
     }
@@ -346,7 +346,7 @@
       "description": "Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas — ERP, CRM, plataformas externas y aplicaciones propias — sin fricciones."
     },
     "faq": {
-      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleNormal": "Todo lo que necesitas saber sobre ",
       "titleAccent": "APIs personalizadas",
       "items": [
         {
@@ -382,7 +382,7 @@
       "description": "Integramos GPT-4o, Claude y modelos open-source en los flujos críticos de tu empresa. Automatización cognitiva, RAG con tus datos y orquestación multi-modelo."
     },
     "faq": {
-      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleNormal": "Todo lo que necesitas saber sobre ",
       "titleAccent": "implementación de LLMs",
       "items": [
         {
@@ -391,7 +391,7 @@
         },
         {
           "q": "¿Necesito datos propios entrenados para empezar?",
-          "a": "No necesariamente. Muchos casos de uso funcionan excelente con los modelos base (GPT-4o, Claude 3.5) combinados con RAG — es decir, conectando el modelo a tus documentos y bases de datos sin fine-tuning. El fine-tuning se evalúa cuando tenés un volumen alto de ejemplos específicos de tu industria y querés optimizar latencia o costo."
+          "a": "No necesariamente. Muchos casos de uso funcionan excelente con los modelos base (GPT-4o, Claude 3.5) combinados con RAG — es decir, conectando el modelo a tus documentos y bases de datos sin fine-tuning. El fine-tuning se evalúa cuando tienes un volumen alto de ejemplos específicos de tu industria y quieres optimizar latencia o costo."
         },
         {
           "q": "¿Cuánto tiempo tarda una primera implementación?",
@@ -418,7 +418,7 @@
       "description": "Implementamos sistemas CMMS a medida para digitalizar el mantenimiento industrial. Órdenes de trabajo, mantenimiento preventivo, inventario de repuestos e integración IoT para reducir paradas no planificadas."
     },
     "faq": {
-      "titleNormal": "Todo lo que necesitás saber sobre ",
+      "titleNormal": "Todo lo que necesitas saber sobre ",
       "titleAccent": "implementación de CMMS",
       "items": [
         {
