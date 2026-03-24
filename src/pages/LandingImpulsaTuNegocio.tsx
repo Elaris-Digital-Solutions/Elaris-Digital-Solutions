@@ -139,7 +139,7 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                             priority
                             width={160}
                             height={64}
-                            className="h-10 w-auto"
+                            className="h-8 sm:h-10 w-auto"
                         />
                     </a>
 
@@ -147,9 +147,10 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                         <a
                             href="#reserva"
                             onClick={onCtaClick}
-                            className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                            className="inline-flex h-9 sm:h-10 items-center rounded-xl bg-[#2F64FF] px-3 sm:px-5 text-xs sm:text-sm font-semibold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
                         >
-                            clic para una asesoria gratis
+                            <span className="sm:hidden">Asesoria gratis</span>
+                            <span className="hidden sm:inline">Clic para una asesoria gratis</span>
                         </a>
                     </div>
                 </div>
@@ -163,7 +164,7 @@ const RedirectFooter = () => {
 
     return (
         <footer className="bg-[#030E2C] border-t border-white/10 text-white">
-            <div className="container mx-auto px-6 lg:px-8 max-w-6xl py-12">
+            <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl py-12">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
                     <div className="max-w-md">
                         <SmartImage
@@ -180,7 +181,7 @@ const RedirectFooter = () => {
                     </div>
 
                     <div className="space-y-3 text-sm text-white/85">
-                        <a href="mailto:contact@elarisdigitalsolutions.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                        <a href="mailto:contact@elarisdigitalsolutions.com" className="flex items-start gap-2 hover:text-white transition-colors min-w-0 break-all">
                             <Mail className="h-4 w-4" />
                             contact@elarisdigitalsolutions.com
                         </a>
@@ -270,7 +271,7 @@ export default function LandingImpulsaTuNegocio() {
             <RedirectNavbar onCtaClick={scrollToForm} />
 
             {/* SECTION 1 — HERO */}
-            <section className="relative min-h-[92vh] lg:h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] pt-[40px]">
+            <section className="relative min-h-[92vh] lg:h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] pt-[88px] sm:pt-[96px]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
                     <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
@@ -280,15 +281,15 @@ export default function LandingImpulsaTuNegocio() {
                     <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
                 </div>
 
-                <div className="container mx-auto px-6 lg:px-8 max-w-7xl py-8 xl:py-10 2xl:py-16 relative z-10">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl py-8 xl:py-10 2xl:py-16 relative z-10">
                     <div className="grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-x-10 xl:gap-x-14 2xl:gap-x-20 items-center">
                         <motion.div {...fadeUp} className="max-w-[44rem]">
-                            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12] mb-6">
+                            <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12] mb-6">
                                 Haz crecer tu negocio
                                 <span className="block font-semibold text-[#2F64FF]">sin que el <span className="text-rose-500">caos</span> te detenga</span>
                             </h1>
 
-                            <p className="text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-7 max-w-[34rem]">
+                            <p className="text-base sm:text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-7 max-w-[34rem]">
                                 Deja de hacer el trabajo de tres personas. Te armamos una página web sencilla donde tus clientes compran solos y un panel que organiza tu stock. Es hora de crecer en ventas, no en estrés.
                             </p>
 
@@ -299,7 +300,7 @@ export default function LandingImpulsaTuNegocio() {
                                         "Controla pedidos y stock en un solo lugar",
                                         "Toda tu información ordenada, sin mensajes perdidos"
                                     ].map((bullet, idx) => (
-                                        <li key={idx} className="flex items-center gap-3 text-slate-700 font-medium text-base lg:text-lg">
+                                        <li key={idx} className="flex items-start sm:items-center gap-3 text-slate-700 font-medium text-[0.98rem] sm:text-base lg:text-lg leading-snug">
                                             <CheckCircle2 className="w-6 h-6 text-[#2F64FF] flex-shrink-0" />
                                             <span>{bullet}</span>
                                         </li>
@@ -311,7 +312,7 @@ export default function LandingImpulsaTuNegocio() {
                                 <a
                                     href="#reserva"
                                     onClick={scrollToForm}
-                                    className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
+                                    className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-6 sm:px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                                 >
                                     Te regalamos una asesoría gratis
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -331,8 +332,8 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 2 — PROBLEM IDENTIFICATION */}
-            <section className="py-20 lg:py-32 bg-white border-y border-slate-100">
-                <div className="container mx-auto px-6 lg:px-8 max-w-5xl">
+            <section className="py-16 sm:py-20 lg:py-32 bg-white border-y border-slate-100">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -345,7 +346,7 @@ export default function LandingImpulsaTuNegocio() {
                         </h2>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-2 gap-8 mb-16">
+                    <div className="grid md:grid-cols-2 gap-5 sm:gap-8 mb-16">
                         {[
                             { icon: Clock, text: "Sientes que te faltan horas en el día, porque todo el negocio depende de ti y de tu celular." },
                             { icon: AlertCircle, text: "Te ahogas anotando en cuadernos o Excel los pedidos y contando el stock a mano." },
@@ -358,12 +359,12 @@ export default function LandingImpulsaTuNegocio() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                className="bg-rose-50/50 border border-rose-100 p-8 rounded-2xl flex items-start gap-4"
+                                className="bg-rose-50/50 border border-rose-100 p-5 sm:p-8 rounded-2xl flex items-start gap-4"
                             >
                                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-rose-500">
                                     <problem.icon className="w-6 h-6" />
                                 </div>
-                                <p className="text-lg text-[#071540] font-medium leading-snug pt-2">
+                                <p className="text-base sm:text-lg text-[#071540] font-medium leading-snug pt-1.5 sm:pt-2">
                                     {problem.text}
                                 </p>
                             </motion.div>
@@ -379,11 +380,11 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 2.5 — TESTIMONIAL QUOTE */}
-            <section className="py-24 lg:py-28 bg-[#F0F4FF] border-b border-t border-slate-100 overflow-hidden relative">
-                <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+            <section className="py-20 sm:py-24 lg:py-28 bg-[#F0F4FF] border-b border-t border-slate-100 overflow-hidden relative">
+                <motion.div className="container mx-auto px-5 sm:px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                     <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
-                    <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y ganamos más porque todo está en orden."
+                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
+                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y puedo enfocarme en hacer crecer el negocio."
                     </p>
                     <div>
                         <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
@@ -393,8 +394,8 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 3 — SOLUTION */}
-            <section className="py-20 lg:py-32 bg-white">
-                <div className="container mx-auto px-6 lg:px-8 max-w-6xl">
+            <section className="py-16 sm:py-20 lg:py-32 bg-white">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Tu oficina virtual: todo lo que necesitas en <span className="font-semibold text-[#2F64FF]">una sola pantalla</span>
@@ -404,19 +405,19 @@ export default function LandingImpulsaTuNegocio() {
                         </p>
                     </div>
 
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="grid lg:grid-cols-3 gap-5 sm:gap-8">
                         {/* Block 1 */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
+                            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
                         >
                             <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2F64FF] mb-6">
                                 <ShoppingCart className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Ver tus ventas en tiempo real</h3>
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#071540] mb-4">Ver tus ventas en tiempo real</h3>
                             <p className="text-slate-600 leading-relaxed">
                                 Tu propia página web estará lista para recibir a tus clientes y vender tus productos sin tu intervención. Podrás saber exactamente cuánto ganas.
                             </p>
@@ -428,12 +429,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
+                            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
                         >
                             <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-500 mb-6">
                                 <Settings className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Controlar tu stock</h3>
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#071540] mb-4">Controlar tu stock</h3>
                             <p className="text-slate-600 leading-relaxed">
                                 Olvídate de los cuadernos. Tu pantalla te dirá qué talla y cuántas unidades te quedan de cada producto, evitando ofrecer lo que ya vendiste.
                             </p>
@@ -445,12 +446,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
+                            className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-[#2F64FF]/30 transition-all"
                         >
                             <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500 mb-6">
                                 <GitMerge className="w-7 h-7" />
                             </div>
-                            <h3 className="text-2xl font-bold text-[#071540] mb-4">Gestionar tus pedidos</h3>
+                            <h3 className="text-xl sm:text-2xl font-bold text-[#071540] mb-4">Gestionar tus pedidos</h3>
                             <p className="text-slate-600 leading-relaxed">
                                 Sabrás qué enviarle a quién y cuándo en una lista súper ordenada. No perderás ni una sola venta y tu cabeza por fin podrá descansar.
                             </p>
@@ -460,10 +461,10 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 4 — RESULTS */}
-            <section className="py-20 lg:py-32 bg-[#F0F4FF] border-y border-slate-100 relative overflow-hidden">
+            <section className="py-16 sm:py-20 lg:py-32 bg-[#F0F4FF] border-y border-slate-100 relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-50 to-transparent pointer-events-none" />
 
-                <div className="container mx-auto px-6 lg:px-8 max-w-5xl relative z-10">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl relative z-10">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Un negocio que crece <br className="hidden md:block" />
@@ -471,7 +472,7 @@ export default function LandingImpulsaTuNegocio() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
                         {[
                             { value: "Más tiempo", text: "Para ti y tu familia", color: "text-[#2F64FF]", bg: "bg-blue-50" },
                             { value: "Más control", text: "Sabes exactamente qué pasa", color: "text-emerald-500", bg: "bg-emerald-50" },
@@ -484,12 +485,12 @@ export default function LandingImpulsaTuNegocio() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="bg-white border border-slate-100 rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+                                className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow"
                             >
-                                <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold tracking-wide uppercase mb-4 ${stat.bg} ${stat.color}`}>
+                                <div className={`inline-block px-2.5 sm:px-3 py-1 rounded-full text-[0.68rem] sm:text-sm font-bold tracking-wide uppercase mb-3 sm:mb-4 ${stat.bg} ${stat.color}`}>
                                     {stat.value}
                                 </div>
-                                <p className="text-[#071540] font-medium leading-snug">
+                                <p className="text-sm sm:text-base text-[#071540] font-medium leading-snug">
                                     {stat.text}
                                 </p>
                             </motion.div>
@@ -510,8 +511,8 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 5 — AUTHORITY */}
-            <section className="py-20 lg:py-32 bg-[#071540] text-white">
-                <div className="container mx-auto px-6 lg:px-8 max-w-6xl text-center">
+            <section className="py-16 sm:py-20 lg:py-32 bg-[#071540] text-white">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl text-center">
                     <ShieldCheck className="w-16 h-16 text-[#2F64FF] mx-auto mb-8 opacity-80" />
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6 leading-tight">
                         Fácil de usar, <span className="font-semibold">sin dolores de cabeza</span>
@@ -520,7 +521,7 @@ export default function LandingImpulsaTuNegocio() {
                         Sabemos que estás enfocado en sacar adelante tu negocio y que no tienes por qué saber de tecnología. Por eso hacemos todo muy sencillo y pensado directamente para ti. No necesitas experiencia.
                     </p>
 
-                    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-[16px] sm:grid-cols-2 lg:grid-cols-6">
+                    <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-y-[14px] gap-x-3 sm:gap-y-[16px] sm:gap-x-4">
                         {[
                             "Hecho para durar y fácil de usar",
                             "Una herramienta hecha para tu negocio",
@@ -530,7 +531,7 @@ export default function LandingImpulsaTuNegocio() {
                         ].map((badge, idx) => (
                             <span
                                 key={idx}
-                                className={`justify-self-center bg-white/10 border border-white/20 px-6 py-2 rounded-full text-sm font-medium tracking-wide text-center w-full lg:col-span-2 lg:whitespace-nowrap ${idx === 3 ? "lg:col-start-2" : ""} ${idx === 4 ? "lg:col-start-4" : ""}`}
+                                className="inline-flex w-fit max-w-full justify-center bg-white/10 border border-white/20 px-4 sm:px-6 py-2 rounded-full text-sm font-medium tracking-wide text-center"
                             >
                                 {badge}
                             </span>
@@ -540,8 +541,8 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 6 — URGENCY */}
-            <section className="py-20 lg:py-32 bg-white border-b border-slate-100">
-                <div className="container mx-auto px-6 lg:px-8 max-w-3xl text-center">
+            <section className="py-16 sm:py-20 lg:py-32 bg-white border-b border-slate-100">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-3xl text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] mb-6 leading-tight">
                         Si no actúas ahora, tu negocio <span className="font-semibold text-red-500">seguirá estancado</span>
                     </h2>
@@ -552,7 +553,7 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             {/* SECTION 7 — FINAL CTA (Booking Form) */}
-            <section id="reserva" className="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
+            <section id="reserva" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
                     <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
@@ -562,7 +563,7 @@ export default function LandingImpulsaTuNegocio() {
                     <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
                 </div>
 
-                <div className="container mx-auto px-6 lg:px-8 max-w-6xl relative z-10">
+                <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl relative z-10">
                     <motion.div
                         className="mx-auto w-full max-w-4xl"
                         initial={{ opacity: 0, x: -32 }}
@@ -572,10 +573,10 @@ export default function LandingImpulsaTuNegocio() {
                     >
                         <div className="mb-10 text-center">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] leading-tight">
-                                Estás a un paso de
-                                <span className="font-semibold text-[#2F64FF]"> trabajar menos y ganar más</span>
+                                Da el primer paso para
+                                <span className="font-semibold text-[#2F64FF]"> ordenar y hacer crecer tu negocio</span>
                             </h2>
-                            <p className="mt-4 mx-auto text-lg text-slate-500 leading-relaxed max-w-3xl">
+                            <p className="mt-4 mx-auto text-base sm:text-lg text-slate-500 leading-relaxed max-w-3xl">
                                 Te mostramos cómo podemos aplicar esto a tu caso en particular. Déjanos tus datos, hablamos contigo y te armamos un plan de orden y ventas en menos de 12 horas. ¡Completamente gratis!
                             </p>
                         </div>
