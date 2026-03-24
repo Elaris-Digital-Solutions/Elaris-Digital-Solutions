@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
     ArrowRight, ShoppingCart, Settings, GitMerge,
-    ShieldCheck, Clock, CheckCircle2, AlertCircle, Phone, Mail, Instagram, MapPin, TrendingUp, BarChart3, Quote
+    ShieldCheck, Clock, AlertCircle, Phone, Mail, Instagram, MapPin, TrendingUp, BarChart3, Quote
 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
@@ -147,10 +147,9 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                         <a
                             href="#reserva"
                             onClick={onCtaClick}
-                            className="inline-flex h-9 sm:h-10 items-center rounded-xl bg-[#2F64FF] px-3 sm:px-5 text-xs sm:text-sm font-semibold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
+                            className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
                         >
-                            <span className="sm:hidden">Asesoria gratis</span>
-                            <span className="hidden sm:inline">Clic para una asesoria gratis</span>
+                            Clic para una asesoria gratis
                         </a>
                     </div>
                 </div>
@@ -273,7 +272,7 @@ export default function LandingImpulsaTuNegocio() {
             {/* SECTION 1 — HERO */}
             <section className="relative min-h-[92vh] lg:h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] pt-[88px] sm:pt-[96px]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
-                    <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
+                    <NeuralNoise opacity={0.45} pointerStrength={1.2} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
 
                 <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
@@ -284,40 +283,40 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl py-8 xl:py-10 2xl:py-16 relative z-10">
                     <div className="grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-x-10 xl:gap-x-14 2xl:gap-x-20 items-center">
                         <motion.div {...fadeUp} className="max-w-[44rem]">
-                            <h1 className="text-[2.1rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12] mb-6">
+                            <h1 className="text-[1.9rem] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.16] sm:leading-[1.12] mb-5 sm:mb-6 text-center lg:text-left">
                                 Haz crecer tu negocio
                                 <span className="block font-semibold text-[#2F64FF]">sin que el <span className="text-rose-500">caos</span> te detenga</span>
                             </h1>
 
-                            <p className="text-base sm:text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-7 max-w-[34rem]">
+                            <p className="text-[1.02rem] sm:text-[1.06rem] md:text-[1.18rem] text-slate-600 font-light leading-relaxed mb-8 max-w-[34rem] text-left">
                                 Deja de hacer el trabajo de tres personas. Te armamos una página web sencilla donde tus clientes compran solos y un panel que organiza tu stock. Es hora de crecer en ventas, no en estrés.
                             </p>
 
-                            <div className="mb-8">
-                                <ul className="text-left space-y-3 lg:space-y-4">
+                            <div className="mb-10">
+                                <ul className="text-left space-y-3 lg:space-y-3.5">
                                     {[
                                         "Tu negocio vende incluso cuando no estás",
                                         "Controla pedidos y stock en un solo lugar",
                                         "Toda tu información ordenada, sin mensajes perdidos"
                                     ].map((bullet, idx) => (
-                                        <li key={idx} className="flex items-start sm:items-center gap-3 text-slate-700 font-medium text-[0.98rem] sm:text-base lg:text-lg leading-snug">
-                                            <CheckCircle2 className="w-6 h-6 text-[#2F64FF] flex-shrink-0" />
+                                        <li key={idx} className="flex items-start gap-3 text-slate-700/90 font-normal text-[0.97rem] sm:text-base lg:text-lg leading-snug">
+                                            <span className="mt-[0.58rem] h-1.5 w-1.5 rounded-full bg-[#2F64FF] flex-shrink-0" aria-hidden />
                                             <span>{bullet}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="flex flex-col items-start">
+                            <div className="flex flex-col items-center lg:items-start">
                                 <a
                                     href="#reserva"
                                     onClick={scrollToForm}
-                                    className="group inline-flex items-center justify-center gap-3 bg-[#2F64FF] text-white px-6 sm:px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base sm:text-lg hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
+                                    className="group inline-flex items-center justify-center gap-2.5 bg-[#2F64FF] text-white px-7 py-3.5 rounded-full font-semibold text-[0.98rem] hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] transition-all duration-300 transform hover:-translate-y-1 w-auto"
                                 >
                                     Te regalamos una asesoría gratis
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </a>
-                                <p className="mt-4 text-xs md:text-sm text-slate-500 font-medium">
+                                <p className="mt-4 max-w-[19rem] text-xs md:text-sm text-slate-500 font-medium text-center leading-snug lg:max-w-none lg:text-left">
                                     Gratis · 20 minutos · Te llevas una ruta clara para ordenar tu negocio
                                 </p>
                             </div>
@@ -503,7 +502,7 @@ export default function LandingImpulsaTuNegocio() {
                             onClick={scrollToForm}
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-[#2F64FF] text-[#2F64FF] font-bold hover:bg-[#2F64FF] hover:text-white transition-all duration-300 transform hover:-translate-y-1 w-full sm:w-auto"
                         >
-                            Clic para una asesoría gratis
+                            Quiero ordenar mi negocio
                             <ArrowRight className="w-5 h-5 flex-shrink-0" />
                         </a>
                     </div>
