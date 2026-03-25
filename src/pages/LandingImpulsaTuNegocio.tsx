@@ -496,25 +496,25 @@ export default function LandingImpulsaTuNegocio() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 border-t border-b border-slate-200/60 py-10">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
                         {[
-                            { value: "Más tiempo", text: "Para ti y tu familia", color: "text-[#071540]" },
-                            { value: "Más control", text: "Sabes exactamente qué pasa", color: "text-[#071540]" },
-                            { value: "Más ventas", text: "Tus clientes compran fácil", color: "text-[#071540]" },
-                            { value: "Menos estrés", text: "Fin al caos y al desorden", color: "text-[#071540]" }
+                            { value: "Más tiempo", text: "Para ti y tu familia", color: "text-[#2F64FF]", bg: "bg-blue-50" },
+                            { value: "Más control", text: "Sabes exactamente qué pasa", color: "text-emerald-500", bg: "bg-emerald-50" },
+                            { value: "Más ventas", text: "Tus clientes compran fácil", color: "text-indigo-500", bg: "bg-indigo-50" },
+                            { value: "Menos estrés", text: "Fin al caos y al desorden", color: "text-rose-500", bg: "bg-rose-50" }
                         ].map((stat, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 16 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="text-center px-4 md:border-r last:md:border-none border-slate-200/60"
+                                className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow"
                             >
-                                <div className={`text-2xl sm:text-3xl font-light tracking-tight mb-2 ${stat.color}`}>
+                                <div className={`inline-block px-2.5 sm:px-3 py-1 rounded-full text-[0.68rem] sm:text-sm font-bold tracking-wide uppercase mb-3 sm:mb-4 ${stat.bg} ${stat.color}`}>
                                     {stat.value}
                                 </div>
-                                <p className="text-sm sm:text-base text-slate-500 font-normal leading-snug">
+                                <p className="text-sm sm:text-base text-[#071540] font-medium leading-snug">
                                     {stat.text}
                                 </p>
                             </motion.div>
