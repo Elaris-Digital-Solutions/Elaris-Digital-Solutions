@@ -380,14 +380,39 @@ export default function LandingImpulsaTuNegocio() {
 
             {/* SECTION 2.5 — TESTIMONIAL QUOTE */}
             <section className="py-20 sm:py-24 lg:py-28 bg-[#F0F4FF] border-b border-t border-slate-100 overflow-hidden relative">
-                <motion.div className="container mx-auto px-5 sm:px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-                    <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
-                    <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                        "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y puedo enfocarme en hacer crecer el negocio."
-                    </p>
-                    <div>
-                        <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
-                        <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
+                <motion.div
+                    className="container mx-auto px-5 sm:px-6 max-w-4xl relative z-10"
+                    initial={{ opacity: 0, y: 32 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                >
+                    <div className="mx-auto w-full max-w-[56rem]">
+                        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-20">
+                        <div className="relative mx-auto h-96 w-full">
+                            <SmartImage
+                                src="/assets/milagros-salcedo.webp"
+                                alt="Milagros Salcedo"
+                                width={560}
+                                height={560}
+                                className="absolute inset-0 h-full w-full rounded-3xl object-cover shadow-[0_24px_65px_rgba(7,21,64,0.18)]"
+                            />
+                            <div className="pointer-events-none absolute -inset-3 -z-10 rounded-[2rem] bg-[#2F64FF]/10 blur-2xl" />
+                        </div>
+
+                        <div className="text-left">
+                            <Quote className="w-12 h-12 text-[#2F64FF] mb-6 opacity-50" />
+                            <p className="text-lg sm:text-xl md:text-2xl lg:text-[1.95rem] font-light italic leading-relaxed text-[#071540]">
+                                "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, el negocio funciona solo. Ahora descanso más y puedo enfocarme en hacer crecer el negocio."
+                            </p>
+
+                            <div className="mt-8 pt-5">
+                                <p className="text-[1.1rem] font-bold text-[#071540]">Milagros Salcedo</p>
+                                <p className="mt-1 text-slate-500 font-medium">Directora / Founder</p>
+                                <p className="text-[#2F64FF] font-semibold tracking-wide mt-1">Salcedo Jewels</p>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </motion.div>
             </section>
