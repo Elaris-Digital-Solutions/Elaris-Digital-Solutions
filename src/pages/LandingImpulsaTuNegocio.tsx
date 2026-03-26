@@ -2,8 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-    ArrowRight, ShoppingCart, Settings, GitMerge,
-    ShieldCheck, Clock, AlertCircle, Phone, Mail, Instagram, MapPin, TrendingUp, BarChart3, Quote
+    ArrowRight,
+    ShoppingCart,
+    Settings,
+    GitMerge,
+    ShieldCheck,
+    Clock,
+    AlertCircle,
+    Phone,
+    Mail,
+    Instagram,
+    MapPin,
+    TrendingUp,
+    BarChart3,
+    Quote,
 } from "lucide-react";
 import SeoHead from "@/components/SeoHead";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
@@ -23,12 +35,29 @@ const fadeRight = {
 } as const;
 
 const heroKpis = [
-    { label: "ahorradas esta semana", value: "32 horas", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
-    { label: "pedidos listos para enviar", value: "128", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
-    { label: "Ventas hoy", value: "32", color: "text-violet-600", bg: "bg-violet-50 border-violet-100" },
+    {
+        label: "ahorradas esta semana",
+        value: "32 horas",
+        color: "text-emerald-600",
+        bg: "bg-emerald-50 border-emerald-100",
+    },
+    {
+        label: "pedidos listos para enviar",
+        value: "128",
+        color: "text-[#2F64FF]",
+        bg: "bg-blue-50 border-blue-100",
+    },
+    {
+        label: "Ventas hoy",
+        value: "32",
+        color: "text-violet-600",
+        bg: "bg-violet-50 border-violet-100",
+    },
 ] as const;
 
-const heroBarHeights = [28, 45, 38, 62, 50, 75, 58, 85, 68, 92, 78, 100] as const;
+const heroBarHeights = [
+    28, 45, 38, 62, 50, 75, 58, 85, 68, 92, 78, 100,
+] as const;
 
 const heroStatusRows = [
     { name: "Inventario actualizado", pct: 92, statusText: "Al día" },
@@ -62,18 +91,30 @@ const HeroDashboardMock = () => {
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
                     {/* Stat 1 */}
                     <div className="bg-emerald-50/80 border border-emerald-100 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center">
-                        <div className="text-emerald-600 font-bold text-xl sm:text-2xl mb-1">0</div>
-                        <div className="text-emerald-700/80 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-none">Errores</div>
+                        <div className="text-emerald-600 font-bold text-xl sm:text-2xl mb-1">
+                            0
+                        </div>
+                        <div className="text-emerald-700/80 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-none">
+                            Errores
+                        </div>
                     </div>
                     {/* Stat 2 */}
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
-                        <div className="text-[#2F64FF] font-bold text-xl sm:text-2xl mb-1">128</div>
-                        <div className="text-[#071540]/60 text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-tight">Entregas</div>
+                        <div className="text-[#2F64FF] font-bold text-xl sm:text-2xl mb-1">
+                            128
+                        </div>
+                        <div className="text-[#071540]/60 text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-tight">
+                            Entregas
+                        </div>
                     </div>
                     {/* Stat 3 */}
                     <div className="bg-purple-50/80 border border-purple-100 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center">
-                        <div className="text-purple-600 font-bold text-xl sm:text-2xl mb-1">32h</div>
-                        <div className="text-purple-700/80 text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-tight">Ahorradas</div>
+                        <div className="text-purple-600 font-bold text-xl sm:text-2xl mb-1">
+                            32h
+                        </div>
+                        <div className="text-purple-700/80 text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-tight">
+                            Ahorradas
+                        </div>
                     </div>
                 </div>
 
@@ -95,24 +136,45 @@ const HeroDashboardMock = () => {
                 {/* List Items */}
                 <div className="space-y-3">
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
-                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">112 Pedidos </div>
-                        <div className="px-2.5 py-1 bg-emerald-50 text-emerald-600 text-[0.65rem] sm:text-xs rounded-full font-bold uppercase tracking-wide border border-emerald-100">En curso</div>
+                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">
+                            112 Pedidos{" "}
+                        </div>
+                        <div className="px-2.5 py-1 bg-emerald-50 text-emerald-600 text-[0.65rem] sm:text-xs rounded-full font-bold uppercase tracking-wide border border-emerald-100">
+                            En curso
+                        </div>
                     </div>
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
-                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">Ventas semanales</div>
+                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">
+                            Ventas semanales
+                        </div>
                         <div className="flex items-center gap-1 text-[#2F64FF] text-[0.65rem] sm:text-xs font-bold bg-[#2F64FF]/5 px-2.5 py-1 rounded-full border border-[#2F64FF]/15">
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path></svg>
+                            <svg
+                                className="w-3 h-3"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                                ></path>
+                            </svg>
                             +18%
                         </div>
                     </div>
                 </div>
-
             </motion.div>
         </div>
     );
 };
 
-const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLAnchorElement>) => void }) => {
+const RedirectNavbar = ({
+    onCtaClick,
+}: {
+    onCtaClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}) => {
     const [isAtTop, setIsAtTop] = useState(true);
     const [isNavHovered, setIsNavHovered] = useState(false);
 
@@ -143,7 +205,11 @@ const RedirectNavbar = ({ onCtaClick }: { onCtaClick: (e: React.MouseEvent<HTMLA
                 className={`h-[80px] transition-[background-color,border-color,box-shadow] duration-200 ease-in-out ${navThemeClasses}`}
             >
                 <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-                    <a href="/" aria-label="Elaris Digital Solutions" className="inline-flex items-center">
+                    <a
+                        href="/"
+                        aria-label="Elaris Digital Solutions"
+                        className="inline-flex items-center"
+                    >
                         <SmartImage
                             src="/assets/ElarisLogo.png"
                             alt="Elaris Digital Solutions"
@@ -186,16 +252,23 @@ const RedirectFooter = () => {
                             className="h-16 w-auto mb-4"
                         />
                         <p className="text-white/80 text-sm leading-relaxed">
-                            Ayudamos a los dueños de negocios a vender por internet de forma ordenada, para que recuperen su tiempo y el control de sus ventas.
+                            Ayudamos a los dueños de negocios a vender por internet de forma
+                            ordenada, para que recuperen su tiempo y el control de sus ventas.
                         </p>
                     </div>
 
                     <div className="space-y-3 text-sm text-white/85">
-                        <a href="mailto:contact@elarisdigitalsolutions.com" className="flex items-start gap-2 hover:text-white transition-colors min-w-0 break-all">
+                        <a
+                            href="mailto:contact@elarisdigitalsolutions.com"
+                            className="flex items-start gap-2 hover:text-white transition-colors min-w-0 break-all"
+                        >
                             <Mail className="h-4 w-4" />
                             contact@elarisdigitalsolutions.com
                         </a>
-                        <a href="tel:+51973663807" className="flex items-center gap-2 hover:text-white transition-colors">
+                        <a
+                            href="tel:+51973663807"
+                            className="flex items-center gap-2 hover:text-white transition-colors"
+                        >
                             <Phone className="h-4 w-4" />
                             +51 973 663 807
                         </a>
@@ -217,13 +290,24 @@ const RedirectFooter = () => {
 
                 <div className="mt-8 pt-6 border-t border-white/10">
                     <div className="flex flex-col justify-between gap-2.5 sm:flex-row sm:items-center sm:gap-4">
-                        <p className="text-xs text-white/70">© {currentYear} Elaris Digital Solutions. Todos los derechos reservados.</p>
+                        <p className="text-xs text-white/70">
+                            © {currentYear} Elaris Digital Solutions. Todos los derechos
+                            reservados.
+                        </p>
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/80 sm:text-sm">
-                            <Link to="/terminos-condiciones" className="hover:text-white transition-colors">
+                            <Link
+                                to="/terminos-condiciones"
+                                className="hover:text-white transition-colors"
+                            >
                                 Términos &amp; Condiciones
                             </Link>
-                            <span aria-hidden="true" className="text-white/40">|</span>
-                            <Link to="/politicas-de-datos" className="hover:text-white transition-colors">
+                            <span aria-hidden="true" className="text-white/40">
+                                |
+                            </span>
+                            <Link
+                                to="/politicas-de-datos"
+                                className="hover:text-white transition-colors"
+                            >
                                 Políticas de Datos
                             </Link>
                         </div>
@@ -251,8 +335,8 @@ export default function LandingImpulsaTuNegocio() {
         e.preventDefault();
 
         // Track Lead event for Meta Ads
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-            (window as any).fbq('track', 'Lead');
+        if (typeof window !== "undefined" && (window as any).fbq) {
+            (window as any).fbq("track", "Lead");
         }
 
         const phoneNumber = "51973663807";
@@ -273,7 +357,10 @@ export default function LandingImpulsaTuNegocio() {
     };
 
     return (
-        <div id="landing-page" className="relative min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden selection:bg-[#2F64FF]/20">
+        <div
+            id="landing-page"
+            className="relative min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden selection:bg-[#2F64FF]/20"
+        >
             <SeoHead
                 title="Impulsa tu negocio | Elaris Digital Solutions"
                 description="Ordena tu negocio, recupera tu tiempo y haz que tu empresa crezca sola, sin que tú tengas que estar encima de todo."
@@ -283,18 +370,25 @@ export default function LandingImpulsaTuNegocio() {
             {/* SECTION 1 — HERO */}
             <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden min-h-[92vh] lg:min-h-screen flex items-center bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
-                    <NeuralNoise opacity={0.45} pointerStrength={1.2} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
+                    <NeuralNoise
+                        opacity={0.45}
+                        pointerStrength={1.2}
+                        timeScale={0.4}
+                        fixedScrollProgress={0}
+                        className="absolute inset-0"
+                    />
                 </div>
 
-
-                <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+                <div
+                    className="absolute inset-0 pointer-events-none select-none"
+                    aria-hidden
+                >
                     <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
                     <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
                 </div>
 
                 <div className="container mx-auto px-5 sm:px-6 relative z-10 lg:pt-10">
                     <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 max-w-[85rem] mx-auto">
-
                         {/* Hero Text */}
                         <div className="w-full lg:w-1/2 text-center lg:text-left mt-10 lg:mt-0 order-1">
                             <motion.h1
@@ -304,7 +398,8 @@ export default function LandingImpulsaTuNegocio() {
                                 className="text-[2.5rem] leading-[1.1] sm:text-5xl lg:text-[4rem] font-bold text-[#071540] tracking-tight mb-6"
                             >
                                 Haz crecer tu negocio <br className="hidden lg:block" />
-                                sin que el <span className="text-rose-500">caos</span> te detenga
+                                sin que el <span className="text-rose-500">caos</span> te
+                                detenga
                             </motion.h1>
 
                             <motion.p
@@ -313,7 +408,12 @@ export default function LandingImpulsaTuNegocio() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-xl sm:text-2xl text-[#071540]/80 mb-10 font-light max-w-2xl mx-auto lg:mx-0"
                             >
-                                Deja de hacer el trabajo <strong className="font-semibold text-[#2F64FF]">de 3 personas.</strong> Nosotros automatizamos pedidos y stock. Una sola página. Un solo panel, cero estrés.
+                                Deja de hacer el trabajo de 3 personas. Nosotros
+                                <strong className="font-semibold text-[#2F64FF]">
+                                    {" "}
+                                    automatizamos
+                                </strong>{" "}
+                                pedidos y stock. Una sola página. Un solo panel, cero estrés.
                             </motion.p>
 
                             <motion.div
@@ -338,7 +438,8 @@ export default function LandingImpulsaTuNegocio() {
                                 transition={{ duration: 0.6, delay: 0.3 }}
                                 className="mt-5 text-[0.85rem] text-[#071540]/50 font-medium"
                             >
-                                Gratis · 20 minutos · Te llevas una ruta clara para ordenar tu negocio
+                                Gratis · 20 minutos · Te llevas una ruta clara para ordenar tu
+                                negocio
                             </motion.p>
                         </div>
 
@@ -361,16 +462,69 @@ export default function LandingImpulsaTuNegocio() {
                         className="text-center mb-16 max-w-3xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
-                            Tu negocio tiene un límite, <span className="font-semibold text-rose-500">y ya lo alcanzaste.</span>
+                            Tu negocio tiene un límite,{" "}
+                            <span className="font-semibold text-rose-500">
+                                y ya lo alcanzaste.
+                            </span>
                         </h2>
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-4 sm:gap-6 mb-16">
                         {[
-                            { icon: Clock, text: "Sientes que te faltan horas en el día, porque todo el negocio depende de ti y de tu celular." },
-                            { icon: AlertCircle, text: "Te ahogas anotando en cuadernos o Excel los pedidos y contando el stock a mano." },
-                            { icon: ShoppingCart, text: "Pierdes clientes y ventas solo porque demoras en responder sus mensajes." },
-                            { icon: GitMerge, text: "Tus competidores avanzan rápido, publican más y tú sigues estancado sin tiempo." }
+                            {
+                                icon: Clock,
+                                text: (
+                                    <>
+                                        Sientes que{" "}
+                                        <strong className="font-semibold text-[#071540]">
+                                            te faltan horas
+                                        </strong>{" "}
+                                        en el día, porque todo el negocio depende de ti y de tu
+                                        celular.
+                                    </>
+                                ),
+                            },
+                            {
+                                icon: AlertCircle,
+                                text: (
+                                    <>
+                                        Te ahogas anotando en{" "}
+                                        <strong className="font-semibold text-[#071540]">
+                                            cuadernos o Excel
+                                        </strong>{" "}
+                                        los pedidos y contando el stock{" "}
+                                        <strong className="font-semibold text-[#071540]">
+                                            a mano.
+                                        </strong>
+                                    </>
+                                ),
+                            },
+                            {
+                                icon: ShoppingCart,
+                                text: (
+                                    <>
+                                        <strong className="font-semibold text-[#071540]">
+                                            Pierdes clientes
+                                        </strong>{" "}
+                                        y ventas solo porque{" "}
+                                        <strong className="font-semibold text-[#071540]">
+                                            demoras
+                                        </strong>{" "}
+                                        en responder sus mensajes.
+                                    </>
+                                ),
+                            },
+                            {
+                                icon: GitMerge,
+                                text: (
+                                    <>
+                                        Tus competidores avanzan rápido, publican más y tú sigues{" "}
+                                        <strong className="font-semibold text-[#071540]">
+                                            estancado sin tiempo.
+                                        </strong>
+                                    </>
+                                ),
+                            },
                         ].map((problem, idx) => (
                             <motion.div
                                 key={idx}
@@ -392,7 +546,10 @@ export default function LandingImpulsaTuNegocio() {
 
                     <div className="bg-[#071540] text-center p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl mx-auto">
                         <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-                            "Hacer todo tú mismo te está desgastando. <span className="font-semibold text-[#2F64FF]">Y el desorden no va a parar solo."</span>
+                            "Hacer todo tú mismo te está desgastando.{" "}
+                            <span className="font-semibold text-[#2F64FF]">
+                                Y el desorden no va a parar solo."
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -437,17 +594,36 @@ export default function LandingImpulsaTuNegocio() {
                                 </div>
 
                                 <p className="text-xl sm:text-2xl lg:text-[1.7rem] font-light leading-relaxed text-[#071540]/90 mb-8">
-                                    "Antes vivía pegada al celular anotando pedidos en hojas y mi cabeza era un caos. Desde que tenemos la web y el panel de control, <span className="font-semibold text-[#2F64FF]">el negocio funciona solo.</span> Ahora descanso más y puedo enfocarme en hacerlo crecer."
+                                    "Antes vivía pegada al celular anotando pedidos en hojas y mi
+                                    cabeza era un caos. Desde que tenemos la web y el panel de
+                                    control,{" "}
+                                    <span className="font-semibold text-[#2F64FF]">
+                                        el negocio funciona solo.
+                                    </span>{" "}
+                                    Ahora descanso más y puedo enfocarme en hacerlo crecer."
                                 </p>
 
                                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#2F64FF]/15 pt-6">
                                     <div className="text-center sm:text-left">
-                                        <p className="text-lg font-bold text-[#071540]">Milagros Salcedo</p>
-                                        <p className="text-sm text-[#071540]/60 mt-0.5 font-medium">Fundadora de <span className="font-semibold text-[#071540]">Salcedo Jewels</span></p>
+                                        <p className="text-lg font-bold text-[#071540]">
+                                            Milagros Salcedo
+                                        </p>
+                                        <p className="text-sm text-[#071540]/60 mt-0.5 font-medium">
+                                            Fundadora de{" "}
+                                            <span className="font-semibold text-[#071540]">
+                                                Salcedo Jewels
+                                            </span>
+                                        </p>
                                     </div>
                                     <div className="flex justify-center gap-1 text-amber-400">
                                         {[1, 2, 3, 4, 5].map((i) => (
-                                            <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                            <svg
+                                                key={i}
+                                                className="w-5 h-5 fill-current"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
                                         ))}
                                     </div>
                                 </div>
@@ -462,10 +638,15 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
-                            Tu oficina virtual: todo lo que necesitas en <span className="font-semibold text-[#2F64FF]">una sola pantalla</span>
+                            Tu oficina virtual: todo lo que necesitas en{" "}
+                            <span className="font-semibold text-[#2F64FF]">
+                                una sola pantalla
+                            </span>
                         </h2>
                         <p className="mt-6 text-lg text-[#071540]/70">
-                            Construimos tu página web y te entregamos un centro de control privado. Es como tener un asistente que trabaja 24/7 y no comete errores.
+                            Construimos tu <strong className="font-semibold text-[#071540]">página web</strong> y te entregamos un{" "}
+                            <strong className="font-semibold text-[#071540]">centro de control privado.</strong> Es como tener un
+                            asistente que <strong className="font-semibold text-[#071540]">trabaja 24/7</strong> y no comete errores.
                         </p>
                     </div>
 
@@ -487,9 +668,11 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <ShoppingCart className="w-5 h-5" />
                             </div>
-                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Ver tus ventas en tiempo real</h3>
+                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
+                                Ver tus ventas en tiempo real
+                            </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Tu propia página web estará lista para recibir a tus clientes y vender tus productos sin tu intervención. Podrás saber exactamente cuánto ganas.
+                                Tu página web atiende clientes y cierra las ventas 24/7 sin tu intervención. Revisa tu panel y mira cuánto ganas en tiempo real.
                             </p>
                         </motion.div>
 
@@ -507,9 +690,13 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <Settings className="w-5 h-5" />
                             </div>
-                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Controlar tu stock</h3>
+                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
+                                Controlar tu stock
+                            </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Olvídate de los cuadernos. Tu pantalla te dirá qué talla y cuántas unidades te quedan de cada producto, evitando ofrecer lo que ya vendiste.
+                                Olvídate de los cuadernos. Tu pantalla te dirá qué talla y
+                                cuántas unidades te quedan de cada producto, evitando ofrecer lo
+                                que ya vendiste.
                             </p>
                         </motion.div>
 
@@ -527,9 +714,13 @@ export default function LandingImpulsaTuNegocio() {
                             <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <GitMerge className="w-5 h-5" />
                             </div>
-                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Gestionar tus pedidos</h3>
+                            <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
+                                Gestionar tus pedidos
+                            </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Sabrás qué enviarle a quién y cuándo en una lista súper ordenada. No perderás ni una sola venta y tu cabeza por fin podrá descansar.
+                                Sabrás qué enviarle a quién y cuándo en una lista súper
+                                ordenada. No perderás ni una sola venta y tu cabeza por fin
+                                podrá descansar.
                             </p>
                         </motion.div>
                     </div>
@@ -544,7 +735,9 @@ export default function LandingImpulsaTuNegocio() {
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Un negocio que crece <br className="hidden md:block" />
-                            <span className="font-semibold text-[#2F64FF]">mientras tú descansas</span>
+                            <span className="font-semibold text-[#2F64FF]">
+                                mientras tú descansas
+                            </span>
                         </h2>
                     </div>
 
@@ -553,7 +746,7 @@ export default function LandingImpulsaTuNegocio() {
                             { value: "Más tiempo", text: "Para hacer crecer tu marca" },
                             { value: "Más control", text: "Sabes exactamente qué pasa" },
                             { value: "Más ventas", text: "Tus clientes compran fácil" },
-                            { value: "Menos estrés", text: "Fin al caos y al desorden" }
+                            { value: "Menos estrés", text: "Fin al caos y al desorden" },
                         ].map((stat, idx) => (
                             <motion.div
                                 key={idx}
@@ -593,13 +786,19 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2F64FF]/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
                     <div className="flex justify-center mb-8">
-                        <ShieldCheck className="w-12 h-12 sm:w-14 sm:h-14 text-[#2F64FF]" strokeWidth={1.5} />
+                        <ShieldCheck
+                            className="w-12 h-12 sm:w-14 sm:h-14 text-[#2F64FF]"
+                            strokeWidth={1.5}
+                        />
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6 leading-tight">
-                        Fácil de usar, <span className="font-semibold">sin dolores de cabeza</span>
+                        Fácil de usar,{" "}
+                        <span className="font-semibold">sin dolores de cabeza</span>
                     </h2>
                     <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología. Nosotros lo hacemos simple para que puedas usarlo desde el primer día.
+                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología.
+                        Nosotros lo hacemos simple para que puedas usarlo desde el primer
+                        día.
                     </p>
 
                     <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-y-[14px] gap-x-3 sm:gap-y-[16px] sm:gap-x-4">
@@ -608,7 +807,7 @@ export default function LandingImpulsaTuNegocio() {
                             "Una herramienta hecha para tu negocio",
                             "Recibe pagos de forma segura y fácil",
                             "Listo para usar desde el primer día",
-                            "El sistema es tuyo para siempre"
+                            "El sistema es tuyo para siempre",
                         ].map((badge, idx) => (
                             <span
                                 key={idx}
@@ -625,21 +824,45 @@ export default function LandingImpulsaTuNegocio() {
             <section className="py-16 sm:py-20 lg:py-32 bg-white border-b border-[#2F64FF]/15">
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-3xl text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] mb-6 leading-tight">
-                        Si no actúas ahora, tu negocio <span className="font-semibold text-red-500">seguirá estancado</span>
+                        Si no actúas ahora, tu negocio{" "}
+                        <span className="font-semibold text-red-500">
+                            seguirá estancado
+                        </span>
                     </h2>
                     <p className="text-lg md:text-xl text-[#071540]/70 leading-relaxed font-light">
-                        Seguir anotando pedidos a mano, perdiendo clientes por demoras y sin tiempo libre no es forma de hacer crecer un negocio. Es momento de soltar el caos y recuperar el control.
+                        Seguir anotando pedidos a mano,{" "}
+                        <strong className="font-semibold text-[#071540]">
+                            perdiendo clientes
+                        </strong>{" "}
+                        por demoras y{" "}
+                        <strong className="font-semibold text-[#071540]">
+                            sin tiempo libre
+                        </strong>{" "}
+                        no es forma de hacer crecer un negocio. Es momento de soltar el caos
+                        y recuperar el control.
                     </p>
                 </div>
             </section>
 
             {/* SECTION 7 — FINAL CTA (Booking Form) */}
-            <section id="reserva" className="relative py-16 sm:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
+            <section
+                id="reserva"
+                className="relative py-16 sm:py-20 lg:py-32 overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]"
+            >
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
-                    <NeuralNoise opacity={0.6} pointerStrength={1.5} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
+                    <NeuralNoise
+                        opacity={0.6}
+                        pointerStrength={1.5}
+                        timeScale={0.4}
+                        fixedScrollProgress={0}
+                        className="absolute inset-0"
+                    />
                 </div>
 
-                <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
+                <div
+                    className="absolute inset-0 pointer-events-none select-none"
+                    aria-hidden
+                >
                     <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
                     <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
                 </div>
@@ -655,14 +878,21 @@ export default function LandingImpulsaTuNegocio() {
                         <div className="mb-10 text-center">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] leading-tight">
                                 Da el primer paso para
-                                <span className="font-semibold text-[#2F64FF]"> ordenar y hacer crecer tu negocio</span>
+                                <span className="font-semibold text-[#2F64FF]">
+                                    {" "}
+                                    ordenar y hacer crecer tu negocio
+                                </span>
                             </h2>
                             <p className="mt-4 mx-auto text-base sm:text-lg text-[#071540]/60 leading-relaxed max-w-3xl">
-                                Te damos un plan claro para ordenar y hacer crecer tu negocio en menos de 12 horas. Gratis.
+                                Te damos un plan claro para ordenar y hacer crecer tu negocio en
+                                menos de 12 horas. Gratis.
                             </p>
                         </div>
 
-                        <form onSubmit={handleFormSubmit} className="mx-auto w-full max-w-2xl bg-white/60 backdrop-blur-2xl border border-white/50 shadow-[0_30px_70px_rgba(20,40,95,0.08)] rounded-3xl p-8 sm:p-10 space-y-8 relative overflow-hidden">
+                        <form
+                            onSubmit={handleFormSubmit}
+                            className="mx-auto w-full max-w-2xl bg-white/60 backdrop-blur-2xl border border-white/50 shadow-[0_30px_70px_rgba(20,40,95,0.08)] rounded-3xl p-8 sm:p-10 space-y-8 relative overflow-hidden"
+                        >
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#2F64FF]/[0.03] rounded-full blur-3xl -z-10" />
 
                             <div className="relative">
@@ -713,7 +943,9 @@ export default function LandingImpulsaTuNegocio() {
                                     Reservar mi asesoría gratis
                                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
                                 </button>
-                                <p className="mt-4 text-[0.8rem] text-[#071540]/50 tracking-wide font-medium">Respuesta en menos de 12 horas. Sin compromiso.</p>
+                                <p className="mt-4 text-[0.8rem] text-[#071540]/50 tracking-wide font-medium">
+                                    Respuesta en menos de 12 horas. Sin compromiso.
+                                </p>
                             </div>
                         </form>
                     </motion.div>
