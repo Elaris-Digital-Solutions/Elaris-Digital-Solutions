@@ -476,7 +476,7 @@ export default function LandingImpulsaTuNegocio() {
                                 text: (
                                     <>
                                         Sientes que{" "}
-                                        <strong className="font-semibold text-[#071540]">
+                                        <strong className="font-bold text-[#071540]">
                                             te faltan horas
                                         </strong>{" "}
                                         en el día, porque todo el negocio depende de ti y de tu
@@ -489,11 +489,11 @@ export default function LandingImpulsaTuNegocio() {
                                 text: (
                                     <>
                                         Te ahogas anotando en{" "}
-                                        <strong className="font-semibold text-[#071540]">
+                                        <strong className="font-bold text-[#071540]">
                                             cuadernos o Excel
                                         </strong>{" "}
                                         los pedidos y contando el stock{" "}
-                                        <strong className="font-semibold text-[#071540]">
+                                        <strong className="font-bold text-[#071540]">
                                             a mano.
                                         </strong>
                                     </>
@@ -503,11 +503,11 @@ export default function LandingImpulsaTuNegocio() {
                                 icon: ShoppingCart,
                                 text: (
                                     <>
-                                        <strong className="font-semibold text-[#071540]">
+                                        <strong className="font-bold text-[#071540]">
                                             Pierdes clientes
                                         </strong>{" "}
                                         y ventas solo porque{" "}
-                                        <strong className="font-semibold text-[#071540]">
+                                        <strong className="font-bold text-[#071540]">
                                             demoras
                                         </strong>{" "}
                                         en responder sus mensajes.
@@ -518,8 +518,12 @@ export default function LandingImpulsaTuNegocio() {
                                 icon: GitMerge,
                                 text: (
                                     <>
-                                        Tus competidores avanzan rápido, publican más y tú sigues{" "}
-                                        <strong className="font-semibold text-[#071540]">
+                                        Tus{" "}
+                                        <strong className="font-bold text-[#071540]">
+                                            competidores
+                                        </strong>{" "}
+                                        avanzan rápido, publican más y tú sigues{" "}
+                                        <strong className="font-bold text-[#071540]">
                                             estancado sin tiempo.
                                         </strong>
                                     </>
@@ -644,9 +648,9 @@ export default function LandingImpulsaTuNegocio() {
                             </span>
                         </h2>
                         <p className="mt-6 text-lg text-[#071540]/70">
-                            Construimos tu <strong className="font-semibold text-[#071540]">página web</strong> y te entregamos un{" "}
-                            <strong className="font-semibold text-[#071540]">centro de control privado.</strong> Es como tener un
-                            asistente que <strong className="font-semibold text-[#071540]">trabaja 24/7</strong> y no comete errores.
+                            Construimos tu <strong className="font-bold text-[#071540]">página web</strong> y te entregamos un{" "}
+                            <strong className="font-bold text-[#071540]">centro de control privado.</strong> Es como tener un
+                            asistente que <strong className="font-bold text-[#071540]">trabaja 24/7</strong> y no comete errores.
                         </p>
                     </div>
 
@@ -831,11 +835,11 @@ export default function LandingImpulsaTuNegocio() {
                     </h2>
                     <p className="text-lg md:text-xl text-[#071540]/70 leading-relaxed font-light">
                         Seguir anotando pedidos a mano,{" "}
-                        <strong className="font-semibold text-[#071540]">
+                        <strong className="font-bold text-[#071540]">
                             perdiendo clientes
                         </strong>{" "}
                         por demoras y{" "}
-                        <strong className="font-semibold text-[#071540]">
+                        <strong className="font-bold text-[#071540]">
                             sin tiempo libre
                         </strong>{" "}
                         no es forma de hacer crecer un negocio. Es momento de soltar el caos
