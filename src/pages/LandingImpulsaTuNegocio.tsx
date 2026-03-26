@@ -408,13 +408,7 @@ export default function LandingImpulsaTuNegocio() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-xl sm:text-2xl text-[#071540]/80 mb-10 font-light max-w-2xl mx-auto lg:mx-0"
                             >
-                                Deja de hacer el trabajo de 3 personas. Nosotros
-                                <strong className="font-semibold text-[#2F64FF]">
-                                    {" "}
-                                    automatizamos
-                                </strong>{" "}
-                                pedidos y stock. Una sola página. Un solo panel, cero estrés.
-                            </motion.p>
+                                <strong className="text-[#2F64FF]">Deja de hacer el trabajo de 3 personas.</strong> Nosotros automatizamos pedidos y stock. Una sola página. Un solo panel, <strong className="text-[#2F64FF]">cero estrés</strong>.                            </motion.p>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -676,7 +670,7 @@ export default function LandingImpulsaTuNegocio() {
                                 Ver tus ventas en tiempo real
                             </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Tu página web atiende clientes y cierra las ventas 24/7 sin tu intervención. Revisa tu panel y mira cuánto ganas en tiempo real.
+                                Tu página web atiende clientes y <strong className="font-semibold text-[#071540]">cierra las ventas 24/7</strong> sin tu intervención. Revisa tu panel y mira <strong className="font-semibold text-[#071540]">cuánto ganas</strong> en tiempo real.
                             </p>
                         </motion.div>
 
@@ -698,9 +692,7 @@ export default function LandingImpulsaTuNegocio() {
                                 Controlar tu stock
                             </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Olvídate de los cuadernos. Tu pantalla te dirá qué talla y
-                                cuántas unidades te quedan de cada producto, evitando ofrecer lo
-                                que ya vendiste.
+                                <strong className="font-semibold text-[#071540]">Olvídate de los cuadernos.</strong> Tu pantalla te dirá qué talla y cuántas unidades te quedan de cada producto, <strong className="font-semibold text-[#071540]">evitando ofrecer lo que ya vendiste.</strong>
                             </p>
                         </motion.div>
 
@@ -722,9 +714,7 @@ export default function LandingImpulsaTuNegocio() {
                                 Gestionar tus pedidos
                             </h3>
                             <p className="text-[#071540]/80 text-sm leading-relaxed font-light">
-                                Sabrás qué enviarle a quién y cuándo en una lista súper
-                                ordenada. No perderás ni una sola venta y tu cabeza por fin
-                                podrá descansar.
+                                Sabrás qué enviarle a quién y cuándo en <strong className="font-semibold text-[#071540]">una lista súper ordenada</strong>. No perderás ni una sola venta y tu cabeza <strong className="font-semibold text-[#071540]">por fin podrá descansar</strong>.
                             </p>
                         </motion.div>
                     </div>
