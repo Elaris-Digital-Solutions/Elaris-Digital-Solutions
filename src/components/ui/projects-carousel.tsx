@@ -19,7 +19,8 @@ const projectConfigs = [
   {
     slug: 'sistemaInventarioUPC',
     image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
-    stack: ['React', 'Tailwind', 'Vite']
+    stack: ['React', 'Tailwind', 'Vite'],
+    url: 'https://upc-inventario.netlify.app'
   },
   {
     slug: 'salcedoJewels',
