@@ -39,6 +39,7 @@ const projectConfigs = [
 		slug: "sistemaInventarioUPC",
 		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
 		Icon: AppWindow,
+		url: "https://upc-inventario.netlify.app",
 	},
 	{
 		slug: "salcedoJewels",
