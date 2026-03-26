@@ -530,12 +530,12 @@ export default function LandingImpulsaTuNegocio() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                className="group bg-gradient-to-br from-white to-rose-50/90 border border-rose-300 p-5 sm:p-7 rounded-2xl flex items-start gap-4 shadow-[0_12px_40px_rgba(225,29,72,0.12)] hover:-translate-y-1 transition-all duration-300"
+                                className="bg-gradient-to-br from-white to-rose-50/90 border border-rose-300 p-5 sm:p-7 rounded-2xl flex items-start gap-4 shadow-[0_12px_40px_rgba(225,29,72,0.12)]"
                             >
-                                <div className="w-10 h-10 border border-rose-200 bg-rose-50/80 rounded-lg flex items-center justify-center flex-shrink-0 text-rose-600 group-hover:bg-rose-100/50 group-hover:border-rose-300 transition-all duration-300 shadow-[inset_0_2px_4px_rgba(225,29,72,0.02)]">
+                                <div className="w-10 h-10 border border-rose-200 bg-rose-50/80 rounded-lg flex items-center justify-center flex-shrink-0 text-rose-600 shadow-[inset_0_2px_4px_rgba(225,29,72,0.02)]">
                                     <problem.icon className="w-5 h-5" />
                                 </div>
-                                <p className="text-[0.98rem] sm:text-[1.05rem] text-[#071540] leading-snug pt-0.5 font-medium transition-colors duration-300">
+                                <p className="text-[0.98rem] sm:text-[1.05rem] text-[#071540] leading-snug pt-0.5 font-medium">
                                     {problem.text}
                                 </p>
                             </motion.div>
@@ -658,12 +658,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
                                 <ShoppingCart className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
+                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
                                 <ShoppingCart className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -680,12 +680,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
                                 <Settings className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
+                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
                                 <Settings className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -702,12 +702,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
                                 <GitMerge className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
+                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
                                 <GitMerge className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -748,12 +748,12 @@ export default function LandingImpulsaTuNegocio() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="group bg-white backdrop-blur-sm border border-[#2F64FF]/25 rounded-xl p-4 sm:p-5 text-center shadow-[0_8px_30px_rgba(47,100,255,0.12)] hover:-translate-y-1 transition-all duration-300"
+                                className="bg-white backdrop-blur-sm border border-[#2F64FF]/25 rounded-xl p-4 sm:p-5 text-center shadow-[0_8px_30px_rgba(47,100,255,0.12)]"
                             >
-                                <div className="inline-block mb-2 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.15em] uppercase text-[#2F64FF] transition-colors duration-300">
+                                <div className="inline-block mb-2 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.15em] uppercase text-[#2F64FF]">
                                     {stat.value}
                                 </div>
-                                <div className="h-px w-10 sm:w-12 bg-[#2F64FF]/40 mx-auto mb-3 transition-all duration-300 group-hover:bg-[#2F64FF]" />
+                                <div className="h-px w-10 sm:w-12 bg-[#2F64FF] mx-auto mb-3" />
                                 <p className="text-sm text-[#071540] font-medium leading-snug">
                                     {stat.text}
                                 </p>
