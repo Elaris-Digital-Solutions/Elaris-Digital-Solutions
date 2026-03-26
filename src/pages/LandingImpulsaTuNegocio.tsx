@@ -373,9 +373,9 @@ export default function LandingImpulsaTuNegocio() {
                         ].map((problem, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                initial={{ opacity: 0, y: 15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
                                 className="group bg-gradient-to-br from-white to-rose-50/40 border border-rose-200/80 p-5 sm:p-7 rounded-2xl flex items-start gap-4 shadow-[0_4px_20px_rgba(225,29,72,0.04)] hover:shadow-[0_12px_40px_rgba(225,29,72,0.12)] hover:border-rose-300 hover:to-rose-50/90 transition-all duration-300"
                             >
@@ -474,9 +474,9 @@ export default function LandingImpulsaTuNegocio() {
 
                         {/* Block 1 */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5 }}
                             className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
                         >
@@ -494,9 +494,9 @@ export default function LandingImpulsaTuNegocio() {
 
                         {/* Block 2 */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
                         >
@@ -514,9 +514,9 @@ export default function LandingImpulsaTuNegocio() {
 
                         {/* Block 3 */}
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
                         >
@@ -556,9 +556,9 @@ export default function LandingImpulsaTuNegocio() {
                         ].map((stat, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
+                                initial={{ opacity: 0, y: 15 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1 }}
                                 className="group bg-white backdrop-blur-sm border border-[#2F64FF]/25 rounded-xl p-4 sm:p-5 text-center shadow-[0_8px_30px_rgba(47,100,255,0.12)] hover:-translate-y-1 transition-all duration-300"
                             >
