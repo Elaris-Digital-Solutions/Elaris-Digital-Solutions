@@ -46,21 +46,24 @@ const HeroDashboardMock = () => {
                 className="relative bg-white/60 backdrop-blur-2xl border border-[#2F64FF]/15 p-5 sm:p-7 rounded-[2rem] shadow-[0_30px_80px_rgba(7,21,64,0.08)] overflow-hidden"
             >
                 {/* Dashboard Header */}
-                <div className="flex items-center gap-2 mb-6">
-                    <div className="flex gap-1.5">
+                <div className="flex items-center mb-6">
+                    <div className="flex items-center gap-1.5 w-16">
                         <div className="w-3 h-3 rounded-full bg-rose-400" />
                         <div className="w-3 h-3 rounded-full bg-amber-400" />
                         <div className="w-3 h-3 rounded-full bg-emerald-400" />
                     </div>
-                    <div className="h-4 bg-[#071540]/5 rounded w-1/3 ml-4" />
+                    <div className="bg-white border border-[#2F64FF]/10 text-[#071540]/40 text-[0.65rem] font-medium px-3 py-1.5 rounded-lg flex-1 mx-2 flex items-center justify-start tracking-wide shadow-[inset_0_2px_4px_rgba(47,100,255,0.02)]">
+                        tunegocio.com/control
+                    </div>
+                    <div className="w-16" /> {/* Placeholder for balance */}
                 </div>
 
                 {/* Top Stats - 3 columns perfectly replicating the ad */}
                 <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
                     {/* Stat 1 */}
                     <div className="bg-emerald-50/80 border border-emerald-100 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center">
-                        <div className="text-emerald-600 font-bold text-xl sm:text-2xl mb-1">+47%</div>
-                        <div className="text-emerald-700/80 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-none">Eficiencia</div>
+                        <div className="text-emerald-600 font-bold text-xl sm:text-2xl mb-1">0</div>
+                        <div className="text-emerald-700/80 text-[0.6rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-none">Errores</div>
                     </div>
                     {/* Stat 2 */}
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
@@ -92,7 +95,7 @@ const HeroDashboardMock = () => {
                 {/* List Items */}
                 <div className="space-y-3">
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
-                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">112 pedidos entregados</div>
+                        <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">112 Pedidos </div>
                         <div className="px-2.5 py-1 bg-emerald-50 text-emerald-600 text-[0.65rem] sm:text-xs rounded-full font-bold uppercase tracking-wide border border-emerald-100">En curso</div>
                     </div>
                     <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
@@ -283,8 +286,6 @@ export default function LandingImpulsaTuNegocio() {
                     <NeuralNoise opacity={0.45} pointerStrength={1.2} timeScale={0.4} fixedScrollProgress={0} className="absolute inset-0" />
                 </div>
 
-                {/* Tech Grid Background to match the Ad */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(47,100,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(47,100,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] sm:bg-[size:48px_48px] pointer-events-none" />
 
                 <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
                     <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
@@ -312,7 +313,7 @@ export default function LandingImpulsaTuNegocio() {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-xl sm:text-2xl text-[#071540]/80 mb-10 font-light max-w-2xl mx-auto lg:mx-0"
                             >
-                                Deja de hacer el trabajo <strong className="font-semibold text-[#2F64FF]">de 3 personas </strong> automatizando pedidos y stock. Una sola pagina. Un solo panel, cero estrés.
+                                Deja de hacer el trabajo <strong className="font-semibold text-[#2F64FF]">de 3 personas.</strong> Nosotros automatizamos pedidos y stock. Una sola página. Un solo panel, cero estrés.
                             </motion.p>
 
                             <motion.div
@@ -377,12 +378,12 @@ export default function LandingImpulsaTuNegocio() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                                className="group bg-gradient-to-br from-white to-rose-50/40 border border-rose-200/80 p-5 sm:p-7 rounded-2xl flex items-start gap-4 shadow-[0_4px_20px_rgba(225,29,72,0.04)] hover:shadow-[0_12px_40px_rgba(225,29,72,0.12)] hover:border-rose-300 hover:to-rose-50/90 transition-all duration-300"
+                                className="group bg-gradient-to-br from-white to-rose-50/90 border border-rose-300 p-5 sm:p-7 rounded-2xl flex items-start gap-4 shadow-[0_12px_40px_rgba(225,29,72,0.12)] hover:-translate-y-1 transition-all duration-300"
                             >
-                                <div className="w-10 h-10 border border-rose-200 bg-rose-50/80 rounded-lg flex items-center justify-center flex-shrink-0 text-rose-600 group-hover:text-white group-hover:bg-rose-500 group-hover:border-rose-500 transition-all duration-300 shadow-sm">
+                                <div className="w-10 h-10 border border-rose-200 bg-rose-50/80 rounded-lg flex items-center justify-center flex-shrink-0 text-rose-600 group-hover:bg-rose-100/50 group-hover:border-rose-300 transition-all duration-300 shadow-[inset_0_2px_4px_rgba(225,29,72,0.02)]">
                                     <problem.icon className="w-5 h-5" />
                                 </div>
-                                <p className="text-[0.98rem] sm:text-[1.05rem] text-[#071540] leading-snug pt-0.5 font-medium group-hover:text-rose-950 transition-colors duration-300">
+                                <p className="text-[0.98rem] sm:text-[1.05rem] text-[#071540] leading-snug pt-0.5 font-medium transition-colors duration-300">
                                     {problem.text}
                                 </p>
                             </motion.div>
@@ -478,12 +479,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5 }}
-                            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
                                 <ShoppingCart className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] group-hover:text-white group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02]">
+                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <ShoppingCart className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Ver tus ventas en tiempo real</h3>
@@ -498,12 +499,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
                                 <Settings className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] group-hover:text-white group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02]">
+                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <Settings className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Controlar tu stock</h3>
@@ -518,12 +519,12 @@ export default function LandingImpulsaTuNegocio() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(47,100,255,0.04)] border border-[#2F64FF]/20 hover:border-[#2F64FF]/40 hover:shadow-[0_8px_40px_rgba(47,100,255,0.08)] transition-all duration-300 relative group overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
+                            <div className="absolute top-0 right-0 p-6 opacity-5 transition-opacity duration-500 translate-x-4 -translate-y-4">
                                 <GitMerge className="w-24 h-24 text-[#2F64FF]" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] group-hover:text-white group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02]">
+                            <div className="w-10 h-10 border border-[#2F64FF]/20 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 transition-all duration-300 relative z-10 bg-[#2F64FF]/[0.02] group-hover:bg-[#2F64FF]/10 group-hover:border-[#2F64FF]/30">
                                 <GitMerge className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">Gestionar tus pedidos</h3>
@@ -549,7 +550,7 @@ export default function LandingImpulsaTuNegocio() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                         {[
-                            { value: "Más tiempo", text: "Para ti y tu familia" },
+                            { value: "Más tiempo", text: "Para hacer crecer tu marca" },
                             { value: "Más control", text: "Sabes exactamente qué pasa" },
                             { value: "Más ventas", text: "Tus clientes compran fácil" },
                             { value: "Menos estrés", text: "Fin al caos y al desorden" }
@@ -591,8 +592,8 @@ export default function LandingImpulsaTuNegocio() {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2F64FF]/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-[#2F64FF]/10 border border-[#2F64FF]/20 flex items-center justify-center mx-auto mb-8">
-                        <ShieldCheck className="w-8 h-8 text-[#2F64FF]" />
+                    <div className="flex justify-center mb-8">
+                        <ShieldCheck className="w-12 h-12 sm:w-14 sm:h-14 text-[#2F64FF]" strokeWidth={1.5} />
                     </div>
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight mb-6 leading-tight">
                         Fácil de usar, <span className="font-semibold">sin dolores de cabeza</span>
@@ -709,7 +710,7 @@ export default function LandingImpulsaTuNegocio() {
                                     type="submit"
                                     className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg"
                                 >
-                                    Reservar mi asesoría web
+                                    Reservar mi asesoría gratis
                                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
                                 </button>
                                 <p className="mt-4 text-[0.8rem] text-[#071540]/50 tracking-wide font-medium">Respuesta en menos de 12 horas. Sin compromiso.</p>
