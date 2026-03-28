@@ -644,7 +644,7 @@ export default function LandingImpulsaTuNegocio() {
                         <p className="mt-6 text-lg text-[#071540]/70">
                             Construimos tu <strong className="font-bold text-[#071540]">página web</strong> y te entregamos un{" "}
                             <strong className="font-bold text-[#071540]">centro de control privado.</strong> Es como tener un
-                            asistente que <strong className="font-bold text-[#071540]">trabaja 24/7</strong> y no comete errores.
+                            asistente que <strong className="font-bold text-[#071540]">trabaja 24/7</strong> y no comete errores. <strong className="font-bold text-[#2F64FF]">Cero estrés asegurado</strong>
                         </p>
                     </div>
 
