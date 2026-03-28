@@ -15,11 +15,12 @@ import { I18nProvider } from "@/lib/i18n";
 
 const sectionSlugs = ["servicios", "estandares", "portafolio", "productos", "clientes", "contacto", "proceso"] as const;
 
-const loadMetaPixel = () => {
+const initFbScript = () => {
     if (typeof window === 'undefined') return;
-    if ((window as any).fbq) return;
     
     const f = window as any;
+    if (f.fbq && f.fbq.version) return;
+    
     const b = document;
     const e = 'script';
     const v = 'https://connect.facebook.net/en_US/fbevents.js';
@@ -33,19 +34,25 @@ const loadMetaPixel = () => {
     t.src = v; 
     let s = b.getElementsByTagName(e)[0];
     if (s && s.parentNode) s.parentNode.insertBefore(t, s);
-    
-    f.fbq('init', '868251342283921');
 };
 
 const MetaPixelTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
+    initFbScript();
+    const f = window as any;
+
     const isMainRoute = location.pathname === '/' || location.pathname === '/es' || location.pathname === '/es/';
     
-    if (!isMainRoute) {
-      loadMetaPixel();
-      (window as any).fbq('track', 'PageView');
+    if (f && f.fbq) {
+      if (isMainRoute) {
+        f.fbq('init', '1294573795867367');
+        f.fbq('trackSingle', '1294573795867367', 'PageView');
+      } else {
+        f.fbq('init', '868251342283921');
+        f.fbq('trackSingle', '868251342283921', 'PageView');
+      }
     }
   }, [location.pathname]);
 

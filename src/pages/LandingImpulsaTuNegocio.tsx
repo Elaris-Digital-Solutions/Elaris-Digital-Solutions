@@ -335,8 +335,8 @@ export default function LandingImpulsaTuNegocio() {
         e.preventDefault();
 
         // Track Lead event for Meta Ads
-        if (typeof window !== "undefined" && (window as any).fbq) {
-            (window as any).fbq("track", "Lead");
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+            (window as any).fbq('trackSingle', '868251342283921', 'Lead');
         }
 
         const phoneNumber = "51973663807";

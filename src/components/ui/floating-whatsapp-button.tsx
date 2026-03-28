@@ -73,7 +73,11 @@ const FloatingWhatsappButton: React.FC = () => {
   }, [isWidgetOpen]);
 
   const trackLead = () => {
-    try { (window as any).fbq("track", "Lead"); } catch { /* no-op */ }
+    try { 
+      const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
+      const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
+      (window as any).fbq?.("trackSingle", pixelId, "Lead"); 
+    } catch { /* no-op */ }
   };
 
   const isTemporarilyHidden = isHiddenByMobileMenu || isHiddenByFooter;
