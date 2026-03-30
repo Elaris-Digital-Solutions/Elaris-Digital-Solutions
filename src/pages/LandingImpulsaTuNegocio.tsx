@@ -790,9 +790,11 @@ export default function LandingImpulsaTuNegocio() {
                         <span className="font-semibold">sin dolores de cabeza</span>
                     </h2>
                     <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología.
-                        Nosotros lo hacemos simple para que puedas usarlo desde el primer
-                        día.
+                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología.{" "}
+                        <strong className="font-bold text-white">
+                            Nosotros lo hacemos simple
+                        </strong>{" "}
+                        para que puedas usarlo desde el primer día.
                     </p>
 
                     <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-y-[14px] gap-x-3 sm:gap-y-[16px] sm:gap-x-4">
