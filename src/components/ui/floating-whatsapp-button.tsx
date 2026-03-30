@@ -18,13 +18,24 @@ const WhatsAppGlyph = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const FloatingWhatsappButton: React.FC = () => {
+interface FloatingWhatsappButtonProps {
+  pixelId?: string;
+  welcomeMessage?: string;
+  defaultMessage?: string;
+}
+
+const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({ 
+  pixelId: propPixelId,
+  welcomeMessage: propWelcomeMessage,
+  defaultMessage: propDefaultMessage
+}) => {
   const { t } = useI18n();
   const [isHiddenByMobileMenu, setIsHiddenByMobileMenu] = React.useState(false);
   const [isHiddenByFooter, setIsHiddenByFooter] = React.useState(false);
   const [isWidgetOpen, setIsWidgetOpen] = React.useState(false);
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const defaultMessage = t("floatingWhatsapp.defaultMessage");
+  const defaultMessage = propDefaultMessage || t("floatingWhatsapp.defaultMessage");
+  const welcomeMessage = propWelcomeMessage || t("floatingWhatsapp.welcomeMessage");
   const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(defaultMessage)}`;
 
   React.useEffect(() => {
@@ -75,7 +86,7 @@ const FloatingWhatsappButton: React.FC = () => {
   const trackLead = () => {
     try { 
       const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
-      const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
+      const pixelId = propPixelId || (isMainRoute ? '1294573795867367' : '868251342283921');
       (window as any).fbq?.("trackSingle", pixelId, "Lead"); 
     } catch { /* no-op */ }
   };
@@ -120,7 +131,7 @@ const FloatingWhatsappButton: React.FC = () => {
           </div>
           <div className="space-y-2.5 p-3.5">
             <p className="rounded-xl bg-slate-100 p-3 text-[0.93rem] leading-relaxed text-slate-800">
-              {t("floatingWhatsapp.welcomeMessage")}
+              {welcomeMessage}
             </p>
             <a
               href={href}

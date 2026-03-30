@@ -340,9 +340,9 @@ export default function LandingImpulsaTuNegocio() {
         }
 
         const phoneNumber = "51973663807";
-        const message = `Hola Elaris, me interesa un diagnóstico gratuito para mi negocio.
-*Nombre:* ${nombre}
-    *Email:* ${email}`;
+        const message = `👤 Nombre: ${nombre}
+📧 Email: ${email}
+Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi operación y automatizar mis pedidos.`;
 
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank", "noopener,noreferrer");
@@ -949,7 +949,10 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             <RedirectFooter />
-            <FloatingWhatsappButton />
+            <FloatingWhatsappButton 
+        pixelId="868251342283921" 
+        welcomeMessage="¡Hola! 👋 Soy Sergio de Elaris. ¿Te interesa automatizar tu negocio y recuperar tu tiempo? Cuéntame un poco sobre tu operación y te ayudaré a dar el primer paso."
+      />
         </div>
     );
 }

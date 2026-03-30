@@ -234,7 +234,7 @@
       "emailPlaceholder": "johndoe@corp.com",
       "reasonPlaceholder": "Ej: Lanzar e-commerce, automatizar facturación, integrar ERP...",
       "messagePlaceholder": "¿Qué problema quieres resolver? ¿Qué resultados esperas? ¿Qué sistemas tienes hoy?",
-      "whatsappTemplate": "Nuevo contacto desde la web:\nNombre: {fullName}\nEmail: {email}\nMotivo: {reason}\nMensaje: {message}",
+      "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa y discutir cómo podemos trabajar juntos.",
       "responseTime": "Diagnóstico inicial en menos de 12 horas. Sin compromiso, sin spam."
     },
     "info": {
