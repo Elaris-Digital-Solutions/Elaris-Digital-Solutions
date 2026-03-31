@@ -9,82 +9,54 @@ const LEGAL_PATHS = ["/terminos-condiciones", "/politicas-de-datos", "/es/termin
 const VALID_PATHS = new Set<string>([
   "/",
   ...SECTION_SLUGS.map((slug) => `/${slug}`),
-  "/en",
-  ...SECTION_SLUGS.map((slug) => `/en/${slug}`),
   "/es",
   ...SECTION_SLUGS.map((slug) => `/es/${slug}`),
   ...LEGAL_PATHS,
 ]);
 
-const seoCopy: Record<SeoPage, Record<Language, { title: string; description: string }>> = {
+const seoCopy: Record<SeoPage, { title: string; description: string }> = {
   home: {
-    en: {
-      title: "AI Automation & Web Development | Elaris Digital Solutions",
-      description:
-        "Elaris Digital Solutions blends AI integration, SEO-optimized landing pages, custom software, and e-commerce development for ambitious teams across LATAM, the U.S., and Europe.",
-    },
-    es: {
-      title: "Automatización con IA y Desarrollo Web | Elaris Digital Solutions",
-      description:
-        "Elaris Digital Solutions combina IA, landing pages optimizadas para SEO, software a medida y e-commerce para equipos en LATAM, EE. UU. y Europa.",
-    },
+    title: "Automatización con IA y Desarrollo Web | Elaris Digital Solutions",
+    description: "Tu negocio depende de procesos manuales lentos? En Elaris Digital Solutions eliminamos el caos operativo con tecnología fácil de usar.",
   },
   "not-found": {
-    en: {
-      title: "Page Not Found | Elaris Digital Solutions",
-      description: "The page you are looking for is unavailable. Explore our AI automation and web development services instead.",
-    },
-    es: {
-      title: "Página no encontrada | Elaris Digital Solutions",
-      description: "La página que buscas no existe. Descubre nuestros servicios de automatización con IA y desarrollo web.",
-    },
+    title: "Página no encontrada | Elaris Digital Solutions",
+    description: "La página que buscas no existe. Descubre nuestros servicios de automatización con IA y desarrollo web.",
   },
   "terms-and-conditions": {
-    en: {
-      title: "Terms & Conditions | Elaris Digital Solutions",
-      description: "Review the terms and conditions that regulate the use of Elaris Digital Solutions digital channels and services.",
-    },
-    es: {
-      title: "Términos y Condiciones | Elaris Digital Solutions",
-      description: "Revisa los términos y condiciones que regulan el uso de los canales digitales y servicios de Elaris Digital Solutions.",
-    },
+    title: "Términos y Condiciones | Elaris Digital Solutions",
+    description: "Revisa los términos y condiciones que regulan el uso de los canales digitales y servicios de Elaris Digital Solutions.",
   },
   "data-policy": {
-    en: {
-      title: "Data Policy | Elaris Digital Solutions",
-      description: "Learn how Elaris Digital Solutions collects, uses, and protects personal data.",
-    },
-    es: {
-      title: "Políticas de Datos | Elaris Digital Solutions",
-      description: "Conoce cómo Elaris Digital Solutions recopila, utiliza y protege la información personal.",
-    },
+    title: "Políticas de Datos | Elaris Digital Solutions",
+    description: "Conoce cómo Elaris Digital Solutions recopila, utiliza y protege la información personal.",
   },
 };
 
 const prioritizedServices = [
   {
-    name: "AI Integration for Business",
-    description: "Automation pilots, copilots, and AI governance tailored to regulated industries.",
+    name: "Integración de IA para Empresas",
+    description: "Pilotos de automatización, copilotos y gobernanza de IA adaptada a industrias reguladas.",
     path: "servicios",
   },
   {
-    name: "Web Development Services",
-    description: "SEO-optimized landing pages, content hubs, and high-performing e-commerce experiences.",
+    name: "Servicios de Desarrollo Web",
+    description: "Landing pages optimizadas para SEO, hubs de contenido y experiencias de e-commerce de alto rendimiento.",
     path: "servicios",
   },
   {
-    name: "Custom Software Development",
-    description: "Workflow automation, API orchestration, and data platforms that scale with operations.",
+    name: "Desarrollo de Software a Medida",
+    description: "Automatización de flujos de trabajo, orquestación de APIs y plataformas de datos escalables.",
     path: "servicios",
   },
   {
-    name: "Business Data Analysis",
-    description: "Dashboards, predictive insights, and KPI monitoring for product and revenue teams.",
+    name: "Análisis de Datos Empresariales",
+    description: "Dashboards, insights predictivos y monitorización de KPIs para equipos de producto y ventas.",
     path: "portafolio",
   },
   {
-    name: "Automation & AI Chatbots",
-    description: "Conversational experiences, multilingual support desks, and back-office workflow automation.",
+    name: "Automatización y Chatbots con IA",
+    description: "Experiencias conversacionales, mesas de soporte y automatización de procesos administrativos.",
     path: "clientes",
   },
 ];
@@ -93,40 +65,16 @@ const normalizePath = (pathname: string): string => {
   if (VALID_PATHS.has(pathname)) {
     return pathname;
   }
-  if (pathname.startsWith("/en")) return "/en";
   if (pathname.startsWith("/es")) return "/es";
   return "/";
 };
 
-const toEnglishPath = (pathname: string): string => {
-  if (pathname.startsWith("/en")) {
-    return pathname;
-  }
-  if (!pathname.startsWith("/es")) {
-    return pathname || "/";
-  }
-  const trimmed = pathname.replace(/^\/es/, "");
-  return trimmed === "" ? "/en" : `/en${trimmed}`;
-};
-
-const toSpanishPath = (pathname: string): string => {
-  if (pathname.startsWith("/es")) {
-    return pathname;
-  }
-  if (pathname.startsWith("/en")) {
-    const trimmed = pathname.replace(/^\/en/, "");
-    return trimmed === "" ? "/" : trimmed;
-  }
-  return pathname;
-};
-
-const getLocaleCode = (language: Language) => (language === "es" ? "es-ES" : "en-US");
+const getLocaleCode = () => "es-ES";
 
 const isHomeAliasPath = (pathname: string) => {
   const aliases = new Set<string>([
     ...SECTION_SLUGS.map((slug) => `/${slug}`),
     ...SECTION_SLUGS.map((slug) => `/es/${slug}`),
-    ...SECTION_SLUGS.map((slug) => `/en/${slug}`),
   ]);
   return aliases.has(pathname);
 };
@@ -134,7 +82,6 @@ const isHomeAliasPath = (pathname: string) => {
 const canonicalForPage = (pathname: string, page: SeoPage) => {
   if (page !== "home") return pathname;
   if (!isHomeAliasPath(pathname)) return pathname;
-  if (pathname.startsWith("/en/")) return "/en";
   if (pathname.startsWith("/es/")) return "/es";
   return "/";
 };
@@ -173,17 +120,17 @@ const buildOrganizationSchema = () => ({
       telephone: "+51-973-663-807",
       contactType: "sales",
       areaServed: "Worldwide",
-      availableLanguage: ["English", "Spanish"],
+      availableLanguage: ["Spanish"],
     },
   ],
 });
 
-const buildWebsiteSchema = (language: Language) => ({
+const buildWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Elaris Digital Solutions",
   url: SITE_URL,
-  inLanguage: getLocaleCode(language),
+  inLanguage: getLocaleCode(),
   potentialAction: {
     "@type": "ContactAction",
     target: `${SITE_URL}/contacto`,
@@ -208,14 +155,9 @@ const buildServiceSchema = () => ({
   })),
 });
 
-const buildBreadcrumbSchema = (language: Language) => {
-  const names = language === "es"
-    ? ["Inicio", "Servicios", "Estándares", "Portafolio", "Productos", "Clientes", "Contacto"]
-    : ["Home", "Services", "Our Standards", "Portfolio", "Products", "Clients", "Contact"];
-
-  const basePaths = language === "es"
-    ? ["/es", "/es/servicios", "/es/estandares", "/es/portafolio", "/es/productos", "/es/clientes", "/es/contacto"]
-    : ["/en", "/en/servicios", "/en/estandares", "/en/portafolio", "/en/productos", "/en/clientes", "/en/contacto"];
+const buildBreadcrumbSchema = () => {
+  const names = ["Inicio", "Servicios", "Estándares", "Portafolio", "Productos", "Clientes", "Contacto"];
+  const basePaths = ["", "/servicios", "/estandares", "/portafolio", "/productos", "/clientes", "/contacto"];
 
   return {
     "@context": "https://schema.org",
@@ -240,11 +182,9 @@ export const getSeoMetadata = ({
 }) => {
   const normalizedPath = normalizePath(pathname);
   const canonicalPath = canonicalForPage(normalizedPath, page);
-  const currentLanguage = normalizedPath.startsWith("/en") ? "en" : "es";
-  const englishHref = `${SITE_URL}${toEnglishPath(canonicalPath)}`;
-  const spanishHref = `${SITE_URL}${toSpanishPath(canonicalPath)}`;
-  const canonical = `${SITE_URL}${canonicalPath === "/" ? "/" : canonicalPath}`;
-  const baseCopy = seoCopy[page][currentLanguage];
+  const currentLanguage = "es";
+  const canonical = `${SITE_URL}${canonicalPath === "/" || canonicalPath === "" ? "/" : canonicalPath}`;
+  const baseCopy = seoCopy[page];
   const robots = page === "not-found" ? "noindex,nofollow" : "index,follow,max-image-preview:large";
 
   return {
@@ -255,15 +195,14 @@ export const getSeoMetadata = ({
     robots,
     ogImage: OG_IMAGE,
     alternates: [
-      { href: englishHref, hrefLang: "en" },
-      { href: spanishHref, hrefLang: "es" },
-      { href: englishHref, hrefLang: "x-default" },
+      { href: canonical, hrefLang: "es" },
+      { href: canonical, hrefLang: "x-default" },
     ],
-    locale: currentLanguage === "es" ? "es_ES" : "en_US",
+    locale: "es_ES",
     structuredData: [
       buildOrganizationSchema(),
-      buildWebsiteSchema(currentLanguage),
-      ...(page === "home" ? [buildServiceSchema(), buildBreadcrumbSchema(currentLanguage)] : []),
+      buildWebsiteSchema(),
+      ...(page === "home" ? [buildServiceSchema(), buildBreadcrumbSchema()] : []),
     ],
   };
 };

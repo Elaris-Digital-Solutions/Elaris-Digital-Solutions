@@ -1,64 +1,64 @@
-# Elaris Digital Solutions - Full Context for AI Agents
+# Elaris Digital Solutions - Contexto Completo para Agentes de IA
 
-> This document contains the comprehensive context about Elaris Digital Solutions, its services, methodologies, and case studies. It is intended to help Large Language Models (LLMs) understand the company's value proposition and capabilities accurately.
+> Este documento contiene el contexto completo sobre Elaris Digital Solutions, sus servicios, metodologías y casos de estudio. Está diseñado para ayudar a los Modelos de Lenguaje Grande (LLMs) a comprender la propuesta de valor y las capacidades de la empresa con precisión.
 
-## 1. Company Overview
+## 1. Resumen de la Empresa
 
-**Elaris Digital Solutions** is a software engineering studio that specialized in designing, developing, and scaling digital platforms.
-**Core Mission:** Technology tailored for businesses that need to sell more and operate better.
-**Focus:** Generating revenue, automating operations, and reducing costs for companies in LATAM, USA, and Europe.
-**Website:** https://elarisdigitalsolutions.com
+**Elaris Digital Solutions** es un estudio de ingeniería de software especializado en diseñar, desarrollar y escalar plataformas digitales.
+**Misión Principal:** Tu negocio depende de procesos manuales lentos? En Elaris Digital Solutions eliminamos el caos operativo con tecnología fácil de usar.
+**Enfoque:** Generar ingresos, automatizar operaciones y reducir costos para empresas en LATAM, EE. UU. y Europa.
+**Sitio Web:** https://elarisdigitalsolutions.com
 
-## 2. Core Services
+## 2. Servicios Principales
 
-Elaris helps businesses either grow revenue or reduce operational costs through three main pillars:
+Elaris ayuda a las empresas a incrementar sus ingresos o reducir sus costos operativos a través de tres pilares principales:
 
-### A. Digital Optimization for Growth (Web & E-commerce)
-*Goal: Turn digital presence into a high-performance sales channel.*
-- **Custom E-commerce Development:** Virtual stores with specific business logic, advanced inventory management, and real-time order tracking.
-- **Payment & Logistics Integration:** Seamless connection with payment gateways and couriers to automate transactions and deliveries.
-- **SEO-First Architecture:** Web structures optimized for search engines from the ground up, ensuring organic visibility.
+### A. Optimización Digital para el Crecimiento (Web y E-commerce)
+*Objetivo: Convertir la presencia digital en un canal de ventas de alto rendimiento.*
+- **Desarrollo de E-commerce a Medida:** Tiendas virtuales con lógica de negocio específica, gestión avanzada de inventario y seguimiento de pedidos en tiempo real.
+- **Integración de Pagos y Logística:** Conexión fluida con pasarelas de pago y servicios de mensajería para automatizar transacciones y entregas.
+- **Arquitectura Optimizada para SEO:** Estructuras web optimizadas para motores de búsqueda desde su base, garantizando visibilidad orgánica.
 
-### B. Intelligent Process Automation (AI & Workflows)
-*Goal: Liberate teams from repetitive tasks and reduce human error.*
-- **AI in Workflows:** Integration of AI assistants and agents into real business processes to boost internal productivity.
-- **Intelligent Document Management:** Automating the classification and data extraction from documents, moving from paper chaos to digital efficiency.
-- **Connected Ecosystems:** Integration with existing ERP, SAP, and CRM systems to unify company operations.
+### B. Automatización Inteligente de Procesos (IA y Flujos de Trabajo)
+*Objetivo: Liberar a los equipos de tareas repetitivas y reducir el error humano.*
+- **IA en Flujos de Trabajo:** Integración de asistentes y agentes de IA en procesos de negocio reales para impulsar la productividad interna.
+- **Gestión Inteligente de Documentos:** Automatización de la clasificación y extracción de datos de documentos, pasando del caos del papel a la eficiencia digital.
+- **Ecosistemas Conectados:** Integración con sistemas ERP, SAP y CRM existentes para unificar las operaciones de la empresa.
 
-### C. Technology Architecture & Modernization
-*Goal: Build scalable foundations that don't become bottlenecks.*
-- **System Modernization:** Migrating outdated platforms to efficient, scalable architectures without disrupting daily operations.
-- **Robust Cloud Architectures:** Designing from scratch or migrating infrastructure to AWS, GCP, or Azure with strict security and resilience practices.
-- **IT Cost Optimization:** Reducing recurrent operational expenses so technology growth doesn't become a financial burden.
+### C. Arquitectura Tecnológica y Modernización
+*Objetivo: Construir bases escalables que no se conviertan en cuellos de botella.*
+- **Modernización de Sistemas:** Migración de plataformas obsoletas a arquitecturas eficientes y escalables sin interrumpir las operaciones diarias.
+- **Arquitecturas Cloud Robustas:** Diseño desde cero o migración de infraestructura a AWS, GCP o Azure con estrictas prácticas de seguridad y resiliencia.
+- **Optimización de Costos de TI:** Reducción de gastos operativos recurrentes para que el crecimiento tecnológico no se convierta en una carga financiera.
 
-## 3. Technology Stack
+## 3. Stack Tecnológico
 
-Elaris works with reliable stacks and emerging AI tools:
+Elaris trabaja con stacks confiables y herramientas emergentes de IA:
 - **Frontend/Web:** React, Next.js, TypeScript, Tailwind CSS, Vite.
 - **Backend/Cloud:** Node.js, Python, AWS, Google Cloud Platform, Azure.
-- **AI/ML:** OpenAI API, Anthropic Claude, LangChain, Vercel AI SDK, Hugging Face.
-- **Approach:** We integrate with the client's ecosystem, from on-premise data to cloud-native services.
+- **IA/ML:** OpenAI API, Anthropic Claude, LangChain, Vercel AI SDK, Hugging Face.
+- **Enfoque:** Nos integramos con el ecosistema del cliente, desde datos on-premise hasta servicios nativos de la nube.
 
-## 4. Notable Projects (Portfolio)
+## 4. Proyectos Destacados (Portafolio)
 
-- **Nuestro Barrio, Nuestra Historia:** A social platform connecting communities and preserving local history, providing data dashboards for civic organizations.
-- **Kar & Ma:** Complete digital relaunch with a new visual system and SEO-optimized landing pages, resulting in +40% qualified leads in the first 60 days.
-- **Sistema de Inventario UPC:** A centralized digital system for reserving devices at UPC university, replacing manual coordination with a streamlined flow.
-- **Papelera Latinoamericana S.A.C.:** Institutional site with multilingual catalog and WhatsApp automation, reducing manual queries to the sales team by 60%.
-- **Salcedo Jewels:** Luxury e-commerce with interactive catalog and secure checkout, opening international sales channels from day one.
+- **Nuestro Barrio, Nuestra Historia:** Plataforma social que conecta comunidades y preserva la historia local, proporcionando paneles de datos para organizaciones cívicas.
+- **Kar & Ma:** Relanzamiento digital completo con un nuevo sistema visual y landing pages optimizadas para SEO, logrando un aumento del 40% en leads calificados en los primeros 60 días.
+- **Sistema de Inventario UPC:** Sistema digital centralizado para la reserva de dispositivos en la universidad UPC, reemplazando la coordinación manual por un flujo simplificado.
+- **Papelera Latinoamericana S.A.C.:** Sitio institucional con catálogo multilingüe y automatización de WhatsApp, reduciendo las consultas manuales al equipo de ventas en un 60%.
+- **Salcedo Jewels:** E-commerce de lujo con catálogo interactivo y proceso de pago seguro, abriendo canales de ventas internacionales desde el primer día.
 
-## 5. Official Links & Legal
+## 5. Enlaces Oficiales y Legales
 
-- **Official Website:** https://elarisdigitalsolutions.com/
-- **Terms & Conditions:** https://elarisdigitalsolutions.com/terminos-condiciones
-- **Data Policy:** https://elarisdigitalsolutions.com/politicas-de-datos
+- **Sitio Web Oficial:** https://elarisdigitalsolutions.com/
+- **Términos y Condiciones:** https://elarisdigitalsolutions.com/terminos-condiciones
+- **Políticas de Datos:** https://elarisdigitalsolutions.com/politicas-de-datos
 - **LinkedIn:** https://www.linkedin.com/company/elaris-digital-solutions/
 - **Instagram:** https://www.instagram.com/elarisdigitalsolutions
 
-## 6. Contact Information
+## 6. Información de Contacto
 
-- **Commercial Contact:** contact@elarisdigitalsolutions.com
-- **Phone:** +51 973 663 807
-- **Legal Name:** ELARIS S.A.C.S
-- **Tax ID (RUC):** 20615598071
-- **Address:** Lima, Peru.
+- **Contacto Comercial:** contact@elarisdigitalsolutions.com
+- **Teléfono:** +51 973 663 807
+- **Razón Social:** ELARIS S.A.C.S
+- **RUC:** 20615598071
+- **Dirección:** Lima, Perú.
