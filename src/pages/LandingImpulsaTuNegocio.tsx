@@ -340,9 +340,9 @@ export default function LandingImpulsaTuNegocio() {
         }
 
         const phoneNumber = "51973663807";
-        const message = `Hola Elaris, me interesa un diagnóstico gratuito para mi negocio.
-*Nombre:* ${nombre}
-    *Email:* ${email}`;
+        const message = `👤 Nombre: ${nombre}
+📧 Email: ${email}
+Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi operación y automatizar mis pedidos.`;
 
         const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.open(url, "_blank", "noopener,noreferrer");
@@ -790,9 +790,11 @@ export default function LandingImpulsaTuNegocio() {
                         <span className="font-semibold">sin dolores de cabeza</span>
                     </h2>
                     <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed mb-10 max-w-3xl mx-auto">
-                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología.
-                        Nosotros lo hacemos simple para que puedas usarlo desde el primer
-                        día.
+                        Tu trabajo es hacer crecer tu negocio, no lidiar con tecnología.{" "}
+                        <strong className="font-bold text-white">
+                            Nosotros lo hacemos simple
+                        </strong>{" "}
+                        para que puedas usarlo desde el primer día.
                     </p>
 
                     <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-center gap-y-[14px] gap-x-3 sm:gap-y-[16px] sm:gap-x-4">
@@ -947,7 +949,10 @@ export default function LandingImpulsaTuNegocio() {
             </section>
 
             <RedirectFooter />
-            <FloatingWhatsappButton />
+            <FloatingWhatsappButton 
+        pixelId="868251342283921" 
+        welcomeMessage="¡Hola! 👋 Soy Sergio de Elaris. ¿Te interesa automatizar tu negocio y recuperar tu tiempo? Cuéntame un poco sobre tu operación y te ayudaré a dar el primer paso."
+      />
         </div>
     );
 }
