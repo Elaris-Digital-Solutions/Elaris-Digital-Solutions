@@ -22,25 +22,28 @@ interface ServiceItem {
 // ─── Static config (icons, links, accents keyed to JSON slugs) ─────────────────
 const SERVICE_CONFIG: Record<
   string,
-  { Icon: React.ElementType; accentColor: string; href: string; badge: string }
+  { Icon: React.ElementType; accentColor: string; href: string; badge: string; ctaText: string }
 > = {
   web: {
     Icon: TrendingUp,
     accentColor: "#2F64FF",
-    href: "#portafolio",
+    href: "/impulsa-tu-negocio",
     badge: "Diseño & Performance",
+    ctaText: "Ver detalles",
   },
   ai: {
     Icon: Zap,
     accentColor: "#2F64FF",
-    href: "/implementacion-llms",
+    href: "#contacto",
     badge: "Automatización Inteligente",
+    ctaText: "Contáctanos",
   },
   software: {
     Icon: Server,
     accentColor: "#2F64FF",
     href: "#contacto",
     badge: "Modernización Tecnológica",
+    ctaText: "Contáctanos",
   },
 };
 
@@ -104,9 +107,20 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
       <div className="mt-8 pt-7 border-t border-slate-100">
         <a
           href={href}
+          onClick={(e) => {
+            if (href.startsWith("#")) {
+              e.preventDefault();
+              const target = document.getElementById(href.replace("#", ""));
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+              } else {
+                window.location.href = `/${href}`;
+              }
+            }
+          }}
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F64FF] group hover:gap-3 transition-all duration-200"
         >
-          Ver detalles
+          {SERVICE_CONFIG[service.key].ctaText}
           <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
         </a>
       </div>
@@ -332,9 +346,20 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                     </ul>
                     <a
                       href={href}
+                      onClick={(e) => {
+                        if (href.startsWith("#")) {
+                          e.preventDefault();
+                          const el = document.getElementById(href.replace("#", ""));
+                          if (el) {
+                            el.scrollIntoView({ behavior: "smooth", block: "start" });
+                          } else {
+                            window.location.href = `/${href}`;
+                          }
+                        }
+                      }}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2F64FF]"
                     >
-                      Ver detalles <ArrowRight className="w-3 h-3" />
+                      {SERVICE_CONFIG[svc.key].ctaText} <ArrowRight className="w-3 h-3" />
                     </a>
                   </div>
                 </motion.div>
