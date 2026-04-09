@@ -113,17 +113,17 @@
       "next": "Siguiente proyecto: {project}"
     },
     "projects": {
-      "sistemaInventarioUPC": {
-        "title": "Sistema de Inventario UPC",
-        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
-        "category": "Sistema de Reservas",
-        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
-      },
       "salcedoJewels": {
         "title": "Salcedo Jewels",
         "description": "E-commerce de lujo con catálogo interactivo, checkout seguro optimizado para conversión y sincronización automática con CRM para ventas internacionales desde el primer día.",
         "category": "E-commerce",
         "metrics": "Canal de ventas internacional activo desde el mes del lanzamiento"
+      },
+      "sistemaInventarioUPC": {
+        "title": "Sistema de Inventario UPC",
+        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
+        "category": "Sistema de Reservas",
+        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
       },
       "karMa": {
         "title": "Kar & Ma",

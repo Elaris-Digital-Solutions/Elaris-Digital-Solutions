@@ -23,16 +23,16 @@ interface Option {
 
 const projectConfigs = [
 	{
-		slug: "sistemaInventarioUPC",
-		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
-		Icon: AppWindow,
-		url: "https://upc-inventario.netlify.app",
-	},
-	{
 		slug: "salcedoJewels",
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,
 		url: "https://salcedojewels.com",
+	},
+	{
+		slug: "sistemaInventarioUPC",
+		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
+		Icon: AppWindow,
+		url: "https://upc-inventario.netlify.app",
 	},
 	{
 		slug: "karMa",

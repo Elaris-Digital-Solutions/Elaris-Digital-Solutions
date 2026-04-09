@@ -5,16 +5,16 @@ import { useI18n } from '@/lib/i18n';
 
 const projectConfigs = [
   {
-    slug: 'sistemaInventarioUPC',
-    image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
-    stack: ['React', 'Tailwind', 'Vite'],
-    url: 'https://upc-inventario.netlify.app'
-  },
-  {
     slug: 'salcedoJewels',
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
     url: 'https://salcedojewels.com'
+  },
+  {
+    slug: 'sistemaInventarioUPC',
+    image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
+    stack: ['React', 'Tailwind', 'Vite'],
+    url: 'https://upc-inventario.netlify.app'
   },
   {
     slug: 'karMa',
