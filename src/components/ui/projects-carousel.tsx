@@ -5,18 +5,6 @@ import { useI18n } from '@/lib/i18n';
 
 const projectConfigs = [
   {
-    slug: 'karMa',
-    image: '/assets/kar-ma.webp',
-    stack: ['React', 'Tailwind', 'Vite'],
-    url: 'https://kar-ma.netlify.app/'
-  },
-  {
-    slug: 'papeleraLatinoamericana',
-    image: '/assets/papelera-latinoamericana.png',
-    stack: ['React', 'Tailwind', 'Netlify'],
-    url: 'https://papelera-latinoamericana.netlify.app'
-  },
-  {
     slug: 'sistemaInventarioUPC',
     image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
     stack: ['React', 'Tailwind', 'Vite'],
@@ -27,6 +15,24 @@ const projectConfigs = [
     image: '/assets/salcedo.webp',
     stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
     url: 'https://salcedojewels.com'
+  },
+  {
+    slug: 'karMa',
+    image: '/assets/kar-ma.webp',
+    stack: ['React', 'Tailwind', 'Vite'],
+    url: 'https://kar-ma.netlify.app/'
+  },
+  {
+    slug: 'cccImpresiones',
+    image: '/assets/ccc-impresiones.webp',
+    stack: ['React', 'Vite', 'B2B', '3D Print'],
+    url: 'https://cccimpresiones.com/'
+  },
+  {
+    slug: 'nuestroBarrio',
+    image: '/assets/nuestro-barrio-nuestra-historia.webp',
+    stack: ['React', 'Community', 'Social', 'Big Data'],
+    url: 'https://nuestrobarrio.netlify.app/'
   }
 ] as const;
 

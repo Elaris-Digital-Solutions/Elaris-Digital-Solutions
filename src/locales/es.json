@@ -113,11 +113,17 @@
       "next": "Siguiente proyecto: {project}"
     },
     "projects": {
-      "nuestroBarrio": {
-        "title": "Nuestro Barrio, Nuestra Historia",
-        "description": "Plataforma social que conecta comunidades, preserva historias locales y entrega tableros de análisis de datos para organizaciones cívicas y tomadores de decisión.",
-        "category": "Plataforma Social",
-        "metrics": "Comunidades conectadas, datos organizados para decisiones reales"
+      "sistemaInventarioUPC": {
+        "title": "Sistema de Inventario UPC",
+        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
+        "category": "Sistema de Reservas",
+        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
+      },
+      "salcedoJewels": {
+        "title": "Salcedo Jewels",
+        "description": "E-commerce de lujo con catálogo interactivo, checkout seguro optimizado para conversión y sincronización automática con CRM para ventas internacionales desde el primer día.",
+        "category": "E-commerce",
+        "metrics": "Canal de ventas internacional activo desde el mes del lanzamiento"
       },
       "karMa": {
         "title": "Kar & Ma",
@@ -125,23 +131,17 @@
         "category": "Landing Page",
         "metrics": "+40% en leads calificados desde los primeros 60 días"
       },
-      "sistemaInventarioUPC": {
-        "title": "Sistema de Inventario UPC",
-        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
-        "category": "Sistema de Reservas",
-        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
+      "cccImpresiones": {
+        "title": "CCC Impresiones",
+        "description": "Líderes en Soluciones Gráficas en Argentina. Revoluciona tu impresión B2B: escala tu producción con etiquetas estándar, grabado láser, personalización textil e impresión 3D industrial. Todo en un solo proveedor estratégico.",
+        "category": "Soluciones Gráficas",
+        "metrics": "Escalabilidad industrial y personalización 360°"
       },
-      "papeleraLatinoamericana": {
-        "title": "Papelera Latinoamericana S.A.C.",
-        "description": "Sitio institucional con catálogo multilingüe, automatización de consultas comerciales vía WhatsApp y SEO regional para capturar más mercado sin ampliar el equipo de ventas.",
-        "category": "Landing Page",
-        "metrics": "Reducción del 60% en consultas manuales al equipo comercial"
-      },
-      "salcedoJewels": {
-        "title": "Salcedo Jewels",
-        "description": "E-commerce de lujo con catálogo interactivo, checkout seguro optimizado para conversión y sincronización automática con CRM para ventas internacionales desde el primer día.",
-        "category": "E-commerce",
-        "metrics": "Canal de ventas internacional activo desde el mes del lanzamiento"
+      "nuestroBarrio": {
+        "title": "Nuestro Barrio, Nuestra Historia",
+        "description": "Plataforma social que conecta comunidades, preserva historias locales y entrega tableros de análisis de datos para organizaciones cívicas y tomadores de decisión.",
+        "category": "Plataforma Social",
+        "metrics": "Comunidades conectadas, datos organizados para decisiones reales"
       }
     }
   },

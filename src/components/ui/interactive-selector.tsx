@@ -22,19 +22,6 @@ interface Option {
 }
 
 const projectConfigs = [
-
-	{
-		slug: "karMa",
-		image: "/assets/kar-ma.webp",
-		Icon: Rocket,
-		url: "https://kar-ma.netlify.app/",
-	},
-	{
-		slug: "papeleraLatinoamericana",
-		image: "/assets/papelera-latinoamericana.png",
-		Icon: Bot,
-		url: "https://papelera-latinoamericana.netlify.app",
-	},
 	{
 		slug: "sistemaInventarioUPC",
 		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
@@ -46,6 +33,24 @@ const projectConfigs = [
 		image: "/assets/salcedo.webp",
 		Icon: Smartphone,
 		url: "https://salcedojewels.com",
+	},
+	{
+		slug: "karMa",
+		image: "/assets/kar-ma.webp",
+		Icon: Rocket,
+		url: "https://kar-ma.netlify.app/",
+	},
+	{
+		slug: "cccImpresiones",
+		image: "/assets/ccc-impresiones.webp",
+		Icon: Bot,
+		url: "https://cccimpresiones.com/",
+	},
+	{
+		slug: "nuestroBarrio",
+		image: "/assets/nuestro-barrio-nuestra-historia.webp",
+		Icon: Rocket,
+		url: "https://nuestrobarrio.netlify.app/",
 	},
 ] as const;
 
