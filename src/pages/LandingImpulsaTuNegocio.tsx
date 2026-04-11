@@ -368,7 +368,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             <RedirectNavbar onCtaClick={scrollToForm} />
 
             {/* SECTION 1 — HERO */}
-            <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden min-h-[92vh] lg:min-h-screen flex items-center bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
+            <section className="relative pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-28 lg:pb-24 overflow-hidden min-h-dvh lg:min-h-screen flex items-center bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF]">
                 <div className="absolute inset-0 overflow-hidden [&_canvas]:!w-full [&_canvas]:!h-full">
                     <NeuralNoise
                         opacity={0.45}
@@ -438,7 +438,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         </div>
 
                         {/* Hero Visual Mockup */}
-                        <div className="w-full lg:w-1/2 order-2">
+                        <div className="hidden lg:block lg:w-1/2 order-2">
                             <HeroDashboardMock />
                         </div>
                     </div>
