@@ -3,6 +3,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { generateEventId } from "@/lib/meta";
 
 const PHONE_NUMBER = "51973663807";
 
@@ -87,7 +88,18 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
     try { 
       const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
       const pixelId = propPixelId || (isMainRoute ? '1294573795867367' : '868251342283921');
-      (window as any).fbq?.("trackSingle", pixelId, "Lead"); 
+      const eventId = generateEventId();
+      (window as any).fbq?.("trackSingle", pixelId, "Lead", { eventID: eventId }); 
+
+      fetch("/api/meta-event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event_name: "Lead",
+          pixel_id: pixelId,
+          event_id: eventId,
+        }),
+      }).catch(() => {});
     } catch { /* no-op */ }
   };
 

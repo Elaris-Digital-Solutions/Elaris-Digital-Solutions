@@ -21,6 +21,7 @@ import SeoHead from "@/components/SeoHead";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import SmartImage from "@/components/ui/smart-image";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
+import { generateEventId } from "@/lib/meta";
 
 const fadeUp = {
     initial: { opacity: 0, y: 28 },
@@ -334,10 +335,27 @@ export default function LandingImpulsaTuNegocio() {
     const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        const eventId = generateEventId();
+        const pixelId = '868251342283921';
+
         // Track Lead event for Meta Ads
         if (typeof window !== 'undefined' && (window as any).fbq) {
-            (window as any).fbq('trackSingle', '868251342283921', 'Lead');
+            (window as any).fbq('trackSingle', pixelId, 'Lead', { eventID: eventId });
         }
+
+        // CAPI Track
+        fetch("/api/meta-event", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                event_name: "Lead",
+                email: email,
+                pixel_id: pixelId,
+                event_id: eventId,
+            }),
+        }).catch(() => {});
 
         const phoneNumber = "51973663807";
         const message = `👤 Nombre: ${nombre}

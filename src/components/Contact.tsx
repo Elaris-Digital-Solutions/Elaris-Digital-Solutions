@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
+import { generateEventId } from "@/lib/meta";
 
 export default function Contact() {
   const { t, tArray } = useI18n();
@@ -19,6 +20,27 @@ export default function Contact() {
 
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Tracking
+    const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
+    const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
+    const eventId = generateEventId();
+
+    try {
+      (window as any).fbq?.('trackSingle', pixelId, 'Lead', { eventID: eventId });
+      
+      fetch("/api/meta-event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event_name: "Lead",
+          email: email,
+          pixel_id: pixelId,
+          event_id: eventId,
+        }),
+      }).catch(() => {});
+    } catch { /* no-op */ }
+
     const composedMessage = t("contact.form.whatsappTemplate", { fullName, email, message: "" });
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -114,11 +136,6 @@ export default function Contact() {
                 <button
                   type="submit"
                   className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
-                  onClick={() => {
-                    const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
-                    const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
-                    (window as any).fbq?.('trackSingle', pixelId, 'Lead');
-                  }}
                 >
                   {t("common.buttons.sendMessage")}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
