@@ -355,7 +355,7 @@ export default function LandingImpulsaTuNegocio() {
                 pixel_id: pixelId,
                 event_id: eventId,
             }),
-        }).catch(() => {});
+        }).catch(() => { });
 
         const phoneNumber = "51973663807";
         const message = `👤 Nombre: ${nombre}
@@ -426,18 +426,18 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-xl sm:text-2xl text-[#071540]/80 mb-10 font-light max-w-2xl mx-auto lg:mx-0"
                             >
-                                <strong className="text-[#2F64FF]">Deja de hacer el trabajo de 3 personas.</strong> Nosotros automatizamos pedidos y stock. Una sola página. Un solo panel, <strong className="text-[#2F64FF]">cero estrés</strong>.                            </motion.p>
+                                <strong className="text-[#2F64FF]">Deja de hacer el trabajo de 3 personas.</strong> Una sola página. Un solo panel, <strong className="text-[#2F64FF]">cero estrés</strong>.                            </motion.p>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+                                className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start w-full"
                             >
                                 <a
                                     href="#reserva"
                                     onClick={scrollToForm}
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg w-full sm:w-auto"
                                 >
                                     Te regalamos una asesoría gratis
                                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -456,7 +456,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         </div>
 
                         {/* Hero Visual Mockup */}
-                        <div className="hidden lg:block lg:w-1/2 order-2">
+                        <div className="w-full lg:w-1/2 order-2">
                             <HeroDashboardMock />
                         </div>
                     </div>
@@ -474,9 +474,9 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         className="text-center mb-16 max-w-3xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
-                            Tu negocio tiene un límite,{" "}
+                            ¿Te identificas con alguno de{" "}
                             <span className="font-semibold text-rose-500">
-                                y ya lo alcanzaste.
+                                estos dolores?
                             </span>
                         </h2>
                     </motion.div>
@@ -967,10 +967,10 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             <RedirectFooter />
-            <FloatingWhatsappButton 
-        pixelId="868251342283921" 
-        welcomeMessage="¡Hola! 👋 Soy Sergio de Elaris. ¿Te interesa automatizar tu negocio y recuperar tu tiempo? Cuéntame un poco sobre tu operación y te ayudaré a dar el primer paso."
-      />
+            <FloatingWhatsappButton
+                pixelId="868251342283921"
+                welcomeMessage="¡Hola! 👋 Soy Sergio de Elaris. ¿Te interesa automatizar tu negocio y recuperar tu tiempo? Cuéntame un poco sobre tu operación y te ayudaré a dar el primer paso."
+            />
         </div>
     );
 }
