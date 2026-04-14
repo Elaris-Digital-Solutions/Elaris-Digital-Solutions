@@ -16,7 +16,7 @@ const VALID_PATHS = new Set<string>([
 
 const seoCopy: Record<SeoPage, { title: string; description: string }> = {
   home: {
-    title: "Automatización con IA y Desarrollo Web | Elaris Digital Solutions",
+    title: "Tecnología para impulsar negocios | Elaris Digital Solutions",
     description: "Tu negocio depende de procesos manuales lentos? En Elaris Digital Solutions eliminamos el caos operativo con tecnología fácil de usar.",
   },
   "not-found": {
