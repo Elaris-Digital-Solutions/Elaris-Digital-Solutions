@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
-import { generateEventId } from "@/lib/meta";
+import { generateEventId, getFbCookies } from "@/lib/meta";
 
 export default function Contact() {
   const { t, tArray } = useI18n();
@@ -21,24 +21,34 @@ export default function Contact() {
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Tracking
     const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
     const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
     const eventId = generateEventId();
+    const { fbp, fbc } = getFbCookies();
+
+    // Split name into first/last for better CAPI Event Match Quality
+    const nameParts = fullName.trim().split(" ");
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
 
     try {
       (window as any).fbq?.('trackSingle', pixelId, 'Lead', { eventID: eventId });
-      
+
       fetch("/api/meta-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           event_name: "Lead",
-          email: email,
+          email,
+          first_name: firstName,
+          last_name: lastName,
           pixel_id: pixelId,
           event_id: eventId,
+          fbp,
+          fbc,
+          page_url: window.location.href,
         }),
-      }).catch(() => {});
+      }).catch(console.error);
     } catch { /* no-op */ }
 
     const composedMessage = t("contact.form.whatsappTemplate", { fullName, email, message: "" });

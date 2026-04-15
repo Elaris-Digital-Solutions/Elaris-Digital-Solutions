@@ -39,20 +39,23 @@ const initFbScript = () => {
 const MetaPixelTracker = () => {
   const location = useLocation();
 
+  // Initialize both pixels once on mount — keeps queue-based stub + actual script load separate
+  // from PageView tracking, preventing duplicate init calls on every SPA navigation.
   useEffect(() => {
     initFbScript();
     const f = window as any;
-
-    const isMainRoute = location.pathname === '/' || location.pathname === '/es' || location.pathname === '/es/';
-    
     if (f && f.fbq) {
-      if (isMainRoute) {
-        f.fbq('init', '1294573795867367');
-        f.fbq('trackSingle', '1294573795867367', 'PageView');
-      } else {
-        f.fbq('init', '868251342283921');
-        f.fbq('trackSingle', '868251342283921', 'PageView');
-      }
+      f.fbq('init', '1294573795867367');
+      f.fbq('init', '868251342283921');
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Fire PageView on every route change (correct SPA behavior)
+  useEffect(() => {
+    const f = window as any;
+    if (f && f.fbq) {
+      f.fbq('trackSingle', '1294573795867367', 'PageView');
+      f.fbq('trackSingle', '868251342283921', 'PageView');
     }
   }, [location.pathname]);
 

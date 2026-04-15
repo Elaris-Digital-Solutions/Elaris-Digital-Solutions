@@ -3,7 +3,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { generateEventId } from "@/lib/meta";
+import { generateEventId, getFbCookies } from "@/lib/meta";
 
 const PHONE_NUMBER = "51973663807";
 
@@ -84,22 +84,28 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isWidgetOpen]);
 
-  const trackLead = () => {
-    try { 
+  const trackContact = () => {
+    try {
       const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
       const pixelId = propPixelId || (isMainRoute ? '1294573795867367' : '868251342283921');
       const eventId = generateEventId();
-      (window as any).fbq?.("trackSingle", pixelId, "Lead", { eventID: eventId }); 
+      const { fbp, fbc } = getFbCookies();
+
+      // Use Contact event (user initiates contact via WhatsApp, distinct from Lead form fill)
+      (window as any).fbq?.("trackSingle", pixelId, "Contact", { eventID: eventId });
 
       fetch("/api/meta-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          event_name: "Lead",
+          event_name: "Contact",
           pixel_id: pixelId,
           event_id: eventId,
+          fbp,
+          fbc,
+          page_url: window.location.href,
         }),
-      }).catch(() => {});
+      }).catch(console.error);
     } catch { /* no-op */ }
   };
 
@@ -150,7 +156,7 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t("floatingWhatsapp.ariaLabel")}
-              onClick={trackLead}
+              onClick={trackContact}
               className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#18c759] px-4 text-[1rem] font-semibold text-white shadow-[0_10px_24px_rgba(24,199,89,0.3)] transition-all duration-300 hover:bg-[#14b44f]"
             >
               <WhatsAppGlyph className="h-5 w-5" />
