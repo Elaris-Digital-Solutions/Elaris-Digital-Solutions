@@ -90,7 +90,7 @@ All colors MUST be HSL.
      so it looks identical to the 1536×864 reference screen. ── */
   @media screen and (min-width: 1024px) {
     html {
-      zoom: calc(100vw / 1536);
+      zoom: min(1, calc(100vw / 1536));
     }
   }
 
