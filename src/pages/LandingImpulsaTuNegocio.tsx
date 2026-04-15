@@ -967,10 +967,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             <RedirectFooter />
-            <FloatingWhatsappButton
-                pixelId="868251342283921"
-                welcomeMessage="¡Hola! 👋 Soy Sergio de Elaris. ¿Te interesa automatizar tu negocio y recuperar tu tiempo? Cuéntame un poco sobre tu operación y te ayudaré a dar el primer paso."
-            />
+            <FloatingWhatsappButton pixelId="868251342283921" />
         </div>
     );
 }

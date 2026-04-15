@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import { generateEventId } from "@/lib/meta";
+import { generateEventId, getFbCookies } from "@/lib/meta";
 
 const PHONE_NUMBER = "51973663807";
 
@@ -21,22 +20,17 @@ const WhatsAppGlyph = ({ className }: { className?: string }) => (
 
 interface FloatingWhatsappButtonProps {
   pixelId?: string;
-  welcomeMessage?: string;
   defaultMessage?: string;
 }
 
-const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({ 
+const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
   pixelId: propPixelId,
-  welcomeMessage: propWelcomeMessage,
   defaultMessage: propDefaultMessage
 }) => {
   const { t } = useI18n();
   const [isHiddenByMobileMenu, setIsHiddenByMobileMenu] = React.useState(false);
   const [isHiddenByFooter, setIsHiddenByFooter] = React.useState(false);
-  const [isWidgetOpen, setIsWidgetOpen] = React.useState(false);
-  const containerRef = React.useRef<HTMLDivElement>(null);
   const defaultMessage = propDefaultMessage || t("floatingWhatsapp.defaultMessage");
-  const welcomeMessage = propWelcomeMessage || t("floatingWhatsapp.welcomeMessage");
   const href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(defaultMessage)}`;
 
   React.useEffect(() => {
@@ -47,10 +41,6 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
     window.addEventListener("elaris:mobile-menu-visibility", handler as EventListener);
     return () => window.removeEventListener("elaris:mobile-menu-visibility", handler as EventListener);
   }, []);
-
-  React.useEffect(() => {
-    if (isHiddenByMobileMenu) setIsWidgetOpen(false);
-  }, [isHiddenByMobileMenu]);
 
   React.useEffect(() => {
     if (typeof document === "undefined") return;
@@ -69,35 +59,25 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
     return () => observer.disconnect();
   }, []);
 
-  React.useEffect(() => {
-    if (isHiddenByFooter) setIsWidgetOpen(false);
-  }, [isHiddenByFooter]);
-
-  React.useEffect(() => {
-    if (!isWidgetOpen) return;
-    const handleClickOutside = (e: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-        setIsWidgetOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isWidgetOpen]);
-
-  const trackLead = () => {
-    try { 
+  const trackContact = () => {
+    try {
       const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
       const pixelId = propPixelId || (isMainRoute ? '1294573795867367' : '868251342283921');
       const eventId = generateEventId();
-      (window as any).fbq?.("trackSingle", pixelId, "Lead", { eventID: eventId }); 
+      const { fbp, fbc } = getFbCookies();
+
+      (window as any).fbq?.("trackSingle", pixelId, "Contact", { eventID: eventId });
 
       fetch("/api/meta-event", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          event_name: "Lead",
+          event_name: "Contact",
           pixel_id: pixelId,
           event_id: eventId,
+          fbp,
+          fbc,
+          page_url: window.location.href,
         }),
       }).catch(() => {});
     } catch { /* no-op */ }
@@ -111,65 +91,20 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
 
   return (
     <div
-      ref={containerRef}
-      className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-40 flex w-[min(84vw,300px)] flex-col items-end gap-2.5 md:w-[300px] transition-all duration-300 ${visibilityClass}`}
+      className={`fixed bottom-4 right-5 md:bottom-6 md:right-7 z-40 transition-all duration-300 ${visibilityClass}`}
     >
-      {isWidgetOpen && (
-        <div className="w-full overflow-hidden rounded-2xl border border-[#25D366]/25 bg-white shadow-[0_16px_40px_rgba(0,0,0,0.18)]">
-          <div className="flex items-center justify-between bg-[#07983f] px-3.5 py-2.5 text-white">
-            <div className="flex items-center gap-2.5">
-              <div className="relative h-10 w-10 rounded-full border border-white/80 bg-black/30">
-                <img
-                  src="/assets/sergio-herrera-jave.png"
-                  alt={t("floatingWhatsapp.agentName")}
-                  className="h-full w-full rounded-full object-cover"
-                  loading="lazy"
-                />
-                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-[#07983f] bg-[#30d65e]" />
-              </div>
-              <div>
-                <p className="text-[0.92rem] font-semibold leading-tight">{t("floatingWhatsapp.agentName")}</p>
-                <p className="text-[0.82rem] text-white/90">{t("floatingWhatsapp.agentStatus")}</p>
-              </div>
-            </div>
-            <button
-              type="button"
-              aria-label={t("floatingWhatsapp.closeLabel")}
-              onClick={() => setIsWidgetOpen(false)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/20 text-white transition-colors hover:bg-white/30"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="space-y-2.5 p-3.5">
-            <p className="rounded-xl bg-slate-100 p-3 text-[0.93rem] leading-relaxed text-slate-800">
-              {welcomeMessage}
-            </p>
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t("floatingWhatsapp.ariaLabel")}
-              onClick={trackLead}
-              className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#18c759] px-4 text-[1rem] font-semibold text-white shadow-[0_10px_24px_rgba(24,199,89,0.3)] transition-all duration-300 hover:bg-[#14b44f]"
-            >
-              <WhatsAppGlyph className="h-5 w-5" />
-              {t("floatingWhatsapp.ctaLabel")}
-            </a>
-          </div>
-        </div>
-      )}
-      <button
-        type="button"
-        aria-label={t("floatingWhatsapp.openLabel")}
-        onClick={() => setIsWidgetOpen((prev) => !prev)}
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={t("floatingWhatsapp.ariaLabel")}
+        onClick={trackContact}
         className="inline-flex h-[3.25rem] w-[3.25rem] items-center justify-center rounded-full border border-[#25D366]/50 bg-[#25D366] text-white shadow-[0_16px_36px_rgba(37,211,102,0.42)] backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-[#20ba56] hover:shadow-[0_22px_56px_rgba(37,211,102,0.5)] focus:outline-none focus:ring-2 focus:ring-[#25D366]/80 md:h-14 md:w-14"
       >
         <WhatsAppGlyph className="h-6 w-6 md:h-7 md:w-7" />
-      </button>
+      </a>
     </div>
   );
 };
 
 export default FloatingWhatsappButton;
-

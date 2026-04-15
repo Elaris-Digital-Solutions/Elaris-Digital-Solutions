@@ -39,20 +39,22 @@ const initFbScript = () => {
 const MetaPixelTracker = () => {
   const location = useLocation();
 
+  // ONE-TIME: inject script + init both pixels on mount
   useEffect(() => {
     initFbScript();
     const f = window as any;
-
-    const isMainRoute = location.pathname === '/' || location.pathname === '/es' || location.pathname === '/es/';
-    
     if (f && f.fbq) {
-      if (isMainRoute) {
-        f.fbq('init', '1294573795867367');
-        f.fbq('trackSingle', '1294573795867367', 'PageView');
-      } else {
-        f.fbq('init', '868251342283921');
-        f.fbq('trackSingle', '868251342283921', 'PageView');
-      }
+      f.fbq('init', '1294573795867367');
+      f.fbq('init', '868251342283921');
+    }
+  }, []); // empty deps — runs once on mount
+
+  // PER-ROUTE: fire PageView on every navigation
+  useEffect(() => {
+    const f = window as any;
+    if (f && f.fbq) {
+      f.fbq('trackSingle', '1294573795867367', 'PageView');
+      f.fbq('trackSingle', '868251342283921', 'PageView');
     }
   }, [location.pathname]);
 

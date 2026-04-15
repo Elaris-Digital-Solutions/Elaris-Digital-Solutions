@@ -16,7 +16,7 @@ interface HeroProps {
   description: string;
   badgeText?: string;
   badgeLabel?: string;
-  ctaButtons?: Array<{ text: string; href?: string; primary?: boolean }>;
+  ctaButtons?: Array<{ text: string; href?: string; primary?: boolean; onClick?: () => void }>;
   microDetails?: Array<string>;
   consolePhrases?: string[];
   consolePrefixPhrase?: string;
@@ -216,7 +216,7 @@ const SyntheticHero = ({
                   className={classes}
                   asChild
                 >
-                  <a href={button.href}>{button.text}</a>
+                  <a href={button.href} onClick={button.onClick}>{button.text}</a>
                 </Button>
               );
             }
@@ -226,6 +226,7 @@ const SyntheticHero = ({
                 key={index}
                 variant={isPrimary ? undefined : "outline"}
                 className={classes}
+                onClick={button.onClick}
               >
                 {button.text}
               </Button>

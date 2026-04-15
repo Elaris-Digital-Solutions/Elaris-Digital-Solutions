@@ -227,7 +227,7 @@
     "description": "¿Quieres vender más online, automatizar una operación o modernizar tu stack? Describe tu situación y te devolvemos un diagnóstico concreto en menos de 12 horas — sin compromiso.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
-      "emailLabel": "Email Corporativo *",
+      "emailLabel": "Email *",
       "reasonLabel": "¿Qué quieres lograr? *",
       "messageLabel": "Cuéntanos tu situación *",
       "fullNamePlaceholder": "John Doe",
