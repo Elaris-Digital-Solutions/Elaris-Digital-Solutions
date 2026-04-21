@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import TypingConsole from "@/components/ui/typing-console";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 
@@ -36,12 +35,11 @@ const SyntheticHero = ({
   consolePhrases: consolePhrasesProp = [],
   consolePrefixPhrase,
 }: HeroProps) => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const badgeWrapperRef = useRef<HTMLDivElement | null>(null);
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const consoleRef = useRef<HTMLDivElement | null>(null);
-  const ctaRef = useRef<HTMLDivElement | null>(null);
-  const microRef = useRef<HTMLUListElement | null>(null);
+  const sectionRef  = useRef<HTMLElement | null>(null);
+  const headingRef  = useRef<HTMLHeadingElement | null>(null);
+  const consoleRef  = useRef<HTMLDivElement | null>(null);
+  const ctaRef      = useRef<HTMLDivElement | null>(null);
+  const microRef    = useRef<HTMLUListElement | null>(null);
   const consolePhrases = useMemo(() => {
     const normalized = (consolePhrasesProp ?? [])
       .filter((phrase) => typeof phrase === "string")
@@ -68,7 +66,19 @@ const SyntheticHero = ({
     () => {
       if (!headingRef.current) return;
 
+      // Guard: if the component unmounts before fonts finish loading,
+      // the Promise callback must not run against detached DOM nodes.
+      let cancelled = false;
+
+      // Skip entrance animation for users who prefer reduced motion.
+      // Elements remain at their natural CSS visibility — no GSAP needed.
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        return () => { cancelled = true; };
+      }
+
       document.fonts.ready.then(() => {
+        if (cancelled) return;
+
         const split = new SplitText(headingRef.current!, {
           type: "lines",
           wordsClass: "hero-lines",
@@ -82,70 +92,34 @@ const SyntheticHero = ({
           transformOrigin: "50% 100%",
         });
 
-        if (badgeWrapperRef.current) {
-          gsap.set(badgeWrapperRef.current, { autoAlpha: 0, y: -8 });
-        }
-        if (consoleRef.current) {
-          gsap.set(consoleRef.current, { autoAlpha: 0, y: 8 });
-        }
-        if (ctaRef.current) {
-          gsap.set(ctaRef.current, { autoAlpha: 0, y: 8 });
-        }
+        if (consoleRef.current) gsap.set(consoleRef.current, { autoAlpha: 0, y: 8 });
+        if (ctaRef.current)     gsap.set(ctaRef.current,     { autoAlpha: 0, y: 8 });
 
         const microItems = microRef.current
           ? Array.from(microRef.current.querySelectorAll("li"))
           : [];
-        if (microItems.length > 0) {
-          gsap.set(microItems, { autoAlpha: 0, y: 6 });
-        }
+        if (microItems.length > 0) gsap.set(microItems, { autoAlpha: 0, y: 6 });
 
         const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-        if (badgeWrapperRef.current) {
-          tl.to(
-            badgeWrapperRef.current,
-            { autoAlpha: 1, y: 0, duration: 0.5 },
-            0,
-          );
-        }
+        tl.to(split.lines, {
+          filter: "blur(0px)",
+          yPercent: 0,
+          autoAlpha: 1,
+          scale: 1,
+          duration: 0.9,
+          stagger: 0.12,
+        }, 0.1);
 
-        tl.to(
-          split.lines,
-          {
-            filter: "blur(0px)",
-            yPercent: 0,
-            autoAlpha: 1,
-            scale: 1,
-            duration: 0.9,
-            stagger: 0.12,
-          },
-          0.1,
-        );
-
-        if (consoleRef.current) {
-          tl.to(
-            consoleRef.current,
-            { autoAlpha: 1, y: 0, duration: 0.5 },
-            "-=0.55",
-          );
-        }
-
-        if (ctaRef.current) {
-          tl.to(
-            ctaRef.current,
-            { autoAlpha: 1, y: 0, duration: 0.5 },
-            "-=0.35",
-          );
-        }
+        if (consoleRef.current) tl.to(consoleRef.current, { autoAlpha: 1, y: 0, duration: 0.5 }, "-=0.55");
+        if (ctaRef.current)     tl.to(ctaRef.current,     { autoAlpha: 1, y: 0, duration: 0.5 }, "-=0.35");
 
         if (microItems.length > 0) {
-          tl.to(
-            microItems,
-            { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1 },
-            "-=0.25",
-          );
+          tl.to(microItems, { autoAlpha: 1, y: 0, duration: 0.5, stagger: 0.1 }, "-=0.25");
         }
       });
+
+      return () => { cancelled = true; };
     },
     { scope: sectionRef },
   );

@@ -12,20 +12,22 @@ type I18nContextValue = {
   tArray: (key: string) => string[];
 };
 
+// Module-level cache: translations are static at runtime, so each key is
+// resolved by walking the JSON tree only once across the entire app lifetime.
+const resolveCache = new Map<string, TranslationValue>();
+
 const resolveValue = (key: string): TranslationValue | undefined => {
+  if (resolveCache.has(key)) return resolveCache.get(key);
+
   const segments = key.split(".");
   let current: TranslationValue | undefined = es as TranslationValue;
 
   for (const segment of segments) {
-    if (current == null) {
-      return undefined;
-    }
+    if (current == null) return undefined;
 
     if (Array.isArray(current)) {
       const index = Number(segment);
-      if (Number.isNaN(index)) {
-        return undefined;
-      }
+      if (Number.isNaN(index)) return undefined;
       current = current[index];
       continue;
     }
@@ -38,6 +40,8 @@ const resolveValue = (key: string): TranslationValue | undefined => {
     return undefined;
   }
 
+  // Only cache successful lookups — missing keys are translation bugs, not hot paths
+  if (current !== undefined) resolveCache.set(key, current);
   return current;
 };
 

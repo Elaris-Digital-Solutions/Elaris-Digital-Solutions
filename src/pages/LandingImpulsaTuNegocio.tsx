@@ -212,7 +212,7 @@ const RedirectNavbar = ({
                         className="inline-flex items-center"
                     >
                         <SmartImage
-                            src="/assets/ElarisLogo.png"
+                            src="/assets/ElarisLogo.webp"
                             alt="Elaris Digital Solutions"
                             priority
                             width={160}
@@ -245,7 +245,7 @@ const RedirectFooter = () => {
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
                     <div className="max-w-md">
                         <SmartImage
-                            src="/assets/ElarisLogoWhite.png"
+                            src="/assets/ElarisLogoWhite.webp"
                             alt="Elaris Digital Solutions"
                             priority
                             width={180}

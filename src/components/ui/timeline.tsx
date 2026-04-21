@@ -1,6 +1,5 @@
 "use client";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -17,12 +16,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
 
+  // ResizeObserver keeps height in sync with dynamic content changes
+  // (e.g. late font loads, viewport resize, accordion expansion)
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
+    if (!ref.current) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setHeight(entry.contentRect.height);
+    });
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -34,7 +37,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full font-sans md:px-10 relativeAh"
+      className="w-full font-sans md:px-10 relative"
       ref={containerRef}
     >
       <div ref={ref} className="relative max-w-7xl mx-auto">

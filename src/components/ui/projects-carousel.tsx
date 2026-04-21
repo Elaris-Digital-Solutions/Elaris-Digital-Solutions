@@ -1,40 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ChevronRight } from 'lucide-react';
 import SmartImage from '@/components/ui/smart-image';
 import { useI18n } from '@/lib/i18n';
-
-const projectConfigs = [
-  {
-    slug: 'salcedoJewels',
-    image: '/assets/salcedo.webp',
-    stack: ['Next.js', 'React', 'Stripe', 'Vercel'],
-    url: 'https://salcedojewels.com'
-  },
-  {
-    slug: 'sistemaInventarioUPC',
-    image: '/assets/SISTEMA-INVENTARIO-UPC.webp',
-    stack: ['React', 'Tailwind', 'Vite'],
-    url: 'https://upc-inventario.netlify.app'
-  },
-  {
-    slug: 'karMa',
-    image: '/assets/kar-ma.webp',
-    stack: ['React', 'Tailwind', 'Vite'],
-    url: 'https://kar-ma.netlify.app/'
-  },
-  {
-    slug: 'cccImpresiones',
-    image: '/assets/ccc-impresiones.webp',
-    stack: ['React', 'Vite', 'B2B', '3D Print'],
-    url: 'https://cccimpresiones.com/'
-  },
-  {
-    slug: 'nuestroBarrio',
-    image: '/assets/nuestro-barrio-nuestra-historia.webp',
-    stack: ['React', 'Community', 'Social', 'Big Data'],
-    url: 'https://nuestrobarrio.netlify.app/'
-  }
-] as const;
+import { PROJECT_CONFIGS } from '@/lib/project-configs';
 
 const ProjectsCarousel: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -44,32 +12,22 @@ const ProjectsCarousel: React.FC = () => {
 
   useEffect(() => {
     if (typeof document === 'undefined') return;
-
-    const uniqueImages = Array.from(new Set(projectConfigs.map((project) => project.image)));
-
-    uniqueImages.forEach((imageSrc) => {
-      const dataAttr = `projects-carousel-${imageSrc}`;
-
-      if (!document.querySelector(`link[data-preload="${dataAttr}"]`)) {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = imageSrc;
-        link.setAttribute('data-preload', dataAttr);
-        document.head.appendChild(link);
-      }
-
-      if (typeof Image !== 'undefined') {
-        const img = new Image();
-        img.decoding = 'async';
-        img.src = imageSrc;
-      }
-    });
+    // Only preload the first image — subsequent images are loaded lazily as the user navigates
+    const firstImage = PROJECT_CONFIGS[0].image;
+    const dataAttr = `projects-carousel-${firstImage}`;
+    if (!document.querySelector(`link[data-preload="${dataAttr}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = firstImage;
+      link.setAttribute('data-preload', dataAttr);
+      document.head.appendChild(link);
+    }
   }, []);
 
   const projects = useMemo(
     () =>
-      projectConfigs.map((config) => ({
+      PROJECT_CONFIGS.map((config) => ({
         name: t(`portfolio.projects.${config.slug}.title`),
         description: t(`portfolio.projects.${config.slug}.description`),
         category: t(`portfolio.projects.${config.slug}.category`),
@@ -100,10 +58,6 @@ const ProjectsCarousel: React.FC = () => {
 
   const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   return (
@@ -177,14 +131,6 @@ const ProjectsCarousel: React.FC = () => {
 
             {/* Navigation */}
             <button
-              onClick={prevProject}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-blue-600 hover:text-white transition-colors"
-              aria-label={t("portfolio.controls.previous", { project: projects[currentProject].name })}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-
-            <button
               onClick={nextProject}
               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-blue-600 hover:text-white transition-colors"
               aria-label={t("portfolio.controls.next", { project: projects[currentProject].name })}
@@ -195,10 +141,12 @@ const ProjectsCarousel: React.FC = () => {
 
           {/* Dots */}
           <div className="flex justify-center space-x-2 mt-6">
-            {projects.map((_, index) => (
+            {projects.map((project, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentProject(index)}
+                aria-label={`Ver proyecto: ${project.name}`}
+                aria-current={index === currentProject ? "true" : undefined}
                 className={`w-3 h-3 rounded-full transition-colors ${index === currentProject ? 'bg-blue-600' : 'bg-gray-300'
                   }`}
               />

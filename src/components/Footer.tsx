@@ -2,9 +2,12 @@ import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
+import { scrollToSection } from "@/lib/utils";
+
+const CURRENT_YEAR = new Date().getFullYear();
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = CURRENT_YEAR;
   const { t, tArray } = useI18n();
   const navLabels = tArray("footer.sections.navigation.items");
   const navTargets = ["", "estandares", "portafolio", "clientes", "contacto"];
@@ -33,9 +36,8 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="mb-3.5 flex items-center gap-2 sm:mb-4">
               <SmartImage
-                src="/assets/ElarisLogoWhite.png"
+                src="/assets/ElarisLogoWhite.webp"
                 alt={t("navbar.logoAlt")}
-                priority
                 className="h-14 w-auto sm:h-16 lg:h-20"
               />
             </div>
@@ -85,14 +87,8 @@ const Footer = () => {
                         e.preventDefault();
                         if (!id) {
                           window.scrollTo({ top: 0, behavior: "smooth" });
-                          return;
-                        }
-                        const el = document.getElementById(id);
-                        if (el) {
-                          el.scrollIntoView({ behavior: "smooth", block: "start" });
                         } else {
-                          // Fallback: navigate to root anchor if element not present
-                          window.location.href = `/#${id}`;
+                          scrollToSection(id);
                         }
                       }}
                       className="text-white/80 text-sm hover:text-white transition-colors"

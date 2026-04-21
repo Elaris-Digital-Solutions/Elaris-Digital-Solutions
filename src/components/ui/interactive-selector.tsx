@@ -4,14 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import { useInView } from "framer-motion";
-import {
-	AppWindow,
-	Bot,
-	Rocket,
-	Smartphone,
-	ExternalLink,
-} from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { PROJECT_CONFIGS } from "@/lib/project-configs";
 
 interface Option {
 	title: string;
@@ -20,39 +15,6 @@ interface Option {
 	Icon: LucideIcon;
 	url?: string;
 }
-
-const projectConfigs = [
-	{
-		slug: "salcedoJewels",
-		image: "/assets/salcedo.webp",
-		Icon: Smartphone,
-		url: "https://salcedojewels.com",
-	},
-	{
-		slug: "sistemaInventarioUPC",
-		image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
-		Icon: AppWindow,
-		url: "https://upc-inventario.netlify.app",
-	},
-	{
-		slug: "karMa",
-		image: "/assets/kar-ma.webp",
-		Icon: Rocket,
-		url: "https://kar-ma.netlify.app/",
-	},
-	{
-		slug: "cccImpresiones",
-		image: "/assets/ccc-impresiones.webp",
-		Icon: Bot,
-		url: "https://cccimpresiones.com/",
-	},
-	{
-		slug: "nuestroBarrio",
-		image: "/assets/nuestro-barrio-nuestra-historia.webp",
-		Icon: Rocket,
-		url: "https://nuestrobarrio.netlify.app/",
-	},
-] as const;
 
 const InteractiveSelector = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
@@ -63,7 +25,7 @@ const InteractiveSelector = () => {
 
 	const options = useMemo<Option[]>(
 		() =>
-			projectConfigs.map((config) => ({
+			PROJECT_CONFIGS.map((config) => ({
 				title: t(`portfolio.projects.${config.slug}.title`),
 				description: t(`portfolio.projects.${config.slug}.description`),
 				image: config.image,
@@ -158,7 +120,8 @@ const InteractiveSelector = () => {
 							justifyContent: "flex-end" as const,
 							position: "relative" as const,
 							overflow: "hidden" as const,
-							willChange: "flex-grow, box-shadow, background-size, background-position",
+							// willChange only on the active card — avoids promoting all 5 cards to their own compositor layers
+							willChange: isActive ? "flex-grow, box-shadow, background-size" : "auto",
 							transition: "all 0.7s ease-in-out",
 						};
 

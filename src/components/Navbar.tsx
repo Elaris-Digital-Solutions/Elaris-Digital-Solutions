@@ -5,6 +5,14 @@ import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
+// Module-level constant — never recreated on re-render
+const NAV_LINKS = [
+  { label: "Servicios",   section: "servicios"  },
+  { label: "Estándares",  section: "estandares" },
+  { label: "Portafolio",  section: "portafolio" },
+  { label: "Testimonios", section: "clientes"   },
+] as const;
+
 const Navbar = () => {
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window === "undefined") return true;
@@ -56,7 +64,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setIsAtTop(window.scrollY < 40);
+    const onScroll = () => {
+      const atTop = window.scrollY < 40;
+      // Guard: skip setState if value hasn't changed (prevents unnecessary re-renders on every scroll event)
+      setIsAtTop((prev) => (prev === atTop ? prev : atTop));
+    };
     const raf = requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
@@ -86,14 +98,7 @@ const Navbar = () => {
   const navItemClass =
     "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-[#2F64FF]";
 
-  const logoSrc = "/assets/ElarisLogo.png";
-
-  const navLinks = [
-    { label: "Servicios",   section: "servicios"  },
-    { label: "Estándares",  section: "estandares" },
-    { label: "Portafolio",  section: "portafolio" },
-    { label: "Testimonios", section: "clientes"   },
-  ] as const;
+  const logoSrc = "/assets/ElarisLogo.webp";
 
   return (
     <header
@@ -136,7 +141,7 @@ const Navbar = () => {
             <>
               {/* Desktop nav links */}
               <ul className="mx-auto flex items-center gap-8" role="menubar">
-                {navLinks.map(({ label, section }) => (
+                {NAV_LINKS.map(({ label, section }) => (
                   <li key={section} role="none">
                     <button
                       type="button"
@@ -181,13 +186,13 @@ const Navbar = () => {
           className={cn(
             "overflow-hidden border-b backdrop-blur-[12px] transition-all duration-300 ease-in-out",
             navThemeClasses,
-            isMobileMenuOpen ? "h-[calc(100vh-80px)]" : "h-0 border-transparent"
+            isMobileMenuOpen ? "h-[calc(100dvh-80px)]" : "h-0 border-transparent"
           )}
         >
           <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
             <div className="flex-1 overflow-y-auto pr-1">
               <div className="space-y-1 pt-2">
-                {navLinks.map(({ label, section }) => (
+                {NAV_LINKS.map(({ label, section }) => (
                   <button
                     key={section}
                     type="button"

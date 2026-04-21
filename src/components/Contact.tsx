@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useCallback } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
@@ -14,9 +14,6 @@ export default function Contact() {
   const [emailFocused, setEmailFocused] = useState(false);
 
   const phoneNumber = "51973663807";
-  const formRef = useRef<HTMLDivElement | null>(null);
-  const contactInfoRef = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<HTMLDivElement | null>(null);
 
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -79,7 +76,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
 
           {/* Left — header + form (3/5 width) */}
-          <motion.div className="lg:col-span-3 self-start" ref={formRef} initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+          <motion.div className="lg:col-span-3 self-start" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
 
             {/* Header lives here so the right column aligns with it */}
             <div className="mb-10">
@@ -97,6 +94,7 @@ export default function Contact() {
               {/* Name */}
               <div className="relative pt-4">
                 <label
+                  htmlFor="contact-name"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     fullNameFocused || fullName
                       ? "top-0 text-[0.65rem] text-[#2F64FF]"
@@ -106,8 +104,10 @@ export default function Contact() {
                   {t("contact.form.fullNameLabel")}
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   name="name"
+                  autoComplete="name"
                   className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -120,6 +120,7 @@ export default function Contact() {
               {/* Email */}
               <div className="relative pt-4">
                 <label
+                  htmlFor="contact-email"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     emailFocused || email
                       ? "top-0 text-[0.65rem] text-[#2F64FF]"
@@ -129,8 +130,10 @@ export default function Contact() {
                   {t("contact.form.emailLabel")}
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   name="email"
+                  autoComplete="email"
                   className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -155,7 +158,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right — contact info + map (2/5 width) */}
-          <motion.div className="lg:col-span-2 space-y-10" ref={contactInfoRef} initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
+          <motion.div className="lg:col-span-2 space-y-10" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
 
             {/* Contact items — no panel, pure text with icon */}
             <div className="space-y-6">
@@ -181,7 +184,7 @@ export default function Contact() {
             </div>
 
             {/* Map — slightly rounded, no border */}
-            <div ref={mapRef} className="overflow-hidden rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.08)] aspect-[4/3]">
+            <div className="overflow-hidden rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.08)] aspect-[4/3]">
               <iframe
                 title={t("contact.mapTitle")}
                 src="https://www.google.com/maps?q=Jr.+Jeronimo+Aliaga+Norte+595+Santiago+de+Surco&output=embed"
