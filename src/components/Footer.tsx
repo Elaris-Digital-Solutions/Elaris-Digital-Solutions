@@ -1,5 +1,7 @@
+"use client";
+
 import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
@@ -150,11 +152,11 @@ const Footer = () => {
               {t("footer.bottom.rights", { year: currentYear })}
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/80 sm:text-sm">
-              <Link to="/terminos-condiciones" className="hover:text-white transition-colors">
+              <Link href="/terminos-condiciones" className="hover:text-white transition-colors">
                 {legalLinks.terms}
               </Link>
               <span aria-hidden="true" className="text-white/40">|</span>
-              <Link to="/politicas-de-datos" className="hover:text-white transition-colors">
+              <Link href="/politicas-de-datos" className="hover:text-white transition-colors">
                 {legalLinks.dataPolicy}
               </Link>
             </div>

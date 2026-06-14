@@ -1,6 +1,8 @@
-﻿import { Menu, X } from "lucide-react";
+﻿"use client";
+
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -22,7 +24,7 @@ const Navbar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavHovered, setIsNavHovered] = useState(false);
 
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useI18n();
 
   const basePath = "/";
@@ -43,7 +45,7 @@ const Navbar = () => {
     };
 
     if (window.location.pathname !== destinationPath) {
-      navigate(destinationPath, { replace: false });
+      router.push(destinationPath);
       window.setTimeout(runScroll, 120);
     } else {
       runScroll();

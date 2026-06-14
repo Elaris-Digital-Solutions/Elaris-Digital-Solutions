@@ -10,8 +10,10 @@ export default function Contact() {
   const addressLines = useMemo(() => tArray("contact.info.addressLines"), [tArray]);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [reason, setReason] = useState("");
   const [fullNameFocused, setFullNameFocused] = useState(false);
   const [emailFocused, setEmailFocused] = useState(false);
+  const [reasonFocused, setReasonFocused] = useState(false);
 
   const phoneNumber = "51973663807";
 
@@ -47,10 +49,10 @@ export default function Contact() {
       }).catch(() => {});
     } catch { /* no-op */ }
 
-    const composedMessage = t("contact.form.whatsappTemplate", { fullName, email, message: "" });
+    const composedMessage = t("contact.form.whatsappTemplate", { fullName, email, reason });
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
     window.open(url, "_blank", "noopener,noreferrer");
-  }, [email, fullName, t]);
+  }, [email, fullName, reason, t]);
 
   const contactItems = useMemo(
     () => [
@@ -140,6 +142,30 @@ export default function Contact() {
                   onFocus={() => setEmailFocused(true)}
                   onBlur={() => setEmailFocused(false)}
                   required
+                />
+              </div>
+
+              {/* Reason */}
+              <div className="relative pt-4">
+                <label
+                  htmlFor="contact-reason"
+                  className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
+                    reasonFocused || reason
+                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      : "top-4 text-[1.05rem] text-slate-400"
+                  }`}
+                >
+                  {t("contact.form.reasonLabel")}
+                </label>
+                <input
+                  id="contact-reason"
+                  type="text"
+                  name="reason"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                  onFocus={() => setReasonFocused(true)}
+                  onBlur={() => setReasonFocused(false)}
                 />
               </div>
 
