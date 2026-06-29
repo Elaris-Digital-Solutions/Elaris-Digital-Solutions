@@ -34,6 +34,29 @@ export const buildOrganizationSchema = () => {
     logo: OG_IMAGE,
     image: OG_IMAGE,
     description: HOME_DESCRIPTION,
+    slogan: es.hero.title,
+    knowsAbout: [
+      "Desarrollo de software a medida",
+      "Automatización de procesos con inteligencia artificial",
+      "Integración de IA y modelos de lenguaje (LLMs)",
+      "Implementación de CMMS (gestión de mantenimiento)",
+      "Desarrollo de e-commerce y plataformas de venta",
+      "Arquitectura cloud y modernización de sistemas heredados",
+      "Integración de sistemas empresariales (ERP, SAP, CRM)",
+    ],
+    areaServed: [
+      { "@type": "Country", name: "Perú" },
+      { "@type": "Place", name: "Latinoamérica" },
+    ],
+    foundingLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lima",
+        addressRegion: "Lima",
+        addressCountry: "PE",
+      },
+    },
     identifier: {
       "@type": "PropertyValue",
       propertyID: "RUC",
@@ -41,9 +64,10 @@ export const buildOrganizationSchema = () => {
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "JR. TACNA NRO. 207 DPTO. 801 CND. SURCO VIEJO",
-      addressLocality: "Lima",
+      streetAddress: "Jr. Jerónimo de Aliaga 595",
+      addressLocality: "Santiago de Surco",
       addressRegion: "Lima",
+      postalCode: "15037",
       addressCountry: "PE",
     },
     sameAs: [
@@ -72,6 +96,9 @@ export const buildWebsiteSchema = () => ({
   name: "Elaris Digital Solutions",
   url: SITE_URL,
   inLanguage: "es-PE",
+  // Build-time timestamp — refreshes on every deploy, signaling content
+  // freshness to generative/search engines (GEO).
+  dateModified: new Date().toISOString(),
   publisher: { "@type": "Organization", name: "Elaris Digital Solutions" },
 });
 
