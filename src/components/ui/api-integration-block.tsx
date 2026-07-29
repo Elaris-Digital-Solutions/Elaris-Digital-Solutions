@@ -38,15 +38,15 @@ const benefits = [
 
 // ─── API Schema mockup ────────────────────────────────────────────────────────
 const APISchemasMock = () => (
-  <div className="bg-[#0b1836] rounded-3xl border border-[#2F64FF]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
+  <div className="bg-[#0b1836] rounded-3xl border border-[#0855FD]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
     {/* Chrome bar */}
-    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#2F64FF]/15 bg-[#071030]/60">
+    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#0855FD]/15 bg-[#071030]/60">
       <div className="flex gap-1.5">
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/80" />
       </div>
-      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#2F64FF]/10">
+      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#0855FD]/10">
         api-gateway.empresa.com/architecture
       </div>
     </div>
@@ -55,7 +55,7 @@ const APISchemasMock = () => (
       {/* Header pill */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-[#2F64FF]/15 border border-[#2F64FF]/25 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-lg bg-[#0855FD]/15 border border-[#0855FD]/25 flex items-center justify-center">
             <GitBranch className="w-3.5 h-3.5 text-[#7EB5FF]" />
           </div>
           <div>
@@ -70,7 +70,7 @@ const APISchemasMock = () => (
       </div>
 
       {/* Endpoint table */}
-      <div className="rounded-xl overflow-hidden border border-[#2F64FF]/15">
+      <div className="rounded-xl overflow-hidden border border-[#0855FD]/15">
         <div className="grid grid-cols-3 text-[9px] text-slate-500 uppercase tracking-wider px-3 py-1.5 bg-[#071030]/60">
           <span>Método</span><span>Endpoint</span><span>Latencia</span>
         </div>
@@ -80,7 +80,7 @@ const APISchemasMock = () => (
           { method: "PATCH",  path: "/inventario",    latency: "35ms",  cls: "text-amber-300" },
           { method: "DELETE", path: "/sesiones/{id}", latency: "28ms",  cls: "text-red-300" },
         ].map((r) => (
-          <div key={r.path} className="grid grid-cols-3 px-3 py-2 border-t border-[#2F64FF]/10 hover:bg-[#2F64FF]/5 transition-colors">
+          <div key={r.path} className="grid grid-cols-3 px-3 py-2 border-t border-[#0855FD]/10 hover:bg-[#0855FD]/5 transition-colors">
             <span className={`text-[10px] font-semibold ${r.cls}`}>{r.method}</span>
             <span className="text-[10px] text-slate-300 font-mono truncate pr-2">{r.path}</span>
             <span className="text-[10px] text-slate-400 font-mono">{r.latency}</span>
@@ -92,7 +92,7 @@ const APISchemasMock = () => (
       <div className="space-y-2">
         <div className="text-[9px] text-slate-500 uppercase tracking-wider">Sistemas conectados</div>
         {[
-          { name: "ERP (SAP)",    pct: 82, cls: "from-[#2F64FF] to-[#6B9FFF]" },
+          { name: "ERP (SAP)",    pct: 82, cls: "from-[#0855FD] to-[#6B9FFF]" },
           { name: "CRM (HubSpot)", pct: 68, cls: "from-sky-500 to-sky-400" },
           { name: "Pagos (Stripe)", pct: 45, cls: "from-emerald-500 to-emerald-400" },
         ].map((m) => (
@@ -107,7 +107,7 @@ const APISchemasMock = () => (
       </div>
 
       {/* Uptime tracker */}
-      <div className="flex items-center gap-3 p-3 bg-[#0d1f50]/40 rounded-xl border border-[#2F64FF]/10">
+      <div className="flex items-center gap-3 p-3 bg-[#0d1f50]/40 rounded-xl border border-[#0855FD]/10">
         <div className="flex-1">
           <div className="flex justify-between text-[10px] mb-1.5">
             <span className="text-slate-500 font-medium">Uptime (últimos 90 días)</span>
@@ -115,7 +115,7 @@ const APISchemasMock = () => (
           </div>
           <div className="w-full bg-[#0d2060]/60 rounded-full h-1.5">
             <div
-              className="bg-gradient-to-r from-[#2F64FF] to-emerald-400 h-1.5 rounded-full"
+              className="bg-gradient-to-r from-[#0855FD] to-emerald-400 h-1.5 rounded-full"
               style={{ width: "99.97%" }}
             />
           </div>
@@ -155,8 +155,8 @@ export default function ApiIntegrationBlock() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/40 bg-[#2F64FF]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/40 bg-[#0855FD]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
             Arquitectura API
           </div>
 
@@ -188,7 +188,7 @@ export default function ApiIntegrationBlock() {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.55, delay: 0.15 + idx * 0.09 }}
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#2F64FF]/15 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] transition-all duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#0855FD]/15 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gradient group-hover:border-[#0855FD] transition-all duration-300">
                     <Icon className="w-5 h-5 text-[#7EB5FF] group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
@@ -208,7 +208,7 @@ export default function ApiIntegrationBlock() {
             transition={{ duration: 0.8, delay: 0.25 }}
           >
             <APISchemasMock />
-            <div className="absolute -inset-6 bg-[#2F64FF]/15 rounded-3xl blur-3xl -z-10 scale-90" />
+            <div className="absolute -inset-6 bg-[#0855FD]/15 rounded-3xl blur-3xl -z-10 scale-90" />
           </motion.div>
 
         </div>

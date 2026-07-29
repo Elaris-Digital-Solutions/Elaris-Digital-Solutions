@@ -106,7 +106,7 @@ const TypingConsole = ({
       )}
     >
       <div className="flex items-start text-left">
-        <span className="mr-2 flex-shrink-0 text-[#2F64FF] font-bold">{prefix}</span>
+        <span className="mr-2 flex-shrink-0 text-brand-gradient font-bold">{prefix}</span>
         <div className="flex-1 min-w-0">
           {staticPrefix && (
             <span className="text-[#071540]/60 break-words whitespace-pre-wrap">
@@ -117,7 +117,7 @@ const TypingConsole = ({
           {!hideCursor && (
             <span
               className={cn(
-                "inline-block h-4 w-2 ml-0.5 animate-pulse bg-[#2F64FF]",
+                "inline-block h-4 w-2 ml-0.5 animate-pulse bg-brand-gradient",
                 cursorClassName,
               )}
             />

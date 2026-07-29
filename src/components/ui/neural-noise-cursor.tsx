@@ -60,14 +60,34 @@ const FRAG = `
     noise = max(0.0, noise - 0.5);
     noise *= (1.0 - length(vUv - 0.5));
 
-    // Blue-focused palette for Elaris theme
-    vec3 base = normalize(vec3(
-      0.1 + 0.2 * cos(2.0 * u_scroll_progress),
-      0.3 + 0.3 * cos(3.0 * u_scroll_progress),
-      0.8 + 0.2 * sin(2.0 * u_scroll_progress)
-    ));
+    // Rampa de la marca (cian -> azul -> violeta, muestreada del isotipo).
+    // El scroll recorre la rampa, así que el fondo respira los mismos tonos
+    // que el logo en lugar de un azul genérico.
+    vec3 brandCyan   = vec3(0.000, 0.753, 0.984);
+    vec3 brandBlue   = vec3(0.031, 0.322, 0.992);
+    vec3 brandViolet = vec3(0.459, 0.173, 0.984);
 
-    vec3 color = base * noise;
+    // La rampa se recorre en el ESPACIO, no solo en el tiempo: así los tres
+    // tonos del logo conviven en pantalla en vez de teñir todo de un color.
+    // La diagonal imita la lectura del isotipo de izquierda a derecha.
+    // vUv.y crece hacia arriba en GL: la diagonal va de abajo-izquierda
+    // (cian) a arriba-derecha (violeta), que es por donde corre el remolino.
+    float diag = vUv.x * 0.8 + vUv.y * 0.2;
+    // Se reescala [0.08, 0.92] -> [0, 1]: sin esto los extremos cian y violeta
+    // caen fuera del lienzo y todo el fondo tira a azul/violeta plano.
+    float ramp = clamp((diag - 0.08) / 0.84 + 0.06 * sin(u_scroll_progress), 0.0, 1.0);
+
+    // Sin normalize(): iguala la luminancia de los tres tonos y apaga el cian,
+    // que es justo el extremo que da vida sobre el lavanda del fondo.
+    vec3 base =
+      ramp < 0.5
+        ? mix(brandCyan, brandBlue, ramp * 2.0)
+        : mix(brandBlue, brandViolet, (ramp - 0.5) * 2.0);
+
+    // El alfa ya es el propio noise; multiplicar el color por noise otra vez
+    // lo atenuaba al cuadrado y dejaba la rampa lavada. Se conserva algo de
+    // caida para que el trazo no quede plano.
+    vec3 color = base * mix(0.72, 1.0, noise);
     gl_FragColor = vec4(color, noise);
   }
 `;

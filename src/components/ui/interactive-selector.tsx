@@ -74,7 +74,7 @@ const InteractiveSelector = () => {
 					}}
 				>
 					<span className="text-slate-900">{t("portfolio.headingNormal")}</span>
-					<span className="text-[#2F64FF]">{t("portfolio.headingAccent")}</span>
+					<span className="text-brand-gradient">{t("portfolio.headingAccent")}</span>
 				</h2>
 				<p
 					className="mt-4 text-lg font-medium text-slate-600 sm:text-xl"
@@ -107,7 +107,7 @@ const InteractiveSelector = () => {
 							borderRadius: 0,
 							borderWidth: "2px",
 							borderStyle: "solid" as const,
-							borderColor: isActive ? "#2F64FF" : "#E2E8F0",
+							borderColor: isActive ? "#0855FD" : "#E2E8F0",
 							cursor: "pointer",
 							backgroundColor: "#F7FAFC",
 							boxShadow: isActive

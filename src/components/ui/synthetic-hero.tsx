@@ -167,7 +167,7 @@ const SyntheticHero = ({
               deletingSpeed={30}
               pauseDelay={3500}
               className="text-[#071540]/95"
-              cursorClassName="bg-[#2F64FF]"
+              cursorClassName="bg-brand-gradient"
             />
           </div>
         </div>
@@ -179,8 +179,8 @@ const SyntheticHero = ({
           {ctaButtons.map((button, index) => {
             const isPrimary = button.primary ?? index === 0;
             const classes = isPrimary
-              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-[#2F64FF]/85 hover:bg-[#2F64FF]/75 text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-[background-color,box-shadow] duration-300 cursor-pointer"
-              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 text-[#2F64FF] hover:bg-white/10 hover:text-[#2F64FF] backdrop-blur-lg transition-[background-color,color] duration-300 cursor-pointer";
+              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-[background-color,box-shadow] duration-300 cursor-pointer"
+              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 text-brand-gradient hover:bg-white/10 hover:text-[#0855FD] backdrop-blur-lg transition-[background-color,color] duration-300 cursor-pointer";
 
             if (button.href) {
               return (
@@ -215,7 +215,7 @@ const SyntheticHero = ({
           >
             {microDetails.map((detail, index) => (
               <li key={index} className="flex items-center gap-2">
-                <span className="h-1 w-1 rounded-full bg-[#2F64FF]/60" />
+                <span className="h-1 w-1 rounded-full bg-[#0855FD]/60" />
                 {detail}
               </li>
             ))}

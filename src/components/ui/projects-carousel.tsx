@@ -68,7 +68,7 @@ const ProjectsCarousel: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-extrabold tracking-tight drop-shadow-lg sm:text-5xl mb-4">
               <span className="text-slate-900">{t('portfolio.headingNormal')}</span>
-              <span style={{ color: '#2F64FF' }}>{t('portfolio.headingAccent')}</span>
+              <span className="text-brand-gradient">{t('portfolio.headingAccent')}</span>
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
