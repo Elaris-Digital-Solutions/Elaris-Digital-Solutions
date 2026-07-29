@@ -54,9 +54,9 @@ export const SmartImage = forwardRef<HTMLImageElement, SmartImageProps>(
     const resolvedLoading: React.ImgHTMLAttributes<HTMLImageElement>["loading"] =
       loading ?? (priority ? "eager" : "lazy");
 
-    const resolvedFetchPriority: string | undefined =
+    const resolvedFetchPriority: React.ImgHTMLAttributes<HTMLImageElement>["fetchPriority"] =
       // Keep behavior: priority => high, otherwise low; allow explicit undefined
-      (fetchPriority as any) ?? (priority ? "high" : "low");
+      fetchPriority ?? (priority ? "high" : "low");
 
     return (
       <img
@@ -64,7 +64,10 @@ export const SmartImage = forwardRef<HTMLImageElement, SmartImageProps>(
         src={src}
         loading={resolvedLoading}
         decoding={decoding}
-        {...(resolvedFetchPriority ? { fetchpriority: resolvedFetchPriority } : {})}
+        // camelCase: en minúsculas React 18 lo trata como propiedad DOM
+        // desconocida, avisa por consola y descarta el atributo — con lo que
+        // las imágenes marcadas `priority` no recibían prioridad real.
+        {...(resolvedFetchPriority ? { fetchPriority: resolvedFetchPriority } : {})}
         {...rest}
       />
     );

@@ -39,15 +39,15 @@ const benefits = [
 
 // ─── AI Dashboard mockup ──────────────────────────────────────────────────────
 const AIDashboardMock = () => (
-  <div className="bg-[#0b1836] rounded-3xl border border-[#2F64FF]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
+  <div className="bg-[#0b1836] rounded-3xl border border-[#0855FD]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
     {/* Chrome bar */}
-    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#2F64FF]/15 bg-[#071030]/60">
+    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#0855FD]/15 bg-[#071030]/60">
       <div className="flex gap-1.5">
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/80" />
       </div>
-      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#2F64FF]/10">
+      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#0855FD]/10">
         ia.empresa.com/intelligence
       </div>
     </div>
@@ -56,7 +56,7 @@ const AIDashboardMock = () => (
       {/* Active model pill */}
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">Modelo activo</span>
-        <div className="flex items-center gap-2 bg-[#2F64FF]/10 border border-[#2F64FF]/20 rounded-full px-3 py-1">
+        <div className="flex items-center gap-2 bg-[#0855FD]/10 border border-[#0855FD]/20 rounded-full px-3 py-1">
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-[11px] text-[#7EB5FF] font-semibold">GPT-4o · Claude 3.5</span>
         </div>
@@ -72,7 +72,7 @@ const AIDashboardMock = () => (
         ].map((card, i) => (
           <div
             key={i}
-            className="bg-[#0d1f50]/80 border border-[#2F64FF]/10 rounded-xl p-3"
+            className="bg-[#0d1f50]/80 border border-[#0855FD]/10 rounded-xl p-3"
           >
             <div className="text-[10px] text-slate-500 mb-1 leading-tight">{card.label}</div>
             <div className={`text-lg font-bold ${card.colorClass}`}>{card.value}</div>
@@ -81,10 +81,10 @@ const AIDashboardMock = () => (
       </div>
 
       {/* Chat thread */}
-      <div className="bg-[#0d1f50]/60 rounded-xl p-4 border border-[#2F64FF]/10 space-y-3">
+      <div className="bg-[#0d1f50]/60 rounded-xl p-4 border border-[#0855FD]/10 space-y-3">
         {/* AI message */}
         <div className="flex items-start gap-2.5">
-          <div className="w-6 h-6 rounded-full bg-[#2F64FF] flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="w-6 h-6 rounded-full bg-brand-gradient flex items-center justify-center flex-shrink-0 mt-0.5">
             <span className="text-white text-[9px] font-bold">AI</span>
           </div>
           <div className="bg-[#071030]/80 rounded-2xl rounded-tl-none px-3 py-2.5 text-[11px] text-slate-300 leading-relaxed max-w-[85%]">
@@ -94,7 +94,7 @@ const AIDashboardMock = () => (
 
         {/* User reply */}
         <div className="flex items-start gap-2.5 justify-end">
-          <div className="bg-[#2F64FF]/20 border border-[#2F64FF]/15 rounded-2xl rounded-tr-none px-3 py-2.5 text-[11px] text-slate-300 max-w-[75%]">
+          <div className="bg-[#0855FD]/20 border border-[#0855FD]/15 rounded-2xl rounded-tr-none px-3 py-2.5 text-[11px] text-slate-300 max-w-[75%]">
             ¿Cuál es la probabilidad de impacto al flujo de caja?
           </div>
           <div className="w-6 h-6 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -104,7 +104,7 @@ const AIDashboardMock = () => (
 
         {/* Typing indicator */}
         <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 rounded-full bg-[#2F64FF] flex items-center justify-center flex-shrink-0">
+          <div className="w-6 h-6 rounded-full bg-brand-gradient flex items-center justify-center flex-shrink-0">
             <span className="text-white text-[9px] font-bold">AI</span>
           </div>
           <div className="bg-[#071030]/80 rounded-2xl rounded-tl-none px-3 py-2.5 flex items-center gap-1">
@@ -120,7 +120,7 @@ const AIDashboardMock = () => (
       </div>
 
       {/* Accuracy bar */}
-      <div className="flex items-center gap-3 p-3 bg-[#0d1f50]/40 rounded-xl border border-[#2F64FF]/10">
+      <div className="flex items-center gap-3 p-3 bg-[#0d1f50]/40 rounded-xl border border-[#0855FD]/10">
         <div className="flex-1">
           <div className="flex justify-between text-[10px] mb-1.5">
             <span className="text-slate-500 font-medium">Precisión del modelo</span>
@@ -128,7 +128,7 @@ const AIDashboardMock = () => (
           </div>
           <div className="w-full bg-[#0d2060]/60 rounded-full h-1.5">
             <div
-              className="bg-gradient-to-r from-[#2F64FF] to-emerald-400 h-1.5 rounded-full"
+              className="bg-gradient-to-r from-[#0855FD] to-emerald-400 h-1.5 rounded-full"
               style={{ width: "94.7%" }}
             />
           </div>
@@ -170,8 +170,8 @@ export default function CustomSoftwareAIBlock() {
           transition={{ duration: 0.7 }}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/40 bg-[#2F64FF]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/40 bg-[#0855FD]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
             Inteligencia Artificial
           </div>
 
@@ -207,7 +207,7 @@ export default function CustomSoftwareAIBlock() {
                   transition={{ duration: 0.55, delay: 0.15 + idx * 0.1 }}
                 >
                   {/* Icon box */}
-                  <div className="w-11 h-11 rounded-xl bg-[#2F64FF]/15 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] transition-all duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#0855FD]/15 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gradient group-hover:border-[#0855FD] transition-all duration-300">
                     <Icon className="w-5 h-5 text-[#7EB5FF] group-hover:text-white transition-colors duration-300" />
                   </div>
 
@@ -234,7 +234,7 @@ export default function CustomSoftwareAIBlock() {
           >
             <AIDashboardMock />
             {/* Glow behind the card */}
-            <div className="absolute -inset-6 bg-[#2F64FF]/15 rounded-3xl blur-3xl -z-10 scale-90" />
+            <div className="absolute -inset-6 bg-[#0855FD]/15 rounded-3xl blur-3xl -z-10 scale-90" />
           </motion.div>
         </div>
       </div>

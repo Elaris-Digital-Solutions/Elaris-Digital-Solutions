@@ -40,8 +40,8 @@ const Hero = () => {
   const consolePrefixPhrase = useMemo(() => t("hero.consolePrefixPhrase"), [t]);
 
   const ctaButtons = useMemo(() => [
-    { text: t("hero.ctas.primary"), href: "#portafolio", primary: true, onClick: () => trackHeroCTA("iniciar_proyecto") },
-    { text: t("hero.ctas.secondary"), href: "#contacto", onClick: () => trackHeroCTA("contactanos") },
+    { text: t("hero.ctas.primary"), href: "#contacto", primary: true, onClick: () => trackHeroCTA("solicitar_diagnostico") },
+    { text: t("hero.ctas.secondary"), href: "#portafolio", onClick: () => trackHeroCTA("ver_casos") },
   ], [t]);
 
   return (

@@ -28,21 +28,21 @@ const SERVICE_CONFIG: Record<
 > = {
   web: {
     Icon: TrendingUp,
-    accentColor: "#2F64FF",
+    accentColor: "#0855FD",
     href: "/impulsa-tu-negocio",
     badge: "Diseño & Performance",
     ctaText: "Ver detalles",
   },
   ai: {
     Icon: Zap,
-    accentColor: "#2F64FF",
+    accentColor: "#0855FD",
     href: "#contacto",
     badge: "Automatización Inteligente",
     ctaText: "Contáctanos",
   },
   software: {
     Icon: Server,
-    accentColor: "#2F64FF",
+    accentColor: "#0855FD",
     href: "#contacto",
     badge: "Modernización Tecnológica",
     ctaText: "Contáctanos",
@@ -67,8 +67,8 @@ const FeatureBullet = ({ text, index }: { text: string; index: number }) => (
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.25, delay: 0.18 + index * 0.06, ease: "easeOut" }}
   >
-    <span className="mt-0.5 w-5 h-5 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-      <Check className="w-2.5 h-2.5 text-[#2F64FF]" />
+    <span className="mt-0.5 w-5 h-5 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+      <Check className="w-2.5 h-2.5 icon-brand-gradient" />
     </span>
     {text}
   </motion.li>
@@ -103,7 +103,7 @@ const ContentPanel = ({ service }: { service: ServiceItem }) => {
         <a
           href={href}
           onClick={(e) => handleServiceCta(href, e)}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[#2F64FF] group hover:gap-3 transition-all duration-200"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-gradient group hover:gap-3 transition-all duration-200"
         >
           {SERVICE_CONFIG[service.key].ctaText}
           <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -123,7 +123,7 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
       <nav className="border-r border-slate-100 bg-[#F8FAFC] flex flex-col py-4">
         {services.map((svc) => {
           const isActive = svc.key === activeKey;
-          const { Icon, accentColor } = SERVICE_CONFIG[svc.key];
+          const { Icon } = SERVICE_CONFIG[svc.key];
           return (
             <button
               key={svc.key}
@@ -136,19 +136,18 @@ const DesktopSplitPanel = ({ services }: { services: ServiceItem[] }) => {
               {isActive && (
                 <motion.span
                   layoutId="nav-active-border"
-                  className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full"
-                  style={{ backgroundColor: accentColor }}
+                  className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-brand-gradient"
                   transition={{ duration: 0.22, ease: "easeOut" }}
                 />
               )}
               {!isActive && (
                 <span className="absolute right-4 top-1/2 -translate-y-1/2 flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50" style={{ backgroundColor: accentColor }} />
-                  <span className="relative inline-flex rounded-full h-2 w-2 opacity-40" style={{ backgroundColor: accentColor }} />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50 bg-brand-gradient" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 opacity-40 bg-brand-gradient" />
                 </span>
               )}
               <div className="flex items-center gap-3">
-                <Icon className="w-4 h-4 flex-shrink-0 transition-colors duration-200" style={{ color: isActive ? accentColor : "#94a3b8" }} />
+                <Icon className={`w-4 h-4 flex-shrink-0 transition-colors duration-200 ${isActive ? "icon-brand-gradient" : "text-slate-400"}`} />
                 <span className={`text-sm font-semibold transition-colors duration-200 ${isActive ? "text-[#071540]" : "text-slate-500 group-hover:text-[#071540]"}`}>
                   {svc.title}
                 </span>
@@ -191,10 +190,10 @@ const TabletTabs = ({ services }: { services: ServiceItem[] }) => {
               key={svc.key}
               onClick={() => setActiveKey(svc.key)}
               className={`flex-1 flex items-center justify-center gap-2 py-4 px-3 text-sm font-semibold transition-all duration-200 border-b-2 ${
-                isActive ? "border-[#2F64FF] text-[#2F64FF] bg-[#F0F4FF]" : "border-transparent text-slate-400 hover:text-[#071540] bg-white"
+                isActive ? "border-[#0855FD] text-brand-gradient bg-[#F0F4FF]" : "border-transparent text-slate-400 hover:text-[#071540] bg-white"
               }`}
             >
-              <Icon className="w-4 h-4 flex-shrink-0" style={{ color: isActive ? accentColor : undefined }} />
+              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "icon-brand-gradient" : ""}`} />
               <span className="truncate">{svc.title}</span>
             </button>
           );
@@ -218,22 +217,22 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
     <div className="flex flex-col gap-3">
       {services.map((svc) => {
         const isOpen = svc.key === openKey;
-        const { Icon, accentColor, href, badge } = SERVICE_CONFIG[svc.key];
+        const { Icon, href, badge } = SERVICE_CONFIG[svc.key];
         return (
           <div
             key={svc.key}
-            className={`rounded-2xl border overflow-hidden transition-all duration-300 ${isOpen ? "border-[#2F64FF]/30 shadow-md" : "border-slate-200"} bg-white`}
+            className={`rounded-2xl border overflow-hidden transition-all duration-300 ${isOpen ? "border-[#0855FD]/30 shadow-md" : "border-slate-200"} bg-white`}
           >
             <button
               onClick={() => toggle(svc.key)}
               className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
             >
               <div className="flex items-center gap-3">
-                <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}12`, color: accentColor }}>
-                  <Icon className="w-4 h-4" />
+                <span className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 bg-[#0855FD]/10">
+                  <Icon className="w-4 h-4 icon-brand-gradient" />
                 </span>
                 <div>
-                  <p className={`text-sm font-semibold transition-colors duration-200 ${isOpen ? "text-[#2F64FF]" : "text-[#071540]"}`}>
+                  <p className={`text-sm font-semibold transition-colors duration-200 ${isOpen ? "text-brand-gradient" : "text-[#071540]"}`}>
                     {svc.title}
                   </p>
                   {!isOpen && (
@@ -243,7 +242,7 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                   )}
                 </div>
               </div>
-              <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-[#2F64FF]" : "text-slate-400"}`} />
+              <ChevronDown className={`w-4 h-4 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 icon-brand-gradient" : "text-slate-400"}`} />
             </button>
             <AnimatePresence>
               {isOpen && (
@@ -256,8 +255,8 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                 >
                   <div className="px-5 pb-5 border-t border-slate-100">
                     <span
-                      className="inline-block mt-4 mb-3 text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border"
-                      style={{ color: accentColor, borderColor: `${accentColor}30`, backgroundColor: `${accentColor}08` }}
+                      className="inline-block mt-4 mb-3 text-[10px] font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full border text-brand-gradient"
+                      style={{ borderColor: "#0855FD30", backgroundColor: "#0855FD08" }}
                     >
                       {badge}
                     </span>
@@ -265,8 +264,8 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                     <ul className="space-y-2.5 mb-5">
                       {svc.features.map((feat, i) => (
                         <li key={i} className="flex items-start gap-2.5 text-slate-700 text-sm font-light">
-                          <span className="mt-0.5 w-4 h-4 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-                            <Check className="w-2 h-2 text-[#2F64FF]" />
+                          <span className="mt-0.5 w-4 h-4 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-2 h-2 icon-brand-gradient" />
                           </span>
                           {feat}
                         </li>
@@ -275,7 +274,7 @@ const MobileAccordion = ({ services }: { services: ServiceItem[] }) => {
                     <a
                       href={href}
                       onClick={(e) => handleServiceCta(href, e)}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#2F64FF]"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-gradient"
                     >
                       {SERVICE_CONFIG[svc.key].ctaText} <ArrowRight className="w-3 h-3" />
                     </a>
@@ -317,7 +316,7 @@ export default function ServicesSplitPanel() {
     <section id="servicios" className="py-20 lg:py-28 bg-[#F8FAFC] relative overflow-hidden">
       <div
         className="absolute -top-32 -right-32 w-[560px] h-[560px] rounded-full opacity-[0.035] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #2F64FF 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #0855FD 0%, transparent 70%)" }}
       />
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <motion.div
@@ -329,7 +328,7 @@ export default function ServicesSplitPanel() {
         >
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl mb-4">
             <span className="text-slate-900">Soluciones que impulsan </span>
-            <span style={{ color: "#2F64FF" }}>tu operación</span>
+            <span className="text-brand-gradient">tu operación</span>
           </h2>
           <p className="text-lg text-slate-500 font-light max-w-2xl mx-auto mt-4 leading-relaxed">
             {t("services.description")}

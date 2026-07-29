@@ -26,7 +26,7 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-            <span className="text-slate-900">{t('testimonials.headingNormal')}</span><span style={{ color: '#2F64FF' }}>{t('testimonials.headingAccent')}</span>
+            <span className="text-slate-900">{t('testimonials.headingNormal')}</span><span className="text-brand-gradient">{t('testimonials.headingAccent')}</span>
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto mt-4">
             {t('testimonials.description')}
@@ -40,7 +40,7 @@ export default function Testimonials() {
               fontSizes={{ name: '28px', designation: '20px', quote: '20px' }}
               colors={{ 
                 arrowBackground: '#f8fafc',
-                arrowForeground: '#2F64FF',
+                arrowForeground: '#0855FD',
                 arrowHoverBackground: '#e2e8f0'
               }}
             />

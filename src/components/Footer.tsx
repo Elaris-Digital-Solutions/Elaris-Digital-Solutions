@@ -1,5 +1,7 @@
+"use client";
+
 import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
@@ -29,15 +31,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#030E2C] border-t border-white/10 text-white">
+    <footer className="bg-[var(--brand-surface-dark)] border-t border-white/10 text-white">
       <div className="container mx-auto px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
         <div className="mb-6 grid grid-cols-1 gap-6 sm:mb-8 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="mb-3.5 flex items-center gap-2 sm:mb-4">
               <SmartImage
-                src="/assets/ElarisLogoWhite.webp"
+                src="/assets/ElarisLockup.webp"
                 alt={t("navbar.logoAlt")}
+                width={812}
+                height={240}
                 className="h-14 w-auto sm:h-16 lg:h-20"
               />
             </div>
@@ -150,11 +154,11 @@ const Footer = () => {
               {t("footer.bottom.rights", { year: currentYear })}
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/80 sm:text-sm">
-              <Link to="/terminos-condiciones" className="hover:text-white transition-colors">
+              <Link href="/terminos-condiciones" className="hover:text-white transition-colors">
                 {legalLinks.terms}
               </Link>
               <span aria-hidden="true" className="text-white/40">|</span>
-              <Link to="/politicas-de-datos" className="hover:text-white transition-colors">
+              <Link href="/politicas-de-datos" className="hover:text-white transition-colors">
                 {legalLinks.dataPolicy}
               </Link>
             </div>

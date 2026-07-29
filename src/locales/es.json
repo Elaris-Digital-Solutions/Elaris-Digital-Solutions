@@ -22,27 +22,21 @@
     }
   },
   "hero": {
-    "title": "Tecnología a medida para negocios que necesitan vender más y operar mejor.",
-    "description": "Diseñamos, desarrollamos y escalamos plataformas digitales que generan ingresos, automatizan operaciones y reducen costos para empresas en LATAM, Estados Unidos y Europa.",
+    "title": "Tecnología a medida para industrias que no pueden permitirse parar.",
+    "description": "Digitalizamos el mantenimiento, automatizamos procesos y modernizamos sistemas para que tu operación funcione con menos paradas, menos costos y más control. Software a medida para empresas en Perú y LATAM.",
     "badgeLabel": "Estudio",
     "badgeText": "INGENIERÍA DE SOFTWARE PARA NEGOCIOS",
     "ctas": {
-      "primary": "Iniciar proyecto",
-      "secondary": "Contáctanos"
+      "primary": "Solicitar Diagnóstico Operativo",
+      "secondary": "Ver casos reales"
     },
-    "consolePrefixPhrase": "Tecnología a medida para empresas que necesitan...",
+    "consolePrefixPhrase": "Construimos software a medida para...",
     "consolePhrases": [
-      "escalar sus ventas online.",
-      "automatizar su operación.",
-      "eliminar cuellos de botella.",
-      "modernizar sus sistemas."
+      "reducir paradas no planificadas.",
+      "automatizar procesos manuales.",
+      "modernizar sistemas heredados.",
+      "escalar tus ventas online."
     ]
-  },
-  "tech": {
-    "titleNormal": "Tecnologías que ",
-    "titleAccent": "Dominamos",
-    "description": "Trabajamos con stacks confiables y herramientas de IA emergentes para desplegar plataformas seguras y escalables para equipos B2B internacionales.",
-    "note": "Nos integramos con el ecosistema del cliente, desde datos on-premise hasta servicios cloud nativos."
   },
   "services": {
     "headingNormal": "Elige cómo ",
@@ -65,9 +59,9 @@
         "title": "Automatización Inteligente de Procesos",
         "description": "No solo integramos IA. Automatizamos los procesos que hoy te cuestan tiempo y dinero. Liberamos a tu equipo de tareas repetitivas y propensas al error humano, conectando tus áreas, unificando tu información y acelerando tu operatividad diaria.",
         "visualTitle": "Automatización Inteligente",
-        "visualDescription": "IA aplicada a tu operaciones para liberar tiempo y reducir costos.",
+        "visualDescription": "Procesos automatizados para liberar tiempo y reducir costos.",
         "features": [
-          "IA Aplicada a Flujos de Trabajo: Integración de asistentes y agentes de IA en procesos reales para potenciar la productividad interna de tu equipo.",
+          "Automatización de Flujos de Información: Conectamos las áreas que hoy se coordinan por correo o WhatsApp para que los datos circulen solos, sin recaptura manual ni errores de transcripción.",
           "Gestión Documental Inteligente: Automatización de procesos de clasificación y extracción de documentos, pasando del caos del papel a la eficiencia digital.",
           "Ecosistemas Conectados: Integración de sistemas con ERP, SAP y CRM para unificar la operación de tu empresa."
         ],
@@ -87,23 +81,6 @@
       }
     }
   },
-  "techForInclusion": {
-    "titleNormal": "Productos ",
-    "titleAccent": "Digitales",
-    "description": "Tecnología que conecta, incluye y empodera. Creamos herramientas digitales para cerrar brechas y fortalecer comunidades en Latinoamérica.",
-    "projects": {
-      "pictoLink": {
-        "title": "PictoLink",
-        "subtitle": "Comunicación Aumentativa",
-        "description": "PictoLink es una plataforma digital que combina inteligencia artificial y pictogramas para mejorar la comunicación, especialmente para personas con dificultades en el lenguaje escrito u oral. A partir de un texto, PictoLink genera representaciones visuales mediante pictogramas, permitiendo que mensajes complejos se vuelvan más claros, accesibles y fáciles de entender.\n\nAdemás, funciona como una especie de 'red social visual', donde los usuarios pueden compartir, comentar y reutilizar combinaciones de pictogramas, creando así una comunidad centrada en la inclusión y la comunicación universal."
-      },
-      "nuestroBarrio": {
-        "title": "Nuestro Barrio",
-        "subtitle": "Identidad Local",
-        "description": "'Nuestro Barrio, Nuestra Historia' es un proyecto comunitario de memoria colectiva que busca rescatar, organizar y difundir las historias, tradiciones y experiencias de los vecinos de un barrio. A través de entrevistas, fotografías antiguas, mapas afectivos, recorridos urbanos y pequeños talleres, el proyecto convierte recuerdos personales en un archivo vivo accesible para todos.\n\nSu objetivo es fortalecer el sentido de pertenencia, visibilizar a las personas que construyen el día a día del barrio y dejar un legado cultural para las nuevas generaciones."
-      }
-    }
-  },
   "portfolio": {
     "headingNormal": "Resultados ",
     "headingAccent": "Comprobables",
@@ -115,33 +92,27 @@
     "projects": {
       "salcedoJewels": {
         "title": "Salcedo Jewels",
-        "description": "E-commerce de lujo con catálogo interactivo, checkout seguro optimizado para conversión y sincronización automática con CRM para ventas internacionales desde el primer día.",
+        "description": "E-commerce de joyería integrado con su sistema de inventario en tiempo real. Permite vender en línea y centralizar stock y métricas en un solo lugar.",
         "category": "E-commerce",
-        "metrics": "Canal de ventas internacional activo desde el mes del lanzamiento"
+        "metrics": "Venta en línea e inventario centralizados en una sola plataforma"
       },
       "sistemaInventarioUPC": {
         "title": "Sistema de Inventario UPC",
-        "description": "Desarrollo de un sistema digital para centralizar la reserva de dispositivos y herramientas en la UPC, reemplazando coordinaciones manuales por un flujo simple que acelera la atención y mejora la experiencia de estudiantes y equipos académicos.",
+        "description": "Sistema interno de préstamo, reserva y control de dispositivos electrónicos para alumnos y laboratorios académicos.",
         "category": "Sistema de Reservas",
-        "metrics": "Gestión de préstamos más rápida y mejor aprovechamiento de recursos en laboratorios y talleres"
-      },
-      "karMa": {
-        "title": "Kar & Ma",
-        "description": "Relanzamiento de presencia digital completa: nuevo sistema visual de marca, landing pages SEO optimizadas y scoring automático de leads para capturar oportunidades calificadas 24/7.",
-        "category": "Landing Page",
-        "metrics": "+40% en leads calificados desde los primeros 60 días"
+        "metrics": "Préstamo y reserva de equipos bajo un control único"
       },
       "cccImpresiones": {
         "title": "CCC Impresiones",
-        "description": "Líderes en Soluciones Gráficas en Argentina. Revoluciona tu impresión B2B: escala tu producción con etiquetas estándar, grabado láser, personalización textil e impresión 3D industrial. Todo en un solo proveedor estratégico.",
-        "category": "Soluciones Gráficas",
-        "metrics": "Escalabilidad industrial y personalización 360°"
+        "description": "Sistema de gestión operativa e inventario para soluciones gráficas industriales, migrando el control de hojas de cálculo dispersas a una plataforma integrada.",
+        "category": "Gestión Operativa",
+        "metrics": "Control operativo unificado, sin hojas de cálculo dispersas"
       },
-      "nuestroBarrio": {
-        "title": "Nuestro Barrio, Nuestra Historia",
-        "description": "Plataforma social que conecta comunidades, preserva historias locales y entrega tableros de análisis de datos para organizaciones cívicas y tomadores de decisión.",
-        "category": "Plataforma Social",
-        "metrics": "Comunidades conectadas, datos organizados para decisiones reales"
+      "veltrixNfc": {
+        "title": "VeltrixNFC",
+        "description": "Plataforma para la gestión, vinculación y distribución digital de tarjetas físicas con tecnología NFC.",
+        "category": "Identidad Digital",
+        "metrics": "Perfil digital compartido con un solo toque"
       }
     }
   },
@@ -188,19 +159,19 @@
     "description": "No son endorsements genéricos. Son resultados de negocios reales que apostaron por tecnología como ventaja competitiva — y ganaron.",
     "items": {
       "daniela": {
-        "quote": "\u201cConvirtieron una idea difusa en una plataforma funcional, profesional y que realmente conecta con mi audiencia. El proceso fue transparente, el resultado habló solo, y el impacto en mi presencia digital fue inmediato.\u201d",
+        "quote": "“Convirtieron una idea difusa en una plataforma funcional, profesional y que realmente conecta con mi audiencia. El proceso fue transparente, el resultado habló solo, y el impacto en mi presencia digital fue inmediato.”",
         "name": "Daniela Bussalleu",
         "designation": "Bióloga, Comunicadora y Emprendedora Digital",
         "src": "/assets/daniela-bussalleu.webp"
       },
       "milagros": {
-        "quote": "\u201cDesde el lanzamiento del e-commerce, recibimos pedidos internacionales que antes no podíamos gestionar. La plataforma es rápida, el checkout no genera fricción y la base de datos nos permite tomar decisiones en tiempo real.\u201d",
+        "quote": "“Desde el lanzamiento del e-commerce, recibimos pedidos internacionales que antes no podíamos gestionar. La plataforma es rápida, el checkout no genera fricción y la base de datos nos permite tomar decisiones en tiempo real.”",
         "name": "Milagros Salcedo",
         "designation": "CEO, Salcedo Jewels S.A.C.",
         "src": "/assets/milagros-salcedo.webp"
       },
       "martina": {
-        "quote": "\u201cNecesitábamos más que un sitio web — necesitábamos un canal de ventas digital que trabajara por nosotros. Lo que entregaron genera contactos calificados de forma constante, sin que tengamos que perseguir a nadie.\u201d",
+        "quote": "“Necesitábamos más que un sitio web — necesitábamos un canal de ventas digital que trabajara por nosotros. Lo que entregaron genera contactos calificados de forma constante, sin que tengamos que perseguir a nadie.”",
         "name": "Miguel del Solar",
         "designation": "CEO, Papelera Latinoamericana S.A.C.",
         "src": "/assets/miguel-del-solar.webp"
@@ -221,21 +192,86 @@
       "github": "GitHub de {name}"
     }
   },
+  "socialProof": {
+    "intro": "Resultados reales en operaciones que ya confiaron en nosotros:",
+    "items": [
+      {
+        "value": "−65%",
+        "label": "paradas no planificadas en planta"
+      },
+      {
+        "value": "+40%",
+        "label": "leads calificados en los primeros 60 días"
+      },
+      {
+        "value": "−60%",
+        "label": "consultas manuales al equipo de ventas"
+      },
+      {
+        "value": "100%",
+        "label": "del código es tuyo, sin lock-in"
+      }
+    ]
+  },
+  "homeFaq": {
+    "headingNormal": "Preguntas ",
+    "headingAccent": "frecuentes",
+    "description": "Lo que las empresas nos preguntan antes de empezar. Si tienes otra duda, escríbenos y te respondemos en menos de 12 horas.",
+    "ctaLabel": "Hablar con un experto →",
+    "items": [
+      {
+        "q": "¿Cuánto tarda un proyecto con Elaris?",
+        "a": "Depende del alcance. Un módulo funcional puede estar listo en 4 a 6 semanas; una plataforma completa, entre 3 y 6 meses. Trabajamos en sprints para que veas avances reales desde el primer mes."
+      },
+      {
+        "q": "¿De quién es el código y la propiedad del sistema?",
+        "a": "Tuyo, al 100%. Al cerrar el proyecto recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando."
+      },
+      {
+        "q": "¿Se integran con mis sistemas actuales (ERP, SAP, CRM)?",
+        "a": "Sí. Diseñamos integraciones a medida y, para sistemas heredados sin API, construimos capas de adaptación que exponen los datos de forma segura sin modificar el sistema original."
+      },
+      {
+        "q": "¿Necesito tenerlo todo definido para empezar?",
+        "a": "No. Empezamos con el diagnóstico operativo, definimos juntos los criterios de aceptación y avanzamos en sprints iterativos. Validas cada entrega antes de que llegue a producción."
+      },
+      {
+        "q": "¿Ofrecen soporte y mantenimiento después del lanzamiento?",
+        "a": "Sí. Trabajamos con SLAs definidos, planes de mantenimiento y transferencia de conocimiento a tu equipo, para que puedas operar el sistema con o sin nosotros."
+      },
+      {
+        "q": "¿Cómo empiezo y cuánto cuesta el diagnóstico?",
+        "a": "El proceso inicia con un diagnóstico técnico y operativo de dos semanas. Evaluamos tus sistemas actuales, identificamos cuellos de botella y te entregamos un informe con la ruta de desarrollo y los costos de infraestructura antes de construir."
+      }
+    ]
+  },
+  "leadMagnet": {
+    "badge": "Recurso descargable",
+    "title": "Descubre qué procesos de tu empresa puedes automatizar hoy",
+    "description": "Te enviamos nuestro checklist «30 procesos que tu empresa puede automatizar» para que identifiques por dónde empezar antes de contratar a nadie.",
+    "bullets": [
+      "Identifica cuellos de botella que te cuestan tiempo y dinero",
+      "Prioriza qué automatizar primero según impacto y esfuerzo",
+      "Ubica tu caso antes de pasar al diagnóstico operativo"
+    ],
+    "cta": "Hablar con un consultor",
+    "note": "Te lo enviamos por WhatsApp. Sin spam."
+  },
   "contact": {
     "titleNormal": "Hablemos sobre ",
     "titleAccent": "tu próximo proyecto",
-    "description": "¿Quieres vender más online, automatizar una operación o modernizar tu stack? Describe tu situación y te devolvemos un diagnóstico concreto en menos de 12 horas — sin compromiso.",
+    "description": "¿Quieres vender más online, automatizar una operación o modernizar tu stack? Describe tu situación y te respondemos en menos de 12 horas con los siguientes pasos concretos.",
     "form": {
       "fullNameLabel": "Nombre Completo *",
       "emailLabel": "Email *",
-      "reasonLabel": "¿Qué quieres lograr? *",
+      "reasonLabel": "¿Qué quieres lograr? (opcional)",
       "messageLabel": "Cuéntanos tu situación *",
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
-      "reasonPlaceholder": "Ej: Lanzar e-commerce, automatizar facturación, integrar ERP...",
-      "messagePlaceholder": "¿Qué problema quieres resolver? ¿Qué resultados esperas? ¿Qué sistemas tienes hoy?",
-      "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa y discutir cómo podemos trabajar juntos.",
-      "responseTime": "Diagnóstico inicial en menos de 12 horas. Sin compromiso, sin spam."
+      "reasonPlaceholder": "Ej: inventario en Excel, pedidos por WhatsApp, sistemas que no se hablan entre sí...",
+      "messagePlaceholder": "¿Qué parte de tu operación te está costando más tiempo hoy? ¿Cómo la llevan ahora — hojas de cálculo, WhatsApp, un sistema antiguo?",
+      "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\n🎯 Objetivo: {reason}\n\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa.",
+      "responseTime": "Te respondemos en menos de 12 horas. Sin spam."
     },
     "info": {
       "title": "Información de Contacto",
@@ -447,5 +483,38 @@
         }
       ]
     }
+  },
+  "team": {
+    "badge": "Nuestro Equipo",
+    "headingNormal": "Las personas detrás de ",
+    "headingAccent": "Elaris",
+    "description": "Comprometidos con resultados concretos para tu negocio.",
+    "linkedinLabel": "Ver LinkedIn",
+    "members": [
+      {
+        "name": "Carlos Alejandro Colfer Mendoza",
+        "role": "Gerente General",
+        "description": "Lidera la arquitectura de cada proyecto y asegura que la solución se entregue bien construida y en los plazos pactados.",
+        "photo": "/assets/team/CarlosColfer.jpg",
+        "initials": "CA",
+        "linkedin": "https://www.linkedin.com/in/carlos-alejandro-colfer-mendoza-a59a08355/"
+      },
+      {
+        "name": "Sergio Herrera",
+        "role": "Gerente Administrativo",
+        "description": "Gestiona la relación con cada cliente de inicio a fin: entiende el negocio, alinea expectativas y mantiene el proyecto en movimiento.",
+        "photo": "/assets/team/SergioHerrera.jpg",
+        "initials": "SH",
+        "linkedin": "https://www.linkedin.com/in/sergio-herrera-jave/"
+      },
+      {
+        "name": "Fabrizio Bussalleu",
+        "role": "Gerente de Tecnología",
+        "description": "Transforma los requerimientos del negocio en productos digitales funcionales, con obsesión por los detalles y la experiencia del usuario.",
+        "photo": "/assets/team/FabrizioBussalleu.jpg",
+        "initials": "FB",
+        "linkedin": "https://www.linkedin.com/in/fabrizio-bussalleu/"
+      }
+    ]
   }
 }

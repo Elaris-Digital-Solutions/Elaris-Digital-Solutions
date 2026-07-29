@@ -1,2 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "META_PIXEL_ID"
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

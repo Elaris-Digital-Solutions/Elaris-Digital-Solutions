@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Use PostCSS imports so plain CSS linters won't report unknown @tailwind at-rules;
+   Tailwind/PostCSS will still recognize and include these when building. */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Tech & Innovation theme */
+    --background: 0 0% 100%;
+    --foreground: 220 25% 6%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 6%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 6%;
+
+    /* Primary - azul de marca (#0855FD) */
+    --primary: 222 98% 51%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - cian de marca (#00C0FD) */
+    --secondary: 194 100% 49%;
+    --secondary-foreground: 220 25% 6%;
+
+    /* Muted tones */
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent - violeta de marca (#752CFC). Antes era un verde lima que no
+       existe en ninguna parte de la identidad nueva. */
+    --accent: 261 96% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 222 98% 51%;
+
+    --radius: 0.75rem;
+
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(135deg, hsl(194 100% 49%) 0%, hsl(222 98% 51%) 45%, hsl(261 96% 58%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(222 98% 51%) 0%, hsl(261 96% 58%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+
+    /* Glow effects */
+    --glow-primary: 0 0 40px hsl(221 83% 53% / 0.4);
+    --glow-secondary: 0 0 40px hsl(189 94% 43% / 0.4);
+    --glow-accent: 0 0 40px hsl(158 64% 52% / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
+
+    /* ── Marca (rebranding 2026) ──
+       Valores oficiales del manual de marca (docs/manual-de-marca.md).
+       El isotipo recorre cian → azul → violeta; esa rampa es la identidad. */
+    --brand-cyan: #00C0FD;
+    --brand-blue: #0855FD;
+    --brand-violet: #752CFC;
+    /* Cuarto color de la paleta: extremo claro del violeta. Sobre blanco rinde
+       2.9:1, así que es decorativo — nunca para texto sobre fondo claro. */
+    --brand-magenta: #C659FB;
+    --brand-blue-dark: #0644CA;
+    /* Superficie oscura (footer, secciones oscuras). Matiz 245: se corre
+       hacia el violeta a propósito. El navy anterior (#071540) estaba a 3
+       grados del azul del logo y con 80% de saturación, así que el isotipo
+       se leía como "el mismo color, más claro" y se aplanaba. */
+    --brand-surface-dark: #0A0821;
+    /* Tinte del azul de marca al 50% sobre blanco: para texto sobre navy. */
+    --brand-blue-tint: #83A8FE;
+
+    /* Rampa completa. Solo sobre fondos oscuros: el cian rinde 2.1:1 sobre
+       blanco y sería ilegible. */
+    --brand-gradient: linear-gradient(90deg, var(--brand-cyan) 0%, var(--brand-blue) 45%, var(--brand-violet) 100%);
+    /* Variante para texto sobre fondos claros: arranca en el azul, no en el
+       cian. Ambos extremos superan 5.7:1 sobre blanco. */
+    --brand-gradient-ink: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-violet) 100%);
+  }
+
+  .theme {
+    --animate-marquee: marquee var(--duration, 30s) linear infinite;
+  }
+
+  .dark {
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    position: relative; /* Framer Motion: positioned scroll container prevents "non-static position" warning */
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 100vw;
+    scroll-behavior: smooth;
+  }
+
+  /* ── Lock visual design to 1536px design width.
+     On any desktop screen, the page scales proportionally
+     so it looks identical to the 1536×864 reference screen. ── */
+  @media screen and (min-width: 1024px) {
+    html {
+      zoom: min(1, calc(100vw / 1536));
+    }
+  }
+
+  body {
+    position: relative; /* Required by Framer Motion useScroll to correctly calculate scroll offsets */
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 100vw;
+    min-height: 100vh;
+  }
+
+  /* Prevent horizontal scroll on all elements */
+  * {
+    box-sizing: border-box;
+  }
+
+  #root {
+    /* overflow-x: clip instead of hidden: clip clips without creating a scroll container,
+       avoiding the CSS overflow spec side-effect where hidden+visible forces overflow-y to auto,
+       which would make #root an unintentional scroll container with position: static. */
+    overflow-x: clip;
+    overflow-y: visible;
+    max-width: 100vw;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* Alternating section colors */
+  .site-sections>section {
+    background-color: #FFFFFF;
+    /* white */
+  }
+
+  .site-sections>section:nth-of-type(2n) {
+    background-color: #F0F4FF;
+    /* very light blue (visible) */
+  }
+
+  /* Opt-out: sections that need a dark background (e.g. Contact) */
+  .site-sections>section.site-dark-section {
+    background-color: var(--brand-surface-dark);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+
+  /* ══ Utilidades de marca ══
+     La rampa cian→azul→violeta del isotipo, aplicada a texto, superficies,
+     iconos y bordes. Van en `utilities` (no en `base`) para que ganen a las
+     clases de color de Tailwind que puedan convivir en el mismo elemento. */
+
+  /* — Texto — */
+  .text-brand-gradient,
+  .text-brand-gradient-on-dark {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* Sin esto una palabra corta tomaría solo una tajada de la rampa
+       y perdería el violeta. */
+    background-size: 100% 100%;
+  }
+
+  .text-brand-gradient {
+    background-image: var(--brand-gradient-ink);
+  }
+
+  .text-brand-gradient-on-dark {
+    background-image: var(--brand-gradient);
+  }
+
+  /* Sin soporte de background-clip el texto quedaría invisible. */
+  @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+
+    .text-brand-gradient,
+    .text-brand-gradient-on-dark {
+      color: var(--brand-blue);
+      -webkit-text-fill-color: var(--brand-blue);
+    }
+  }
+
+  /* — Superficies (botones, badges, barras) —
+     Usa la rampa `-ink`: el blanco sobre el cian daría 2.1:1, así que el
+     extremo claro queda fuera de cualquier superficie que lleve texto. */
+  .bg-brand-gradient {
+    background-image: var(--brand-gradient-ink);
+    background-color: var(--brand-blue);
+    /* Reserva para que el hover pueda oscurecer sin recalcular el degradado. */
+    background-size: 100% 100%;
+  }
+
+  .bg-brand-gradient:hover {
+    background-image: linear-gradient(90deg, var(--brand-blue-dark) 0%, #5D1FD4 100%);
+  }
+
+  /* Variante translúcida, para los CTA con backdrop-blur que se apoyan sobre
+     el fondo neuronal: deja pasar algo del remolino igual que hacía el
+     bg-[#0855FD]/85 original, pero con la rampa de marca. */
+  .bg-brand-gradient-glass {
+    background-image: linear-gradient(90deg, rgb(8 82 253 / 0.88) 0%, rgb(117 44 251 / 0.88) 100%);
+    background-color: transparent;
+  }
+
+  .bg-brand-gradient-glass:hover {
+    background-image: linear-gradient(90deg, rgb(8 82 253 / 0.97) 0%, rgb(117 44 251 / 0.97) 100%);
+  }
+
+  /* Variante decorativa: incluye el cian. Solo para superficies sin texto
+     encima o sobre fondo oscuro. */
+  .bg-brand-gradient-full {
+    background-image: var(--brand-gradient);
+    background-color: var(--brand-blue);
+  }
+
+  /* — Iconos SVG —
+     `background-clip: text` no recorta trazos SVG, así que los iconos de
+     lucide (stroke="currentColor") se pintan referenciando el degradado
+     definido en el <svg> oculto del layout. */
+  .icon-brand-gradient {
+    /* Respaldo en `color` por si el navegador no resuelve la referencia. */
+    color: var(--brand-blue);
+    stroke: url(#brand-gradient);
+  }
+
+  .icon-brand-gradient[fill]:not([fill="none"]) {
+    fill: url(#brand-gradient);
+  }
+
+  /* Un icono dentro de un contenedor con texto en degradado hereda
+     `color: transparent` y su trazo `currentColor` desaparecería.
+     Se le pinta el mismo degradado — que es justo lo que se quiere para las
+     flechas de los CTA. */
+  .text-brand-gradient svg,
+  .text-brand-gradient-on-dark svg {
+    stroke: url(#brand-gradient);
+  }
+
+  .text-brand-gradient svg[fill]:not([fill="none"]),
+  .text-brand-gradient-on-dark svg[fill]:not([fill="none"]) {
+    fill: url(#brand-gradient);
+  }
+
+  /* — Bordes —
+     border-image no respeta border-radius; el doble background (padding-box
+     + border-box) sí, y funciona en círculos. */
+  .border-brand-gradient {
+    border-color: transparent;
+    background-image: linear-gradient(#fff, #fff), var(--brand-gradient-ink);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Sobre fondo oscuro el relleno interior debe ser el navy, no blanco. */
+  .border-brand-gradient-on-dark {
+    border-color: transparent;
+    background-image: linear-gradient(var(--brand-surface-dark), var(--brand-surface-dark)), var(--brand-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(189 94% 43% / 0.3);
+    }
+
+    to {
+      box-shadow: 0 0 40px hsl(189 94% 43% / 0.6);
+    }
+  }
+}
+
+/* ---break---
+*/
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ── CircularTestimonials ── */
+.testimonial-container {
+  width: 100%;
+  max-width: 56rem;
+  padding: 2rem;
+}
+.testimonial-grid {
+  display: grid;
+  gap: 5rem;
+}
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 24rem;
+  perspective: 1000px;
+}
+.testimonial-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  will-change: transform, opacity;
+}
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-content .name {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+.testimonial-content .designation {
+  margin-bottom: 2rem;
+}
+.testimonial-content .quote {
+  line-height: 1.75;
+}
+.arrow-buttons {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 3rem;
+}
+.arrow-button {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: var(--arrow-bg);
+  -webkit-tap-highlight-color: transparent;
+}
+.arrow-button:active {
+  transform: scale(0.95);
+  background-color: #f1f5f9;
+}
+@media (hover: hover) {
+  .arrow-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.15);
+    background-color: var(--arrow-hover-bg);
+  }
+}
+@media (min-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .arrow-buttons {
+    padding-top: 0;
+  }
+}

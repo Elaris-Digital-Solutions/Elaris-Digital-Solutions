@@ -6,7 +6,7 @@
 
 **Elaris Digital Solutions** es un estudio de ingeniería de software especializado en diseñar, desarrollar y escalar plataformas digitales.
 **Misión Principal:** Tu negocio depende de procesos manuales lentos? En Elaris Digital Solutions eliminamos el caos operativo con tecnología fácil de usar.
-**Enfoque:** Generar ingresos, automatizar operaciones y reducir costos para empresas en LATAM, EE. UU. y Europa.
+**Enfoque:** Generar ingresos, automatizar operaciones y reducir costos para empresas en Perú y LATAM.
 **Sitio Web:** https://elarisdigitalsolutions.com
 
 ## 2. Servicios Principales
@@ -41,11 +41,9 @@ Elaris trabaja con stacks confiables y herramientas emergentes de IA:
 
 ## 4. Proyectos Destacados (Portafolio)
 
-- **Nuestro Barrio, Nuestra Historia:** Plataforma social que conecta comunidades y preserva la historia local, proporcionando paneles de datos para organizaciones cívicas.
-- **Kar & Ma:** Relanzamiento digital completo con un nuevo sistema visual y landing pages optimizadas para SEO, logrando un aumento del 40% en leads calificados en los primeros 60 días.
-- **Sistema de Inventario UPC:** Sistema digital centralizado para la reserva de dispositivos en la universidad UPC, reemplazando la coordinación manual por un flujo simplificado.
-- **Papelera Latinoamericana S.A.C.:** Sitio institucional con catálogo multilingüe y automatización de WhatsApp, reduciendo las consultas manuales al equipo de ventas en un 60%.
-- **Salcedo Jewels:** E-commerce de lujo con catálogo interactivo y proceso de pago seguro, abriendo canales de ventas internacionales desde el primer día.
+- **Salcedo Jewels:** E-commerce de joyería integrado con su sistema de inventario en tiempo real. Permite vender en línea y centralizar stock y métricas en un solo lugar.
+- **Sistema de Inventario UPC:** Sistema interno de préstamo, reserva y control de dispositivos electrónicos para alumnos y laboratorios académicos.
+- **CCC Impresiones:** Sistema de gestión operativa e inventario para soluciones gráficas industriales, migrando el control de hojas de cálculo dispersas a una plataforma integrada.
 
 ## 5. Enlaces Oficiales y Legales
 

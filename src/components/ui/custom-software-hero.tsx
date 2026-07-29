@@ -45,7 +45,7 @@ const floatingCards = [
     position: "bottom-[-1.5rem] right-[-1.5rem]",
   },
   {
-    icon: <Link2 className="w-4 h-4 text-[#2F64FF]" />,
+    icon: <Link2 className="w-4 h-4 icon-brand-gradient" />,
     bg: "bg-blue-50",
     title: "Integraciones",
     sub: "ERP · CRM · APIs",
@@ -55,7 +55,7 @@ const floatingCards = [
 
 const kpis = [
   { label: "Eficiencia",     value: "+47%", color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
-  { label: "Procesos auto.", value: "128",  color: "text-[#2F64FF]",   bg: "bg-blue-50 border-blue-100" },
+  { label: "Procesos auto.", value: "128",  color: "icon-brand-gradient",   bg: "bg-blue-50 border-blue-100" },
   { label: "Ahorro/sem.",    value: "32h",  color: "text-violet-600",  bg: "bg-violet-50 border-violet-100" },
 ];
 
@@ -98,7 +98,7 @@ const DashboardMock = memo(() => (
         {barHeights.map((h, i) => (
           <div
             key={i}
-            className="flex-1 rounded-sm bg-gradient-to-t from-[#2F64FF] to-[#7EABFF]"
+            className="flex-1 rounded-sm bg-gradient-to-t from-[#0855FD] to-[#7EABFF]"
             style={{ height: `${h}%`, opacity: i < 7 ? 0.35 + i * 0.08 : 1 }}
           />
         ))}
@@ -112,7 +112,7 @@ const DashboardMock = memo(() => (
               <div className="text-xs font-medium text-[#071540] truncate">{row.name}</div>
               <div className="w-full bg-slate-200 rounded-full h-1.5 mt-1.5">
                 <div
-                  className="bg-gradient-to-r from-[#2F64FF] to-[#6B9FFF] h-1.5 rounded-full"
+                  className="bg-gradient-to-r from-[#0855FD] to-[#6B9FFF] h-1.5 rounded-full"
                   style={{ width: `${row.pct}%` }}
                 />
               </div>
@@ -125,15 +125,15 @@ const DashboardMock = memo(() => (
       </div>
 
       {/* Trend line mini-card */}
-      <div className="flex items-center gap-3 p-3 bg-[#F0F4FF] rounded-xl border border-[#2F64FF]/10">
-        <div className="w-8 h-8 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
-          <TrendingUp className="w-4 h-4 text-[#2F64FF]" />
+      <div className="flex items-center gap-3 p-3 bg-[#F0F4FF] rounded-xl border border-[#0855FD]/10">
+        <div className="w-8 h-8 rounded-lg bg-[#0855FD]/10 flex items-center justify-center flex-shrink-0">
+          <TrendingUp className="w-4 h-4 icon-brand-gradient" />
         </div>
         <div className="flex-1">
           <div className="text-xs font-semibold text-[#071540]">Tendencia de operaciones</div>
           <div className="text-[10px] text-slate-500">↑ 18% respecto al mes anterior</div>
         </div>
-        <BarChart3 className="w-4 h-4 text-[#2F64FF]/50" />
+        <BarChart3 className="w-4 h-4 text-[#0855FD]/50" />
       </div>
     </div>
   </div>
@@ -151,8 +151,8 @@ export default function CustomSoftwareHero() {
 
       {/* Background decorations — transform-gpu promotes to own compositor layer */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
-        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl transform-gpu" />
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#0855FD]/[0.04] to-transparent" />
+        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#0855FD]/[0.06] rounded-full blur-3xl transform-gpu" />
         <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-violet-400/[0.04] rounded-full blur-2xl transform-gpu" />
       </div>
 
@@ -164,14 +164,14 @@ export default function CustomSoftwareHero() {
             {...fadeUp}
             className="lg:col-start-1 lg:row-start-1 lg:self-end"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-xs font-bold tracking-[0.12em] uppercase mb-4 xl:mb-5 2xl:mb-8 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/30 bg-[#0855FD]/[0.07] text-brand-gradient text-xs font-bold tracking-[0.12em] uppercase mb-4 xl:mb-5 2xl:mb-8 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
               Desarrollo de Software a Medida
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12]">
               Desarrollamos software
-              <span className="font-semibold text-[#2F64FF]"> a medida</span>
+              <span className="font-semibold text-brand-gradient"> a medida</span>
               <span className="block mt-1">que impulsa tu crecimiento</span>
             </h1>
           </motion.div>
@@ -186,7 +186,7 @@ export default function CustomSoftwareHero() {
 
 
             {/* Ambient glow — transform-gpu for compositor layer */}
-            <div className="absolute inset-0 bg-[#2F64FF]/[0.07] rounded-3xl blur-3xl -z-10 scale-95 transform-gpu" />
+            <div className="absolute inset-0 bg-[#0855FD]/[0.07] rounded-3xl blur-3xl -z-10 scale-95 transform-gpu" />
           </motion.div>
 
           {/* ── [3] Description + CTA ── */}
@@ -202,7 +202,7 @@ export default function CustomSoftwareHero() {
 
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#2F64FF] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
+              className="inline-flex items-center justify-center gap-2.5 bg-brand-gradient text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
             >
               Agendar consultoría
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
