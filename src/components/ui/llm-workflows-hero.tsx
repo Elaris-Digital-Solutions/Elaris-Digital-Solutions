@@ -31,7 +31,7 @@ const cardVariant = (i: number) => ({
 // ─── Static data ──────────────────────────────────────────────────────────────
 const floatingCards = [
   {
-    icon: <Bot className="w-4 h-4 text-[#2F64FF]" />,
+    icon: <Bot className="w-4 h-4 icon-brand-gradient" />,
     bg: "bg-blue-50",
     title: "Modelos activos",
     sub: "GPT-4o · Claude 3.5",
@@ -45,7 +45,7 @@ const floatingCards = [
     position: "bottom-[-1.5rem] right-[-1.5rem]",
   },
   {
-    icon: <FileText className="w-4 h-4 text-[#2F64FF]" />,
+    icon: <FileText className="w-4 h-4 icon-brand-gradient" />,
     bg: "bg-blue-50",
     title: "Documentos",
     sub: "97.2% precisión",
@@ -54,8 +54,8 @@ const floatingCards = [
 ];
 
 const kpis = [
-  { label: "Req/día",   value: "2.4K", color: "text-[#2F64FF]", bg: "bg-blue-50 border-blue-100" },
-  { label: "Precisión", value: "97%",  color: "text-[#2F64FF]",  bg: "bg-blue-50 border-blue-100" },
+  { label: "Req/día",   value: "2.4K", color: "icon-brand-gradient", bg: "bg-blue-50 border-blue-100" },
+  { label: "Precisión", value: "97%",  color: "icon-brand-gradient",  bg: "bg-blue-50 border-blue-100" },
   { label: "Ahorradas", value: "48h",  color: "text-emerald-600", bg: "bg-emerald-50 border-emerald-100" },
 ];
 
@@ -114,7 +114,7 @@ const LLMPipelineMock = memo(() => (
               </div>
               <div className="w-full bg-slate-200 rounded-full h-1.5">
                 <div
-                  className="bg-[#2F64FF] h-1.5 rounded-full"
+                  className="bg-brand-gradient h-1.5 rounded-full"
                   style={{ width: `${row.pct}%` }}
                 />
               </div>
@@ -127,18 +127,18 @@ const LLMPipelineMock = memo(() => (
       </div>
 
       {/* Token usage */}
-      <div className="flex items-center gap-3 p-3 bg-[#F0F4FF] rounded-xl border border-[#2F64FF]/10">
-        <div className="w-8 h-8 rounded-lg bg-[#2F64FF]/10 flex items-center justify-center flex-shrink-0">
-          <Activity className="w-4 h-4 text-[#2F64FF]" />
+      <div className="flex items-center gap-3 p-3 bg-[#F0F4FF] rounded-xl border border-[#0855FD]/10">
+        <div className="w-8 h-8 rounded-lg bg-[#0855FD]/10 flex items-center justify-center flex-shrink-0">
+          <Activity className="w-4 h-4 icon-brand-gradient" />
         </div>
         <div className="flex-1">
           <div className="flex justify-between text-[10px] mb-1.5">
             <span className="font-semibold text-[#071540]">Tokens este mes</span>
-            <span className="text-[#2F64FF] font-bold">3.2M / 10M</span>
+            <span className="text-brand-gradient font-bold">3.2M / 10M</span>
           </div>
           <div className="w-full bg-[#E0E8FF] rounded-full h-1.5">
             <div
-              className="bg-[#2F64FF] h-1.5 rounded-full"
+              className="bg-brand-gradient h-1.5 rounded-full"
               style={{ width: "32%" }}
             />
           </div>
@@ -160,9 +160,9 @@ export default function LLMWorkflowsHero() {
 
       {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none select-none" aria-hidden>
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
-        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl transform-gpu" />
-        <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#2F64FF]/[0.04] rounded-full blur-2xl transform-gpu" />
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#0855FD]/[0.04] to-transparent" />
+        <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#0855FD]/[0.06] rounded-full blur-3xl transform-gpu" />
+        <div className="absolute top-10 right-10 w-[300px] h-[300px] bg-[#0855FD]/[0.04] rounded-full blur-2xl transform-gpu" />
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl py-16 relative z-10">
@@ -170,14 +170,14 @@ export default function LLMWorkflowsHero() {
 
           {/* ── [1] Badge + Title ── */}
           <motion.div {...fadeUp} className="lg:col-start-1 lg:row-start-1 lg:self-end">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/30 bg-[#2F64FF]/[0.07] text-[#2F64FF] text-xs font-bold tracking-[0.12em] uppercase mb-8 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/30 bg-[#0855FD]/[0.07] text-brand-gradient text-xs font-bold tracking-[0.12em] uppercase mb-8 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
               LLMs en Flujos de Trabajo
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-light tracking-tight text-[#071540] leading-[1.12]">
               Integramos modelos de
-              <span className="font-semibold text-[#2F64FF]"> lenguaje</span>
+              <span className="font-semibold text-brand-gradient"> lenguaje</span>
               <span className="block mt-1">en tu operación real</span>
             </h1>
           </motion.div>
@@ -205,7 +205,7 @@ export default function LLMWorkflowsHero() {
               </motion.div>
             ))}
 
-            <div className="absolute inset-0 bg-[#2F64FF]/[0.07] rounded-3xl blur-3xl -z-10 scale-95 transform-gpu" />
+            <div className="absolute inset-0 bg-[#0855FD]/[0.07] rounded-3xl blur-3xl -z-10 scale-95 transform-gpu" />
           </motion.div>
 
           {/* ── [3] Description + CTA ── */}
@@ -216,7 +216,7 @@ export default function LLMWorkflowsHero() {
 
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#2F64FF] text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#2547CC] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
+              className="inline-flex items-center justify-center gap-2.5 bg-brand-gradient text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#0644CA] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
             >
               Agendar consultoría
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

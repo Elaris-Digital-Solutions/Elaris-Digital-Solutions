@@ -22,34 +22,35 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 6%;
 
-    /* Primary - Deep Blue (Technology/Trust) */
-    --primary: 221 83% 53%;
+    /* Primary - azul de marca (#0855FD) */
+    --primary: 222 98% 51%;
     --primary-foreground: 210 40% 98%;
 
-    /* Secondary - Vibrant Cyan (AI/Innovation) */
-    --secondary: 189 94% 43%;
+    /* Secondary - cian de marca (#00C0FD) */
+    --secondary: 194 100% 49%;
     --secondary-foreground: 220 25% 6%;
 
     /* Muted tones */
     --muted: 220 15% 20%;
     --muted-foreground: 215 20% 65%;
 
-    /* Accent - Lime Green (Energy/Growth) */
-    --accent: 158 64% 52%;
-    --accent-foreground: 220 25% 6%;
+    /* Accent - violeta de marca (#752CFC). Antes era un verde lima que no
+       existe en ninguna parte de la identidad nueva. */
+    --accent: 261 96% 58%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 189 94% 43%;
+    --ring: 222 98% 51%;
 
     --radius: 0.75rem;
 
     /* Gradient definitions */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(189 94% 43%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(189 94% 43%) 0%, hsl(158 64% 52%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(194 100% 49%) 0%, hsl(222 98% 51%) 45%, hsl(261 96% 58%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(222 98% 51%) 0%, hsl(261 96% 58%) 100%);
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
 
     /* Glow effects */
@@ -61,6 +62,31 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --sky-400: #38bdf8;
     --sky-500: #0ea5e9;
+
+    /* ── Marca (rebranding 2026) ──
+       Valores oficiales del manual de marca (docs/manual-de-marca.md).
+       El isotipo recorre cian → azul → violeta; esa rampa es la identidad. */
+    --brand-cyan: #00C0FD;
+    --brand-blue: #0855FD;
+    --brand-violet: #752CFC;
+    /* Cuarto color de la paleta: extremo claro del violeta. Sobre blanco rinde
+       2.9:1, así que es decorativo — nunca para texto sobre fondo claro. */
+    --brand-magenta: #C659FB;
+    --brand-blue-dark: #0644CA;
+    /* Superficie oscura (footer, secciones oscuras). Matiz 245: se corre
+       hacia el violeta a propósito. El navy anterior (#071540) estaba a 3
+       grados del azul del logo y con 80% de saturación, así que el isotipo
+       se leía como "el mismo color, más claro" y se aplanaba. */
+    --brand-surface-dark: #0A0821;
+    /* Tinte del azul de marca al 50% sobre blanco: para texto sobre navy. */
+    --brand-blue-tint: #83A8FE;
+
+    /* Rampa completa. Solo sobre fondos oscuros: el cian rinde 2.1:1 sobre
+       blanco y sería ilegible. */
+    --brand-gradient: linear-gradient(90deg, var(--brand-cyan) 0%, var(--brand-blue) 45%, var(--brand-violet) 100%);
+    /* Variante para texto sobre fondos claros: arranca en el azul, no en el
+       cian. Ambos extremos superan 5.7:1 sobre blanco. */
+    --brand-gradient-ink: linear-gradient(90deg, var(--brand-blue) 0%, var(--brand-violet) 100%);
   }
 
   .theme {
@@ -145,12 +171,127 @@ All colors MUST be HSL.
 
   /* Opt-out: sections that need a dark background (e.g. Contact) */
   .site-sections>section.site-dark-section {
-    background-color: #030E2C;
+    background-color: var(--brand-surface-dark);
     color: #ffffff;
   }
 }
 
 @layer utilities {
+
+  /* ══ Utilidades de marca ══
+     La rampa cian→azul→violeta del isotipo, aplicada a texto, superficies,
+     iconos y bordes. Van en `utilities` (no en `base`) para que ganen a las
+     clases de color de Tailwind que puedan convivir en el mismo elemento. */
+
+  /* — Texto — */
+  .text-brand-gradient,
+  .text-brand-gradient-on-dark {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* Sin esto una palabra corta tomaría solo una tajada de la rampa
+       y perdería el violeta. */
+    background-size: 100% 100%;
+  }
+
+  .text-brand-gradient {
+    background-image: var(--brand-gradient-ink);
+  }
+
+  .text-brand-gradient-on-dark {
+    background-image: var(--brand-gradient);
+  }
+
+  /* Sin soporte de background-clip el texto quedaría invisible. */
+  @supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+
+    .text-brand-gradient,
+    .text-brand-gradient-on-dark {
+      color: var(--brand-blue);
+      -webkit-text-fill-color: var(--brand-blue);
+    }
+  }
+
+  /* — Superficies (botones, badges, barras) —
+     Usa la rampa `-ink`: el blanco sobre el cian daría 2.1:1, así que el
+     extremo claro queda fuera de cualquier superficie que lleve texto. */
+  .bg-brand-gradient {
+    background-image: var(--brand-gradient-ink);
+    background-color: var(--brand-blue);
+    /* Reserva para que el hover pueda oscurecer sin recalcular el degradado. */
+    background-size: 100% 100%;
+  }
+
+  .bg-brand-gradient:hover {
+    background-image: linear-gradient(90deg, var(--brand-blue-dark) 0%, #5D1FD4 100%);
+  }
+
+  /* Variante translúcida, para los CTA con backdrop-blur que se apoyan sobre
+     el fondo neuronal: deja pasar algo del remolino igual que hacía el
+     bg-[#0855FD]/85 original, pero con la rampa de marca. */
+  .bg-brand-gradient-glass {
+    background-image: linear-gradient(90deg, rgb(8 82 253 / 0.88) 0%, rgb(117 44 251 / 0.88) 100%);
+    background-color: transparent;
+  }
+
+  .bg-brand-gradient-glass:hover {
+    background-image: linear-gradient(90deg, rgb(8 82 253 / 0.97) 0%, rgb(117 44 251 / 0.97) 100%);
+  }
+
+  /* Variante decorativa: incluye el cian. Solo para superficies sin texto
+     encima o sobre fondo oscuro. */
+  .bg-brand-gradient-full {
+    background-image: var(--brand-gradient);
+    background-color: var(--brand-blue);
+  }
+
+  /* — Iconos SVG —
+     `background-clip: text` no recorta trazos SVG, así que los iconos de
+     lucide (stroke="currentColor") se pintan referenciando el degradado
+     definido en el <svg> oculto del layout. */
+  .icon-brand-gradient {
+    /* Respaldo en `color` por si el navegador no resuelve la referencia. */
+    color: var(--brand-blue);
+    stroke: url(#brand-gradient);
+  }
+
+  .icon-brand-gradient[fill]:not([fill="none"]) {
+    fill: url(#brand-gradient);
+  }
+
+  /* Un icono dentro de un contenedor con texto en degradado hereda
+     `color: transparent` y su trazo `currentColor` desaparecería.
+     Se le pinta el mismo degradado — que es justo lo que se quiere para las
+     flechas de los CTA. */
+  .text-brand-gradient svg,
+  .text-brand-gradient-on-dark svg {
+    stroke: url(#brand-gradient);
+  }
+
+  .text-brand-gradient svg[fill]:not([fill="none"]),
+  .text-brand-gradient-on-dark svg[fill]:not([fill="none"]) {
+    fill: url(#brand-gradient);
+  }
+
+  /* — Bordes —
+     border-image no respeta border-radius; el doble background (padding-box
+     + border-box) sí, y funciona en círculos. */
+  .border-brand-gradient {
+    border-color: transparent;
+    background-image: linear-gradient(#fff, #fff), var(--brand-gradient-ink);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Sobre fondo oscuro el relleno interior debe ser el navy, no blanco. */
+  .border-brand-gradient-on-dark {
+    border-color: transparent;
+    background-image: linear-gradient(var(--brand-surface-dark), var(--brand-surface-dark)), var(--brand-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
   .gradient-primary {
     background: var(--gradient-primary);
   }

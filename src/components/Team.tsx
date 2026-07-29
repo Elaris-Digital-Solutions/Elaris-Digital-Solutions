@@ -29,11 +29,11 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
     >
       {imgError ? (
-        <div className="mb-5 flex h-[88px] w-[88px] items-center justify-center rounded-full border-[3px] border-[#2F64FF] bg-[#2F64FF] text-2xl font-bold text-white">
+        <div className="mb-5 flex h-[88px] w-[88px] items-center justify-center rounded-full border-[3px] border-transparent bg-brand-gradient text-2xl font-bold text-white">
           {member.initials}
         </div>
       ) : (
-        <div className="mb-5 h-[88px] w-[88px] overflow-hidden rounded-full border-[3px] border-[#2F64FF]">
+        <div className="mb-5 h-[88px] w-[88px] overflow-hidden rounded-full border-[3px] border-brand-gradient">
           <Image
             src={member.photo}
             alt={member.name}
@@ -46,7 +46,7 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
       )}
 
       <h3 className="text-base font-bold text-slate-900">{member.name}</h3>
-      <p className="mt-1 text-sm font-medium text-[#2F64FF]">{member.role}</p>
+      <p className="mt-1 text-sm font-medium text-brand-gradient">{member.role}</p>
       <p className="mt-3 text-sm leading-relaxed text-slate-500">
         {member.description}
       </p>
@@ -55,7 +55,7 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
         href={member.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#2F64FF] px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+        className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
       >
         <Linkedin className="h-4 w-4" />
         {t("team.linkedinLabel")}
@@ -79,12 +79,12 @@ export default function Team() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="mb-3 inline-block rounded-full bg-[#eff4ff] px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#2F64FF]">
+          <span className="mb-3 inline-block rounded-full bg-[#eff4ff] px-3 py-1 text-xs font-bold uppercase tracking-widest text-brand-gradient">
             {t("team.badge")}
           </span>
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
             {t("team.headingNormal")}
-            <span style={{ color: "#2F64FF" }}>{t("team.headingAccent")}</span>
+            <span className="text-brand-gradient">{t("team.headingAccent")}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-lg text-slate-600">
             {t("team.description")}

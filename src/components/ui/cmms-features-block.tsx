@@ -33,15 +33,15 @@ const features = [
 
 // ─── CMMS interface mock ──────────────────────────────────────────────────────
 const CMMSInterfaceMock = () => (
-  <div className="bg-[#0b1836] rounded-3xl border border-[#2F64FF]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
+  <div className="bg-[#0b1836] rounded-3xl border border-[#0855FD]/20 shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden">
     {/* Chrome bar */}
-    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#2F64FF]/15 bg-[#071030]/60">
+    <div className="flex items-center gap-3 px-5 py-3.5 border-b border-[#0855FD]/15 bg-[#071030]/60">
       <div className="flex gap-1.5">
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/30" />
-        <div className="w-2.5 h-2.5 rounded-full bg-[#2F64FF]/80" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/30" />
+        <div className="w-2.5 h-2.5 rounded-full bg-[#0855FD]/80" />
       </div>
-      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#2F64FF]/10">
+      <div className="flex-1 mx-3 bg-[#0d1f50]/80 rounded-lg px-3 py-1 text-[11px] text-[#6B9FFF]/60 font-mono border border-[#0855FD]/10">
         cmms.empresa.com/activos
       </div>
     </div>
@@ -50,7 +50,7 @@ const CMMSInterfaceMock = () => (
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-[#2F64FF]/15 border border-[#2F64FF]/25 flex items-center justify-center">
+          <div className="w-7 h-7 rounded-lg bg-[#0855FD]/15 border border-[#0855FD]/25 flex items-center justify-center">
             <Cpu className="w-3.5 h-3.5 text-[#7EB5FF]" />
           </div>
           <div>
@@ -65,7 +65,7 @@ const CMMSInterfaceMock = () => (
       </div>
 
       {/* Asset table */}
-      <div className="rounded-xl overflow-hidden border border-[#2F64FF]/15">
+      <div className="rounded-xl overflow-hidden border border-[#0855FD]/15">
         <div className="grid grid-cols-3 text-[9px] text-slate-500 uppercase tracking-wider px-3 py-1.5 bg-[#071030]/60">
           <span>Activo</span><span>Estado</span><span>Próx. MP</span>
         </div>
@@ -75,7 +75,7 @@ const CMMSInterfaceMock = () => (
           { asset: "Transportador T2",   status: "Operativo",  next: "22 mar",  cls: "text-emerald-300" },
           { asset: "Motor Eléctrico M5", status: "En mantto.", next: "En curso", cls: "text-blue-300" },
         ].map((r) => (
-          <div key={r.asset} className="grid grid-cols-3 px-3 py-2 border-t border-[#2F64FF]/10 hover:bg-[#2F64FF]/5 transition-colors">
+          <div key={r.asset} className="grid grid-cols-3 px-3 py-2 border-t border-[#0855FD]/10 hover:bg-[#0855FD]/5 transition-colors">
             <span className="text-[10px] text-slate-300 truncate pr-2">{r.asset}</span>
             <span className={`text-[10px] font-semibold truncate ${r.cls}`}>{r.status}</span>
             <span className="text-[10px] text-slate-400">{r.next}</span>
@@ -90,7 +90,7 @@ const CMMSInterfaceMock = () => (
           { label: "MTBF",  value: "312h",  cls: "text-emerald-400" },
           { label: "Disp.", value: "96.8%", cls: "text-amber-400" },
         ].map((k) => (
-          <div key={k.label} className="bg-[#0d1f50]/80 border border-[#2F64FF]/10 rounded-xl p-3 text-center">
+          <div key={k.label} className="bg-[#0d1f50]/80 border border-[#0855FD]/10 rounded-xl p-3 text-center">
             <div className={`text-base font-bold ${k.cls}`}>{k.value}</div>
             <div className="text-[9px] text-slate-500 mt-0.5">{k.label}</div>
           </div>
@@ -143,8 +143,8 @@ export default function CMMSFeaturesBlock() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2F64FF]/40 bg-[#2F64FF]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2F64FF] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/40 bg-[#0855FD]/10 text-[#7EB5FF] text-xs font-bold tracking-[0.12em] uppercase mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
             Capacidades del CMMS
           </div>
 
@@ -175,7 +175,7 @@ export default function CMMSFeaturesBlock() {
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.55, delay: 0.15 + idx * 0.1 }}
                 >
-                  <div className="w-11 h-11 rounded-xl bg-[#2F64FF]/15 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2F64FF] group-hover:border-[#2F64FF] transition-all duration-300">
+                  <div className="w-11 h-11 rounded-xl bg-[#0855FD]/15 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-gradient group-hover:border-[#0855FD] transition-all duration-300">
                     <Icon className="w-5 h-5 text-[#7EB5FF] group-hover:text-white transition-colors duration-300" />
                   </div>
                   <div>
@@ -199,7 +199,7 @@ export default function CMMSFeaturesBlock() {
             transition={{ duration: 0.8, delay: 0.25 }}
           >
             <CMMSInterfaceMock />
-            <div className="absolute -inset-6 bg-[#2F64FF]/15 rounded-3xl blur-3xl -z-10 scale-90" />
+            <div className="absolute -inset-6 bg-[#0855FD]/15 rounded-3xl blur-3xl -z-10 scale-90" />
           </motion.div>
 
         </div>

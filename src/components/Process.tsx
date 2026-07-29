@@ -22,10 +22,10 @@ export default function Process() {
       <div className="space-y-6">
         <div className="flex items-start gap-4">
           <div className="p-2 rounded-lg bg-blue-500/10">
-            <Icon className="w-6 h-6 text-[#2F64FF]" />
+            <Icon className="w-6 h-6 icon-brand-gradient" />
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-2" style={{ color: '#2F64FF' }}>
+            <h4 className="text-lg font-semibold mb-2 text-brand-gradient">
               {t(`process.steps.${key}.heading`)}
             </h4>
             <p className="text-black text-sm md:text-base">
@@ -42,7 +42,7 @@ export default function Process() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center mb-8" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
-            <span className="text-slate-900">{t('process.headingNormal')}</span><span style={{ color: '#2F64FF' }}>{t('process.headingAccent')}</span>
+            <span className="text-slate-900">{t('process.headingNormal')}</span><span className="text-brand-gradient">{t('process.headingAccent')}</span>
           </h2>
           <p className="text-lg text-black max-w-2xl mx-auto mt-4">
             {t('process.description')}

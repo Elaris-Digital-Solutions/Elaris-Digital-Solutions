@@ -84,7 +84,7 @@ export default function Contact() {
             <div className="mb-10">
               <h2 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl leading-tight">
                 {t("contact.titleNormal")}
-                <span className="text-[#2F64FF]">{t("contact.titleAccent")}</span>
+                <span className="text-brand-gradient">{t("contact.titleAccent")}</span>
               </h2>
               <p className="mt-4 text-lg text-slate-500 leading-relaxed">
                 {t("contact.description")}
@@ -99,7 +99,7 @@ export default function Contact() {
                   htmlFor="contact-name"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     fullNameFocused || fullName
-                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      ? "top-0 text-[0.65rem] text-brand-gradient"
                       : "top-4 text-[1.05rem] text-slate-400"
                   }`}
                 >
@@ -110,7 +110,7 @@ export default function Contact() {
                   type="text"
                   name="name"
                   autoComplete="name"
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#0855FD] transition-colors"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   onFocus={() => setFullNameFocused(true)}
@@ -125,7 +125,7 @@ export default function Contact() {
                   htmlFor="contact-email"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     emailFocused || email
-                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      ? "top-0 text-[0.65rem] text-brand-gradient"
                       : "top-4 text-[1.05rem] text-slate-400"
                   }`}
                 >
@@ -136,7 +136,7 @@ export default function Contact() {
                   type="email"
                   name="email"
                   autoComplete="email"
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#0855FD] transition-colors"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onFocus={() => setEmailFocused(true)}
@@ -151,7 +151,7 @@ export default function Contact() {
                   htmlFor="contact-reason"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     reasonFocused || reason
-                      ? "top-0 text-[0.65rem] text-[#2F64FF]"
+                      ? "top-0 text-[0.65rem] text-brand-gradient"
                       : "top-4 text-[1.05rem] text-slate-400"
                   }`}
                 >
@@ -161,7 +161,7 @@ export default function Contact() {
                   id="contact-reason"
                   type="text"
                   name="reason"
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#2F64FF] transition-colors"
+                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#0855FD] transition-colors"
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   onFocus={() => setReasonFocused(true)}
@@ -173,7 +173,7 @@ export default function Contact() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-2 rounded-full bg-[#2F64FF] px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#2553e6] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#0745DA] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
                 >
                   {t("common.buttons.sendMessage")}
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -190,7 +190,7 @@ export default function Contact() {
             <div className="space-y-6">
               {contactItems.map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
-                  <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#2F64FF]/8 text-[#2F64FF]">
+                  <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#0855FD]/8 text-brand-gradient">
                     <item.icon className="h-4 w-4" />
                   </div>
                   <div>

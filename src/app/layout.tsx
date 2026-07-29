@@ -37,9 +37,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
       { url: "/favicon.ico" },
     ],
-    apple: { url: "/favicon.png", sizes: "180x180" },
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   alternates: { canonical: "/" },
   openGraph: {
@@ -81,6 +83,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={[buildOrganizationSchema(), buildWebsiteSchema()]} />
       </head>
       <body>
+        {/* Degradado de marca referenciable por los iconos SVG
+            (`.icon-brand-gradient { stroke: url(#brand-gradient) }`).
+            No usa display:none — algunos navegadores dejan de resolver la
+            referencia si el <svg> que la contiene está oculto así. */}
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          width="0"
+          height="0"
+          style={{ position: "absolute", width: 0, height: 0, overflow: "hidden" }}
+        >
+          <defs>
+            <linearGradient id="brand-gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#0855FD" />
+              <stop offset="100%" stopColor="#752CFC" />
+            </linearGradient>
+            <linearGradient id="brand-gradient-full" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#00C0FD" />
+              <stop offset="45%" stopColor="#0855FD" />
+              <stop offset="100%" stopColor="#752CFC" />
+            </linearGradient>
+          </defs>
+        </svg>
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

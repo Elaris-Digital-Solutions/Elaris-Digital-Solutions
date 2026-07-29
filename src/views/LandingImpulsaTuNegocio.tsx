@@ -46,7 +46,7 @@ const heroKpis = [
     {
         label: "pedidos listos para enviar",
         value: "128",
-        color: "text-[#2F64FF]",
+        color: "text-brand-gradient",
         bg: "bg-blue-50 border-blue-100",
     },
     {
@@ -74,7 +74,7 @@ const HeroDashboardMock = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative bg-white/60 backdrop-blur-2xl border border-[#2F64FF]/15 p-5 sm:p-7 rounded-[2rem] shadow-[0_30px_80px_rgba(7,21,64,0.08)] overflow-hidden"
+                className="relative bg-white/60 backdrop-blur-2xl border border-[#0855FD]/15 p-5 sm:p-7 rounded-[2rem] shadow-[0_30px_80px_rgba(7,21,64,0.08)] overflow-hidden"
             >
                 {/* Dashboard Header */}
                 <div className="flex items-center mb-6">
@@ -83,7 +83,7 @@ const HeroDashboardMock = () => {
                         <div className="w-3 h-3 rounded-full bg-amber-400" />
                         <div className="w-3 h-3 rounded-full bg-emerald-400" />
                     </div>
-                    <div className="bg-white border border-[#2F64FF]/10 text-[#071540]/40 text-[0.65rem] font-medium px-3 py-1.5 rounded-lg flex-1 mx-2 flex items-center justify-start tracking-wide shadow-[inset_0_2px_4px_rgba(47,100,255,0.02)]">
+                    <div className="bg-white border border-[#0855FD]/10 text-[#071540]/40 text-[0.65rem] font-medium px-3 py-1.5 rounded-lg flex-1 mx-2 flex items-center justify-start tracking-wide shadow-[inset_0_2px_4px_rgba(47,100,255,0.02)]">
                         tunegocio.com/control
                     </div>
                     <div className="w-16" /> {/* Placeholder for balance */}
@@ -101,8 +101,8 @@ const HeroDashboardMock = () => {
                         </div>
                     </div>
                     {/* Stat 2 */}
-                    <div className="bg-white/80 border border-[#2F64FF]/10 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
-                        <div className="text-[#2F64FF] font-bold text-xl sm:text-2xl mb-1">
+                    <div className="bg-white/80 border border-[#0855FD]/10 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
+                        <div className="text-brand-gradient font-bold text-xl sm:text-2xl mb-1">
                             128
                         </div>
                         <div className="text-[#071540]/60 text-[0.55rem] sm:text-[0.65rem] font-bold uppercase tracking-wider leading-tight">
@@ -121,7 +121,7 @@ const HeroDashboardMock = () => {
                 </div>
 
                 {/* Chart Area */}
-                <div className="bg-white/80 border border-[#2F64FF]/10 p-4 sm:p-5 rounded-2xl mb-4 shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
+                <div className="bg-white/80 border border-[#0855FD]/10 p-4 sm:p-5 rounded-2xl mb-4 shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
                     <div className="flex items-end justify-between h-20 sm:h-24 gap-1.5 sm:gap-2">
                         {[40, 55, 35, 70, 45, 80, 60, 95, 75, 50, 85].map((height, i) => (
                             <motion.div
@@ -129,7 +129,7 @@ const HeroDashboardMock = () => {
                                 initial={{ height: 0 }}
                                 animate={{ height: `${height}%` }}
                                 transition={{ delay: 0.6 + i * 0.05, duration: 0.8 }}
-                                className="w-full bg-gradient-to-t from-[#2F64FF] to-[#7EABFF] rounded-t-sm sm:rounded-t-md"
+                                className="w-full bg-gradient-to-t from-[#0855FD] to-[#7EABFF] rounded-t-sm sm:rounded-t-md"
                             />
                         ))}
                     </div>
@@ -137,7 +137,7 @@ const HeroDashboardMock = () => {
 
                 {/* List Items */}
                 <div className="space-y-3">
-                    <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
+                    <div className="bg-white/80 border border-[#0855FD]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
                         <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">
                             112 Pedidos{" "}
                         </div>
@@ -145,11 +145,11 @@ const HeroDashboardMock = () => {
                             En curso
                         </div>
                     </div>
-                    <div className="bg-white/80 border border-[#2F64FF]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
+                    <div className="bg-white/80 border border-[#0855FD]/10 p-3.5 sm:p-4 rounded-2xl flex items-center justify-between shadow-[0_2px_10px_rgba(47,100,255,0.04)]">
                         <div className="text-[#071540]/80 text-[0.7rem] sm:text-sm font-semibold">
                             Ventas semanales
                         </div>
-                        <div className="flex items-center gap-1 text-[#2F64FF] text-[0.65rem] sm:text-xs font-bold bg-[#2F64FF]/5 px-2.5 py-1 rounded-full border border-[#2F64FF]/15">
+                        <div className="flex items-center gap-1 text-brand-gradient text-[0.65rem] sm:text-xs font-bold bg-[#0855FD]/5 px-2.5 py-1 rounded-full border border-[#0855FD]/15">
                             <svg
                                 className="w-3 h-3"
                                 fill="none"
@@ -213,12 +213,12 @@ const RedirectNavbar = ({
                         className="inline-flex items-center"
                     >
                         <SmartImage
-                            src="/assets/ElarisLogo.webp"
+                            src="/assets/ElarisLockup.webp"
                             alt="Elaris Digital Solutions"
                             priority
-                            width={160}
-                            height={64}
-                            className="h-8 sm:h-10 w-auto"
+                            width={812}
+                            height={240}
+                            className="h-9 sm:h-12 w-auto"
                         />
                     </a>
 
@@ -226,7 +226,7 @@ const RedirectNavbar = ({
                         <a
                             href="#reserva"
                             onClick={onCtaClick}
-                            className="inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
+                            className="inline-flex h-10 items-center rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 whitespace-nowrap"
                         >
                             Clic para una asesoria gratis
                         </a>
@@ -241,16 +241,16 @@ const RedirectFooter = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#030E2C] border-t border-white/10 text-white">
+        <footer className="bg-[var(--brand-surface-dark)] border-t border-white/10 text-white">
             <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl py-12">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
                     <div className="max-w-md">
                         <SmartImage
-                            src="/assets/ElarisLogoWhite.webp"
+                            src="/assets/ElarisLockup.webp"
                             alt="Elaris Digital Solutions"
                             priority
-                            width={180}
-                            height={72}
+                            width={812}
+                            height={240}
                             className="h-16 w-auto mb-4"
                         />
                         <p className="text-white/80 text-sm leading-relaxed">
@@ -376,7 +376,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
     return (
         <div
             id="landing-page"
-            className="relative min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden selection:bg-[#2F64FF]/20"
+            className="relative min-h-screen bg-[#F8FAFC] font-sans overflow-x-hidden selection:bg-[#0855FD]/20"
         >
             <RedirectNavbar onCtaClick={scrollToForm} />
 
@@ -396,8 +396,8 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                     className="absolute inset-0 pointer-events-none select-none"
                     aria-hidden
                 >
-                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
-                    <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
+                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#0855FD]/[0.04] to-transparent" />
+                    <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#0855FD]/[0.06] rounded-full blur-3xl" />
                 </div>
 
                 <div className="container mx-auto px-5 sm:px-6 relative z-10 lg:pt-10">
@@ -421,7 +421,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-xl sm:text-2xl text-[#071540]/80 mb-10 font-light max-w-2xl mx-auto lg:mx-0"
                             >
-                                <strong className="text-[#2F64FF]">Deja de hacer el trabajo de 3 personas.</strong> Una sola página. Un solo panel, <strong className="text-[#2F64FF]">cero estrés</strong>.                            </motion.p>
+                                <strong className="text-brand-gradient">Deja de hacer el trabajo de 3 personas.</strong> Una sola página. Un solo panel, <strong className="text-brand-gradient">cero estrés</strong>.                            </motion.p>
 
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -432,7 +432,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                                 <a
                                     href="#reserva"
                                     onClick={scrollToForm}
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg w-full sm:w-auto"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg w-full sm:w-auto"
                                 >
                                     Te regalamos una asesoría gratis
                                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -459,7 +459,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             {/* SECTION 2 — PROBLEM IDENTIFICATION */}
-            <section className="py-16 sm:py-20 lg:py-32 bg-white border-y border-[#2F64FF]/15">
+            <section className="py-16 sm:py-20 lg:py-32 bg-white border-y border-[#0855FD]/15">
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl">
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
@@ -557,9 +557,11 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
 
                     <div className="bg-[#071540] text-center p-8 md:p-12 rounded-3xl shadow-xl max-w-4xl mx-auto">
                         <p className="text-xl md:text-2xl text-white font-light leading-relaxed">
-                            "Hacer todo tú mismo te está desgastando.{" "}
-                            <span className="font-semibold text-[#2F64FF]">
-                                Y el desorden no va a parar solo."
+                            &quot;Hacer todo tú mismo te está desgastando.{" "}
+                            {/* Sobre el navy va cian, no el degradado azul->violeta:
+                                ese degradado está calibrado para fondo claro. */}
+                            <span className="font-semibold text-[#00C0FD]">
+                                Y el desorden no va a parar solo.&quot;
                             </span>
                         </p>
                     </div>
@@ -567,10 +569,10 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             {/* SECTION 2.5 — TESTIMONIAL QUOTE */}
-            <section className="py-24 sm:py-32 bg-[#F0F4FF] border-y border-[#2F64FF]/15 relative overflow-hidden">
+            <section className="py-24 sm:py-32 bg-[#F0F4FF] border-y border-[#0855FD]/15 relative overflow-hidden">
                 {/* Background decorative elements */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(47,100,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(47,100,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#2F64FF]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#0855FD]/[0.05] to-transparent rounded-full blur-3xl pointer-events-none" />
 
                 <div className="container mx-auto px-5 sm:px-6 max-w-5xl relative z-10">
                     <motion.div
@@ -578,16 +580,16 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="relative bg-white/70 backdrop-blur-2xl border border-[#2F64FF]/15 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-[0_20px_80px_rgba(7,21,64,0.06)] overflow-hidden"
+                        className="relative bg-white/70 backdrop-blur-2xl border border-[#0855FD]/15 rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-[0_20px_80px_rgba(7,21,64,0.06)] overflow-hidden"
                     >
                         {/* Huge background quote mark for texture */}
-                        <Quote className="absolute -top-6 -left-6 w-64 h-64 text-[#2F64FF]/[0.03] -rotate-12 pointer-events-none" />
+                        <Quote className="absolute -top-6 -left-6 w-64 h-64 text-[#0855FD]/[0.03] -rotate-12 pointer-events-none" />
 
                         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14 relative z-10">
                             {/* Image Side */}
                             <div className="relative flex-shrink-0 w-48 h-48 sm:w-56 sm:h-56 lg:w-72 lg:h-72 group">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-[#2F64FF] to-[#7EABFF] rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
-                                <div className="absolute inset-0 rounded-full border border-[#2F64FF]/15 p-2 shadow-xl bg-white/50 backdrop-blur-sm">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-[#0855FD] to-[#7EABFF] rounded-full blur-[40px] opacity-20 group-hover:opacity-40 transition-opacity duration-700" />
+                                <div className="absolute inset-0 rounded-full border border-[#0855FD]/15 p-2 shadow-xl bg-white/50 backdrop-blur-sm">
                                     <SmartImage
                                         src="/assets/milagros-salcedo.webp"
                                         alt="Milagros Salcedo"
@@ -600,21 +602,21 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
 
                             {/* Text Side */}
                             <div className="flex-1 text-center lg:text-left">
-                                <div className="inline-flex items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full bg-[#2F64FF]/5 text-[#2F64FF] text-[0.7rem] font-bold tracking-[0.15em] uppercase mb-6 mx-auto lg:mx-0 border border-[#2F64FF]/15">
+                                <div className="inline-flex items-center justify-center lg:justify-start gap-2 px-4 py-1.5 rounded-full bg-[#0855FD]/5 text-brand-gradient text-[0.7rem] font-bold tracking-[0.15em] uppercase mb-6 mx-auto lg:mx-0 border border-[#0855FD]/15">
                                     Caso de Éxito
                                 </div>
 
                                 <p className="text-xl sm:text-2xl lg:text-[1.7rem] font-light leading-relaxed text-[#071540]/90 mb-8">
-                                    "Antes vivía pegada al celular anotando pedidos en hojas y mi
+                                    &quot;Antes vivía pegada al celular anotando pedidos en hojas y mi
                                     cabeza era un caos. Desde que tenemos la web y el panel de
                                     control,{" "}
-                                    <span className="font-semibold text-[#2F64FF]">
+                                    <span className="font-semibold text-brand-gradient">
                                         el negocio funciona solo.
                                     </span>{" "}
-                                    Ahora descanso más y puedo enfocarme en hacerlo crecer."
+                                    Ahora descanso más y puedo enfocarme en hacerlo crecer.&quot;
                                 </p>
 
-                                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#2F64FF]/15 pt-6">
+                                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#0855FD]/15 pt-6">
                                     <div className="text-center sm:text-left">
                                         <p className="text-lg font-bold text-[#071540]">
                                             Milagros Salcedo
@@ -650,14 +652,14 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Tu oficina virtual: todo lo que necesitas en{" "}
-                            <span className="font-semibold text-[#2F64FF]">
+                            <span className="font-semibold text-brand-gradient">
                                 una sola pantalla
                             </span>
                         </h2>
                         <p className="mt-6 text-lg text-[#071540]/70">
                             Construimos tu <strong className="font-bold text-[#071540]">página web</strong> y te entregamos un{" "}
                             <strong className="font-bold text-[#071540]">centro de control privado.</strong> Es como tener un
-                            asistente que <strong className="font-bold text-[#071540]">trabaja 24/7</strong> y no comete errores. <strong className="font-bold text-[#2F64FF]">Cero estrés asegurado</strong>
+                            asistente que <strong className="font-bold text-[#071540]">trabaja 24/7</strong> y no comete errores. <strong className="font-bold text-brand-gradient">Cero estrés asegurado</strong>
                         </p>
                     </div>
 
@@ -671,12 +673,12 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#0855FD]/40 relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
-                                <ShoppingCart className="w-24 h-24 text-[#2F64FF]" />
+                                <ShoppingCart className="w-24 h-24 icon-brand-gradient" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
+                            <div className="w-10 h-10 border border-[#0855FD]/30 rounded-lg flex items-center justify-center text-brand-gradient mb-6 relative z-10 bg-[#0855FD]/10">
                                 <ShoppingCart className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -693,12 +695,12 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#0855FD]/40 relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
-                                <Settings className="w-24 h-24 text-[#2F64FF]" />
+                                <Settings className="w-24 h-24 icon-brand-gradient" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
+                            <div className="w-10 h-10 border border-[#0855FD]/30 rounded-lg flex items-center justify-center text-brand-gradient mb-6 relative z-10 bg-[#0855FD]/10">
                                 <Settings className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -715,12 +717,12 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.1 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#2F64FF]/40 relative overflow-hidden"
+                            className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-[0_8px_40px_rgba(47,100,255,0.08)] border border-[#0855FD]/40 relative overflow-hidden"
                         >
                             <div className="absolute top-0 right-0 p-6 opacity-5 translate-x-4 -translate-y-4">
-                                <GitMerge className="w-24 h-24 text-[#2F64FF]" />
+                                <GitMerge className="w-24 h-24 icon-brand-gradient" />
                             </div>
-                            <div className="w-10 h-10 border border-[#2F64FF]/30 rounded-lg flex items-center justify-center text-[#2F64FF] mb-6 relative z-10 bg-[#2F64FF]/10">
+                            <div className="w-10 h-10 border border-[#0855FD]/30 rounded-lg flex items-center justify-center text-brand-gradient mb-6 relative z-10 bg-[#0855FD]/10">
                                 <GitMerge className="w-5 h-5" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-semibold text-[#071540] mb-3 tracking-tight">
@@ -735,14 +737,14 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             {/* SECTION 4 — RESULTS */}
-            <section className="py-16 sm:py-20 lg:py-32 bg-[#F0F4FF] border-y border-[#2F64FF]/15 relative overflow-hidden">
+            <section className="py-16 sm:py-20 lg:py-32 bg-[#F0F4FF] border-y border-[#0855FD]/15 relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-50 to-transparent pointer-events-none" />
 
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-5xl relative z-10">
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-[#071540] tracking-tight leading-tight">
                             Un negocio que crece <br className="hidden md:block" />
-                            <span className="font-semibold text-[#2F64FF]">
+                            <span className="font-semibold text-brand-gradient">
                                 mientras tú descansas
                             </span>
                         </h2>
@@ -761,12 +763,12 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.1 }}
                                 transition={{ delay: idx * 0.1 }}
-                                className="bg-white backdrop-blur-sm border border-[#2F64FF]/25 rounded-xl p-4 sm:p-5 text-center shadow-[0_8px_30px_rgba(47,100,255,0.12)]"
+                                className="bg-white backdrop-blur-sm border border-[#0855FD]/25 rounded-xl p-4 sm:p-5 text-center shadow-[0_8px_30px_rgba(47,100,255,0.12)]"
                             >
-                                <div className="inline-block mb-2 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.15em] uppercase text-[#2F64FF]">
+                                <div className="inline-block mb-2 text-[0.65rem] sm:text-[0.7rem] font-bold tracking-[0.15em] uppercase text-brand-gradient">
                                     {stat.value}
                                 </div>
-                                <div className="h-px w-10 sm:w-12 bg-[#2F64FF] mx-auto mb-3" />
+                                <div className="h-px w-10 sm:w-12 bg-brand-gradient mx-auto mb-3" />
                                 <p className="text-sm text-[#071540] font-medium leading-snug">
                                     {stat.text}
                                 </p>
@@ -778,7 +780,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         <a
                             href="#reserva"
                             onClick={scrollToForm}
-                            className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 w-full sm:w-auto"
+                            className="group inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl font-medium backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 w-full sm:w-auto"
                         >
                             Quiero ordenar mi negocio
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -790,11 +792,11 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             {/* SECTION 5 — AUTHORITY */}
             <section className="relative py-16 sm:py-20 lg:py-32 bg-[#071540] text-white overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2F64FF]/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0855FD]/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl text-center relative z-10">
                     <div className="flex justify-center mb-8">
                         <ShieldCheck
-                            className="w-12 h-12 sm:w-14 sm:h-14 text-[#2F64FF]"
+                            className="w-12 h-12 sm:w-14 sm:h-14 icon-brand-gradient"
                             strokeWidth={1.5}
                         />
                     </div>
@@ -830,7 +832,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
             </section>
 
             {/* SECTION 6 — URGENCY */}
-            <section className="py-16 sm:py-20 lg:py-32 bg-white border-b border-[#2F64FF]/15">
+            <section className="py-16 sm:py-20 lg:py-32 bg-white border-b border-[#0855FD]/15">
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-3xl text-center">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] mb-6 leading-tight">
                         Si no actúas ahora, tu negocio{" "}
@@ -872,8 +874,8 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                     className="absolute inset-0 pointer-events-none select-none"
                     aria-hidden
                 >
-                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#2F64FF]/[0.04] to-transparent" />
-                    <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#2F64FF]/[0.06] rounded-full blur-3xl" />
+                    <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#0855FD]/[0.04] to-transparent" />
+                    <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-[#0855FD]/[0.06] rounded-full blur-3xl" />
                 </div>
 
                 <div className="container mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl relative z-10">
@@ -887,7 +889,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                         <div className="mb-10 text-center">
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[#071540] leading-tight">
                                 Da el primer paso para
-                                <span className="font-semibold text-[#2F64FF]">
+                                <span className="font-semibold text-brand-gradient">
                                     {" "}
                                     ordenar y hacer crecer tu negocio
                                 </span>
@@ -902,20 +904,22 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                             onSubmit={handleFormSubmit}
                             className="mx-auto w-full max-w-2xl bg-white/60 backdrop-blur-2xl border border-white/50 shadow-[0_30px_70px_rgba(20,40,95,0.08)] rounded-3xl p-8 sm:p-10 space-y-8 relative overflow-hidden"
                         >
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#2F64FF]/[0.03] rounded-full blur-3xl -z-10" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#0855FD]/[0.03] rounded-full blur-3xl -z-10" />
 
                             <div className="relative">
                                 <label
+                                    htmlFor="landing-nombre"
                                     className={`absolute left-0 font-medium tracking-widest uppercase transition-all duration-200 pointer-events-none ${nombreFocused || nombre
-                                        ? "-top-4 text-[0.65rem] text-[#2F64FF]"
+                                        ? "-top-4 text-[0.65rem] text-brand-gradient"
                                         : "top-2 text-[0.95rem] text-[#071540]/50"
                                         }`}
                                 >
                                     Nombre completo *
                                 </label>
                                 <input
+                                    id="landing-nombre"
                                     type="text"
-                                    className="w-full bg-transparent border-b border-[#071540]/20 pb-3 pt-2 text-[#071540] text-[1.05rem] font-medium focus:outline-none focus:border-[#2F64FF] transition-colors"
+                                    className="w-full bg-transparent border-b border-[#071540]/20 pb-3 pt-2 text-[#071540] text-[1.05rem] font-medium focus:outline-none focus:border-[#0855FD] transition-colors"
                                     value={nombre}
                                     onChange={(e) => setNombre(e.target.value)}
                                     onFocus={() => setNombreFocused(true)}
@@ -926,16 +930,18 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
 
                             <div className="relative">
                                 <label
+                                    htmlFor="landing-email"
                                     className={`absolute left-0 font-medium tracking-widest uppercase transition-all duration-200 pointer-events-none ${emailFocused || email
-                                        ? "-top-4 text-[0.65rem] text-[#2F64FF]"
+                                        ? "-top-4 text-[0.65rem] text-brand-gradient"
                                         : "top-2 text-[0.95rem] text-[#071540]/50"
                                         }`}
                                 >
                                     Email *
                                 </label>
                                 <input
+                                    id="landing-email"
                                     type="email"
-                                    className="w-full bg-transparent border-b border-[#071540]/20 pb-3 pt-2 text-[#071540] text-[1.05rem] font-medium focus:outline-none focus:border-[#2F64FF] transition-colors"
+                                    className="w-full bg-transparent border-b border-[#071540]/20 pb-3 pt-2 text-[#071540] text-[1.05rem] font-medium focus:outline-none focus:border-[#0855FD] transition-colors"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     onFocus={() => setEmailFocused(true)}
@@ -947,7 +953,7 @@ Hola Elaris, quiero agendar la asesoría gratuita de 20 minutos para ordenar mi 
                             <div className="pt-4 text-center">
                                 <button
                                     type="submit"
-                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-[#2F64FF]/90 hover:bg-[#2F64FF]/80 text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg"
+                                    className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-medium backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_40px_rgba(47,100,255,0.3)] border border-white/10 transition-[background-color,box-shadow,transform] duration-300 hover:-translate-y-1 text-[0.95rem] sm:text-base lg:text-lg"
                                 >
                                     Reservar mi asesoría gratis
                                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />

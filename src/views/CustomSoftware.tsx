@@ -44,7 +44,7 @@ export default function CustomSoftware() {
                         <motion.div className="text-center mb-16 max-w-3xl mx-auto" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
                             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] mb-5">
                                 Software que genera{" "}
-                                <span className="font-semibold text-[#2F64FF]">resultados medibles</span>
+                                <span className="font-semibold text-brand-gradient">resultados medibles</span>
                             </h2>
                             <p className="text-slate-500 text-lg font-light leading-relaxed">
                                 Cada proyecto se traduce en operaciones más ágiles, equipos más eficientes y decisiones respaldadas en datos reales.
@@ -55,10 +55,10 @@ export default function CustomSoftware() {
                         <motion.div className="grid lg:grid-cols-2 gap-6 mb-6" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.65, ease: "easeOut" }}>
 
                             {/* Columna izquierda — contexto estratégico */}
-                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300">
+                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300">
                                 <div>
-                                    <div className="w-12 h-12 rounded-xl bg-[#2F64FF]/10 border border-[#2F64FF]/20 flex items-center justify-center mb-8">
-                                        <LayoutDashboard className="w-6 h-6 text-[#2F64FF]" />
+                                    <div className="w-12 h-12 rounded-xl bg-[#0855FD]/10 border border-[#0855FD]/20 flex items-center justify-center mb-8">
+                                        <LayoutDashboard className="w-6 h-6 icon-brand-gradient" />
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-medium text-[#071540] mb-5 leading-snug">
                                         Optimice su operación desde el primer sprint
@@ -75,12 +75,12 @@ export default function CustomSoftware() {
                             </div>
 
                             {/* Columna derecha — métrica principal */}
-                            <div className="bg-[#F0F4FF] border border-[#2F64FF]/15 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/35 hover:shadow-md transition-all duration-300">
+                            <div className="bg-[#F0F4FF] border border-[#0855FD]/15 rounded-2xl p-10 flex flex-col justify-between hover:border-[#0855FD]/35 hover:shadow-md transition-all duration-300">
                                 <div>
                                     <p className="text-slate-500 text-sm font-light uppercase tracking-widest mb-6">Impacto operativo</p>
                                     <div className="flex items-start justify-center gap-1 leading-none mb-6">
-                                        <span className="text-[#2F64FF] font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">53</span>
-                                        <span className="text-[#2F64FF] font-bold text-4xl md:text-5xl mt-5">%</span>
+                                        <span className="text-brand-gradient font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">53</span>
+                                        <span className="text-brand-gradient font-bold text-4xl md:text-5xl mt-5">%</span>
                                     </div>
                                 </div>
                                 <div>
@@ -115,13 +115,13 @@ export default function CustomSoftware() {
                             ].map((metric, idx) => (
                                 <motion.div
                                     key={idx}
-                                    className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300 cursor-default"
+                                    className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300 cursor-default"
                                     initial={{ opacity: 0, y: 24 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.2 }}
                                     transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                                 >
-                                    <div className="text-[#2F64FF] font-bold text-4xl md:text-5xl mb-3 leading-none">
+                                    <div className="text-brand-gradient font-bold text-4xl md:text-5xl mb-3 leading-none">
                                         {metric.value}
                                     </div>
                                     <p className="text-[#071540] font-medium text-base mb-2">{metric.label}</p>
@@ -142,8 +142,8 @@ export default function CustomSoftware() {
 
                             {/* Columna de texto */}
                             <motion.div className="flex flex-col justify-center" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-                                <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
-                                    <span className="w-5 h-px bg-[#2F64FF]" />
+                                <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
+                                    <span className="w-5 h-px bg-brand-gradient" />
                                     Control operativo
                                 </span>
                                 <h3 className="text-3xl md:text-4xl lg:text-[2.65rem] font-light tracking-tight text-[#071540] leading-tight mb-6">
@@ -162,8 +162,8 @@ export default function CustomSoftware() {
                                         "Reducción drástica de errores manuales"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-700 text-base font-light">
-                                            <span className="w-5 h-5 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-                                                <span className="w-2 h-2 rounded-full bg-[#2F64FF]" />
+                                            <span className="w-5 h-5 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+                                                <span className="w-2 h-2 rounded-full bg-brand-gradient" />
                                             </span>
                                             {item}
                                         </li>
@@ -188,7 +188,7 @@ export default function CustomSoftware() {
                                         {/* KPI row */}
                                         <div className="grid grid-cols-3 gap-3 mb-4">
                                             {[
-                                                { label: "Tareas activas", value: "48", color: "text-[#2F64FF]" },
+                                                { label: "Tareas activas", value: "48", color: "text-brand-gradient" },
                                                 { label: "Completadas hoy", value: "31", color: "text-emerald-600" },
                                                 { label: "Eficiencia", value: "94%", color: "text-[#071540]" }
                                             ].map((kpi, i) => (
@@ -207,7 +207,7 @@ export default function CustomSoftware() {
                                             </div>
                                             <div className="flex items-end gap-1.5 h-14">
                                                 {[40, 65, 50, 80, 72, 90, 85].map((h, i) => (
-                                                    <div key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, backgroundColor: i === 5 ? '#2F64FF' : '#E0E7FF' }} />
+                                                    <div key={i} className="flex-1 rounded-t-md" style={{ height: `${h}%`, backgroundColor: i === 5 ? '#0855FD' : '#E0E7FF' }} />
                                                 ))}
                                             </div>
                                             <div className="flex justify-between mt-1.5">
@@ -260,7 +260,7 @@ export default function CustomSoftware() {
                                         <div className="flex items-center justify-between mb-4">
                                             <p className="text-slate-700 text-xs font-medium">Actividad del equipo</p>
                                             <div className="flex -space-x-2">
-                                                {["#2F64FF", "#00E5A0", "#F59E0B", "#6366F1"].map((c, i) => (
+                                                {["#0855FD", "#00E5A0", "#F59E0B", "#6366F1"].map((c, i) => (
                                                     <div key={i} className="w-6 h-6 rounded-full border-2 border-white flex items-center justify-center" style={{ backgroundColor: c }}>
                                                         <span className="text-white text-[8px] font-bold">{String.fromCharCode(65 + i)}</span>
                                                     </div>
@@ -274,7 +274,7 @@ export default function CustomSoftware() {
                                         {/* Chat messages */}
                                         <div className="bg-white rounded-xl p-4 shadow-sm border border-slate-100 space-y-3 mb-4">
                                             <div className="flex items-start gap-2.5">
-                                                <div className="w-6 h-6 rounded-full bg-[#2F64FF] flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <div className="w-6 h-6 rounded-full bg-brand-gradient flex items-center justify-center flex-shrink-0 mt-0.5">
                                                     <span className="text-white text-[9px] font-bold">M</span>
                                                 </div>
                                                 <div className="bg-[#F0F4FF] rounded-xl rounded-tl-sm px-3 py-2 max-w-[75%]">
@@ -283,7 +283,7 @@ export default function CustomSoftware() {
                                                 </div>
                                             </div>
                                             <div className="flex items-start gap-2.5 justify-end">
-                                                <div className="bg-[#2F64FF] rounded-xl rounded-tr-sm px-3 py-2 max-w-[75%]">
+                                                <div className="bg-brand-gradient rounded-xl rounded-tr-sm px-3 py-2 max-w-[75%]">
                                                     <p className="text-white text-xs font-light">Confirmado. Sincronización ejecutada sin errores.</p>
                                                     <p className="text-white/60 text-[9px] mt-1">10:27 · ✓✓</p>
                                                 </div>
@@ -338,8 +338,8 @@ export default function CustomSoftware() {
 
                             {/* Columna de texto */}
                             <motion.div className="flex flex-col justify-center order-1 lg:order-2" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
-                                <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
-                                    <span className="w-5 h-px bg-[#2F64FF]" />
+                                <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
+                                    <span className="w-5 h-px bg-brand-gradient" />
                                     Escalabilidad y colaboración
                                 </span>
                                 <h3 className="text-3xl md:text-4xl lg:text-[2.65rem] font-light tracking-tight text-[#071540] leading-tight mb-6">
@@ -358,8 +358,8 @@ export default function CustomSoftware() {
                                         "Alertas inteligentes y toma de decisiones asistida"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-700 text-base font-light">
-                                            <span className="w-5 h-5 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-                                                <span className="w-2 h-2 rounded-full bg-[#2F64FF]" />
+                                            <span className="w-5 h-5 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+                                                <span className="w-2 h-2 rounded-full bg-brand-gradient" />
                                             </span>
                                             {item}
                                         </li>
@@ -374,13 +374,13 @@ export default function CustomSoftware() {
                 {/* 7.5 SOCIAL PROOF */}
                 <section className="py-24 lg:py-28 bg-white border-b border-t border-slate-100 overflow-hidden relative">
                     <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
-                        <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
+                        <Quote className="mx-auto w-12 h-12 icon-brand-gradient mb-8 opacity-40" />
                         <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                            "Migrar de múltiples sistemas genéricos a una plataforma centralizada y desarrollada a medida por ELARIS fue la mejor decisión técnica para escalar. Ahora la tecnología se adapta a nuestras reglas de negocio, y no al revés."
+                            &quot;Migrar de múltiples sistemas genéricos a una plataforma centralizada y desarrollada a medida por ELARIS fue la mejor decisión técnica para escalar. Ahora la tecnología se adapta a nuestras reglas de negocio, y no al revés.&quot;
                         </p>
                         <div>
                             <p className="font-semibold text-lg text-[#071540]">Directora / Founder</p>
-                            <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Salcedo Jewels</p>
+                            <p className="text-brand-gradient font-medium tracking-wide mt-1">Salcedo Jewels</p>
                         </div>
                     </motion.div>
                 </section>
@@ -390,19 +390,19 @@ export default function CustomSoftware() {
                     <div className="container mx-auto px-6 max-w-6xl">
                         {/* Header */}
                         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
-                            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#2F64FF] mb-4">
+                            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-brand-gradient mb-4">
                                 Preguntas Frecuentes
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#071540] mb-5 leading-tight">
                                 {copy.faq.titleNormal}
-                                <span className="text-[#2F64FF]">{copy.faq.titleAccent}</span>
+                                <span className="text-brand-gradient">{copy.faq.titleAccent}</span>
                             </h2>
                             <p className="text-slate-500 text-lg font-light max-w-xl mx-auto leading-relaxed">
                                 Todo lo que necesitas saber sobre nuestro proceso, tiempos y resultados.
                             </p>
                             <a
                                 href="#contacto"
-                                className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full border border-[#2F64FF]/30 text-[#2F64FF] font-semibold text-sm hover:bg-[#2F64FF] hover:text-white transition-all duration-200"
+                                className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full border border-[#0855FD]/30 text-brand-gradient font-semibold text-sm hover:bg-brand-gradient hover:text-white transition-all duration-200"
                             >
                                 Hablar con un experto →
                             </a>
@@ -436,11 +436,11 @@ const FaqItem = ({ faq }: { faq: { q: string, a: string } }) => {
                 onClick={() => setOpen(!open)}
                 className="w-full flex justify-between items-center gap-6 text-left group"
             >
-                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? 'text-[#2F64FF]' : 'text-[#071540] group-hover:text-[#2F64FF]'}`}>
+                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? 'text-brand-gradient' : 'text-[#071540] group-hover:text-[#0855FD]'}`}>
                     {faq.q}
                 </span>
                 <ChevronDown
-                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? 'rotate-180 text-[#2F64FF]' : 'text-slate-400 group-hover:text-[#2F64FF]'}`}
+                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? 'rotate-180 icon-brand-gradient' : 'text-slate-400 group-hover:text-[#0855FD]'}`}
                 />
             </button>
             <AnimatePresence>

@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import es from "@/locales/es.json";
 
 export const SITE_URL = "https://elarisdigitalsolutions.com";
-export const OG_IMAGE = `${SITE_URL}/assets/Elaris-Logo.webp`;
+export const OG_IMAGE = `${SITE_URL}/assets/Elaris-OG.png`;
+/** El `logo` de Organization debe ser el logotipo en sí, no el lienzo 1200×630 del OG. */
+export const LOGO_IMAGE = `${SITE_URL}/assets/ElarisLockup.webp`;
 export const LOCALE = "es_PE";
 
 export const HOME_TITLE = "Tecnología para impulsar negocios | Elaris Digital Solutions";
@@ -31,7 +33,7 @@ export const buildOrganizationSchema = () => {
     taxID: "20615598071",
     foundingDate: "2026-03-09",
     url: SITE_URL,
-    logo: OG_IMAGE,
+    logo: LOGO_IMAGE,
     image: OG_IMAGE,
     description: HOME_DESCRIPTION,
     slogan: es.hero.title,

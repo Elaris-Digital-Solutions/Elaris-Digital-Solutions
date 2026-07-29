@@ -45,7 +45,7 @@ export default function LLMWorkflows() {
                         >
                             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] mb-5">
                                 LLMs que generan{" "}
-                                <span className="font-semibold text-[#2F64FF]">resultados medibles</span>
+                                <span className="font-semibold text-brand-gradient">resultados medibles</span>
                             </h2>
                             <p className="text-slate-500 text-lg font-light leading-relaxed">
                                 Implementaciones que reducen el trabajo cognitivo repetitivo y liberan a los equipos para tareas de mayor valor.
@@ -60,10 +60,10 @@ export default function LLMWorkflows() {
                             transition={{ duration: 0.65, ease: "easeOut" }}
                         >
                             {/* Left — context */}
-                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300">
+                            <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300">
                                 <div>
-                                    <div className="w-12 h-12 rounded-xl bg-[#2F64FF]/10 border border-[#2F64FF]/20 flex items-center justify-center mb-8">
-                                        <FileText className="w-6 h-6 text-[#2F64FF]" />
+                                    <div className="w-12 h-12 rounded-xl bg-[#0855FD]/10 border border-[#0855FD]/20 flex items-center justify-center mb-8">
+                                        <FileText className="w-6 h-6 icon-brand-gradient" />
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-medium text-[#071540] mb-5 leading-snug">
                                         Automatice el trabajo cognitivo intensivo desde el primer mes
@@ -80,12 +80,12 @@ export default function LLMWorkflows() {
                             </div>
 
                             {/* Right — big number */}
-                            <div className="bg-[#F0F4FF] border border-[#2F64FF]/15 rounded-2xl p-10 flex flex-col justify-between hover:border-[#2F64FF]/35 hover:shadow-md transition-all duration-300">
+                            <div className="bg-[#F0F4FF] border border-[#0855FD]/15 rounded-2xl p-10 flex flex-col justify-between hover:border-[#0855FD]/35 hover:shadow-md transition-all duration-300">
                                 <div>
                                     <p className="text-slate-500 text-sm font-light uppercase tracking-widest mb-6">Impacto operativo</p>
                                     <div className="flex items-start justify-center gap-1 leading-none mb-6">
-                                <span className="text-[#2F64FF] font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">78</span>
-                                    <span className="text-[#2F64FF] font-bold text-4xl md:text-5xl mt-5">%</span>
+                                <span className="text-brand-gradient font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">78</span>
+                                    <span className="text-brand-gradient font-bold text-4xl md:text-5xl mt-5">%</span>
                                     </div>
                                 </div>
                                 <div>
@@ -120,13 +120,13 @@ export default function LLMWorkflows() {
                             ].map((metric, idx) => (
                                 <motion.div
                                     key={idx}
-                                    className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#2F64FF]/30 hover:shadow-md transition-all duration-300 cursor-default"
+                                    className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300 cursor-default"
                                     initial={{ opacity: 0, y: 24 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, amount: 0.2 }}
                                     transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                                 >
-                                    <div className="text-[#2F64FF] font-bold text-4xl md:text-5xl mb-3 leading-none">
+                                    <div className="text-brand-gradient font-bold text-4xl md:text-5xl mb-3 leading-none">
                                         {metric.value}
                                     </div>
                                     <p className="text-[#071540] font-medium text-base mb-2">{metric.label}</p>
@@ -151,8 +151,8 @@ export default function LLMWorkflows() {
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.7, ease: "easeOut" }}
                             >
-                                <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
-                                    <span className="w-5 h-px bg-[#2F64FF]" />
+                                <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
+                                    <span className="w-5 h-px bg-brand-gradient" />
                                     Procesamiento documental
                                 </span>
                                 <h3 className="text-3xl md:text-4xl lg:text-[2.65rem] font-light tracking-tight text-[#071540] leading-tight mb-6">
@@ -171,8 +171,8 @@ export default function LLMWorkflows() {
                                         "Detección de anomalías y patrones inusuales",
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-700 text-base font-light">
-                                            <span className="w-5 h-5 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-                                                <span className="w-2 h-2 rounded-full bg-[#2F64FF]" />
+                                            <span className="w-5 h-5 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+                                                <span className="w-2 h-2 rounded-full bg-brand-gradient" />
                                             </span>
                                             {item}
                                         </li>
@@ -217,7 +217,7 @@ export default function LLMWorkflows() {
                                         {/* KPI row */}
                                         <div className="grid grid-cols-3 gap-3 mb-4">
                                             {[
-                                                { label: "Docs hoy", value: "142", color: "text-[#2F64FF]" },
+                                                { label: "Docs hoy", value: "142", color: "text-brand-gradient" },
                                                 { label: "Precisión", value: "97%", color: "text-emerald-600" },
                                                 { label: "Tiempo prom.", value: "3.1s", color: "text-blue-600" },
                                             ].map((k) => (
@@ -247,7 +247,7 @@ export default function LLMWorkflows() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="absolute -bottom-4 -left-4 bg-[#2F64FF] text-white rounded-2xl px-4 py-3 shadow-lg text-sm font-medium hidden md:flex items-center gap-2">
+                                <div className="absolute -bottom-4 -left-4 bg-brand-gradient text-white rounded-2xl px-4 py-3 shadow-lg text-sm font-medium hidden md:flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                                     Pipeline activo
                                 </div>
@@ -361,8 +361,8 @@ export default function LLMWorkflows() {
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
                             >
-                                <span className="inline-flex items-center gap-2 text-[#2F64FF] text-sm font-medium uppercase tracking-widest mb-6">
-                                    <span className="w-5 h-px bg-[#2F64FF]" />
+                                <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
+                                    <span className="w-5 h-px bg-brand-gradient" />
                                     Integraciones y conectividad
                                 </span>
                                 <h3 className="text-3xl md:text-4xl lg:text-[2.65rem] font-light tracking-tight text-[#071540] leading-tight mb-6">
@@ -381,8 +381,8 @@ export default function LLMWorkflows() {
                                         "Logs, observabilidad y trazabilidad completa de cada llamada",
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-slate-700 text-base font-light">
-                                            <span className="w-5 h-5 rounded-full bg-[#2F64FF]/10 border border-[#2F64FF]/25 flex items-center justify-center flex-shrink-0">
-                                                <span className="w-2 h-2 rounded-full bg-[#2F64FF]" />
+                                            <span className="w-5 h-5 rounded-full bg-[#0855FD]/10 border border-[#0855FD]/25 flex items-center justify-center flex-shrink-0">
+                                                <span className="w-2 h-2 rounded-full bg-brand-gradient" />
                                             </span>
                                             {item}
                                         </li>
@@ -402,13 +402,13 @@ export default function LLMWorkflows() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
                     >
-                        <Quote className="mx-auto w-12 h-12 text-[#2F64FF] mb-8 opacity-40" />
+                        <Quote className="mx-auto w-12 h-12 icon-brand-gradient mb-8 opacity-40" />
                         <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
-                            "Implementar LLMs en nuestros flujos de revisión de contratos redujo el tiempo de análisis de 4 horas a menos de 10 minutos. Ahora el equipo legal se enfoca solo en las cláusulas que el modelo marca como críticas."
+                            &quot;Implementar LLMs en nuestros flujos de revisión de contratos redujo el tiempo de análisis de 4 horas a menos de 10 minutos. Ahora el equipo legal se enfoca solo en las cláusulas que el modelo marca como críticas.&quot;
                         </p>
                         <div>
                             <p className="font-semibold text-lg text-[#071540]">Director Legal</p>
-                            <p className="text-[#2F64FF] font-medium tracking-wide mt-1">Empresa del sector financiero</p>
+                            <p className="text-brand-gradient font-medium tracking-wide mt-1">Empresa del sector financiero</p>
                         </div>
                     </motion.div>
                 </section>
@@ -423,19 +423,19 @@ export default function LLMWorkflows() {
                             viewport={{ once: true, amount: 0.3 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-[#2F64FF] mb-4">
+                            <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-brand-gradient mb-4">
                                 Preguntas Frecuentes
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#071540] mb-5 leading-tight">
                                 {copy.faq.titleNormal}
-                                <span className="text-[#2F64FF]">{copy.faq.titleAccent}</span>
+                                <span className="text-brand-gradient">{copy.faq.titleAccent}</span>
                             </h2>
                             <p className="text-slate-500 text-lg font-light max-w-xl mx-auto leading-relaxed">
                                 Todo lo que necesitas saber sobre integrar LLMs en los flujos reales de tu empresa.
                             </p>
                             <a
                                 href="#contacto"
-                                className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full border border-[#2F64FF]/30 text-[#2F64FF] font-semibold text-sm hover:bg-[#2F64FF] hover:text-white transition-all duration-200"
+                                className="inline-flex items-center gap-2 mt-8 px-7 py-3 rounded-full border border-[#0855FD]/30 text-brand-gradient font-semibold text-sm hover:bg-brand-gradient hover:text-white transition-all duration-200"
                             >
                                 Hablar con un experto →
                             </a>
@@ -466,11 +466,11 @@ const FaqItem = ({ faq }: { faq: { q: string; a: string } }) => {
                 onClick={() => setOpen(!open)}
                 className="w-full flex justify-between items-center gap-6 text-left group"
             >
-                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? "text-[#2F64FF]" : "text-[#071540] group-hover:text-[#2F64FF]"}`}>
+                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? "text-brand-gradient" : "text-[#071540] group-hover:text-[#0855FD]"}`}>
                     {faq.q}
                 </span>
                 <ChevronDown
-                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? "rotate-180 text-[#2F64FF]" : "text-slate-400 group-hover:text-[#2F64FF]"}`}
+                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? "rotate-180 icon-brand-gradient" : "text-slate-400 group-hover:text-[#0855FD]"}`}
                 />
             </button>
             <AnimatePresence>

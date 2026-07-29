@@ -6,7 +6,7 @@
 import {
   AppWindow,
   Bot,
-  Rocket,
+  Nfc,
   Smartphone,
   type LucideIcon,
 } from "lucide-react";
@@ -35,13 +35,6 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     stack: ["React", "Tailwind", "Vite"],
   },
   {
-    slug: "karMa",
-    image: "/assets/kar-ma.webp",
-    Icon: Rocket,
-    url: "https://kar-ma.netlify.app/",
-    stack: ["React", "Tailwind", "Vite"],
-  },
-  {
     slug: "cccImpresiones",
     image: "/assets/ccc-impresiones.webp",
     Icon: Bot,
@@ -49,10 +42,10 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     stack: ["React", "Vite", "B2B", "3D Print"],
   },
   {
-    slug: "nuestroBarrio",
-    image: "/assets/nuestro-barrio-nuestra-historia.webp",
-    Icon: Rocket,
-    url: "https://nuestrobarrio.netlify.app/",
-    stack: ["React", "Community", "Social", "Big Data"],
+    slug: "veltrixNfc",
+    image: "/assets/veltrix-nfc.webp",
+    Icon: Nfc,
+    url: "https://veltrixnfc.com",
+    stack: ["Next.js", "React", "NFC", "Perfiles digitales"],
   },
 ] as const;

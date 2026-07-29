@@ -42,10 +42,10 @@ type SectionCardProps = {
 const SectionCard = ({ id, index, title, children }: SectionCardProps) => (
   <section
     id={id}
-    className="scroll-mt-32 rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-[#2F64FF]/35 hover:shadow-md sm:p-8"
+    className="scroll-mt-32 rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-[#0855FD]/35 hover:shadow-md sm:p-8"
   >
     <div className="mb-4 flex items-center gap-3">
-      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#2F64FF]/10 text-sm font-bold text-[#2F64FF]">
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#0855FD]/10 text-sm font-bold text-brand-gradient">
         {index}
       </span>
       <h2 className="text-xl font-semibold text-[#071540]">{title}</h2>
@@ -74,7 +74,7 @@ const DataPolicies = () => {
           <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[minmax(0,1fr)_290px]">
             <article className="space-y-6">
               <header className="rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-sm backdrop-blur-sm sm:p-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#2F64FF]/25 bg-[#2F64FF]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#2F64FF]">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#0855FD]/25 bg-[#0855FD]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-gradient">
                   <FileText className="h-3.5 w-3.5" />
                   Proteccion de Datos
                 </div>
@@ -86,7 +86,7 @@ const DataPolicies = () => {
 
                 <p className="mt-6 leading-relaxed text-slate-700">
                   En cumplimiento de lo dispuesto por la Ley N. 29733, Ley de Proteccion de Datos Personales, y su
-                  Reglamento aprobado por Decreto Supremo N. 003-2013-JUS, ELARIS S.A.C.S ("Elaris"), identificada
+                  Reglamento aprobado por Decreto Supremo N. 003-2013-JUS, ELARIS S.A.C.S (&quot;Elaris&quot;), identificada
                   con RUC N. 20615598071, pone en conocimiento de sus clientes, prospectos y usuarios la politica
                   aplicable al tratamiento de sus datos personales.
                 </p>
@@ -106,7 +106,7 @@ const DataPolicies = () => {
 
               <SectionCard id="banco-datos" index={1} title="Banco de datos y titularidad">
                 <p>
-                  Los datos personales seran almacenados en el banco de datos denominado "Clientes" y en repositorios
+                  Los datos personales seran almacenados en el banco de datos denominado &quot;Clientes&quot; y en repositorios
                   operativos relacionados con la prestacion de servicios. Elaris es responsable del tratamiento de
                   dichos datos dentro del marco legal vigente.
                 </p>
@@ -196,7 +196,7 @@ const DataPolicies = () => {
                     href="https://www.minjus.gob.pe/wp-content/uploads/2018/12/FORMULARIO-DE-PROCEDIMIENTO-TRILATERAL-DE-TUTELA.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-[#2F64FF] hover:underline"
+                    className="font-medium text-brand-gradient hover:underline"
                   >
                     Procedimiento trilateral de tutela
                   </a>
@@ -239,7 +239,7 @@ const DataPolicies = () => {
 
               <section className="rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-sm backdrop-blur-sm sm:p-8">
                 <div className="mb-4 flex items-center gap-2 text-[#071540]">
-                  <Building2 className="h-5 w-5 text-[#2F64FF]" />
+                  <Building2 className="h-5 w-5 icon-brand-gradient" />
                   <h2 className="text-xl font-semibold">Datos Legales de la Empresa</h2>
                 </div>
                 <dl className="divide-y divide-slate-200 rounded-xl border border-slate-200 bg-slate-50 text-sm">
@@ -263,7 +263,7 @@ const DataPolicies = () => {
                   <ul className="mt-3 space-y-2 text-sm">
                     {sectionIndex.map((item, idx) => (
                       <li key={item.id}>
-                        <a href={`#${item.id}`} className="text-slate-700 transition-colors hover:text-[#2F64FF]">
+                        <a href={`#${item.id}`} className="text-slate-700 transition-colors hover:text-[#0855FD]">
                           {idx + 1}. {item.title}
                         </a>
                       </li>
@@ -273,7 +273,7 @@ const DataPolicies = () => {
 
                 <section className="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-sm backdrop-blur-sm">
                   <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
-                    <ShieldCheck className="h-4 w-4 text-[#2F64FF]" />
+                    <ShieldCheck className="h-4 w-4 icon-brand-gradient" />
                     Cumplimiento
                   </h2>
                   <div className="mt-3 space-y-2 text-sm text-slate-700">
@@ -286,7 +286,7 @@ const DataPolicies = () => {
                     href="https://www.minjus.gob.pe/wp-content/uploads/2018/12/FORMULARIO-DE-PROCEDIMIENTO-TRILATERAL-DE-TUTELA.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#2F64FF]/30 hover:text-[#2F64FF]"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#0855FD]/30 hover:text-[#0855FD]"
                   >
                     <Scale className="h-4 w-4" />
                     Ir a formulario MINJUS
@@ -294,7 +294,7 @@ const DataPolicies = () => {
 
                   <a
                     href="mailto:contact@elarisdigitalsolutions.com"
-                    className="mt-2 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#2F64FF]/30 hover:text-[#2F64FF]"
+                    className="mt-2 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-[#0855FD]/30 hover:text-[#0855FD]"
                   >
                     <Mail className="h-4 w-4" />
                     Contacto de datos

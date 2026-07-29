@@ -16,10 +16,11 @@ const NAV_LINKS = [
 ] as const;
 
 const Navbar = () => {
-  const [isDesktop, setIsDesktop] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return window.innerWidth >= 1024;
-  });
+  // Arranca en false en servidor y cliente por igual: el layout responsive lo
+  // resuelve CSS, no JS. Ramificar aqui sobre window.innerWidth hacia que el
+  // servidor emitiera la nav de escritorio y el cliente movil el hamburger,
+  // y React descartaba todo el HTML del servidor.
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavHovered, setIsNavHovered] = useState(false);
@@ -98,9 +99,9 @@ const Navbar = () => {
     : "bg-transparent text-[#111] border-b border-transparent shadow-none";
 
   const navItemClass =
-    "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-[#2F64FF]";
+    "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-[#0855FD]";
 
-  const logoSrc = "/assets/ElarisLogo.webp";
+  const logoSrc = "/assets/ElarisLockup.webp";
 
   return (
     <header
@@ -118,9 +119,8 @@ const Navbar = () => {
         <div
           className={cn(
             "container mx-auto h-full px-4 sm:px-6 lg:px-8",
-            isDesktop
-              ? "grid grid-cols-[auto_1fr_auto] items-center"
-              : "flex items-center justify-between"
+            "flex items-center justify-between",
+            "lg:grid lg:grid-cols-[auto_1fr_auto] lg:items-center"
           )}
         >
           {/* Logo */}
@@ -133,16 +133,14 @@ const Navbar = () => {
               src={logoSrc}
               alt={t("navbar.logoAlt")}
               priority
-              width={160}
-              height={64}
-              className="h-10 w-auto"
+              width={812}
+              height={240}
+              className="h-10 w-auto sm:h-12"
             />
           </button>
 
-          {isDesktop ? (
-            <>
-              {/* Desktop nav links */}
-              <ul className="mx-auto flex items-center gap-8" role="menubar">
+          {/* Desktop nav links — ocultos bajo lg via CSS, no via JS */}
+          <ul className="mx-auto hidden items-center gap-8 lg:flex" role="menubar">
                 {NAV_LINKS.map(({ label, section }) => (
                   <li key={section} role="none">
                     <button
@@ -155,42 +153,41 @@ const Navbar = () => {
                     </button>
                   </li>
                 ))}
-              </ul>
+          </ul>
 
-              {/* CTA */}
-              <button
-                type="button"
-                onClick={() => navigateToSection("contacto")}
-                className="justify-self-end inline-flex h-10 items-center rounded-xl bg-[#2F64FF] px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-              >
-                Contacta con ventas
-              </button>
-            </>
-          ) : (
-            <button
-              type="button"
-              aria-label="Abrir menu de navegacion"
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-              className={cn(
-                "inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors",
-                "border-black/15 hover:bg-black/5"
-              )}
-            >
-              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          )}
+          {/* CTA de escritorio */}
+          <button
+            type="button"
+            onClick={() => navigateToSection("contacto")}
+            className="justify-self-end hidden h-10 items-center rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 lg:inline-flex"
+          >
+            Contacta con ventas
+          </button>
+
+          {/* Hamburger — solo bajo lg */}
+          <button
+            type="button"
+            aria-label="Abrir menu de navegacion"
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className={cn(
+              "inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors lg:hidden",
+              "border-black/15 hover:bg-black/5"
+            )}
+          >
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {!isDesktop && (
-        <div
-          className={cn(
-            "overflow-hidden border-b backdrop-blur-[12px] transition-all duration-300 ease-in-out",
-            navThemeClasses,
-            isMobileMenuOpen ? "h-[calc(100dvh-80px)]" : "h-0 border-transparent"
-          )}
-        >
+      {/* Mobile menu — presente en el HTML del servidor, oculto en lg por CSS */}
+      <div
+        className={cn(
+          "overflow-hidden border-b backdrop-blur-[12px] transition-all duration-300 ease-in-out lg:hidden",
+          navThemeClasses,
+          isMobileMenuOpen ? "h-[calc(100dvh-80px)]" : "h-0 border-transparent"
+        )}
+      >
           <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
             <div className="flex-1 overflow-y-auto pr-1">
               <div className="space-y-1 pt-2">
@@ -199,7 +196,7 @@ const Navbar = () => {
                     key={section}
                     type="button"
                     onClick={() => navigateToSection(section)}
-                    className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-[#2F64FF] transition-colors"
+                    className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-[#0855FD] transition-colors"
                   >
                     {label}
                   </button>
@@ -217,7 +214,7 @@ const Navbar = () => {
                   <button
                     type="button"
                     onClick={() => navigateToSection("contacto")}
-                    className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-[#2F64FF] px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-brand-gradient px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Contacta con ventas
                   </button>
@@ -231,9 +228,8 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

@@ -172,6 +172,10 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
               alt={testimonial.name}
               className="testimonial-image"
               data-index={index}
+              // Las fotos se sirven a 602x740; declarar la proporción evita
+              // que el contenedor colapse antes de que carguen.
+              width={602}
+              height={740}
               style={getImageStyle(index)}
               priority={index === activeIndex}
             />
@@ -210,10 +214,10 @@ const CircularTestimonials: React.FC<CircularTestimonialsProps> = ({
 
           <div className="arrow-buttons">
             <button className="arrow-button prev-button" onClick={handlePrev} aria-label="Testimonio anterior">
-              <ArrowLeft size={28} style={{ color: "var(--arrow-fg)" }} />
+              <ArrowLeft size={28} className="icon-brand-gradient" />
             </button>
             <button className="arrow-button next-button" onClick={handleNext} aria-label="Testimonio siguiente">
-              <ArrowRight size={28} style={{ color: "var(--arrow-fg)" }} />
+              <ArrowRight size={28} className="icon-brand-gradient" />
             </button>
           </div>
         </div>

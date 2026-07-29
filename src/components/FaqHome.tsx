@@ -15,14 +15,14 @@ const FaqItem = ({ faq }: { faq: { q: string; a: string } }) => {
       >
         <span
           className={`text-base font-semibold leading-snug transition-colors duration-200 ${
-            open ? "text-[#2F64FF]" : "text-[#071540] group-hover:text-[#2F64FF]"
+            open ? "text-brand-gradient" : "text-[#071540] group-hover:text-[#0855FD]"
           }`}
         >
           {faq.q}
         </span>
         <ChevronDown
           className={`h-5 w-5 flex-shrink-0 transition-all duration-300 ${
-            open ? "rotate-180 text-[#2F64FF]" : "text-slate-400 group-hover:text-[#2F64FF]"
+            open ? "rotate-180 icon-brand-gradient" : "text-slate-400 group-hover:text-[#0855FD]"
           }`}
         />
       </button>
@@ -55,12 +55,12 @@ export default function FaqHome() {
         >
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{copy.headingNormal}</span>
-            <span style={{ color: "#2F64FF" }}>{copy.headingAccent}</span>
+            <span className="text-brand-gradient">{copy.headingAccent}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-black">{copy.description}</p>
           <a
             href="#contacto"
-            className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#2F64FF]/30 px-7 py-3 text-sm font-semibold text-[#2F64FF] transition-all duration-200 hover:bg-[#2F64FF] hover:text-white"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#0855FD]/30 px-7 py-3 text-sm font-semibold text-brand-gradient transition-all duration-200 hover:bg-brand-gradient hover:text-white"
           >
             {copy.ctaLabel}
           </a>

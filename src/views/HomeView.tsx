@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
 import ServicesSplitPanel from "@/components/ui/services-split-panel";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
@@ -35,7 +34,6 @@ const HomeView = () => {
     >
       <Navbar />
       <Hero />
-      <SocialProof />
       <main className="site-sections">
         <ServicesSplitPanel />
         <Process />
