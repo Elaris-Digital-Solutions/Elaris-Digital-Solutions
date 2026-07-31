@@ -14,6 +14,12 @@ interface TypingConsoleProps {
   className?: string;
   cursorClassName?: string;
   hideCursor?: boolean;
+  /**
+   * Clases de altura mínima para el área de texto. Las frases ocupan distinto
+   * número de líneas al escribirse y borrarse; reservando la altura del peor
+   * caso, la consola no cambia de alto y nada de la página se desplaza.
+   */
+  textAreaClassName?: string;
 }
 
 const TypingConsole = ({
@@ -27,6 +33,7 @@ const TypingConsole = ({
   className,
   cursorClassName,
   hideCursor = false,
+  textAreaClassName,
 }: TypingConsoleProps) => {
   const sanitizedPhrases = useMemo(() => {
     return phrases
@@ -107,7 +114,7 @@ const TypingConsole = ({
     >
       <div className="flex items-start text-left">
         <span className="mr-2 flex-shrink-0 text-brand-gradient font-bold">{prefix}</span>
-        <div className="flex-1 min-w-0">
+        <div className={cn("flex-1 min-w-0", textAreaClassName)}>
           {staticPrefix && (
             <span className="text-[#071540]/60 break-words whitespace-pre-wrap">
               {staticPrefix}{" "}

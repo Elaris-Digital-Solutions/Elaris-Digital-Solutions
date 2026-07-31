@@ -204,7 +204,7 @@ export default function CustomSoftwareHero() {
               href="#contacto"
               className="inline-flex items-center justify-center gap-2.5 bg-brand-gradient text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-[#1a4fe0] hover:shadow-[0_10px_32px_rgba(47,100,255,0.42)] active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300 group w-full lg:w-auto"
             >
-              Agendar consultoría
+              Solicitar diagnóstico
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </motion.div>

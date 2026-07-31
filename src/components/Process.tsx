@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Timeline } from '@/components/ui/timeline'
-import { Bot, Code2, FileCode2, LineChart, Network, Stars } from 'lucide-react'
+import { ArrowRight, Bot, Code2, FileCode2, LineChart, Network, Stars } from 'lucide-react'
 import { useI18n } from '@/lib/i18n'
+import { scrollToSection } from '@/lib/utils'
 
 const processSteps = [
   { key: 'analysis', Icon: Network },
@@ -49,6 +50,20 @@ export default function Process() {
           </p>
         </motion.div>
         <Timeline data={processData} />
+
+        <div className="mt-12 text-center">
+          <a
+            href="#contacto"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("contacto");
+            }}
+            className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+          >
+            Solicitar diagnóstico
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

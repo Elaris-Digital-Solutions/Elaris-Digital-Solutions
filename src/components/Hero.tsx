@@ -44,13 +44,14 @@ const Hero = () => {
     { text: t("hero.ctas.secondary"), href: "#portafolio", onClick: () => trackHeroCTA("ver_casos") },
   ], [t]);
 
+  const microDetails = useMemo(() => tArray("hero.microDetails"), [tArray]);
+
   return (
     <SyntheticHero
       title={t("hero.title")}
       description={t("hero.description")}
-      badgeLabel={t("hero.badgeLabel")}
-      badgeText={t("hero.badgeText")}
       ctaButtons={ctaButtons}
+      microDetails={microDetails}
       consolePhrases={consolePhrases}
       consolePrefixPhrase={consolePrefixPhrase}
     />

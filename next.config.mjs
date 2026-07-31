@@ -11,6 +11,9 @@ const nextConfig = {
       { source: "/en", destination: "/", permanent: true },
       { source: "/es/terminos-condiciones", destination: "/terminos-condiciones", permanent: true },
       { source: "/es/politicas-de-datos", destination: "/politicas-de-datos", permanent: true },
+      // El servicio pasó de llamarse "implementación de LLMs" a "Inteligencia
+      // Artificial" (lenguaje entendible). La URL vieja conserva su autoridad.
+      { source: "/implementacion-llms", destination: "/inteligencia-artificial", permanent: true },
     ];
   },
 };

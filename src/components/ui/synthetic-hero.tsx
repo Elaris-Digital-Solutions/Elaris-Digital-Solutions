@@ -13,8 +13,6 @@ gsap.registerPlugin(SplitText, useGSAP);
 interface HeroProps {
   title: string;
   description: string;
-  badgeText?: string;
-  badgeLabel?: string;
   ctaButtons?: Array<{ text: string; href?: string; primary?: boolean; onClick?: () => void }>;
   microDetails?: Array<string>;
   consolePhrases?: string[];
@@ -25,8 +23,6 @@ const SyntheticHero = ({
   title = "An experiment in light, motion, and the quiet chaos between.",
   description =
   "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
-  badgeText = "React Three Fiber",
-  badgeLabel = "Experience",
   ctaButtons = [
     { text: "Explore the Canvas", href: "#explore", primary: true },
     { text: "Learn More", href: "#learn-more" },
@@ -127,7 +123,10 @@ const SyntheticHero = ({
   return (
     <section
       ref={sectionRef}
-      className="relative flex items-center justify-center min-h-screen overflow-hidden bg-[#F0F4FF]"
+      // items-start en móvil: la consola crece al escribir y ese crecimiento
+      // empuja solo lo de abajo, en vez de repartirse hacia arriba y mover el
+      // título. Desde sm el contenido cabe de sobra y se centra como antes.
+      className="relative flex items-start justify-center min-h-screen overflow-hidden bg-[#F0F4FF] sm:items-center"
     >
       <div className="absolute inset-0 z-0">
         <NeuralNoise
@@ -138,7 +137,10 @@ const SyntheticHero = ({
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center text-center px-6">
+      {/* py-28 reserva los 80px del navbar fijo: si el contenido crece más que
+          la pantalla (móviles pequeños), la sección se estira hacia abajo en vez
+          de meter el título debajo de la barra. */}
+      <div className="relative z-10 flex w-full flex-col items-center px-6 py-28 text-center">
 
 
         <h1
@@ -152,7 +154,11 @@ const SyntheticHero = ({
           ref={consoleRef}
           className="w-full max-w-2xl mx-auto mb-10"
         >
-          <div className="rounded-2xl border border-white/30 bg-white/70 backdrop-blur-xl shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden">
+          {/* El backdrop-blur sobre el canvas animado obliga a recomponer el
+              fondo desenfocado en cada frame — es lo que entrecorta la consola
+              en móvil. Desde sm sí se aplica; debajo se usa un blanco casi
+              opaco, que se ve igual y no cuesta nada. */}
+          <div className="rounded-2xl border border-white/30 bg-white/95 shadow-[0_30px_70px_rgba(20,40,95,0.08)] overflow-hidden sm:bg-white/70 sm:backdrop-blur-xl">
             <div className="flex items-center justify-end gap-2 px-3 py-2 bg-white/80 border-b border-white/30">
               <div className="w-2.5 h-2.5 rounded-full bg-[#22C55E]/80 shadow-sm" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#FFC961]/80 shadow-sm" />
@@ -168,6 +174,10 @@ const SyntheticHero = ({
               pauseDelay={3500}
               className="text-[#071540]/95"
               cursorClassName="bg-brand-gradient"
+              // Móvil: una línea de piso y crece al escribir. Desde sm se
+              // reservan 2 líneas porque ahí el contenido va centrado y un
+              // salto de línea movería todo el bloque.
+              textAreaClassName="min-h-[1.625em] sm:min-h-[3.25em]"
             />
           </div>
         </div>
@@ -179,8 +189,8 @@ const SyntheticHero = ({
           {ctaButtons.map((button, index) => {
             const isPrimary = button.primary ?? index === 0;
             const classes = isPrimary
-              ? "px-8 py-3 rounded-xl text-base font-medium backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-[background-color,box-shadow] duration-300 cursor-pointer"
-              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 text-brand-gradient hover:bg-white/10 hover:text-[#0855FD] backdrop-blur-lg transition-[background-color,color] duration-300 cursor-pointer";
+              ? "px-8 py-3 rounded-xl text-base font-medium sm:backdrop-blur-lg bg-brand-gradient-glass text-white shadow-[0_18px_60px_rgba(47,100,255,0.35)] transition-[background-color,box-shadow] duration-300 cursor-pointer"
+              : "px-8 py-3 rounded-xl text-base font-medium border border-white/35 bg-white/80 text-brand-gradient hover:bg-white/10 hover:text-[#0855FD] sm:bg-transparent sm:backdrop-blur-lg transition-[background-color,color] duration-300 cursor-pointer";
 
             if (button.href) {
               return (
@@ -211,7 +221,7 @@ const SyntheticHero = ({
         {microDetails.length > 0 && (
           <ul
             ref={microRef}
-            className="mt-8 flex flex-wrap justify-center gap-6 text-xs font-light tracking-tight text-[#071540]/60"
+            className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs font-light tracking-tight text-[#071540]/75"
           >
             {microDetails.map((detail, index) => (
               <li key={index} className="flex items-center gap-2">

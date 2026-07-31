@@ -112,7 +112,9 @@ const ProjectsCarousel: React.FC = () => {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-semibold text-green-600">{projects[currentProject].metrics}</p>
+                    {/* El verde queda reservado a WhatsApp por manual de marca;
+                        además green-600 sobre blanco no llega a 4.5:1. */}
+                    <p className="text-sm font-semibold text-brand-gradient">{projects[currentProject].metrics}</p>
                   </div>
                   {projects[currentProject].url && (
                     <div className="flex space-x-2">

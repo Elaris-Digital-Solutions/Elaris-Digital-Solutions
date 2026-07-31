@@ -11,7 +11,8 @@ const FaqItem = ({ faq }: { faq: { q: string; a: string } }) => {
     <div className="border-b border-slate-200 py-6">
       <button
         onClick={() => setOpen(!open)}
-        className="group flex w-full items-center justify-between gap-6 text-left"
+        aria-expanded={open}
+        className="group flex w-full items-center justify-between gap-6 rounded-lg text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
       >
         <span
           className={`text-base font-semibold leading-snug transition-colors duration-200 ${

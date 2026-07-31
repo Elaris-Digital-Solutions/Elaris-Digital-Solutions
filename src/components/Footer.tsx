@@ -1,18 +1,20 @@
 "use client";
 
-import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
+import { CalendarDays, Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
+import es from "@/locales/es.json";
 
 const CURRENT_YEAR = new Date().getFullYear();
+const SERVICE_LINKS = es.footer.sections.services.items;
 
 const Footer = () => {
   const currentYear = CURRENT_YEAR;
   const { t, tArray } = useI18n();
   const navLabels = tArray("footer.sections.navigation.items");
-  const navTargets = ["", "estandares", "portafolio", "clientes", "contacto"];
+  const navTargets = ["", "estandares", "portafolio", "clientes", "faq", "contacto"];
   const navItems = navTargets.map((id, index) => ({
     id,
     label: navLabels[index] ?? "",
@@ -33,7 +35,7 @@ const Footer = () => {
   return (
     <footer className="bg-[var(--brand-surface-dark)] border-t border-white/10 text-white">
       <div className="container mx-auto px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
-        <div className="mb-6 grid grid-cols-1 gap-6 sm:mb-8 sm:gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-6 grid grid-cols-1 gap-6 sm:mb-8 sm:gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="mb-3.5 flex items-center gap-2 sm:mb-4">
@@ -78,6 +80,23 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          {/* Servicios Column */}
+          <div key="Servicios">
+            <h3 className="mb-3 text-base font-semibold">{t("footer.sections.services.title")}</h3>
+            <ul className="space-y-1.5 sm:space-y-2">
+              {SERVICE_LINKS.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-white/80 text-sm hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Navegación Column */}
           <div key="Navegacion">
             <h3 className="mb-3 text-base font-semibold">{t("footer.sections.navigation.title")}</h3>
@@ -109,6 +128,17 @@ const Footer = () => {
           <div key="Contacto">
             <h3 className="mb-3 text-base font-semibold">{contactSection.title}</h3>
             <ul className="space-y-1.5 sm:space-y-2">
+              <li>
+                <a
+                  href="/meet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors"
+                >
+                  <CalendarDays className="h-4 w-4 flex-shrink-0" />
+                  {contactSection.meetingLabel}
+                </a>
+              </li>
               <li>
                 <a
                   href="mailto:contact@elarisdigitalsolutions.com"

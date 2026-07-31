@@ -4,13 +4,15 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import { useInView } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, TrendingUp } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PROJECT_CONFIGS } from "@/lib/project-configs";
 
 interface Option {
 	title: string;
 	description: string;
+	category: string;
+	metrics: string;
 	image: string;
 	Icon: LucideIcon;
 	url?: string;
@@ -28,6 +30,8 @@ const InteractiveSelector = () => {
 			PROJECT_CONFIGS.map((config) => ({
 				title: t(`portfolio.projects.${config.slug}.title`),
 				description: t(`portfolio.projects.${config.slug}.description`),
+				category: t(`portfolio.projects.${config.slug}.category`),
+				metrics: t(`portfolio.projects.${config.slug}.metrics`),
 				image: config.image,
 				Icon: config.Icon,
 				url: config.url,
@@ -125,17 +129,20 @@ const InteractiveSelector = () => {
 							transition: "all 0.7s ease-in-out",
 						};
 
+						// Velo inferior como degradado real (no box-shadow): garantiza
+						// que el texto blanco mantenga contraste AA sea cual sea la foto
+						// del proyecto, en vez de depender de lo oscura que sea la imagen.
 						const shadowStyles: CSSProperties = {
 							position: "absolute" as const,
 							left: 0,
 							right: 0,
-							bottom: isActive ? 0 : -40,
-							height: "120px",
+							bottom: 0,
+							height: "65%",
 							pointerEvents: "none" as const,
-							boxShadow: isActive
-								? "inset 0 -120px 120px -120px rgba(0,0,0,0.8), inset 0 -120px 120px -80px rgba(0,0,0,0.6)"
-								: "inset 0 -120px 0px -120px rgba(0,0,0,0.8), inset 0 -120px 0px -80px rgba(0,0,0,0.6)",
-							transition: "all 0.7s ease-in-out",
+							background:
+								"linear-gradient(to top, rgba(4,10,30,0.92) 0%, rgba(4,10,30,0.78) 38%, rgba(4,10,30,0.28) 72%, rgba(4,10,30,0) 100%)",
+							opacity: isActive ? 1 : 0.55,
+							transition: "opacity 0.7s ease-in-out",
 						};
 
 						const titleStyles: CSSProperties = {
@@ -154,7 +161,7 @@ const InteractiveSelector = () => {
 							<button
 								key={option.title}
 								type="button"
-								className="relative flex cursor-pointer flex-col justify-end overflow-hidden text-left focus:outline-none"
+								className="relative flex cursor-pointer flex-col justify-end overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
 								style={optionStyles}
 								onClick={() => handleOptionClick(index)}
 							>
@@ -167,11 +174,24 @@ const InteractiveSelector = () => {
 										<option.Icon className="h-6 w-6 text-white" />
 									</div>
 									<div className="flex flex-col text-white flex-1">
+										<span
+											className="mb-1.5 inline-flex w-fit rounded-full bg-white/20 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-widest backdrop-blur-sm"
+											style={titleStyles}
+										>
+											{option.category}
+										</span>
 										<span className="text-lg font-bold" style={titleStyles}>
 											{option.title}
 										</span>
-										<span className="text-base text-gray-300" style={descStyles}>
+										<span className="line-clamp-2 text-base text-gray-300" style={descStyles}>
 											{option.description}
+										</span>
+										<span
+											className="mt-2 flex items-center gap-1.5 text-sm font-semibold text-white"
+											style={descStyles}
+										>
+											<TrendingUp className="h-4 w-4 flex-shrink-0" />
+											{option.metrics}
 										</span>
 									</div>
 									{isActive && option.url && (

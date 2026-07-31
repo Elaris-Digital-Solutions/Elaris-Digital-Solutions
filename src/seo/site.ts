@@ -7,9 +7,22 @@ export const OG_IMAGE = `${SITE_URL}/assets/Elaris-OG.png`;
 export const LOGO_IMAGE = `${SITE_URL}/assets/ElarisLockup.webp`;
 export const LOCALE = "es_PE";
 
-export const HOME_TITLE = "Tecnología para impulsar negocios | Elaris Digital Solutions";
+export const HOME_TITLE =
+  "Software a medida para vender más y operar mejor | Elaris Digital Solutions";
 export const HOME_DESCRIPTION =
-  "¿Tu negocio depende de procesos manuales lentos? En Elaris Digital Solutions eliminamos el caos operativo con tecnología fácil de usar. Empieza a escalar tu operación ahora mismo.";
+  "Automatizamos procesos, modernizamos sistemas y construimos plataformas de venta para empresas en Perú y LATAM. El código es 100% tuyo. Diagnóstico inicial sin compromiso, con respuesta en menos de 12 horas.";
+
+/** Las 8 páginas de servicio indexables. Fuente única para sitemap y enlazado. */
+export const SERVICE_PATHS = [
+  "/desarrollo-web",
+  "/e-commerce",
+  "/posicionamiento-seo",
+  "/desarrollo-mvp",
+  "/desarrollo-software-medida",
+  "/inteligencia-artificial",
+  "/implementacion-cmms",
+  "/transformacion-digital",
+] as const;
 
 const PHONE = "+51-973-663-807";
 const EMAIL = "contact@elarisdigitalsolutions.com";
@@ -104,43 +117,32 @@ export const buildWebsiteSchema = () => ({
   publisher: { "@type": "Organization", name: "Elaris Digital Solutions" },
 });
 
-const prioritizedServices = [
-  {
-    name: "Arquitectura y Modernización Tecnológica",
-    description:
-      "Modernización de sistemas, arquitecturas cloud robustas y optimización de costos de TI para operaciones industriales y de manufactura.",
-  },
-  {
-    name: "Automatización Inteligente de Procesos",
-    description:
-      "IA aplicada a flujos de trabajo, gestión documental inteligente e integración con ERP, SAP y CRM para empresas B2B de servicios.",
-  },
-  {
-    name: "Optimización Digital para Crecimiento",
-    description:
-      "E-commerce a medida, integración de pasarelas de pago y arquitectura SEO-first para marcas premium que venden online.",
-  },
-  {
-    name: "Integración de IA y LLMs",
-    description:
-      "Implementación de modelos de lenguaje, RAG con datos propios y automatización cognitiva en flujos críticos del negocio.",
-  },
-];
+/** Los 8 servicios reales, cada uno apuntando a su propia página indexable. */
+export const buildServiceSchema = () => {
+  const items = es.services.items as Record<
+    string,
+    { title: string; benefit: string; href: string }
+  >;
+  const orderedKeys = es.services.groups.flatMap((group) => group.keys);
 
-export const buildServiceSchema = () => ({
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Servicios de Elaris Digital Solutions",
-  itemListElement: prioritizedServices.map((service, index) => ({
-    "@type": "Service",
-    position: index + 1,
-    name: service.name,
-    description: service.description,
-    provider: { "@type": "Organization", name: "Elaris Digital Solutions" },
-    areaServed: "PE",
-    url: SITE_URL,
-  })),
-});
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Servicios de Elaris Digital Solutions",
+    itemListElement: orderedKeys.map((key, index) => {
+      const service = items[key];
+      return {
+        "@type": "Service",
+        position: index + 1,
+        name: service.title,
+        description: service.benefit,
+        provider: { "@type": "Organization", name: "Elaris Digital Solutions" },
+        areaServed: "PE",
+        url: `${SITE_URL}${service.href}`,
+      };
+    }),
+  };
+};
 
 /** Portfolio projects as CreativeWork — gives agents concrete proof of work. */
 export const buildPortfolioSchema = () => {
@@ -164,21 +166,26 @@ export const buildPortfolioSchema = () => {
 };
 
 /**
- * Metadata builder for non-indexable pages (campaign/service landings, legal,
- * redirect). Per project decision, ONLY the homepage is indexed; everything else
- * is noindex,follow so crawlers can still read context without listing the page.
+ * Metadata builder for secondary pages.
+ *
+ * Las 8 páginas de servicio SÍ se indexan (`{ index: true }`): son las únicas
+ * con intención de búsqueda comercial. Todo lo demás — landing de pauta
+ * (/impulsa-tu-negocio), página de apoyo (/apis-personalizadas), redirect
+ * (/meet) y legales — sigue noindex,follow: los crawlers leen el contexto sin
+ * que la página compita en resultados.
  */
 export const campaignMetadata = (
   title: string,
   description: string,
-  path: string
+  path: string,
+  options?: { index?: boolean }
 ): Metadata => {
   const url = `${SITE_URL}${path}`;
   return {
     title: { absolute: title },
     description,
     alternates: { canonical: url },
-    robots: { index: false, follow: true },
+    robots: options?.index ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       type: "website",
       url,
