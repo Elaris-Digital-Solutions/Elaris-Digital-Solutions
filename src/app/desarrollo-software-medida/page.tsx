@@ -8,7 +8,8 @@ const copy = es.customSoftware;
 export const metadata = campaignMetadata(
   copy.seo.title,
   copy.seo.description,
-  "/desarrollo-software-medida"
+  "/desarrollo-software-medida",
+  { index: true }
 );
 
 export default function Page() {

@@ -187,15 +187,29 @@ function NeuralNoise({
     gl.uniform1f(uniforms.u_time_scale, timeScale);
 
     // --- Resize: cap DPR at 1 on mobile to halve GPU pixel count ---
+    let lastW = 0;
+    let lastH = 0;
+
     const resize = () => {
-      const isMobile = window.innerWidth < 768;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // En móvil, mostrar/ocultar la barra de direcciones al hacer scroll
+      // dispara `resize` con un alto distinto. Reasignar el búfer del canvas en
+      // cada uno de esos eventos entrecorta la animación, así que los cambios
+      // de solo alto por debajo de 120px se ignoran: el shader no se nota.
+      if (vw === lastW && Math.abs(vh - lastH) < 120) return;
+      lastW = vw;
+      lastH = vh;
+
+      const isMobile = vw < 768;
       const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2);
-      const w = Math.floor(window.innerWidth * dpr);
-      const h = Math.floor(window.innerHeight * dpr);
+      const w = Math.floor(vw * dpr);
+      const h = Math.floor(vh * dpr);
       canvas.width = w;
       canvas.height = h;
-      canvas.style.width  = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      canvas.style.width  = `${vw}px`;
+      canvas.style.height = `${vh}px`;
       gl.viewport(0, 0, w, h);
       gl.uniform1f(uniforms.u_ratio, w / h);
     };

@@ -6,7 +6,7 @@
       "en": "EN"
     },
     "buttons": {
-      "sendMessage": "Enviar Mensaje",
+      "sendMessage": "Continuar por WhatsApp",
       "viewProject": "Ver proyecto"
     }
   },
@@ -22,14 +22,18 @@
     }
   },
   "hero": {
-    "title": "Tecnología a medida para industrias que no pueden permitirse parar.",
-    "description": "Digitalizamos el mantenimiento, automatizamos procesos y modernizamos sistemas para que tu operación funcione con menos paradas, menos costos y más control. Software a medida para empresas en Perú y LATAM.",
-    "badgeLabel": "Estudio",
-    "badgeText": "INGENIERÍA DE SOFTWARE PARA NEGOCIOS",
+    "title": "Tecnología a medida para negocios que necesitan vender más y operar mejor.",
+    "description": "Automatizamos procesos, modernizamos sistemas y construimos plataformas que venden por ti. Software a medida para empresas en Perú y LATAM — y el código siempre es tuyo.",
     "ctas": {
-      "primary": "Solicitar Diagnóstico Operativo",
+      "primary": "Solicitar diagnóstico",
       "secondary": "Ver casos reales"
     },
+    "microDetails": [
+      "Hasta 80% menos tiempo operativo en clientes reales",
+      "Proyectos en Perú, Chile y Argentina",
+      "El código es 100% tuyo",
+      "Sin costo y sin compromiso"
+    ],
     "consolePrefixPhrase": "Construimos software a medida para...",
     "consolePhrases": [
       "reducir paradas no planificadas.",
@@ -39,45 +43,71 @@
     ]
   },
   "services": {
-    "headingNormal": "Elige cómo ",
-    "headingAccent": "quieres crecer",
-    "description": "Vender más o reducir costos. La mayoría de las empresas necesita ambos para operar con ventaja. Diseñamos e implementamos soluciones enfocadas en estos objetivos a través de:",
+    "headingNormal": "Soluciones que impulsan ",
+    "headingAccent": "tu operación",
+    "description": "Vender más o reducir costos. La mayoría de las empresas necesita ambos para operar con ventaja. Elige por dónde empezar:",
+    "closingNote": "Cada servicio se adapta a la escala, industria y objetivos específicos de tu empresa.",
+    "closingCta": "¿No sabes cuál necesitas? Empieza por el diagnóstico →",
+    "groups": [
+      {
+        "label": "Para vender más",
+        "keys": [
+          "web",
+          "ecommerce",
+          "seo",
+          "mvp"
+        ]
+      },
+      {
+        "label": "Para operar mejor",
+        "keys": [
+          "software",
+          "ia",
+          "cmms",
+          "transformacion"
+        ]
+      }
+    ],
     "items": {
       "web": {
-        "title": "Optimización Digital para Crecimiento",
-        "description": "Tu presencia digital debe ser tu mejor canal de ventas, no un gasto más. Desarrollamos plataformas de alto rendimiento enfocadas en captar clientes, automatizar tus ventas y fidelizar usuarios con experiencias de compra impecables desde el primer clic.",
-        "visualTitle": "Diseño & Performance",
-        "visualDescription": "Canales de venta que trabajan mientras tu equipo duerme.",
-        "features": [
-          "Desarrollo de E-commerce a Medida: Creamos tiendas virtuales con requerimientos específicos, integrando desde gestores de inventario avanzados hasta trazabilidad de pedidos en tiempo real.",
-          "Integración de Pasarelas de Pago y Logística: Conexión fluida con pasarelas y couriers para que la transacción y la entrega sean procesos automatizados y sin errores.",
-          "Arquitectura Técnica SEO-first: Estructura web optimizada para motores de búsqueda desde la base, asegurando que tus clientes te encuentren cuando estén listos para comprar."
-        ],
-        "cta": "Quiero más ventas online →"
+        "title": "Desarrollo web",
+        "benefit": "Una página que vende, no un folleto digital.",
+        "href": "/desarrollo-web"
       },
-      "ai": {
-        "title": "Automatización Inteligente de Procesos",
-        "description": "No solo integramos IA. Automatizamos los procesos que hoy te cuestan tiempo y dinero. Liberamos a tu equipo de tareas repetitivas y propensas al error humano, conectando tus áreas, unificando tu información y acelerando tu operatividad diaria.",
-        "visualTitle": "Automatización Inteligente",
-        "visualDescription": "Procesos automatizados para liberar tiempo y reducir costos.",
-        "features": [
-          "Automatización de Flujos de Información: Conectamos las áreas que hoy se coordinan por correo o WhatsApp para que los datos circulen solos, sin recaptura manual ni errores de transcripción.",
-          "Gestión Documental Inteligente: Automatización de procesos de clasificación y extracción de documentos, pasando del caos del papel a la eficiencia digital.",
-          "Ecosistemas Conectados: Integración de sistemas con ERP, SAP y CRM para unificar la operación de tu empresa."
-        ],
-        "cta": "Quiero automatizar mi operación →"
+      "ecommerce": {
+        "title": "E-commerce",
+        "benefit": "Tu tienda vendiendo 24/7, con inventario y pagos integrados.",
+        "href": "/e-commerce"
+      },
+      "seo": {
+        "title": "Posicionamiento SEO",
+        "benefit": "Que te encuentren en Google cuando buscan lo que vendes.",
+        "href": "/posicionamiento-seo"
+      },
+      "mvp": {
+        "title": "Desarrollo de MVPs",
+        "benefit": "Convierte tu idea en un producto funcionando.",
+        "href": "/desarrollo-mvp"
       },
       "software": {
-        "title": "Arquitectura y Modernización Tecnológica",
-        "description": "Cada día que pasas operando sobre sistemas frágiles u obsoletos, tu empresa pierde velocidad y dinero. Modernizamos tu infraestructura, eliminamos los bloqueos tecnológicos y construimos la base que necesitas para escalar sin que la tecnología sea tu cuello de botella.",
-        "visualTitle": "Modernización Tecnológica",
-        "visualDescription": "Sistemas diseñados para el crecimiento, no para frenarlo.",
-        "features": [
-          "Modernización de Sistemas: Modernizamos tus plataformas desactualizadas migrando tus sistemas hacia arquitecturas eficientes y escalables sin interrumpir la operación diaria de tu negocio.",
-          "Arquitecturas Cloud Robustas: Construimos arquitecturas cloud robustas diseñando desde cero o trasladando tu infraestructura a AWS, GCP o Azure bajo estrictas prácticas de seguridad y resiliencia.",
-          "Optimización de Costos de Infraestructura TI: Optimizamos tus costos de infraestructura TI reduciendo el gasto operativo recurrente para que el crecimiento tecnológico de tu empresa nunca represente un problema financiero."
-        ],
-        "cta": "Hablar con un arquitecto →"
+        "title": "Software a medida",
+        "benefit": "Sistemas que se adaptan a tu operación, no al revés.",
+        "href": "/desarrollo-software-medida"
+      },
+      "ia": {
+        "title": "Inteligencia Artificial",
+        "benefit": "Automatiza las tareas repetitivas que consumen a tu equipo.",
+        "href": "/inteligencia-artificial"
+      },
+      "cmms": {
+        "title": "CMMS · Mantenimiento",
+        "benefit": "Digitaliza el mantenimiento y reduce paradas de planta.",
+        "href": "/implementacion-cmms"
+      },
+      "transformacion": {
+        "title": "Transformación digital",
+        "benefit": "Del papel y el Excel a una operación digital ordenada.",
+        "href": "/transformacion-digital"
       }
     }
   },
@@ -92,27 +122,27 @@
     "projects": {
       "salcedoJewels": {
         "title": "Salcedo Jewels",
-        "description": "E-commerce de joyería integrado con su sistema de inventario en tiempo real. Permite vender en línea y centralizar stock y métricas en un solo lugar.",
-        "category": "E-commerce",
-        "metrics": "Venta en línea e inventario centralizados en una sola plataforma"
+        "description": "Tienda online y sistema de gestión para una joyería con presencia en Lima, Chiclayo y Cajamarca. Antes: catálogo en PDF rehecho a mano en Canva con cada venta. Ahora: catálogo siempre actualizado, inventario por talla, pedidos con cuotas y editor de fotos integrado.",
+        "category": "E-commerce + Gestión",
+        "metrics": "Hasta 80% menos tiempo operativo y ventas todo el año"
       },
       "sistemaInventarioUPC": {
         "title": "Sistema de Inventario UPC",
-        "description": "Sistema interno de préstamo, reserva y control de dispositivos electrónicos para alumnos y laboratorios académicos.",
-        "category": "Sistema de Reservas",
-        "metrics": "Préstamo y reserva de equipos bajo un control único"
+        "description": "Plataforma de reservas de equipos tecnológicos (VR, tablets, cámaras, proyectores) para estudiantes de la Universidad Peruana de Ciencias Aplicadas en los campus Monterrico y San Miguel, con verificación de retiros y devoluciones en tiempo real.",
+        "category": "Plataforma institucional",
+        "metrics": "Equipos que nadie usaba, hoy reservados por estudiantes en 2 campus"
       },
       "cccImpresiones": {
         "title": "CCC Impresiones",
-        "description": "Sistema de gestión operativa e inventario para soluciones gráficas industriales, migrando el control de hojas de cálculo dispersas a una plataforma integrada.",
-        "category": "Gestión Operativa",
-        "metrics": "Control operativo unificado, sin hojas de cálculo dispersas"
+        "description": "Tienda online, cotizador de trabajos personalizados y panel de gestión para una imprenta de Córdoba (Argentina) que operaba con Excel y hojas físicas. Incluye inventario, pedidos con cuotas y base técnica SEO.",
+        "category": "E-commerce industrial",
+        "metrics": "De Excel y papel a catálogo digital con tráfico orgánico constante"
       },
       "veltrixNfc": {
         "title": "VeltrixNFC",
-        "description": "Plataforma para la gestión, vinculación y distribución digital de tarjetas físicas con tecnología NFC.",
-        "category": "Identidad Digital",
-        "metrics": "Perfil digital compartido con un solo toque"
+        "description": "Plataforma para tarjetas de presentación metálicas con chip NFC: al acercarla a un celular abre el perfil digital del dueño, con sus datos, redes y botón de contacto. Incluye panel de personalización y gestión de tarjetas físicas. Opera en Perú y Chile.",
+        "category": "Producto digital (MVP)",
+        "metrics": "De una idea a una startup operando en 2 países"
       }
     }
   },
@@ -169,12 +199,6 @@
         "name": "Milagros Salcedo",
         "designation": "CEO, Salcedo Jewels S.A.C.",
         "src": "/assets/milagros-salcedo.webp"
-      },
-      "martina": {
-        "quote": "“Necesitábamos más que un sitio web — necesitábamos un canal de ventas digital que trabajara por nosotros. Lo que entregaron genera contactos calificados de forma constante, sin que tengamos que perseguir a nadie.”",
-        "name": "Miguel del Solar",
-        "designation": "CEO, Papelera Latinoamericana S.A.C.",
-        "src": "/assets/miguel-del-solar.webp"
       }
     }
   },
@@ -192,32 +216,11 @@
       "github": "GitHub de {name}"
     }
   },
-  "socialProof": {
-    "intro": "Resultados reales en operaciones que ya confiaron en nosotros:",
-    "items": [
-      {
-        "value": "−65%",
-        "label": "paradas no planificadas en planta"
-      },
-      {
-        "value": "+40%",
-        "label": "leads calificados en los primeros 60 días"
-      },
-      {
-        "value": "−60%",
-        "label": "consultas manuales al equipo de ventas"
-      },
-      {
-        "value": "100%",
-        "label": "del código es tuyo, sin lock-in"
-      }
-    ]
-  },
   "homeFaq": {
     "headingNormal": "Preguntas ",
     "headingAccent": "frecuentes",
     "description": "Lo que las empresas nos preguntan antes de empezar. Si tienes otra duda, escríbenos y te respondemos en menos de 12 horas.",
-    "ctaLabel": "Hablar con un experto →",
+    "ctaLabel": "Solicitar diagnóstico →",
     "items": [
       {
         "q": "¿Cuánto tarda un proyecto con Elaris?",
@@ -240,8 +243,16 @@
         "a": "Sí. Trabajamos con SLAs definidos, planes de mantenimiento y transferencia de conocimiento a tu equipo, para que puedas operar el sistema con o sin nosotros."
       },
       {
-        "q": "¿Cómo empiezo y cuánto cuesta el diagnóstico?",
-        "a": "El proceso inicia con un diagnóstico técnico y operativo de dos semanas. Evaluamos tus sistemas actuales, identificamos cuellos de botella y te entregamos un informe con la ruta de desarrollo y los costos de infraestructura antes de construir."
+        "q": "¿Cuánto cuesta un proyecto con Elaris?",
+        "a": "Depende del alcance, pero nunca es una caja negra: tras el diagnóstico recibes una propuesta con alcance, plazos y costo total cerrados por fase, antes de comprometerte. Sin sorpresas ni adicionales a mitad de camino. No somos la opción más barata — somos la que elimina el riesgo de invertir en tecnología que no funciona."
+      },
+      {
+        "q": "¿Cómo empiezo? ¿El diagnóstico tiene costo?",
+        "a": "El diagnóstico técnico y operativo es gratuito y toma dos semanas. Evaluamos cómo opera hoy tu negocio, identificamos cuellos de botella y te entregamos un informe con la ruta de desarrollo y los costos estimados — antes de que inviertas un sol en construir."
+      },
+      {
+        "q": "¿Cuánto tiempo tiene que dedicarle mi equipo?",
+        "a": "Menos del que imaginas. Necesitamos unas horas al inicio para entender cómo operan y una reunión de validación cada dos semanas, normalmente de una hora. El resto lo llevamos nosotros: no te pedimos que armes documentación ni que un jefe de área quede a medio tiempo en el proyecto."
       }
     ]
   },
@@ -254,7 +265,7 @@
       "Prioriza qué automatizar primero según impacto y esfuerzo",
       "Ubica tu caso antes de pasar al diagnóstico operativo"
     ],
-    "cta": "Hablar con un consultor",
+    "cta": "Quiero el checklist gratis",
     "note": "Te lo enviamos por WhatsApp. Sin spam."
   },
   "contact": {
@@ -291,19 +302,48 @@
       "services": {
         "title": "Servicios",
         "items": [
-          "E-commerce y conversión",
-          "Automatización con IA",
-          "Software a medida",
-          "Arquitectura y cloud"
+          {
+            "label": "Desarrollo web",
+            "href": "/desarrollo-web"
+          },
+          {
+            "label": "E-commerce",
+            "href": "/e-commerce"
+          },
+          {
+            "label": "Posicionamiento SEO",
+            "href": "/posicionamiento-seo"
+          },
+          {
+            "label": "Desarrollo de MVPs",
+            "href": "/desarrollo-mvp"
+          },
+          {
+            "label": "Software a medida",
+            "href": "/desarrollo-software-medida"
+          },
+          {
+            "label": "Inteligencia Artificial",
+            "href": "/inteligencia-artificial"
+          },
+          {
+            "label": "CMMS (mantenimiento)",
+            "href": "/implementacion-cmms"
+          },
+          {
+            "label": "Transformación digital",
+            "href": "/transformacion-digital"
+          }
         ]
       },
       "navigation": {
         "title": "Navegación",
         "items": [
           "Inicio",
-          "Estándares",
-          "Portafolio",
+          "Por qué Elaris",
+          "Casos",
           "Testimonios",
+          "FAQ",
           "Contacto"
         ]
       },
@@ -412,38 +452,82 @@
       ]
     }
   },
-  "llmWorkflows": {
+  "inteligenciaArtificial": {
     "seo": {
-      "title": "Implementación de LLMs en Flujos de Trabajo | Elaris Digital Solutions",
-      "description": "Integramos GPT-4o, Claude y modelos open-source en los flujos críticos de tu empresa. Automatización cognitiva, RAG con tus datos y orquestación multi-modelo."
+      "title": "Inteligencia Artificial para Empresas | Elaris Digital Solutions",
+      "description": "Aplicamos inteligencia artificial a los procesos reales de tu empresa: leer documentos, responder consultas, clasificar información. Un caso concreto funcionando en semanas, no un proyecto eterno."
     },
+    "hero": {
+      "badge": "IA aplicada",
+      "title": "Inteligencia artificial trabajando en tu operación, no en una demo.",
+      "subtitle": "Automatizamos las tareas que consumen a tu equipo: leer y clasificar documentos, responder consultas repetidas, extraer datos de correos y facturas. Con el modelo adecuado para tu caso y tu presupuesto."
+    },
+    "pains": [
+      "Tu equipo responde las mismas preguntas todo el día",
+      "Facturas, contratos y reportes se procesan a mano",
+      "Tienes datos por todos lados y nadie los analiza",
+      "Te ofrecieron «IA» pero nadie te dice para qué la usarías tú"
+    ],
+    "includes": [
+      {
+        "title": "Identificación del caso de mayor impacto",
+        "text": "Empezamos por el flujo que más tiempo consume y menos riesgo tiene, no por el más vistoso.",
+        "icon": "Target"
+      },
+      {
+        "title": "Lectura y clasificación de documentos",
+        "text": "Facturas, contratos y correos procesados automáticamente, con los datos que necesitas extraídos y ordenados.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Asistentes conectados a tus datos",
+        "text": "Responden consultas sobre tus documentos y sistemas internos, con información tuya y actualizada.",
+        "icon": "MessageSquare"
+      },
+      {
+        "title": "Integración con tu ERP, CRM o correo",
+        "text": "La automatización vive dentro de las herramientas que tu equipo ya usa cada día.",
+        "icon": "Plug"
+      },
+      {
+        "title": "Despliegue privado si lo necesitas",
+        "text": "Si tus datos no pueden salir de tu infraestructura, la solución corre completa dentro de ella.",
+        "icon": "ShieldCheck"
+      },
+      {
+        "title": "Medición desde la primera semana",
+        "text": "Cuánto tiempo se ahorró y con qué precisión funciona: datos reales, no promesas.",
+        "icon": "LineChart"
+      }
+    ],
+    "caseStudy": null,
     "faq": {
       "titleNormal": "Todo lo que necesitas saber sobre ",
-      "titleAccent": "implementación de LLMs",
+      "titleAccent": "inteligencia artificial aplicada",
       "items": [
         {
-          "q": "¿Qué tipos de tareas puede automatizar un LLM en mi empresa?",
-          "a": "Los LLMs pueden automatizar análisis y extracción de documentos (contratos, facturas, reportes), clasificación de correos y tickets, generación de resúmenes ejecutivos, respuesta a consultas sobre bases de conocimiento internas, redacción de borradores y mucho más. Si involucra texto, lenguaje o datos no estructurados, hay un caso de uso viable."
+          "q": "¿Qué tareas de mi empresa puede automatizar la IA?",
+          "a": "Todo lo que involucre leer, escribir o clasificar: análisis de contratos y facturas, clasificación de correos y tickets, resúmenes de reportes, respuestas a consultas frecuentes sobre tus documentos internos, redacción de borradores. Si una tarea consiste en procesar texto o documentos, casi seguro hay un caso viable."
         },
         {
-          "q": "¿Necesito datos propios entrenados para empezar?",
-          "a": "No necesariamente. Muchos casos de uso funcionan excelente con los modelos base (GPT-4o, Claude 3.5) combinados con RAG — es decir, conectando el modelo a tus documentos y bases de datos sin fine-tuning. El fine-tuning se evalúa cuando tienes un volumen alto de ejemplos específicos de tu industria y quieres optimizar latencia o costo."
+          "q": "¿Necesito preparar mis datos o «entrenar» algo antes de empezar?",
+          "a": "No. La mayoría de los casos funciona conectando modelos ya existentes (como GPT o Claude) a tus documentos y sistemas actuales. Entrenar un modelo propio solo se evalúa en casos muy específicos, y nunca es el punto de partida."
         },
         {
-          "q": "¿Cuánto tiempo tarda una primera implementación?",
-          "a": "Un caso de uso concreto y bien definido (por ejemplo, análisis automático de contratos o clasificación de correos) puede estar en producción en 3 a 5 semanas. Empezamos siempre por un proof of concept rápido para validar el impacto antes de escalar."
+          "q": "¿Cuánto tarda una primera implementación?",
+          "a": "Un caso concreto y bien definido (por ejemplo, clasificar correos o extraer datos de facturas) puede estar funcionando en 3 a 5 semanas. Empezamos siempre con una prueba acotada para validar el impacto antes de escalar."
         },
         {
-          "q": "¿Qué pasa con la privacidad y seguridad de mis datos?",
-          "a": "La privacidad es una prioridad. Podemos implementar soluciones completamente on-premise con modelos como Llama o Mistral, o usar Azure OpenAI con residencia de datos en tu región. Ningún dato sale de tu infraestructura si así lo requiere tu empresa. También firmamos acuerdos de confidencialidad y garantizamos que los datos no se usan para entrenar modelos externos."
+          "q": "¿Qué pasa con la privacidad de mis datos?",
+          "a": "Es una prioridad. Si tu empresa lo requiere, la solución puede correr completamente en tu propia infraestructura, sin que ningún dato salga de ella. Firmamos acuerdos de confidencialidad y garantizamos que tus datos no se usan para entrenar modelos de terceros."
         },
         {
-          "q": "¿Qué modelos de lenguaje utilizan y cómo los eligen?",
-          "a": "Trabajamos con GPT-4o, Claude 3.5, Gemini, Llama 3.1 y otros modelos open-source. La elección depende del caso de uso: algunos priorizan precisión (GPT-4o/Claude), otros velocidad y costo (Llama en hardware propio). Siempre evaluamos latencia, costo por token, precisión en tu caso específico y restricciones de privacidad antes de recomendar."
+          "q": "¿Qué tecnología usan y quién la elige?",
+          "a": "Trabajamos con los principales modelos del mercado (GPT, Claude, Gemini y modelos de código abierto). Elegimos según tu caso: precisión, velocidad, costo por operación y restricciones de privacidad. Te explicamos la elección en términos de negocio, no de jerga."
         },
         {
-          "q": "¿Puedo empezar con un caso de uso pequeño y escalar después?",
-          "a": "Absolutamente. De hecho, así recomendamos empezar: identificamos el flujo de mayor impacto y menor riesgo, lo implementamos, medimos resultados reales y luego escalamos. No hace falta un proyecto de 6 meses para tener valor en semanas. La arquitectura que diseñamos permite agregar nuevos flujos y modelos sin rediseñar desde cero."
+          "q": "¿Puedo empezar con algo pequeño y crecer después?",
+          "a": "Es exactamente lo que recomendamos: un flujo de alto impacto, medir resultados reales y luego escalar. La arquitectura queda lista para sumar nuevos casos sin rediseñar desde cero."
         }
       ]
     }
@@ -453,6 +537,50 @@
       "title": "Desarrollo e Implementación de CMMS | Elaris Digital Solutions",
       "description": "Implementamos sistemas CMMS a medida para digitalizar el mantenimiento industrial. Órdenes de trabajo, mantenimiento preventivo, inventario de repuestos e integración IoT para reducir paradas no planificadas."
     },
+    "hero": {
+      "badge": "CMMS",
+      "title": "Digitaliza el mantenimiento de tu planta.",
+      "subtitle": "Un CMMS es el software que ordena todo el mantenimiento: qué se le hizo a cada máquina, qué toca hacerle y cuándo. Lo implementamos a la medida de tu operación para que las fallas dejen de sorprenderte."
+    },
+    "pains": [
+      "Las órdenes de trabajo viven en papel, Excel o cuadernos",
+      "Te enteras de una falla cuando ya detuvo la producción",
+      "No sabes qué se le hizo a cada máquina ni cuánto costó mantenerla",
+      "Coordinas a los técnicos por llamadas y mensajes sueltos"
+    ],
+    "includes": [
+      {
+        "title": "Órdenes de trabajo digitales",
+        "text": "Cada intervención se crea, asigna, ejecuta y cierra desde el celular o la tablet del técnico, con fotos de evidencia y firma.",
+        "icon": "ClipboardList"
+      },
+      {
+        "title": "Mantenimiento programado antes de la falla",
+        "text": "Planes por máquina que avisan solos según fecha, horas de uso o ciclos de producción. Es lo que se conoce como mantenimiento preventivo.",
+        "icon": "CalendarClock"
+      },
+      {
+        "title": "Historial y costos por máquina",
+        "text": "Qué se le hizo a cada equipo, cuándo, quién y cuánto costó. Sin ese dato no se puede decidir si conviene reparar o reemplazar.",
+        "icon": "FileText"
+      },
+      {
+        "title": "Inventario de repuestos con alertas",
+        "text": "Sabes qué repuestos te quedan y el sistema avisa antes de que se agoten los críticos.",
+        "icon": "Package"
+      },
+      {
+        "title": "Sensores que avisan antes de la falla",
+        "text": "Temperatura, vibración, presión o corriente: si una máquina se sale de su rango normal, el sistema genera la orden de trabajo solo.",
+        "icon": "Radio"
+      },
+      {
+        "title": "App móvil que funciona sin señal",
+        "text": "Los técnicos registran su trabajo aunque no haya cobertura dentro de planta; todo se sincroniza al recuperar señal.",
+        "icon": "Smartphone"
+      }
+    ],
+    "caseStudy": null,
     "faq": {
       "titleNormal": "Todo lo que necesitas saber sobre ",
       "titleAccent": "implementación de CMMS",
@@ -470,8 +598,8 @@
           "a": "Sí. Diseñamos conectores específicos para los principales ERPs del mercado. La integración cubre sincronización de órdenes de compra para repuestos, costos de mantenimiento hacia contabilidad, registro de horas de mano de obra y gestión de proveedores. Si el ERP tiene API disponible, la integración es bidireccional y en tiempo real. Para sistemas más antiguos, diseñamos capas de adaptación que no requieren modificar el ERP existente."
         },
         {
-          "q": "¿Soporta integración con sensores IoT y sistemas SCADA para mantenimiento predictivo?",
-          "a": "Sí, es una de nuestras capacidades diferenciales. Conectamos el CMMS a sensores de temperatura, vibración, presión, corriente y otros parámetros operativos. Cuando un sensor supera su umbral configurado, el sistema genera automáticamente una orden de trabajo y notifica al técnico asignado. Para plantas que ya tienen SCADA o PLCs, diseñamos la integración para aprovechar la infraestructura existente sin reemplazarla."
+          "q": "¿Se puede conectar a sensores para avisar antes de que algo falle?",
+          "a": "Sí, es una de nuestras capacidades diferenciales. Conectamos el CMMS a sensores de temperatura, vibración, presión y corriente. Cuando una máquina se sale de su rango normal, el sistema genera automáticamente la orden de trabajo y avisa al técnico asignado — así la falla se atiende antes de que pare la producción. Si tu planta ya tiene un sistema de control (SCADA o PLC), lo aprovechamos en vez de reemplazarlo."
         },
         {
           "q": "¿Los técnicos pueden usar el CMMS desde su celular en planta?",
@@ -480,6 +608,424 @@
         {
           "q": "¿Qué pasa con los datos históricos de mantenimiento que ya tenemos en Excel u otro sistema?",
           "a": "Hacemos la migración de datos históricos como parte del proyecto. Esto incluye el catálogo de activos, historial de intervenciones, planes de mantenimiento preventivo existentes e inventario de repuestos. La calidad y estructura de los datos actuales determina el esfuerzo de migración, pero en todos los casos aseguramos que el equipo arranque con la historia completa disponible desde el primer día de operación del nuevo sistema."
+        }
+      ]
+    }
+  },
+  "servicePages": {
+    "common": {
+      "painsIntro": "Si algo de esto pasa en tu empresa, esta página es para ti:",
+      "includesHeadingNormal": "Qué ",
+      "includesHeadingAccent": "incluye",
+      "processHeadingNormal": "Cómo ",
+      "processHeadingAccent": "trabajamos",
+      "processSteps": [
+        {
+          "title": "Diagnóstico gratuito",
+          "description": "Dos semanas revisando cómo opera hoy tu negocio. Sin costo y sin compromiso."
+        },
+        {
+          "title": "Propuesta cerrada",
+          "description": "Alcance, plazos y costo por fase definidos antes de escribir una línea de código."
+        },
+        {
+          "title": "Sprints con validación",
+          "description": "Avances cada dos semanas. Nada llega a producción sin tu visto bueno."
+        },
+        {
+          "title": "Entrega con código",
+          "description": "Recibes el repositorio, la documentación y una licencia perpetua. El sistema es 100% tuyo."
+        }
+      ],
+      "ctaPrimary": "Solicitar diagnóstico",
+      "ctaSecondary": "Ver casos reales",
+      "caseHeading": "Caso real",
+      "caseLinkLab": "Ver el proyecto →",
+      "faqHeadingNormal": "Preguntas ",
+      "faqHeadingAccent": "frecuentes"
+    },
+    "mvp": {
+      "seo": {
+        "title": "Desarrollo de MVP: lanza tu producto digital | Elaris Digital Solutions",
+        "description": "Convertimos tu idea en un MVP: la primera versión funcional de tu producto, lista para conseguir usuarios y validar tu negocio sin quemar el presupuesto."
+      },
+      "hero": {
+        "badge": "MVP",
+        "title": "De la idea a un producto funcionando.",
+        "subtitle": "Un MVP (producto mínimo viable) es la primera versión real de tu producto: lo suficiente para salir al mercado, conseguir usuarios y validar el negocio — sin gastar como si ya fueras una empresa grande."
+      },
+      "pains": [
+        "Tienes la idea clara, pero no un equipo técnico que la construya",
+        "Las agencias te cotizan como si fueras una corporación",
+        "Te da miedo invertir 6 meses en algo que nadie ha probado",
+        "Necesitas algo funcionando para mostrar a clientes o inversionistas"
+      ],
+      "includes": [
+        {
+          "title": "Alcance mínimo que valida el negocio",
+          "text": "Definimos juntos qué entra en la primera versión y qué puede esperar, priorizando lo que realmente prueba tu hipótesis.",
+          "icon": "Target"
+        },
+        {
+          "title": "Diseño y desarrollo del producto",
+          "text": "Interfaz y funcionalidad completas, en web o móvil, listas para usuarios reales.",
+          "icon": "Smartphone"
+        },
+        {
+          "title": "Panel de administración",
+          "text": "Para que puedas operar el producto desde el día uno sin depender de nadie.",
+          "icon": "LayoutDashboard"
+        },
+        {
+          "title": "Infraestructura lista para crecer",
+          "text": "Si el producto despega, la base soporta más usuarios y funciones sin reescribir desde cero.",
+          "icon": "Server"
+        },
+        {
+          "title": "Analítica desde el lanzamiento",
+          "text": "Medición de uso real para decidir qué construir después con datos, no con intuición.",
+          "icon": "BarChart3"
+        },
+        {
+          "title": "Hoja de ruta post-lanzamiento",
+          "text": "Qué sigue, en qué orden y con qué prioridad, según lo que aprendas de tus primeros usuarios.",
+          "icon": "Map"
+        }
+      ],
+      "caseStudy": {
+        "name": "VeltrixNFC",
+        "text": "Veltrix tenía el producto físico —tarjetas de presentación metálicas con chip NFC— y la visión, pero no el ecosistema digital para operarlo. Construimos la plataforma completa: perfiles digitales, gestión de tarjetas y panel de administración.",
+        "metric": "De una idea a una startup operando en Perú y Chile",
+        "url": "https://veltrixnfc.com"
+      },
+      "faq": [
+        {
+          "q": "¿Qué es exactamente un MVP y por qué no construir el producto completo?",
+          "a": "Un MVP es la versión más pequeña de tu producto que ya genera valor real a usuarios reales. Construirlo primero te permite validar que el negocio funciona antes de invertir en funcionalidades que quizá nadie use. Lo que aprendes con usuarios reales vale más que meses de planificación."
+        },
+        {
+          "q": "¿Cuánto tarda desarrollar un MVP?",
+          "a": "Entre 4 y 10 semanas según la complejidad. Definimos juntos el alcance mínimo en el diagnóstico y trabajamos en sprints para que veas avances cada dos semanas."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del alcance que definamos juntos: un MVP acotado cuesta bastante menos que una plataforma completa, y por eso el primer paso es delimitarlo bien. Tras el diagnóstico recibes una propuesta con alcance, plazos y costo cerrados antes de comprometerte."
+        },
+        {
+          "q": "¿Qué pasa si el MVP funciona y necesito crecer?",
+          "a": "Esa es la idea. Construimos sobre arquitectura que soporta crecimiento: puedes sumar funcionalidades, usuarios e integraciones sin reescribir desde cero. Veltrix, por ejemplo, arrancó como MVP y hoy opera en dos países sobre la misma base."
+        },
+        {
+          "q": "¿De quién es la idea y el código?",
+          "a": "Tuyos, al 100%. Firmamos confidencialidad desde la primera conversación y al cerrar el proyecto recibes el repositorio completo con documentación. Nunca quedas atado a nosotros para operar o seguir creciendo."
+        }
+      ]
+    },
+    "web": {
+      "seo": {
+        "title": "Desarrollo Web Profesional en Perú | Elaris Digital Solutions",
+        "description": "Páginas web rápidas, optimizadas para Google y diseñadas para convertir visitas en clientes. Tu web como canal de ventas, no como folleto digital."
+      },
+      "hero": {
+        "badge": "Desarrollo web",
+        "title": "Una página web que vende, no un folleto digital.",
+        "subtitle": "Diseñamos y construimos sitios rápidos, que aparecen en Google y convierten visitas en consultas. Con tu marca, editables por ti, y medibles desde el primer día."
+      },
+      "pains": [
+        "Tu web actual no genera ninguna consulta",
+        "No apareces en Google ni buscándote por nombre",
+        "En celular carga lenta o se ve rota",
+        "Cada cambio pequeño depende de llamar a alguien"
+      ],
+      "includes": [
+        {
+          "title": "Diseño a medida",
+          "text": "Alineado a tu marca, no una plantilla reciclada con tu logo encima.",
+          "icon": "Palette"
+        },
+        {
+          "title": "Optimización para Google desde la base",
+          "text": "Estructura, etiquetado y velocidad que los buscadores exigen, resueltos desde el primer día.",
+          "icon": "Search"
+        },
+        {
+          "title": "Velocidad y experiencia móvil primero",
+          "text": "La mayoría de tus visitantes llega desde el celular: ahí es donde el sitio tiene que brillar.",
+          "icon": "Gauge"
+        },
+        {
+          "title": "Formularios y WhatsApp integrados",
+          "text": "Para que cada visita interesada tenga una forma inmediata de contactarte.",
+          "icon": "MessageSquare"
+        },
+        {
+          "title": "Gestor de contenido",
+          "text": "Actualiza textos, fotos, precios y novedades sin escribir una línea de código.",
+          "icon": "FileEdit"
+        },
+        {
+          "title": "Medición de visitas y conversiones",
+          "text": "Sabes cuánta gente llega, de dónde viene y cuántos terminan escribiéndote.",
+          "icon": "BarChart3"
+        }
+      ],
+      "caseStudy": {
+        "name": "CCC Impresiones",
+        "text": "CCC Impresiones operaba con Excel y hojas físicas, sin presencia digital. Hoy tiene catálogo online, cotizador y una base técnica que ya le trae consultas desde Google.",
+        "metric": "Tráfico orgánico constante desde el lanzamiento",
+        "url": "https://cccimpresiones.com"
+      },
+      "faq": [
+        {
+          "q": "¿Cuánto tarda una página web?",
+          "a": "Un sitio institucional o de captación está listo en 3 a 5 semanas, incluyendo diseño, contenido y optimización para Google. Plataformas más complejas (catálogos grandes, sistemas integrados) toman más — lo definimos en el diagnóstico."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del alcance: no cuesta lo mismo un sitio de captación que una plataforma con catálogo e integraciones. Siempre recibes una propuesta cerrada con alcance, plazos y costo antes de comprometerte, sin adicionales a mitad de camino."
+        },
+        {
+          "q": "¿Podré actualizarla yo mismo?",
+          "a": "Sí. Entregamos el sitio con un gestor de contenido y una capacitación para tu equipo: textos, fotos, precios y novedades sin depender de nadie. Y si prefieres que lo hagamos nosotros, hay planes de mantenimiento."
+        },
+        {
+          "q": "¿Incluye posicionamiento en Google?",
+          "a": "Incluye la base técnica: estructura, velocidad y etiquetado que Google exige. El posicionamiento sostenido (contenido, autoridad, búsquedas locales) es un trabajo continuo — para eso está nuestro servicio de Posicionamiento SEO, que se integra directo sobre esta base."
+        },
+        {
+          "q": "¿Qué pasa con mi web actual y mi dominio?",
+          "a": "Tu dominio sigue siendo tuyo y no se pierde nada: migramos el contenido que valga la pena, configuramos las redirecciones para no perder el posicionamiento existente y lanzamos sin interrumpir tu presencia online."
+        }
+      ]
+    },
+    "ecommerce": {
+      "seo": {
+        "title": "Desarrollo de Tiendas Online (E-commerce) | Elaris Digital Solutions",
+        "description": "Tiendas online a medida con inventario, pagos y pedidos integrados. Hasta 80% menos tiempo operativo y ventas todo el año, como Salcedo Jewels."
+      },
+      "hero": {
+        "badge": "E-commerce",
+        "title": "Tu tienda vendiendo 24/7, sin depender de tu horario.",
+        "subtitle": "Construimos tiendas online a medida donde catálogo, inventario, pagos y pedidos viven en un solo lugar. Se acabó el catálogo en PDF y los pedidos anotados a mano."
+      },
+      "pains": [
+        "Los pedidos llegan por WhatsApp y se anotan a mano",
+        "El catálogo es un PDF que hay que rehacer con cada venta",
+        "Has vendido dos veces la misma pieza por stock desactualizado",
+        "Solo vendes fuerte en campañas (Navidad, Día de la Madre…)"
+      ],
+      "includes": [
+        {
+          "title": "Tienda a medida con tu marca",
+          "text": "Diseñada alrededor de cómo compran tus clientes, no de una plantilla genérica.",
+          "icon": "Store"
+        },
+        {
+          "title": "Inventario en tiempo real",
+          "text": "Con variantes por talla o modelo, y descuento automático de stock en cada venta.",
+          "icon": "Package"
+        },
+        {
+          "title": "Checkout adaptado a tu país",
+          "text": "Transferencia, pasarelas locales, pagos en cuotas y validación de datos como el DNI.",
+          "icon": "CreditCard"
+        },
+        {
+          "title": "Gestión de pedidos con estados",
+          "text": "Sabes en qué punto está cada pedido y tu cliente puede seguirlo sin escribirte.",
+          "icon": "ClipboardList"
+        },
+        {
+          "title": "Panel autogestionable",
+          "text": "Subes productos, fotos y precios tú mismo, con editor de imágenes integrado.",
+          "icon": "LayoutDashboard"
+        },
+        {
+          "title": "Integración con pagos y couriers",
+          "text": "Para que cobrar y despachar dejen de ser dos procesos manuales separados.",
+          "icon": "Truck"
+        }
+      ],
+      "caseStudy": {
+        "name": "Salcedo Jewels",
+        "text": "Salcedo Jewels vendía con un catálogo en PDF rehecho a mano en Canva con cada venta: ventas duplicadas, clientes desanimados y una persona dedicada solo a mantenerlo al día. Hoy su tienda y su inventario son la misma cosa.",
+        "metric": "Hasta 80% menos tiempo operativo y ventas todo el año",
+        "url": "https://salcedojewels.com"
+      },
+      "faq": [
+        {
+          "q": "¿Por qué una tienda a medida y no Shopify o WooCommerce?",
+          "a": "Si vendes productos estándar con procesos estándar, esas plataformas funcionan bien. La tienda a medida gana cuando tu operación tiene reglas propias: inventario por variantes, cuotas, validaciones locales, integración con tu sistema de gestión. Pagas una vez por algo tuyo, en vez de rentar para siempre algo genérico."
+        },
+        {
+          "q": "¿Cuánto tarda estar vendiendo online?",
+          "a": "Una tienda funcional está lista en 6 a 10 semanas según el tamaño del catálogo y las integraciones. Trabajamos por etapas: puedes empezar a vender con lo esencial mientras completamos el resto."
+        },
+        {
+          "q": "¿Puedo gestionar el catálogo yo mismo?",
+          "a": "Sí — ese es el punto. Subes productos, fotos, precios y stock desde un panel simple. En Salcedo Jewels, lo que antes era rehacer un catálogo entero hoy es subir un producto: el resto se actualiza solo."
+        },
+        {
+          "q": "¿Qué formas de pago puedo ofrecer?",
+          "a": "Las que tu negocio necesite: transferencia bancaria con confirmación, pasarelas locales (tarjetas, Yape/Plin), pagos en cuotas con seguimiento. Lo definimos según cómo compran tus clientes reales."
+        },
+        {
+          "q": "¿Qué pasa con mis ventas por WhatsApp?",
+          "a": "No se pierden — se ordenan. La tienda genera resúmenes de pedido listos para WhatsApp y tu inventario queda centralizado, vendas por el canal que vendas. WhatsApp deja de ser tu sistema de registro y vuelve a ser un canal de atención."
+        }
+      ]
+    },
+    "seo": {
+      "seo": {
+        "title": "Posicionamiento SEO para Empresas | Elaris Digital Solutions",
+        "description": "Que te encuentren en Google cuando buscan lo que vendes. SEO técnico y de contenido con resultados medibles — sin promesas mágicas."
+      },
+      "hero": {
+        "badge": "SEO",
+        "title": "Que te encuentren en Google cuando buscan lo que vendes.",
+        "subtitle": "SEO es el trabajo de aparecer en los resultados de Google sin pagar por cada clic. Lo hacemos con técnica y contenido — y te mostramos el avance con datos, no con promesas."
+      },
+      "pains": [
+        "Tus clientes te buscan en Google y encuentran a tu competencia",
+        "Dependes 100% de pauta: si apagas los anuncios, se apagan las ventas",
+        "Tu web es nueva o vieja, pero igual: invisible",
+        "Te prometieron «primer lugar en Google» y no pasó nada"
+      ],
+      "includes": [
+        {
+          "title": "Auditoría técnica de tu sitio",
+          "text": "Velocidad, estructura y errores que hoy impiden que Google entienda y muestre tus páginas.",
+          "icon": "Stethoscope"
+        },
+        {
+          "title": "Investigación de búsquedas reales",
+          "text": "Qué escriben tus clientes en Google cuando buscan lo que vendes — con volumen y competencia.",
+          "icon": "Search"
+        },
+        {
+          "title": "Optimización de páginas y contenido",
+          "text": "Tus páginas reescritas y estructuradas para responder esas búsquedas mejor que la competencia.",
+          "icon": "FileText"
+        },
+        {
+          "title": "SEO local",
+          "text": "Google Maps y búsquedas por zona, clave si vendes en una ciudad o región concreta.",
+          "icon": "MapPin"
+        },
+        {
+          "title": "Medición con Search Console y Analytics",
+          "text": "Ambas cuentas son tuyas y tienes acceso directo: los datos no pasan por nuestro filtro.",
+          "icon": "LineChart"
+        },
+        {
+          "title": "Reporte mensual en lenguaje de negocio",
+          "text": "Qué subió, cuánto tráfico llegó, qué consultas generó y qué se hará el mes siguiente.",
+          "icon": "FileBarChart"
+        }
+      ],
+      "caseStudy": {
+        "name": "CCC Impresiones",
+        "text": "CCC no captaba ningún cliente por internet. Construimos su plataforma con base técnica SEO desde el día uno: hoy recibe tráfico orgánico constante y está lista para amplificar con Google Ads.",
+        "metric": "Tráfico orgánico recurrente, sin pagar por clic",
+        "url": "https://cccimpresiones.com"
+      },
+      "faq": [
+        {
+          "q": "¿Cuánto tarda en verse resultados?",
+          "a": "El SEO es acumulativo: los primeros movimientos se ven en 2 a 3 meses y los resultados sólidos entre 4 y 6, según tu competencia y el estado de tu web. Quien te prometa resultados en semanas te está vendiendo otra cosa."
+        },
+        {
+          "q": "¿Garantizan el primer lugar en Google?",
+          "a": "No — y desconfía de quien lo garantice: el resultado depende de Google, tu competencia y tu historial. Lo que sí garantizamos es el trabajo correcto (técnica, contenido y medición) y reportes transparentes de cómo avanza cada búsqueda que te interesa."
+        },
+        {
+          "q": "¿SEO o publicidad pagada?",
+          "a": "Cumplen roles distintos. La pauta trae resultados inmediatos pero se detiene cuando dejas de pagar; el SEO tarda más pero se acumula y no cobra por clic. La estrategia sana usa pauta para el corto plazo mientras el SEO construye el flujo permanente."
+        },
+        {
+          "q": "¿Necesito una web nueva para hacer SEO?",
+          "a": "No siempre. La auditoría inicial lo determina: a veces basta optimizar lo que tienes; si la base técnica no da (velocidad, estructura), te lo decimos con claridad y puedes resolverlo con nuestro servicio de desarrollo web."
+        },
+        {
+          "q": "¿Qué recibo cada mes?",
+          "a": "Un reporte en lenguaje de negocio: qué búsquedas subieron, cuánto tráfico llegó, qué consultas generó y qué se hará el mes siguiente. Sin humo: los datos salen de Google Search Console y Analytics, y tienes acceso directo a ambos."
+        }
+      ]
+    },
+    "transformacion": {
+      "seo": {
+        "title": "Transformación Digital para PYMES | Elaris Digital Solutions",
+        "description": "Del papel y el Excel a una operación digital ordenada. Diagnóstico inicial sin compromiso, hoja de ruta clara e implementación por fases según impacto."
+      },
+      "hero": {
+        "badge": "Transformación digital",
+        "title": "Del papel y el Excel a una operación digital.",
+        "subtitle": "«Transformación digital» suena grande, pero significa algo simple: ordenar y digitalizar cómo opera tu empresa, empezando por lo que más te cuesta. Sin big bang — por fases, según impacto."
+      },
+      "pains": [
+        "La información vive regada entre Excel, WhatsApp y papel",
+        "Tu equipo copia datos de un lado a otro, a mano, todos los días",
+        "No sabes tus números reales hasta fin de mes (si los sabes)",
+        "Crecer significa contratar más gente para hacer más trabajo manual"
+      ],
+      "includes": [
+        {
+          "title": "Diagnóstico gratuito de tus procesos",
+          "text": "Dos semanas mapeando cómo trabaja hoy tu empresa, área por área.",
+          "icon": "ClipboardCheck"
+        },
+        {
+          "title": "Hoja de ruta priorizada",
+          "text": "Qué digitalizar primero y por qué, ordenado por impacto y esfuerzo real.",
+          "icon": "Map"
+        },
+        {
+          "title": "Implementación por fases",
+          "text": "Cada fase entrega valor por sí sola: no esperas un año para ver resultados.",
+          "icon": "Layers"
+        },
+        {
+          "title": "Integración con lo que ya usas",
+          "text": "Aprovechamos tus herramientas actuales en vez de obligarte a tirarlo todo.",
+          "icon": "Plug"
+        },
+        {
+          "title": "Capacitación de tu equipo",
+          "text": "En cada entrega, porque un sistema que nadie usa es un proyecto fallido.",
+          "icon": "GraduationCap"
+        },
+        {
+          "title": "Acompañamiento continuo",
+          "text": "Con tiempos de respuesta definidos y transferencia de conocimiento a tu gente.",
+          "icon": "LifeBuoy"
+        }
+      ],
+      "caseStudy": {
+        "name": "Salcedo Jewels + CCC Impresiones",
+        "text": "Dos empresas, el mismo punto de partida: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias — catálogo, inventario, pedidos y números en un solo lugar.",
+        "metric": "Hasta 80% menos tiempo operativo tras digitalizar",
+        "url": "https://salcedojewels.com"
+      },
+      "faq": [
+        {
+          "q": "¿Por dónde se empieza una transformación digital?",
+          "a": "Por el diagnóstico: dos semanas mirando cómo opera hoy tu empresa, sin costo ni compromiso. De ahí sale una hoja de ruta priorizada — casi siempre se empieza por el proceso que más tiempo consume o más errores genera, porque es donde el retorno se siente antes."
+        },
+        {
+          "q": "¿Cuánto dura y cuánto cuesta?",
+          "a": "Se avanza por fases de 4 a 10 semanas, cada una con valor propio: no esperas un año para ver resultados. Cada fase se cotiza cerrada por separado y tú decides el ritmo entre una y otra, así que la inversión se reparte en el tiempo en vez de concentrarse al inicio."
+        },
+        {
+          "q": "¿Mi equipo no es técnico — va a poder usarlo?",
+          "a": "Ese es el criterio de diseño número uno: si tu equipo no lo adopta, el proyecto falló. Construimos pensando en quien lo usará cada día, capacitamos en cada entrega y medimos la adopción real, no solo la entrega técnica."
+        },
+        {
+          "q": "¿Qué pasa con las herramientas que ya uso?",
+          "a": "Se aprovechan. No te hacemos tirar lo que funciona: integramos lo existente (contabilidad, facturación, hasta tus Excel críticos) y reemplazamos solo lo que te está frenando."
+        },
+        {
+          "q": "¿En qué se diferencia esto de contratar un software genérico?",
+          "a": "Un software genérico digitaliza un proceso estándar; la transformación digital ordena TU operación completa — y a veces la respuesta correcta es un software genérico para una parte y desarrollo a medida para otra. Nuestro diagnóstico te dice cuál conviene dónde, sin sesgo: el código que construimos es tuyo y no cobramos licencias."
         }
       ]
     }

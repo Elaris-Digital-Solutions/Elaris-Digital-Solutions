@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ServicesSplitPanel from "@/components/ui/services-split-panel";
+import ServicesGrid from "@/components/ui/services-grid";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
@@ -34,13 +34,13 @@ const HomeView = () => {
     >
       <Navbar />
       <Hero />
-      <main className="site-sections">
-        <ServicesSplitPanel />
+      <main id="contenido-principal" tabIndex={-1} className="site-sections site-sections--alt">
+        <ServicesGrid />
         <Process />
         <Portfolio />
         <Testimonials />
-        <FaqHome />
         <LeadMagnet />
+        <FaqHome />
         <Team />
         <Contact />
       </main>
