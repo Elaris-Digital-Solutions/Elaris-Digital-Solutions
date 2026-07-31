@@ -9,10 +9,10 @@ import { cn } from "@/lib/utils";
 
 // Module-level constant — never recreated on re-render
 const NAV_LINKS = [
-  { label: "Servicios",   section: "servicios"  },
-  { label: "Estándares",  section: "estandares" },
-  { label: "Portafolio",  section: "portafolio" },
-  { label: "Testimonios", section: "clientes"   },
+  { label: "Servicios",      section: "servicios"  },
+  { label: "Casos",          section: "portafolio" },
+  { label: "Por qué Elaris", section: "estandares" },
+  { label: "FAQ",            section: "faq"        },
 ] as const;
 
 const Navbar = () => {
@@ -33,7 +33,7 @@ const Navbar = () => {
   const navigateToSection = (sectionId?: string) => {
     const destinationPath = basePath;
 
-    const runScroll = () => {
+    const scrollToTarget = (path: string) => {
       if (!sectionId) {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
@@ -42,14 +42,20 @@ const Navbar = () => {
       if (!target) return;
       const offsetTop = target.getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top: Math.max(offsetTop, 0), behavior: "smooth" });
-      window.history.replaceState({}, "", `${destinationPath}#${sectionId}`);
+      window.history.replaceState({}, "", `${path}#${sectionId}`);
     };
 
-    if (window.location.pathname !== destinationPath) {
+    // Las páginas de servicio montan su propio <Contact id="contacto">. Si la
+    // sección existe aquí, se hace scroll local en vez de saltar al home.
+    const existsHere = sectionId ? Boolean(document.getElementById(sectionId)) : false;
+
+    if (existsHere) {
+      scrollToTarget(window.location.pathname);
+    } else if (window.location.pathname !== destinationPath) {
       router.push(destinationPath);
-      window.setTimeout(runScroll, 120);
+      window.setTimeout(() => scrollToTarget(destinationPath), 120);
     } else {
-      runScroll();
+      scrollToTarget(destinationPath);
     }
 
     setIsMobileMenuOpen(false);
@@ -109,6 +115,13 @@ const Navbar = () => {
       onMouseEnter={() => setIsNavHovered(true)}
       onMouseLeave={() => setIsNavHovered(false)}
     >
+      {/* WCAG 2.4.1 — primer elemento enfocable: salta la navegación repetida. */}
+      <a
+        href="#contenido-principal"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-[#0855FD] focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#0855FD]"
+      >
+        Saltar al contenido principal
+      </a>
       <nav
         aria-label="Primary"
         className={cn(
@@ -140,29 +153,34 @@ const Navbar = () => {
           </button>
 
           {/* Desktop nav links — ocultos bajo lg via CSS, no via JS */}
-          <ul className="mx-auto hidden items-center gap-8 lg:flex" role="menubar">
+          <ul className="mx-auto hidden items-center gap-8 lg:flex">
                 {NAV_LINKS.map(({ label, section }) => (
-                  <li key={section} role="none">
-                    <button
-                      type="button"
+                  <li key={section}>
+                    <a
+                      href={`/#${section}`}
                       className={navItemClass}
-                      role="menuitem"
-                      onClick={() => navigateToSection(section)}
+                      onClick={(event) => {
+                        event.preventDefault();
+                        navigateToSection(section);
+                      }}
                     >
                       {label}
-                    </button>
+                    </a>
                   </li>
                 ))}
           </ul>
 
           {/* CTA de escritorio */}
-          <button
-            type="button"
-            onClick={() => navigateToSection("contacto")}
-            className="justify-self-end hidden h-10 items-center rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 lg:inline-flex"
+          <a
+            href="/#contacto"
+            onClick={(event) => {
+              event.preventDefault();
+              navigateToSection("contacto");
+            }}
+            className="justify-self-end hidden h-10 items-center rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 lg:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
           >
-            Contacta con ventas
-          </button>
+            Solicitar diagnóstico
+          </a>
 
           {/* Hamburger — solo bajo lg */}
           <button
@@ -192,23 +210,26 @@ const Navbar = () => {
             <div className="flex-1 overflow-y-auto pr-1">
               <div className="space-y-1 pt-2">
                 {NAV_LINKS.map(({ label, section }) => (
-                  <button
+                  <a
                     key={section}
-                    type="button"
-                    onClick={() => navigateToSection(section)}
+                    href={`/#${section}`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigateToSection(section);
+                    }}
                     className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-[#0855FD] transition-colors"
                   >
                     {label}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
 
             <div className="border-t border-black/10 pt-4">
               <div className="rounded-xl border border-black/10 bg-white/70 p-3.5">
-                <p className="text-sm font-semibold">Listo para escalar tu plataforma digital?</p>
+                <p className="text-sm font-semibold">¿Listo para escalar tu operación?</p>
                 <p className="mt-1 text-xs text-slate-600">
-                  Conversemos y te damos una hoja de ruta clara para ejecutar.
+                  Agenda un diagnóstico y te damos una hoja de ruta clara para ejecutar. Sin costo y sin compromiso.
                 </p>
                 <div className="mt-3 grid grid-cols-2 gap-2">
                   <button
@@ -216,14 +237,14 @@ const Navbar = () => {
                     onClick={() => navigateToSection("contacto")}
                     className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-brand-gradient px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
-                    Contacta con ventas
+                    Solicitar diagnóstico
                   </button>
                   <button
                     type="button"
                     onClick={() => navigateToSection("portafolio")}
                     className="inline-flex h-10 w-full items-center justify-center rounded-lg border border-black/15 px-3 text-sm font-semibold text-slate-800 transition-colors hover:bg-black/5"
                   >
-                    Ver trabajos
+                    Ver casos
                   </button>
                 </div>
               </div>

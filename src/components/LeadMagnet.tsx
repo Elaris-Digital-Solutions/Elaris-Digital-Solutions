@@ -58,7 +58,7 @@ export default function LeadMagnet() {
                 {copy.cta}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <p className="text-xs text-white/50">{copy.note}</p>
+              <p className="text-xs text-white/70">{copy.note}</p>
             </div>
           </div>
         </motion.div>

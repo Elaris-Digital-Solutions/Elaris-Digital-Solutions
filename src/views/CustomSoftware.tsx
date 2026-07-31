@@ -68,8 +68,8 @@ export default function CustomSoftware() {
                                     </p>
                                 </div>
                                 <div className="mt-10 pt-8 border-t border-slate-200">
-                                    <p className="text-slate-400 text-sm font-light">
-                                        Resultados promedio documentados en proyectos de ingeniería empresarial a medida.
+                                    <p className="text-slate-500 text-sm font-light">
+                                        Cada cifra de esta sección corresponde a un cliente concreto de Elaris, no a un promedio de industria.
                                     </p>
                                 </div>
                             </div>
@@ -79,16 +79,16 @@ export default function CustomSoftware() {
                                 <div>
                                     <p className="text-slate-500 text-sm font-light uppercase tracking-widest mb-6">Impacto operativo</p>
                                     <div className="flex items-start justify-center gap-1 leading-none mb-6">
-                                        <span className="text-brand-gradient font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">53</span>
+                                        <span className="text-brand-gradient font-bold text-[7rem] md:text-[9rem] leading-none tracking-tighter">80</span>
                                         <span className="text-brand-gradient font-bold text-4xl md:text-5xl mt-5">%</span>
                                     </div>
                                 </div>
                                 <div>
                                     <p className="text-[#071540] text-xl font-medium leading-snug mb-2">
-                                        Mejora promedio en la finalización de procesos operativos clave
+                                        Menos tiempo operativo en Salcedo Jewels
                                     </p>
                                     <p className="text-slate-500 text-sm font-light leading-relaxed mt-3">
-                                        Medido en flujos críticos migrados desde sistemas manuales o soluciones genéricas hacia plataformas a medida.
+                                        Automatizamos la emisión de boletas, el registro de ventas, la actualización del catálogo y la edición de fotos: trabajo que antes ocupaba a una persona a tiempo completo.
                                     </p>
                                 </div>
                             </div>
@@ -98,19 +98,19 @@ export default function CustomSoftware() {
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
                                 {
-                                    value: "+35%",
-                                    label: "en eficiencia operativa",
-                                    desc: "Procesos internos más rápidos, predecibles y libres de cuellos de botella desde el primer mes."
+                                    value: "24/7",
+                                    label: "vendiendo sin depender del horario del equipo",
+                                    desc: "El catálogo de Salcedo Jewels dejó de rehacerse a mano con cada venta: hoy se actualiza solo y vende todo el año, no solo en campañas."
                                 },
                                 {
-                                    value: "−50%",
-                                    label: "en tareas manuales repetitivas",
-                                    desc: "Automatización de flujos críticos que antes consumían horas del equipo cada día."
+                                    value: "2",
+                                    label: "campus operando sobre el mismo sistema",
+                                    desc: "En la UPC, equipos que se renovaban cada 5 años sin que nadie los usara hoy se reservan y controlan en Monterrico y San Miguel."
                                 },
                                 {
-                                    value: "+30%",
-                                    label: "en velocidad de ejecución",
-                                    desc: "Decisiones más rápidas y certeras respaldadas por información en tiempo real."
+                                    value: "0",
+                                    label: "hojas de cálculo en la operación de CCC",
+                                    desc: "La imprenta pasó de Excel y papel a catálogo digital, cotizador y control de pedidos en un solo lugar."
                                 }
                             ].map((metric, idx) => (
                                 <motion.div

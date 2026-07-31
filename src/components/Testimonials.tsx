@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import CircularTestimonials from '@/components/ui/circular-testimonials'
 import { useI18n } from '@/lib/i18n'
 
-const testimonialSlugs = ["daniela", "milagros", "martina"] as const
+const testimonialSlugs = ["milagros", "daniela"] as const
 
 // Module-level constant — never recreated
 const innerStyle = { maxWidth: '1024px' } as const
@@ -38,7 +38,10 @@ export default function Testimonials() {
               testimonials={testimonials}
               autoplay={true}
               fontSizes={{ name: '28px', designation: '20px', quote: '20px' }}
-              colors={{ 
+              colors={{
+                // El gris por defecto (#6b7280) se queda en 4.39:1 sobre el
+                // lavanda de la sección; slate-600 sube a 6.9:1.
+                designation: '#475569',
                 arrowBackground: '#f8fafc',
                 arrowForeground: '#0855FD',
                 arrowHoverBackground: '#e2e8f0'

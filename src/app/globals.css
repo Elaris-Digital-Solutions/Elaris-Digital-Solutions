@@ -169,6 +169,17 @@ All colors MUST be HSL.
     /* very light blue (visible) */
   }
 
+  /* La home invierte la alternancia: arranca en lavanda (Servicios) y sigue
+     alternando desde ahí. Las páginas de servicio conservan la secuencia base,
+     porque en ellas la primera sección es el hero. */
+  .site-sections--alt>section {
+    background-color: #F0F4FF;
+  }
+
+  .site-sections--alt>section:nth-of-type(2n) {
+    background-color: #FFFFFF;
+  }
+
   /* Opt-out: sections that need a dark background (e.g. Contact) */
   .site-sections>section.site-dark-section {
     background-color: var(--brand-surface-dark);

@@ -1,0 +1,154 @@
+"use client";
+
+import { useMemo } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Code2,
+  Globe,
+  RefreshCw,
+  Rocket,
+  Search,
+  ShoppingCart,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import { useI18n } from "@/lib/i18n";
+import { scrollToSection } from "@/lib/utils";
+import es from "@/locales/es.json";
+
+// Iconografía por servicio — module-level, nunca se recrea.
+const SERVICE_ICONS: Record<string, React.ElementType> = {
+  web: Globe,
+  ecommerce: ShoppingCart,
+  seo: Search,
+  mvp: Rocket,
+  software: Code2,
+  ia: Sparkles,
+  cmms: Wrench,
+  transformacion: RefreshCw,
+};
+
+type ServiceItem = {
+  key: string;
+  title: string;
+  benefit: string;
+  href: string;
+  Icon: React.ElementType;
+};
+
+const ServiceCard = ({ service, index }: { service: ServiceItem; index: number }) => {
+  const { Icon } = service;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.06 }}
+    >
+      <Link
+        href={service.href}
+        className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-[#0855FD]/30 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+      >
+        <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#0855FD]/10">
+          <Icon className="h-5 w-5 icon-brand-gradient" />
+        </span>
+        <h3 className="text-base font-semibold text-[#071540]">{service.title}</h3>
+        <p className="mt-2 flex-1 text-sm font-light leading-relaxed text-slate-500">
+          {service.benefit}
+        </p>
+        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-gradient">
+          Ver servicio
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+        </span>
+      </Link>
+    </motion.div>
+  );
+};
+
+export default function ServicesGrid() {
+  const { t } = useI18n();
+
+  const groups = useMemo(
+    () =>
+      es.services.groups.map((group) => ({
+        label: group.label,
+        items: group.keys.map<ServiceItem>((key) => ({
+          key,
+          title: t(`services.items.${key}.title`),
+          benefit: t(`services.items.${key}.benefit`),
+          href: t(`services.items.${key}.href`),
+          Icon: SERVICE_ICONS[key],
+        })),
+      })),
+    [t]
+  );
+
+  return (
+    <section id="servicios" className="relative overflow-hidden bg-[#F8FAFC] py-20 lg:py-28">
+      <div
+        className="pointer-events-none absolute -right-32 -top-32 h-[560px] w-[560px] rounded-full opacity-[0.035]"
+        style={{ background: "radial-gradient(circle, #0855FD 0%, transparent 70%)" }}
+      />
+      <div className="container relative z-10 mx-auto max-w-7xl px-6">
+        <motion.div
+          className="mx-auto mb-14 text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h2 className="mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+            <span className="text-slate-900">{t("services.headingNormal")}</span>
+            <span className="text-brand-gradient">{t("services.headingAccent")}</span>
+          </h2>
+          {/* slate-600, no 500: sobre el lavanda de la sección el 500 se queda
+              en 4.33:1, por debajo del mínimo AA. */}
+          <p className="mx-auto mt-4 max-w-2xl text-lg font-light leading-relaxed text-slate-600">
+            {t("services.description")}
+          </p>
+        </motion.div>
+
+        <div className="space-y-12">
+          {groups.map((group) => (
+            <div key={group.label}>
+              <div className="mb-5 flex items-center gap-4">
+                <h3 className="text-sm font-bold uppercase tracking-[0.15em] text-brand-gradient">
+                  {group.label}
+                </h3>
+                <span className="h-px flex-1 bg-slate-200" aria-hidden />
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {group.items.map((service, index) => (
+                  <ServiceCard key={service.key} service={service} index={index} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <p className="text-sm font-light text-slate-600">{t("services.closingNote")}</p>
+          <a
+            href="#contacto"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("contacto");
+            }}
+            className="mt-3 inline-block text-sm font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+          >
+            {t("services.closingCta")}
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

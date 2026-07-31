@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, CalendarDays } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import { generateEventId, getFbCookies } from "@/lib/meta";
@@ -75,7 +75,9 @@ export default function Contact() {
 
       <div className="container relative z-[1] mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+        {/* En desktop las columnas se estiran a la misma altura; el mapa absorbe
+            la diferencia. En móvil siguen apiladas y el mapa conserva su 4:3. */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start lg:items-stretch">
 
           {/* Left — header + form (3/5 width) */}
           <motion.div className="lg:col-span-3 self-start" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
@@ -86,7 +88,7 @@ export default function Contact() {
                 {t("contact.titleNormal")}
                 <span className="text-brand-gradient">{t("contact.titleAccent")}</span>
               </h2>
-              <p className="mt-4 text-lg text-slate-500 leading-relaxed">
+              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
                 {t("contact.description")}
               </p>
             </div>
@@ -100,7 +102,7 @@ export default function Contact() {
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     fullNameFocused || fullName
                       ? "top-0 text-[0.65rem] text-brand-gradient"
-                      : "top-4 text-[1.05rem] text-slate-400"
+                      : "top-4 text-[1.05rem] text-slate-600"
                   }`}
                 >
                   {t("contact.form.fullNameLabel")}
@@ -126,7 +128,7 @@ export default function Contact() {
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     emailFocused || email
                       ? "top-0 text-[0.65rem] text-brand-gradient"
-                      : "top-4 text-[1.05rem] text-slate-400"
+                      : "top-4 text-[1.05rem] text-slate-600"
                   }`}
                 >
                   {t("contact.form.emailLabel")}
@@ -145,23 +147,24 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Reason */}
+              {/* Reason — textarea: la respuesta útil aquí son 2-3 frases, no una línea */}
               <div className="relative pt-4">
                 <label
                   htmlFor="contact-reason"
                   className={`absolute left-0 font-semibold tracking-widest uppercase transition-all duration-200 pointer-events-none ${
                     reasonFocused || reason
                       ? "top-0 text-[0.65rem] text-brand-gradient"
-                      : "top-4 text-[1.05rem] text-slate-400"
+                      : "top-4 text-[1.05rem] text-slate-600"
                   }`}
                 >
                   {t("contact.form.reasonLabel")}
                 </label>
-                <input
+                <textarea
                   id="contact-reason"
-                  type="text"
                   name="reason"
-                  className="w-full bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] focus:outline-none focus:border-[#0855FD] transition-colors"
+                  rows={3}
+                  placeholder={reasonFocused ? t("contact.form.messagePlaceholder") : undefined}
+                  className="w-full resize-y bg-transparent border-b border-slate-200 pb-3 pt-1 text-slate-900 text-[1.05rem] placeholder:text-slate-500 placeholder:text-sm focus:outline-none focus:border-[#0855FD] transition-colors"
                   value={reason}
                   onChange={(e) => setReason(e.target.value)}
                   onFocus={() => setReasonFocused(true)}
@@ -170,21 +173,35 @@ export default function Contact() {
               </div>
 
               {/* Submit */}
+              {/* Dos rutas con peso visual comparable: WhatsApp convierte mejor
+                  en PYME LATAM, pero quien llega desde LinkedIn suele preferir
+                  agendar una llamada. */}
               <div className="pt-4">
-                <button
-                  type="submit"
-                  className="group inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#0745DA] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5"
-                >
-                  {t("common.buttons.sendMessage")}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </button>
-                <p className="mt-3 text-sm text-slate-400">{t("contact.form.responseTime")}</p>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <button
+                    type="submit"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-gradient px-8 py-3.5 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(47,100,255,0.3)] transition-all hover:bg-[#0745DA] hover:shadow-[0_12px_32px_rgba(47,100,255,0.4)] hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                  >
+                    {t("common.buttons.sendMessage")}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                  <a
+                    href="/meet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#0855FD]/30 px-7 py-3.5 text-sm font-semibold text-brand-gradient transition-colors hover:bg-[#0855FD]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                  >
+                    <CalendarDays className="h-4 w-4" />
+                    Agendar llamada de 30 min
+                  </a>
+                </div>
+                <p className="mt-3 text-sm text-slate-600">{t("contact.form.responseTime")}</p>
               </div>
             </form>
           </motion.div>
 
           {/* Right — contact info + map (2/5 width) */}
-          <motion.div className="lg:col-span-2 space-y-10" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
+          <motion.div className="lg:col-span-2 flex flex-col gap-10" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
 
             {/* Contact items — no panel, pure text with icon */}
             <div className="space-y-6">
@@ -194,7 +211,7 @@ export default function Contact() {
                     <item.icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-[0.7rem] font-semibold uppercase tracking-widest text-slate-400 mb-0.5">{item.label}</p>
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-widest text-slate-600 mb-0.5">{item.label}</p>
                     <div className="text-sm font-medium text-slate-800 leading-snug">
                       {Array.isArray(item.value)
                         ? item.value.map((line, i) => (
@@ -210,7 +227,7 @@ export default function Contact() {
             </div>
 
             {/* Map — slightly rounded, no border */}
-            <div className="overflow-hidden rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.08)] aspect-[4/3]">
+            <div className="overflow-hidden rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.08)] aspect-[4/3] lg:aspect-auto lg:flex-1 lg:min-h-[280px]">
               <iframe
                 title={t("contact.mapTitle")}
                 src="https://www.google.com/maps?q=Jr.+Jeronimo+Aliaga+Norte+595+Santiago+de+Surco&output=embed"

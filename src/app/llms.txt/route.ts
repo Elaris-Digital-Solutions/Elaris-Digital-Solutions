@@ -9,9 +9,10 @@ import { SITE_URL } from "@/seo/site";
 // (legal name, RUC, fiscal domicile) so AI/search don't merge Elaris with
 // similarly-named entities in other countries.
 //
-// We intentionally DO NOT link the per-service landing pages: they are noindex
-// and not yet open to the public. This file describes the publicly shown
-// services and points only to the indexed homepage.
+// Las 8 páginas de servicio SÍ se listan aquí: son públicas e indexables, y
+// cada una responde a una intención de búsqueda distinta. Quedan fuera la
+// landing de pauta (/impulsa-tu-negocio) y la de apoyo (/apis-personalizadas),
+// que siguen siendo noindex.
 //
 // Two addresses are listed by purpose, on purpose:
 //   - Oficina (operational, public)  -> Jr. Jerónimo de Aliaga (matches Contact)
@@ -19,9 +20,20 @@ import { SITE_URL } from "@/seo/site";
 export const dynamic = "force-static";
 
 export function GET(): Response {
-  const s = es.services.items;
-  const services = [s.software, s.ai, s.web]
-    .map((item) => `### ${item.title}\n${item.description}`)
+  const s = es.services.items as Record<
+    string,
+    { title: string; benefit: string; href: string }
+  >;
+  const services = es.services.groups
+    .map((group) => {
+      const items = group.keys
+        .map((key) => {
+          const item = s[key];
+          return `- **${item.title}:** ${item.benefit} → ${SITE_URL}${item.href}`;
+        })
+        .join("\n");
+      return `### ${group.label}\n${items}`;
+    })
     .join("\n\n");
 
   const differentiators = Object.values(es.process.steps)
@@ -64,7 +76,9 @@ ${faq}
 - Email: contact@elarisdigitalsolutions.com
 - Teléfono: +51 973 663 807
 - Oficina: Jr. Jerónimo de Aliaga 595, Santiago de Surco 15037, Lima, Perú
-- El proceso inicia con un diagnóstico técnico y operativo de dos semanas; respuesta a consultas en menos de 12 horas.
+- El proceso inicia con un diagnóstico técnico y operativo GRATUITO de dos semanas; respuesta a consultas en menos de 12 horas.
+- Agenda de reuniones: ${SITE_URL}/meet
+- Inversión: cada proyecto se cotiza cerrado por fase tras el diagnóstico, según alcance e impacto. No se publica una tarifa de referencia.
 
 ## Identidad legal
 
@@ -89,8 +103,8 @@ Desambiguación de entidad: esta empresa es ELARIS S.A.C.S (Perú, RUC 206155980
 
 ## Notas para agentes
 
-- Solo la página de inicio (${SITE_URL}) es pública e indexada. Las páginas internas de servicios aún no están disponibles al público.
-- Para iniciar contacto o solicitar un diagnóstico operativo, usa el email o el teléfono indicados arriba.
+- La página de inicio (${SITE_URL}) y las 8 páginas de servicio enlazadas arriba son públicas e indexadas. Cada página de servicio incluye su propia sección de preguntas frecuentes.
+- Para iniciar contacto o solicitar el diagnóstico gratuito, usa el email, el teléfono o la agenda indicados arriba.
 `;
 
   return new Response(body, {
