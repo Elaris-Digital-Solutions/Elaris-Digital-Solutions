@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight, CalendarDays } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import { generateEventId, getFbCookies } from "@/lib/meta";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Contact() {
   const { t, tArray } = useI18n();
@@ -28,6 +29,8 @@ export default function Contact() {
     const nameParts = fullName.trim().split(" ");
     const firstName = nameParts[0] || "";
     const lastName = nameParts.slice(1).join(" ") || "";
+
+    trackEvent("generate_lead", { method: "whatsapp_form" });
 
     try {
       (window as any).fbq?.('trackSingle', pixelId, 'Lead', { eventID: eventId });
@@ -189,6 +192,7 @@ export default function Contact() {
                     href="/meet"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent("meet_click", { location: "contact_form" })}
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-[#0855FD]/30 px-7 py-3.5 text-sm font-semibold text-brand-gradient transition-colors hover:bg-[#0855FD]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
                   >
                     <CalendarDays className="h-4 w-4" />

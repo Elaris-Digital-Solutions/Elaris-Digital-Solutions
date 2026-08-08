@@ -3,6 +3,7 @@
 import React from "react";
 import { useI18n } from "@/lib/i18n";
 import { generateEventId, getFbCookies } from "@/lib/meta";
+import { trackEvent } from "@/lib/analytics";
 
 const PHONE_NUMBER = "51973663807";
 
@@ -60,6 +61,8 @@ const FloatingWhatsappButton: React.FC<FloatingWhatsappButtonProps> = ({
   }, []);
 
   const trackContact = () => {
+    trackEvent("whatsapp_click", { location: "floating_button" });
+
     try {
       const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
       const pixelId = propPixelId || (isMainRoute ? '1294573795867367' : '868251342283921');

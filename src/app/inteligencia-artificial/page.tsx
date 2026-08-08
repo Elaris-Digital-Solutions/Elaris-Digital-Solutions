@@ -23,6 +23,7 @@ export default function Page() {
           includes: copy.includes,
           caseStudy: copy.caseStudy,
           faq: copy.faq.items,
+          related: copy.related,
         }}
       />
     </>

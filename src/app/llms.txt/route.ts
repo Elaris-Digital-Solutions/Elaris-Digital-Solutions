@@ -1,5 +1,8 @@
 import es from "@/locales/es.json";
 import { SITE_URL } from "@/seo/site";
+import { CASE_STUDIES } from "@/content/casos";
+import { TEAM_PROFILES } from "@/content/equipo";
+import { ARTICLES } from "@/content/recursos";
 
 // llms.txt (llmstxt.org): a single curated markdown brief that gives LLMs a
 // clean, token-efficient, authoritative overview of Elaris — complementing the
@@ -48,6 +51,25 @@ export function GET(): Response {
     .map((item) => `### ${item.q}\n${item.a}`)
     .join("\n\n");
 
+  // Bloques condicionales: solo se listan las secciones ya publicadas.
+  const casosBlock = CASE_STUDIES.length
+    ? `\n## Casos de éxito (páginas completas)\n\n${CASE_STUDIES.map(
+        (c) => `- **${c.client}** (${c.sector}, ${c.location.country}): ${c.summary} → ${SITE_URL}/casos/${c.slug}`
+      ).join("\n")}\n`
+    : "";
+
+  const equipoBlock = TEAM_PROFILES.length
+    ? `\n## Equipo fundador\n\n${TEAM_PROFILES.map(
+        (p) => `- **${p.name}** — ${p.role}, cofundador: ${SITE_URL}/equipo/${p.slug}`
+      ).join("\n")}\n`
+    : "";
+
+  const recursosBlock = ARTICLES.length
+    ? `\n## Recursos y guías\n\n${ARTICLES.map(
+        (a) => `- ${a.title} → ${SITE_URL}/recursos/${a.slug}`
+      ).join("\n")}\n`
+    : "";
+
   const body = `# Elaris Digital Solutions
 
 > ${es.hero.description}
@@ -65,7 +87,7 @@ ${differentiators}
 ## Resultados comprobables
 
 ${portfolio}
-
+${casosBlock}${equipoBlock}${recursosBlock}
 ## Preguntas frecuentes
 
 ${faq}
@@ -103,7 +125,7 @@ Desambiguación de entidad: esta empresa es ELARIS S.A.C.S (Perú, RUC 206155980
 
 ## Notas para agentes
 
-- La página de inicio (${SITE_URL}) y las 8 páginas de servicio enlazadas arriba son públicas e indexadas. Cada página de servicio incluye su propia sección de preguntas frecuentes.
+- La página de inicio (${SITE_URL}), las 8 páginas de servicio, los casos de éxito, los perfiles del equipo y las guías enlazadas arriba son públicos e indexados. Cada página de servicio y cada guía incluye su propia sección de preguntas frecuentes.
 - Para iniciar contacto o solicitar el diagnóstico gratuito, usa el email, el teléfono o la agenda indicados arriba.
 `;
 

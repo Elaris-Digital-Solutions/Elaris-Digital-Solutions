@@ -47,7 +47,7 @@ const serviceLines = [
 const sectionIndex = [
   { id: "titularidad", title: "Titularidad del sitio y alcance" },
   { id: "quien-puede-usar", title: "Quien puede usar el sitio" },
-  { id: "servicios", title: "Servicios ofrecidos por Elaris" },
+  { id: "servicios-ofrecidos", title: "Servicios ofrecidos por Elaris" },
   { id: "condiciones-comerciales", title: "Condiciones comerciales y contratacion" },
   { id: "cambios-oferta", title: "Derecho a cambiar la oferta" },
   { id: "propiedad-intelectual", title: "Propiedad intelectual y uso permitido" },
@@ -58,7 +58,7 @@ const sectionIndex = [
   { id: "promocionales", title: "Comunicaciones y contenido promocional" },
   { id: "modificaciones", title: "Modificaciones de estos terminos" },
   { id: "jurisdiccion", title: "Ley aplicable y jurisdiccion" },
-  { id: "contacto", title: "Contacto y soporte" },
+  { id: "contacto-soporte", title: "Contacto y soporte" },
 ] as const;
 
 type SectionCardProps = {
@@ -149,7 +149,7 @@ const TermsAndConditions = () => {
                 </p>
               </SectionCard>
 
-              <SectionCard id="servicios" index={3} title="Servicios ofrecidos por Elaris">
+              <SectionCard id="servicios-ofrecidos" index={3} title="Servicios ofrecidos por Elaris">
                 <p>
                   Elaris ofrece servicios B2B personalizados. La contratacion efectiva de cualquier servicio se realiza
                   mediante propuesta comercial y/o contrato especifico.
@@ -289,7 +289,10 @@ const TermsAndConditions = () => {
                 </p>
               </SectionCard>
 
-              <SectionCard id="contacto" index={14} title="Contacto y soporte">
+              {/* ids con sufijo: "contacto" y "servicios" a secas colisionaban
+                  con los anclajes del navbar, que hacían scroll a esta prosa
+                  legal en vez de llevar al formulario o a la grilla de servicios. */}
+              <SectionCard id="contacto-soporte" index={14} title="Contacto y soporte">
                 <p>
                   Para consultas sobre estos Terminos o solicitudes de atencion, puedes escribir a
                   contact@elarisdigitalsolutions.com.

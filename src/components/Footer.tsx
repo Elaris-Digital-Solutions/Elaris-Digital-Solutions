@@ -10,11 +10,19 @@ import es from "@/locales/es.json";
 const CURRENT_YEAR = new Date().getFullYear();
 const SERVICE_LINKS = es.footer.sections.services.items;
 
+/** Hubs de contenido indexable, enlazados desde todas las páginas. */
+const CONTENT_HUBS = [
+  { href: "/casos", label: "Casos de éxito" },
+  { href: "/recursos", label: "Recursos" },
+  { href: "/equipo", label: "Equipo" },
+] as const;
+
 const Footer = () => {
   const currentYear = CURRENT_YEAR;
   const { t, tArray } = useI18n();
   const navLabels = tArray("footer.sections.navigation.items");
-  const navTargets = ["", "estandares", "portafolio", "clientes", "faq", "contacto"];
+  // Anclas del home. Los hubs con ruta propia van aparte, en CONTENT_HUBS.
+  const navTargets = ["", "estandares", "clientes", "faq", "contacto"];
   const navItems = navTargets.map((id, index) => ({
     id,
     label: navLabels[index] ?? "",
@@ -121,6 +129,18 @@ const Footer = () => {
                   </li>
                 );
               })}
+              {/* Rutas reales: garantizan que los crawlers descubran los hubs
+                  de contenido desde cualquier página del sitio. */}
+              {CONTENT_HUBS.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-white/80 text-sm hover:text-white transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

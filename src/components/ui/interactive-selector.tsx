@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import { useInView } from "framer-motion";
+import Link from "next/link";
 import { ExternalLink, TrendingUp } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { PROJECT_CONFIGS } from "@/lib/project-configs";
@@ -16,6 +17,7 @@ interface Option {
 	image: string;
 	Icon: LucideIcon;
 	url?: string;
+	caseSlug: string;
 }
 
 const InteractiveSelector = () => {
@@ -35,6 +37,7 @@ const InteractiveSelector = () => {
 				image: config.image,
 				Icon: config.Icon,
 				url: config.url,
+				caseSlug: config.caseSlug,
 			})),
 		[t]
 	);
@@ -193,6 +196,16 @@ const InteractiveSelector = () => {
 											<TrendingUp className="h-4 w-4 flex-shrink-0" />
 											{option.metrics}
 										</span>
+										{isActive && (
+											<Link
+												href={`/casos/${option.caseSlug}`}
+												onClick={(e) => e.stopPropagation()}
+												className="pointer-events-auto mt-1.5 inline-block w-fit text-sm font-semibold text-white underline underline-offset-2 hover:text-white/80"
+												style={descStyles}
+											>
+												Leer el caso completo →
+											</Link>
+										)}
 									</div>
 									{isActive && option.url && (
 										<div
