@@ -341,7 +341,6 @@
         "items": [
           "Inicio",
           "Por qué Elaris",
-          "Casos",
           "Testimonios",
           "FAQ",
           "Contacto"
@@ -382,8 +381,8 @@
   },
   "customSoftware": {
     "seo": {
-      "title": "Desarrollo de Software a Medida | Elaris Digital Solutions",
-      "description": "Desarrollamos plataformas de software a medida para empresas que necesitan escalar. Automatización, integraciones y arquitectura lista para crecer."
+      "title": "Desarrollo de Software a Medida en Perú | Elaris Digital Solutions",
+      "description": "Desarrollamos software a medida en Perú para empresas que necesitan escalar: automatización, integraciones y arquitectura lista para crecer. El código es 100% tuyo."
     },
     "faq": {
       "titleNormal": "Todo lo que necesitas saber sobre ",
@@ -414,7 +413,13 @@
           "a": "Trabajamos principalmente con React, Node.js, Python y bases de datos relacionales y no relacionales. Si ya tienes un stack definido, lo respetamos. Si no, te recomendamos la arquitectura más adecuada según tu caso de uso, escalabilidad esperada y equipo técnico."
         }
       ]
-    }
+    },
+    "related": [
+      {
+        "label": "¿Cuánto cuesta un software a medida en Perú?",
+        "href": "/recursos/cuanto-cuesta-software-a-medida-peru"
+      }
+    ]
   },
   "apiIntegration": {
     "seo": {
@@ -530,7 +535,13 @@
           "a": "Es exactamente lo que recomendamos: un flujo de alto impacto, medir resultados reales y luego escalar. La arquitectura queda lista para sumar nuevos casos sin rediseñar desde cero."
         }
       ]
-    }
+    },
+    "related": [
+      {
+        "label": "7 procesos que ya puedes automatizar con IA",
+        "href": "/recursos/automatizar-procesos-con-ia"
+      }
+    ]
   },
   "cmms": {
     "seo": {
@@ -610,7 +621,13 @@
           "a": "Hacemos la migración de datos históricos como parte del proyecto. Esto incluye el catálogo de activos, historial de intervenciones, planes de mantenimiento preventivo existentes e inventario de repuestos. La calidad y estructura de los datos actuales determina el esfuerzo de migración, pero en todos los casos aseguramos que el equipo arranque con la historia completa disponible desde el primer día de operación del nuevo sistema."
         }
       ]
-    }
+    },
+    "related": [
+      {
+        "label": "Transformación digital para pymes: por dónde empezar",
+        "href": "/recursos/transformacion-digital-pymes-por-donde-empezar"
+      }
+    ]
   },
   "servicePages": {
     "common": {
@@ -641,6 +658,7 @@
       "ctaSecondary": "Ver casos reales",
       "caseHeading": "Caso real",
       "caseLinkLab": "Ver el proyecto →",
+      "relatedHeading": "Guías relacionadas",
       "faqHeadingNormal": "Preguntas ",
       "faqHeadingAccent": "frecuentes"
     },
@@ -696,7 +714,8 @@
         "name": "VeltrixNFC",
         "text": "Veltrix tenía el producto físico —tarjetas de presentación metálicas con chip NFC— y la visión, pero no el ecosistema digital para operarlo. Construimos la plataforma completa: perfiles digitales, gestión de tarjetas y panel de administración.",
         "metric": "De una idea a una startup operando en Perú y Chile",
-        "url": "https://veltrixnfc.com"
+        "url": "https://veltrixnfc.com",
+        "casePath": "/casos/veltrixnfc"
       },
       "faq": [
         {
@@ -718,6 +737,12 @@
         {
           "q": "¿De quién es la idea y el código?",
           "a": "Tuyos, al 100%. Firmamos confidencialidad desde la primera conversación y al cerrar el proyecto recibes el repositorio completo con documentación. Nunca quedas atado a nosotros para operar o seguir creciendo."
+        }
+      ],
+      "related": [
+        {
+          "label": "Cómo validar tu idea de negocio con un MVP",
+          "href": "/recursos/como-validar-una-idea-de-negocio-mvp"
         }
       ]
     },
@@ -773,7 +798,8 @@
         "name": "CCC Impresiones",
         "text": "CCC Impresiones operaba con Excel y hojas físicas, sin presencia digital. Hoy tiene catálogo online, cotizador y una base técnica que ya le trae consultas desde Google.",
         "metric": "Tráfico orgánico constante desde el lanzamiento",
-        "url": "https://cccimpresiones.com"
+        "url": "https://cccimpresiones.com",
+        "casePath": "/casos/ccc-impresiones"
       },
       "faq": [
         {
@@ -796,12 +822,18 @@
           "q": "¿Qué pasa con mi web actual y mi dominio?",
           "a": "Tu dominio sigue siendo tuyo y no se pierde nada: migramos el contenido que valga la pena, configuramos las redirecciones para no perder el posicionamiento existente y lanzamos sin interrumpir tu presencia online."
         }
+      ],
+      "related": [
+        {
+          "label": "¿Cuánto cuesta una página web en Perú?",
+          "href": "/recursos/cuanto-cuesta-una-pagina-web-peru"
+        }
       ]
     },
     "ecommerce": {
       "seo": {
-        "title": "Desarrollo de Tiendas Online (E-commerce) | Elaris Digital Solutions",
-        "description": "Tiendas online a medida con inventario, pagos y pedidos integrados. Hasta 80% menos tiempo operativo y ventas todo el año, como Salcedo Jewels."
+        "title": "Desarrollo de E-commerce y Tiendas Online en Perú | Elaris Digital Solutions",
+        "description": "Tiendas online a medida en Perú con inventario, pagos y pedidos integrados. Hasta 80% menos tiempo operativo y ventas todo el año, como Salcedo Jewels."
       },
       "hero": {
         "badge": "E-commerce",
@@ -850,7 +882,8 @@
         "name": "Salcedo Jewels",
         "text": "Salcedo Jewels vendía con un catálogo en PDF rehecho a mano en Canva con cada venta: ventas duplicadas, clientes desanimados y una persona dedicada solo a mantenerlo al día. Hoy su tienda y su inventario son la misma cosa.",
         "metric": "Hasta 80% menos tiempo operativo y ventas todo el año",
-        "url": "https://salcedojewels.com"
+        "url": "https://salcedojewels.com",
+        "casePath": "/casos/salcedo-jewels"
       },
       "faq": [
         {
@@ -873,12 +906,18 @@
           "q": "¿Qué pasa con mis ventas por WhatsApp?",
           "a": "No se pierden — se ordenan. La tienda genera resúmenes de pedido listos para WhatsApp y tu inventario queda centralizado, vendas por el canal que vendas. WhatsApp deja de ser tu sistema de registro y vuelve a ser un canal de atención."
         }
+      ],
+      "related": [
+        {
+          "label": "Shopify, WooCommerce o tienda a medida",
+          "href": "/recursos/shopify-woocommerce-o-tienda-a-medida"
+        }
       ]
     },
     "seo": {
       "seo": {
-        "title": "Posicionamiento SEO para Empresas | Elaris Digital Solutions",
-        "description": "Que te encuentren en Google cuando buscan lo que vendes. SEO técnico y de contenido con resultados medibles — sin promesas mágicas."
+        "title": "Posicionamiento SEO para Empresas en Perú | Elaris Digital Solutions",
+        "description": "Posicionamiento SEO para empresas en Perú: que te encuentren en Google cuando buscan lo que vendes. Técnica y contenido con resultados medibles — sin promesas mágicas."
       },
       "hero": {
         "badge": "SEO",
@@ -927,7 +966,8 @@
         "name": "CCC Impresiones",
         "text": "CCC no captaba ningún cliente por internet. Construimos su plataforma con base técnica SEO desde el día uno: hoy recibe tráfico orgánico constante y está lista para amplificar con Google Ads.",
         "metric": "Tráfico orgánico recurrente, sin pagar por clic",
-        "url": "https://cccimpresiones.com"
+        "url": "https://cccimpresiones.com",
+        "casePath": "/casos/ccc-impresiones"
       },
       "faq": [
         {
@@ -949,6 +989,12 @@
         {
           "q": "¿Qué recibo cada mes?",
           "a": "Un reporte en lenguaje de negocio: qué búsquedas subieron, cuánto tráfico llegó, qué consultas generó y qué se hará el mes siguiente. Sin humo: los datos salen de Google Search Console y Analytics, y tienes acceso directo a ambos."
+        }
+      ],
+      "related": [
+        {
+          "label": "¿Cuánto cuesta una página web en Perú?",
+          "href": "/recursos/cuanto-cuesta-una-pagina-web-peru"
         }
       ]
     },
@@ -1004,7 +1050,8 @@
         "name": "Salcedo Jewels + CCC Impresiones",
         "text": "Dos empresas, el mismo punto de partida: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias — catálogo, inventario, pedidos y números en un solo lugar.",
         "metric": "Hasta 80% menos tiempo operativo tras digitalizar",
-        "url": "https://salcedojewels.com"
+        "url": "https://salcedojewels.com",
+        "casePath": "/casos/salcedo-jewels"
       },
       "faq": [
         {
@@ -1027,7 +1074,57 @@
           "q": "¿En qué se diferencia esto de contratar un software genérico?",
           "a": "Un software genérico digitaliza un proceso estándar; la transformación digital ordena TU operación completa — y a veces la respuesta correcta es un software genérico para una parte y desarrollo a medida para otra. Nuestro diagnóstico te dice cuál conviene dónde, sin sesgo: el código que construimos es tuyo y no cobramos licencias."
         }
+      ],
+      "related": [
+        {
+          "label": "Transformación digital para pymes: por dónde empezar",
+          "href": "/recursos/transformacion-digital-pymes-por-donde-empezar"
+        }
       ]
+    }
+  },
+  "contentHubs": {
+    "breadcrumbHome": "Inicio",
+    "equipo": {
+      "badge": "Nuestro equipo",
+      "title": "Las personas detrás de Elaris",
+      "intro": "Tres perfiles complementarios, un mismo estándar: tecnología bien construida, entregada a tiempo y explicada sin jerga. Conoce a quiénes vas a tener al otro lado del proyecto.",
+      "profileCta": "Ver perfil",
+      "breadcrumbLabel": "Equipo",
+      "casesHeading": "Casos en los que participó",
+      "specialtiesHeading": "Especialidades",
+      "articlesHeading": "Guías escritas por",
+      "linkedinLabel": "Ver LinkedIn"
+    },
+    "casos": {
+      "badge": "Casos de éxito",
+      "title": "Resultados comprobables, con nombre y apellido",
+      "intro": "Proyectos reales, con el problema tal como llegó, lo que construimos y el resultado medible. Sin promedios de industria: cada cifra pertenece a un cliente concreto que autorizó publicarla.",
+      "readCase": "Leer el caso completo",
+      "servicesApplied": "Servicios aplicados",
+      "visitSite": "Visitar el sitio del cliente",
+      "breadcrumbLabel": "Casos",
+      "backToHub": "← Todos los casos",
+      "beforeHeading": "Cómo operaban",
+      "solutionHeading": "Qué construimos",
+      "resultsHeading": "Resultados"
+    },
+    "recursos": {
+      "badge": "Recursos",
+      "title": "Guías claras para decidir bien",
+      "intro": "Lo que les explicamos a nuestros clientes antes de que inviertan un sol, publicado. Costos reales, comparativas honestas y por dónde empezar — sin humo y sin jerga.",
+      "readArticle": "Leer la guía",
+      "byline": "Por",
+      "publishedOn": "Publicado el",
+      "updatedOn": "Actualizado el",
+      "relatedGuides": "Guías relacionadas",
+      "relatedCase": "Caso relacionado",
+      "breadcrumbLabel": "Recursos",
+      "backToHub": "← Todos los recursos",
+      "minRead": "min de lectura",
+      "faqHeading": "Preguntas frecuentes",
+      "ctaHeading": "¿Quieres saber qué aplica a tu negocio?",
+      "ctaText": "Te decimos qué tiene sentido en tu caso concreto, sin compromiso."
     }
   },
   "team": {
@@ -1043,7 +1140,8 @@
         "description": "Lidera la arquitectura de cada proyecto y asegura que la solución se entregue bien construida y en los plazos pactados.",
         "photo": "/assets/team/CarlosColfer.jpg",
         "initials": "CA",
-        "linkedin": "https://www.linkedin.com/in/carlos-alejandro-colfer-mendoza-a59a08355/"
+        "linkedin": "https://www.linkedin.com/in/carlos-alejandro-colfer-mendoza-a59a08355/",
+        "slug": "carlos-colfer"
       },
       {
         "name": "Sergio Herrera",
@@ -1051,7 +1149,8 @@
         "description": "Gestiona la relación con cada cliente de inicio a fin: entiende el negocio, alinea expectativas y mantiene el proyecto en movimiento.",
         "photo": "/assets/team/SergioHerrera.jpg",
         "initials": "SH",
-        "linkedin": "https://www.linkedin.com/in/sergio-herrera-jave/"
+        "linkedin": "https://www.linkedin.com/in/sergio-herrera-jave/",
+        "slug": "sergio-herrera"
       },
       {
         "name": "Fabrizio Bussalleu",
@@ -1059,7 +1158,8 @@
         "description": "Transforma los requerimientos del negocio en productos digitales funcionales, con obsesión por los detalles y la experiencia del usuario.",
         "photo": "/assets/team/FabrizioBussalleu.jpg",
         "initials": "FB",
-        "linkedin": "https://www.linkedin.com/in/fabrizio-bussalleu/"
+        "linkedin": "https://www.linkedin.com/in/fabrizio-bussalleu/",
+        "slug": "fabrizio-bussalleu"
       }
     ]
   }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import es from "@/locales/es.json";
+import type { Article, CaseStudy, TeamProfile } from "@/content/types";
+import { TEAM_PROFILES } from "@/content/equipo";
 
 export const SITE_URL = "https://elarisdigitalsolutions.com";
 export const OG_IMAGE = `${SITE_URL}/assets/Elaris-OG.png`;
@@ -24,6 +26,25 @@ export const SERVICE_PATHS = [
   "/transformacion-digital",
 ] as const;
 
+/**
+ * Identificadores del grafo. Los nodos se declaran una vez (Organization en
+ * el layout, Person en su página de perfil) y el resto los referencia por
+ * `@id`, para que buscadores y modelos entiendan que hablan de la misma
+ * entidad en vez de leer objetos sueltos y repetidos.
+ */
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+export const personIdFor = (slug: string) => `${SITE_URL}/equipo/${slug}#person`;
+
+/** es.json → portfolio.projects  ↔  slug de /casos */
+const PORTFOLIO_CASE_SLUGS: Record<string, string> = {
+  salcedoJewels: "salcedo-jewels",
+  sistemaInventarioUPC: "inventario-upc",
+  cccImpresiones: "ccc-impresiones",
+  veltrixNfc: "veltrixnfc",
+};
+
 const PHONE = "+51-973-663-807";
 const EMAIL = "contact@elarisdigitalsolutions.com";
 
@@ -41,6 +62,7 @@ export const buildOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": ORG_ID,
     name: "Elaris Digital Solutions",
     legalName: "ELARIS S.A.C.S",
     taxID: "20615598071",
@@ -91,6 +113,16 @@ export const buildOrganizationSchema = () => {
       "https://github.com/Elaris-Digital-Solutions",
       "https://x.com/ElarisSolutions",
     ],
+    // Los tres son cofundadores. Nodos compactos: el Person completo lo emite
+    // su página en /equipo, y ambos comparten @id para que sea una sola entidad.
+    founder: TEAM_PROFILES.map((profile) => ({
+      "@type": "Person",
+      "@id": personIdFor(profile.slug),
+      name: profile.name,
+      jobTitle: profile.role,
+      url: `${SITE_URL}/equipo/${profile.slug}`,
+      sameAs: [profile.linkedin],
+    })),
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -108,13 +140,14 @@ export const buildOrganizationSchema = () => {
 export const buildWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": WEBSITE_ID,
   name: "Elaris Digital Solutions",
   url: SITE_URL,
   inLanguage: "es-PE",
   // Build-time timestamp — refreshes on every deploy, signaling content
   // freshness to generative/search engines (GEO).
   dateModified: new Date().toISOString(),
-  publisher: { "@type": "Organization", name: "Elaris Digital Solutions" },
+  publisher: { "@id": ORG_ID },
 });
 
 /** Los 8 servicios reales, cada uno apuntando a su propia página indexable. */
@@ -136,7 +169,7 @@ export const buildServiceSchema = () => {
         position: index + 1,
         name: service.title,
         description: service.benefit,
-        provider: { "@type": "Organization", name: "Elaris Digital Solutions" },
+        provider: { "@id": ORG_ID },
         areaServed: "PE",
         url: `${SITE_URL}${service.href}`,
       };
@@ -151,19 +184,115 @@ export const buildPortfolioSchema = () => {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Portafolio de proyectos de Elaris Digital Solutions",
-    itemListElement: Object.values(projects).map((project, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "CreativeWork",
-        name: project.title,
-        description: project.description,
-        about: project.category,
-        creator: { "@type": "Organization", name: "Elaris Digital Solutions" },
-      },
-    })),
+    itemListElement: Object.entries(projects).map(([key, project], index) => {
+      const caseSlug = PORTFOLIO_CASE_SLUGS[key];
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.description,
+          about: project.category,
+          creator: { "@id": ORG_ID },
+          // Conecta el portafolio del home con la página de caso completa.
+          ...(caseSlug ? { url: `${SITE_URL}/casos/${caseSlug}` } : {}),
+        },
+      };
+    }),
   };
 };
+
+/** Migas de pan: mismos items que el breadcrumb visible de la página. */
+export const buildBreadcrumbSchema = (items: { name: string; path: string }[]) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: `${SITE_URL}${item.path}`,
+  })),
+});
+
+/**
+ * ProfilePage: el tipo que Google documenta para «esta página trata sobre
+ * esta persona». Es la señal directa para las búsquedas por nombre.
+ * El nodo Person completo vive aquí; el resto del sitio lo referencia por @id.
+ */
+export const buildPersonProfileSchema = (profile: TeamProfile) => {
+  const parts = profile.name.split(" ");
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    dateModified: new Date().toISOString().slice(0, 10),
+    mainEntity: {
+      "@type": "Person",
+      "@id": personIdFor(profile.slug),
+      name: profile.name,
+      givenName: parts[0],
+      familyName: parts.slice(1).join(" "),
+      jobTitle: profile.role,
+      description: profile.bioIntro,
+      image: `${SITE_URL}${profile.photo}`,
+      url: `${SITE_URL}/equipo/${profile.slug}`,
+      worksFor: { "@id": ORG_ID },
+      sameAs: [profile.linkedin],
+      knowsAbout: profile.knowsAbout,
+    },
+  };
+};
+
+/**
+ * BlogPosting con `author` apuntando por @id a la página del autor: es el
+ * vínculo E-E-A-T que Google usa para atribuir experiencia a quien firma.
+ */
+export const buildArticleSchema = (article: Article, author?: TeamProfile) => ({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: article.title,
+  description: article.seoDescription,
+  datePublished: article.publishDate,
+  dateModified: article.modifiedDate,
+  inLanguage: "es-PE",
+  image: OG_IMAGE,
+  mainEntityOfPage: `${SITE_URL}/recursos/${article.slug}`,
+  publisher: { "@id": ORG_ID },
+  author: author
+    ? {
+        "@type": "Person",
+        "@id": personIdFor(author.slug),
+        name: author.name,
+        url: `${SITE_URL}/equipo/${author.slug}`,
+      }
+    : { "@id": ORG_ID },
+});
+
+/**
+ * Los casos se marcan como Article: schema.org no tiene un tipo CaseStudy, y
+ * `about` → Organization del cliente desambigua que el texto trata sobre él.
+ */
+export const buildCaseStudySchema = (caseStudy: CaseStudy) => ({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: caseStudy.heading,
+  description: caseStudy.seoDescription,
+  datePublished: caseStudy.publishDate,
+  inLanguage: "es-PE",
+  image: OG_IMAGE,
+  mainEntityOfPage: `${SITE_URL}/casos/${caseStudy.slug}`,
+  author: { "@id": ORG_ID },
+  publisher: { "@id": ORG_ID },
+  about: {
+    "@type": "Organization",
+    name: caseStudy.client,
+    url: caseStudy.liveUrl,
+  },
+  mentions: caseStudy.servicePaths.map((path) => ({
+    "@type": "Service",
+    url: `${SITE_URL}${path}`,
+  })),
+});
 
 /**
  * Metadata builder for secondary pages.

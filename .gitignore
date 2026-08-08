@@ -18,6 +18,9 @@ dist-ssr
 /out/
 .netlify/
 next-env.d.ts
+
+# Caché incremental de TypeScript: artefacto de build, específico de cada máquina
+tsconfig.tsbuildinfo
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

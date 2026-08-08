@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Linkedin } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import es from "@/locales/es.json";
 
@@ -14,10 +15,11 @@ type Member = {
   photo: string;
   initials: string;
   linkedin: string;
+  /** Slug de su página en /equipo. */
+  slug: string;
 };
 
 function MemberCard({ member, index }: { member: Member; index: number }) {
-  const { t } = useI18n();
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -51,15 +53,15 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
         {member.description}
       </p>
 
-      <a
-        href={member.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+      {/* Un solo destino desde el home: el perfil. El enlace a LinkedIn vive
+          en la página de perfil, que es donde tiene contexto. */}
+      <Link
+        href={`/equipo/${member.slug}`}
+        className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
       >
-        <Linkedin className="h-4 w-4" />
-        {t("team.linkedinLabel")}
-      </a>
+        Ver perfil
+        <ArrowRight className="h-4 w-4" />
+      </Link>
     </motion.div>
   );
 }

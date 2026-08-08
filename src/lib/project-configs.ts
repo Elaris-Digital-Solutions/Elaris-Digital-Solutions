@@ -17,6 +17,8 @@ export interface ProjectConfig {
   Icon: LucideIcon;
   url: string;
   stack: readonly string[];
+  /** Ruta al caso completo en /casos. */
+  caseSlug: string;
 }
 
 export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
@@ -26,6 +28,7 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     Icon: Smartphone,
     url: "https://salcedojewels.com",
     stack: ["Next.js", "React", "Stripe", "Vercel"],
+    caseSlug: "salcedo-jewels",
   },
   {
     slug: "sistemaInventarioUPC",
@@ -33,6 +36,7 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     Icon: AppWindow,
     url: "https://upc-inventario.netlify.app",
     stack: ["React", "Tailwind", "Vite"],
+    caseSlug: "inventario-upc",
   },
   {
     slug: "cccImpresiones",
@@ -40,6 +44,7 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     Icon: Bot,
     url: "https://cccimpresiones.com/",
     stack: ["React", "Vite", "B2B", "3D Print"],
+    caseSlug: "ccc-impresiones",
   },
   {
     slug: "veltrixNfc",
@@ -47,5 +52,6 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     Icon: Nfc,
     url: "https://veltrixnfc.com",
     stack: ["Next.js", "React", "NFC", "Perfiles digitales"],
+    caseSlug: "veltrixnfc",
   },
 ] as const;

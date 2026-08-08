@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npx tsc:*)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "WebSearch",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:pe.linkedin.com)",
+      "PowerShell(python --version)",
+      "PowerShell(python -c \"import reportlab, PIL; print\\('reportlab', reportlab.Version\\); print\\('Pillow', PIL.__version__\\)\")",
+      "PowerShell(python -m pip install --quiet reportlab pillow 2>&1)",
+      "PowerShell(Get-ChildItem \"public\\\\assets\" -File | Where-Object { $_.Name -match 'Elaris|logo|Lockup|OG|favicon' } | Select-Object Name, Length | Format-Table -AutoSize; Write-Output \"--- top-level public ---\"; Get-ChildItem \"public\" -File | Select-Object Name, Length | Format-Table -AutoSize)"
     ]
   }
 }

@@ -94,5 +94,7 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  // @tailwindcss/typography habilita `prose` para el cuerpo de artículos,
+  // bios y casos: texto largo con jerarquía tipográfica sin escribir CSS.
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

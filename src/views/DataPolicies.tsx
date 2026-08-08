@@ -29,6 +29,7 @@ const sectionIndex = [
   { id: "conservacion", title: "Plazo de conservacion" },
   { id: "seguridad", title: "Seguridad de la informacion" },
   { id: "confidencialidad", title: "Confidencialidad" },
+  { id: "analitica", title: "Herramientas de analitica y medicion" },
   { id: "modificaciones", title: "Modificaciones de la politica" },
 ] as const;
 
@@ -229,7 +230,24 @@ const DataPolicies = () => {
                 </p>
               </SectionCard>
 
-              <SectionCard id="modificaciones" index={12} title="Modificaciones de la politica">
+              <SectionCard id="analitica" index={12} title="Herramientas de analitica y medicion">
+                <p>
+                  Utilizamos Google Analytics 4 para medir de forma agregada el uso del sitio: paginas vistas, origen
+                  de la visita y acciones como el envio del formulario de contacto. La informacion se procesa de forma
+                  seudonimizada y no se emplea para identificar a personas concretas.
+                </p>
+                <p>
+                  Tambien utilizamos el pixel de Meta (Facebook e Instagram) para medir la efectividad de nuestras
+                  campanas publicitarias. Cuando envias el formulario, tu correo se transmite cifrado mediante una
+                  funcion hash irreversible, de modo que Meta no recibe el dato en claro.
+                </p>
+                <p>
+                  Puedes bloquear ambas mediciones desde la configuracion de tu navegador, mediante extensiones de
+                  bloqueo o con el complemento de inhabilitacion de Google Analytics.
+                </p>
+              </SectionCard>
+
+              <SectionCard id="modificaciones" index={13} title="Modificaciones de la politica">
                 <p>
                   Elaris se reserva el derecho de modificar esta Politica para adaptarla a cambios normativos,
                   regulatorios, jurisprudenciales o de operacion interna. Toda actualizacion sera publicada en esta

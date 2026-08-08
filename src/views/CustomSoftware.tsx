@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     ChevronDown,
@@ -90,6 +91,12 @@ export default function CustomSoftware() {
                                     <p className="text-slate-500 text-sm font-light leading-relaxed mt-3">
                                         Automatizamos la emisión de boletas, el registro de ventas, la actualización del catálogo y la edición de fotos: trabajo que antes ocupaba a una persona a tiempo completo.
                                     </p>
+                                    <Link
+                                        href="/casos/salcedo-jewels"
+                                        className="mt-4 inline-block text-sm font-semibold text-brand-gradient hover:underline"
+                                    >
+                                        Leer el caso completo →
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>
@@ -416,6 +423,38 @@ export default function CustomSoftware() {
                         </div>
                     </div>
                 </section>
+
+                {/* Guías relacionadas — equivalente al bloque `related` de la plantilla */}
+                {copy.related && copy.related.length > 0 && (
+                    <section aria-labelledby="related-heading" className="py-14 bg-white">
+                        <div className="container mx-auto max-w-3xl px-6 text-center">
+                            <h2 id="related-heading" className="mb-6 text-xl font-bold text-[#071540]">
+                                Guías relacionadas
+                            </h2>
+                            <div className="flex flex-col items-center gap-3">
+                                {copy.related.map((item) => (
+                                    <Link
+                                        key={item.href}
+                                        href={item.href}
+                                        className="text-base font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                                    >
+                                        {item.label} →
+                                    </Link>
+                                ))}
+                                {/* Única puerta de entrada a /apis-personalizadas: está fuera
+                                    del lineup de servicios y en noindex, pero su contenido
+                                    técnico sirve a quien llega buscando integraciones. */}
+                                <Link
+                                    href="/apis-personalizadas"
+                                    className="text-base font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                                >
+                                    ¿Necesitas conectar sistemas? Ver APIs personalizadas →
+                                </Link>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
                 <Contact />
 
             </main>

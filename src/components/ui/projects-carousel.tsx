@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ExternalLink, ChevronRight } from 'lucide-react';
 import SmartImage from '@/components/ui/smart-image';
 import { useI18n } from '@/lib/i18n';
@@ -35,6 +36,7 @@ const ProjectsCarousel: React.FC = () => {
         image: config.image,
         stack: config.stack,
         url: config.url,
+        caseSlug: config.caseSlug,
       })),
     [t]
   );
@@ -115,6 +117,12 @@ const ProjectsCarousel: React.FC = () => {
                     {/* El verde queda reservado a WhatsApp por manual de marca;
                         además green-600 sobre blanco no llega a 4.5:1. */}
                     <p className="text-sm font-semibold text-brand-gradient">{projects[currentProject].metrics}</p>
+                    <Link
+                      href={`/casos/${projects[currentProject].caseSlug}`}
+                      className="mt-1 inline-block text-sm font-semibold text-brand-gradient hover:underline"
+                    >
+                      Leer el caso completo →
+                    </Link>
                   </div>
                   {projects[currentProject].url && (
                     <div className="flex space-x-2">
