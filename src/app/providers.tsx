@@ -46,10 +46,16 @@ const initGaScript = () => {
 
   const w = window as any;
   w.dataLayer = w.dataLayer || [];
-  // gtag debe empujar `arguments` tal cual: la librería lo espera así.
-  function gtag(...args: unknown[]) {
-    w.dataLayer.push(args);
+  // OJO: gtag.js solo interpreta como comando lo que sea un objeto
+  // `arguments`. Un array normal —lo que produce un rest param— se descarta
+  // en silencio: la librería carga e inicializa, pero no envía ningún hit.
+  // Por eso el cuerpo empuja `arguments` tal cual y la firma se declara
+  // aparte con un cast, en vez de usar `(...args) => push(args)`.
+  function gtagImpl() {
+    // eslint-disable-next-line prefer-rest-params
+    w.dataLayer.push(arguments);
   }
+  const gtag = gtagImpl as (...args: unknown[]) => void;
   w.gtag = gtag;
 
   gtag("js", new Date());
