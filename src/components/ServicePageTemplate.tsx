@@ -62,7 +62,16 @@ export interface ServicePageCopy {
   hero: { badge: string; title: string; subtitle: string };
   pains: string[];
   includes: { title: string; text: string; icon?: string }[];
-  caseStudy: { name: string; text: string; metric: string; url: string } | null;
+  caseStudy: {
+    name: string;
+    text: string;
+    metric: string;
+    url: string;
+    /** Ruta interna al caso completo en /casos. */
+    casePath?: string;
+  } | null;
+  /** Guías de /recursos relacionadas con este servicio. */
+  related?: { label: string; href: string }[];
   faq: { q: string; a: string }[];
 }
 
@@ -307,15 +316,25 @@ export default function ServicePageTemplate({
                         {copy.caseStudy.metric}
                       </span>
                     </p>
-                    <a
-                      href={copy.caseStudy.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex flex-shrink-0 items-center gap-2 whitespace-nowrap rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071540]"
-                    >
-                      {common.caseLinkLab}
-                      <span className="sr-only"> ({copy.caseStudy.name}, se abre en una pestaña nueva)</span>
-                    </a>
+                    <div className="flex flex-shrink-0 flex-wrap items-center gap-3">
+                      {copy.caseStudy.casePath && (
+                        <Link
+                          href={copy.caseStudy.casePath}
+                          className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#071540] transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071540]"
+                        >
+                          Leer el caso completo →
+                        </Link>
+                      )}
+                      <a
+                        href={copy.caseStudy.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071540]"
+                      >
+                        {common.caseLinkLab}
+                        <span className="sr-only"> ({copy.caseStudy.name}, se abre en una pestaña nueva)</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -394,6 +413,28 @@ export default function ServicePageTemplate({
             </div>
           </div>
         </section>
+
+        {/* ── GUÍAS RELACIONADAS ───────────────────────────────────────── */}
+        {copy.related && copy.related.length > 0 && (
+          <section aria-labelledby="related-heading" className="py-14">
+            <div className="container mx-auto max-w-3xl px-6 text-center">
+              <h2 id="related-heading" className="mb-6 text-xl font-bold text-[#071540]">
+                {common.relatedHeading}
+              </h2>
+              <div className="flex flex-col items-center gap-3">
+                {copy.related.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-base font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                  >
+                    {item.label} →
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <Contact />
       </main>

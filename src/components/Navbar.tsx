@@ -1,18 +1,33 @@
-﻿"use client";
+"use client";
 
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import es from "@/locales/es.json";
 
-// Module-level constant — never recreated on re-render
-const NAV_LINKS = [
-  { label: "Servicios",      section: "servicios"  },
-  { label: "Casos",          section: "portafolio" },
-  { label: "Por qué Elaris", section: "estandares" },
-  { label: "FAQ",            section: "faq"        },
+/**
+ * Navegación por rutas reales.
+ *
+ * Antes mezclaba anclas del home (#servicios, #faq…) con rutas. Con 25 URLs
+ * publicadas, un ancla solo funciona bien en la home y es ambigua —o
+ * directamente incorrecta— en las otras 24. «Por qué Elaris» y «FAQ» siguen
+ * siendo secciones del home y viven en el footer.
+ */
+const SERVICE_ITEMS = es.services.groups.flatMap((group) =>
+  group.keys.map((key) => {
+    const item = (es.services.items as Record<string, { title: string; href: string }>)[key];
+    return { label: item.title, href: item.href };
+  })
+);
+
+const NAV_ROUTES = [
+  { label: "Casos", href: "/casos" },
+  { label: "Recursos", href: "/recursos" },
+  { label: "Equipo", href: "/equipo" },
 ] as const;
 
 const Navbar = () => {
@@ -22,50 +37,71 @@ const Navbar = () => {
   // y React descartaba todo el HTML del servidor.
   const [isDesktop, setIsDesktop] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [isNavHovered, setIsNavHovered] = useState(false);
 
-  const router = useRouter();
+  const servicesRef = useRef<HTMLLIElement>(null);
+  const pathname = usePathname();
   const { t } = useI18n();
 
-  const basePath = "/";
-
-  const navigateToSection = (sectionId?: string) => {
-    const destinationPath = basePath;
-
-    const scrollToTarget = (path: string) => {
-      if (!sectionId) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        return;
-      }
-      const target = document.getElementById(sectionId);
-      if (!target) return;
+  /** El CTA es lo único que sigue siendo un ancla: #contacto existe en todas
+   *  las plantillas. Si no estuviera, se navega al home. */
+  const goToContact = () => {
+    const target = document.getElementById("contacto");
+    if (target) {
       const offsetTop = target.getBoundingClientRect().top + window.scrollY - 96;
       window.scrollTo({ top: Math.max(offsetTop, 0), behavior: "smooth" });
-      window.history.replaceState({}, "", `${path}#${sectionId}`);
-    };
-
-    // Las páginas de servicio montan su propio <Contact id="contacto">. Si la
-    // sección existe aquí, se hace scroll local en vez de saltar al home.
-    const existsHere = sectionId ? Boolean(document.getElementById(sectionId)) : false;
-
-    if (existsHere) {
-      scrollToTarget(window.location.pathname);
-    } else if (window.location.pathname !== destinationPath) {
-      router.push(destinationPath);
-      window.setTimeout(() => scrollToTarget(destinationPath), 120);
     } else {
-      scrollToTarget(destinationPath);
+      window.location.href = "/#contacto";
     }
-
     setIsMobileMenuOpen(false);
   };
+
+  const scrollToTop = () => {
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsMobileMenuOpen(false);
+      return false;
+    }
+    return true;
+  };
+
+  // Cerrar menús al cambiar de ruta.
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsServicesOpen(false);
+    setIsMobileServicesOpen(false);
+  }, [pathname]);
+
+  // Dropdown: cerrar con Escape y con clic fuera.
+  useEffect(() => {
+    if (!isServicesOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsServicesOpen(false);
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      if (!servicesRef.current?.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [isServicesOpen]);
 
   useEffect(() => {
     const onResize = () => {
       const desktop = window.innerWidth >= 1024;
       setIsDesktop(desktop);
       if (desktop) setIsMobileMenuOpen(false);
+      else setIsServicesOpen(false);
     };
     onResize();
     window.addEventListener("resize", onResize);
@@ -98,14 +134,17 @@ const Navbar = () => {
     };
   }, [isDesktop, isMobileMenuOpen]);
 
-  const isOpaque = !isAtTop || isNavHovered || isMobileMenuOpen;
+  const isOpaque = !isAtTop || isNavHovered || isMobileMenuOpen || isServicesOpen;
 
   const navThemeClasses = isOpaque
     ? "bg-white text-[#111] border-b border-black/10 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
     : "bg-transparent text-[#111] border-b border-transparent shadow-none";
 
   const navItemClass =
-    "inline-flex h-9 items-center px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-[#0855FD]";
+    "inline-flex h-9 items-center rounded px-2 text-[0.95rem] font-medium text-[#111] transition-colors hover:text-[#0855FD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2";
+
+  const mobileItemClass =
+    "flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium transition-colors hover:text-[#0855FD]";
 
   const logoSrc = "/assets/ElarisLockup.webp";
 
@@ -137,10 +176,12 @@ const Navbar = () => {
           )}
         >
           {/* Logo */}
-          <button
-            type="button"
-            onClick={() => navigateToSection()}
-            className="inline-flex items-center"
+          <Link
+            href="/"
+            onClick={(event) => {
+              if (!scrollToTop()) event.preventDefault();
+            }}
+            className="inline-flex items-center rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
           >
             <SmartImage
               src={logoSrc}
@@ -150,24 +191,53 @@ const Navbar = () => {
               height={240}
               className="h-10 w-auto sm:h-12"
             />
-          </button>
+          </Link>
 
-          {/* Desktop nav links — ocultos bajo lg via CSS, no via JS */}
+          {/* Desktop nav — ocultos bajo lg via CSS, no via JS */}
           <ul className="mx-auto hidden items-center gap-8 lg:flex">
-                {NAV_LINKS.map(({ label, section }) => (
-                  <li key={section}>
-                    <a
-                      href={`/#${section}`}
-                      className={navItemClass}
-                      onClick={(event) => {
-                        event.preventDefault();
-                        navigateToSection(section);
-                      }}
-                    >
-                      {label}
-                    </a>
-                  </li>
-                ))}
+            <li ref={servicesRef} className="relative">
+              <button
+                type="button"
+                aria-expanded={isServicesOpen}
+                aria-haspopup="true"
+                onClick={() => setIsServicesOpen((prev) => !prev)}
+                className={cn(navItemClass, "gap-1.5")}
+              >
+                Servicios
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    isServicesOpen && "rotate-180"
+                  )}
+                />
+              </button>
+
+              {isServicesOpen && (
+                <div className="absolute left-1/2 top-full z-50 w-[280px] -translate-x-1/2 pt-3">
+                  <ul className="overflow-hidden rounded-xl border border-black/10 bg-white py-2 shadow-[0_12px_40px_rgba(7,21,64,0.12)]">
+                    {SERVICE_ITEMS.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          className="block px-4 py-2.5 text-sm font-medium text-[#111] transition-colors hover:bg-[#0855FD]/5 hover:text-[#0855FD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0855FD]"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            {NAV_ROUTES.map(({ label, href }) => (
+              <li key={href}>
+                <Link href={href} className={navItemClass}>
+                  {label}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {/* CTA de escritorio */}
@@ -175,7 +245,7 @@ const Navbar = () => {
             href="/#contacto"
             onClick={(event) => {
               event.preventDefault();
-              navigateToSection("contacto");
+              goToContact();
             }}
             className="justify-self-end hidden h-10 items-center rounded-xl bg-brand-gradient px-5 text-sm font-semibold text-white transition-opacity hover:opacity-90 lg:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
           >
@@ -206,49 +276,78 @@ const Navbar = () => {
           isMobileMenuOpen ? "h-[calc(100dvh-80px)]" : "h-0 border-transparent"
         )}
       >
-          <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
-            <div className="flex-1 overflow-y-auto pr-1">
-              <div className="space-y-1 pt-2">
-                {NAV_LINKS.map(({ label, section }) => (
-                  <a
-                    key={section}
-                    href={`/#${section}`}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      navigateToSection(section);
-                    }}
-                    className="flex w-full items-center justify-between border-b border-dashed border-black/10 py-3 text-left text-[1.05rem] font-medium hover:text-[#0855FD] transition-colors"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </div>
+        <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
+          <div className="flex-1 overflow-y-auto pr-1">
+            <div className="space-y-1 pt-2">
+              {/* Servicios: acordeón con las 8 páginas */}
+              <button
+                type="button"
+                aria-expanded={isMobileServicesOpen}
+                onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                className={mobileItemClass}
+              >
+                Servicios
+                <ChevronDown
+                  aria-hidden="true"
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    isMobileServicesOpen && "rotate-180"
+                  )}
+                />
+              </button>
+              {isMobileServicesOpen && (
+                <ul className="border-b border-dashed border-black/10 py-1 pl-4">
+                  {SERVICE_ITEMS.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block py-2.5 text-[0.95rem] text-slate-700 transition-colors hover:text-[#0855FD]"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-            <div className="border-t border-black/10 pt-4">
-              <div className="rounded-xl border border-black/10 bg-white/70 p-3.5">
-                <p className="text-sm font-semibold">¿Listo para escalar tu operación?</p>
-                <p className="mt-1 text-xs text-slate-600">
-                  Agenda un diagnóstico y te damos una hoja de ruta clara para ejecutar. Sin costo y sin compromiso.
-                </p>
-                <div className="mt-3 grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => navigateToSection("contacto")}
-                    className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-brand-gradient px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-                  >
-                    Solicitar diagnóstico
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => navigateToSection("portafolio")}
-                    className="inline-flex h-10 w-full items-center justify-center rounded-lg border border-black/15 px-3 text-sm font-semibold text-slate-800 transition-colors hover:bg-black/5"
-                  >
-                    Ver casos
-                  </button>
-                </div>
+              {NAV_ROUTES.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={mobileItemClass}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-t border-black/10 pt-4">
+            <div className="rounded-xl border border-black/10 bg-white/70 p-3.5">
+              <p className="text-sm font-semibold">¿Listo para escalar tu operación?</p>
+              <p className="mt-1 text-xs text-slate-600">
+                Agenda un diagnóstico y te damos una hoja de ruta clara para ejecutar. Sin costo y sin compromiso.
+              </p>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={goToContact}
+                  className="inline-flex h-10 w-full items-center justify-center rounded-lg bg-brand-gradient px-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                >
+                  Solicitar diagnóstico
+                </button>
+                <Link
+                  href="/casos"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="inline-flex h-10 w-full items-center justify-center rounded-lg border border-black/15 px-3 text-sm font-semibold text-slate-800 transition-colors hover:bg-black/5"
+                >
+                  Ver casos
+                </Link>
               </div>
             </div>
+          </div>
         </div>
       </div>
     </header>
