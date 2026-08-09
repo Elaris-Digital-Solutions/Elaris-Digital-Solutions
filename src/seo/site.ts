@@ -48,17 +48,24 @@ const PORTFOLIO_CASE_SLUGS: Record<string, string> = {
 const PHONE = "+51-973-663-807";
 const EMAIL = "contact@elarisdigitalsolutions.com";
 
-const stripQuotes = (value: string) => value.replace(/[“”"]/g, "").trim();
-
-/** Organization + LocalBusiness signals, enriched with real client reviews. */
+/**
+ * Organization + señales de LocalBusiness.
+ *
+ * Aquí NO se marcan los testimonios como `review`. Dos motivos, y el segundo
+ * es el que zanja el asunto:
+ *
+ * 1. Search Console los rechazaba ("varias reseñas sin el objeto
+ *    aggregateRating"): Google exige una nota agregada cuando hay más de una
+ *    reseña, y nuestros testimonios no llevan puntuación. La única forma de
+ *    cumplir sería inventarse una, que es justamente lo que no vamos a hacer.
+ * 2. Aunque la llevaran, no serviría de nada. Desde 2019 Google no muestra
+ *    estrellas para reseñas que una empresa publica sobre sí misma en su
+ *    propio sitio, y eso descalifica a `Organization` y `LocalBusiness`.
+ *
+ * Los testimonios siguen visibles en la página para quien la lee; lo que se
+ * retira es el marcado que nunca iba a generar un resultado enriquecido.
+ */
 export const buildOrganizationSchema = () => {
-  const testimonials = es.testimonials.items;
-  const reviews = Object.values(testimonials).map((item) => ({
-    "@type": "Review",
-    reviewBody: stripQuotes(item.quote),
-    author: { "@type": "Person", name: item.name },
-  }));
-
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -133,7 +140,6 @@ export const buildOrganizationSchema = () => {
         availableLanguage: ["Spanish"],
       },
     ],
-    review: reviews,
   };
 };
 
