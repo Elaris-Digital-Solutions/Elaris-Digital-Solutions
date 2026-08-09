@@ -40,8 +40,16 @@ const initFbScript = () => {
 // El ID de medición es público: viaja en el bundle del cliente.
 const GA_ID = "G-81YGZVKMLG";
 
+// Solo se mide el dominio real. Netlify publica cada deploy en una URL propia
+// (<id>--elaris-digital-solutions.netlify.app), así que sin este filtro cada
+// revisión previa y cada prueba en local entran en la propiedad como sesiones
+// de usuario. Para depurar GA en local, añade "localhost" aquí de forma
+// temporal — no lo dejes puesto en un commit.
+const GA_HOSTS = ["elarisdigitalsolutions.com", "www.elarisdigitalsolutions.com"];
+
 const initGaScript = () => {
   if (typeof window === "undefined") return;
+  if (!GA_HOSTS.includes(window.location.hostname)) return;
   if (document.getElementById("ga4-lib")) return;
 
   const w = window as any;
