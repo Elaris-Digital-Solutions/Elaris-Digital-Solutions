@@ -7,7 +7,11 @@
  * problema que tiene hoy `es.json` (~59 KB en cada página). El copy de
  * microinterfaz sigue en `es.json`; el contenido largo vive aquí y viaja
  * como HTML renderizado, que es lo que el crawler necesita.
+ *
+ * (`./services.ts` es la excepción documentada a esa regla: ver su cabecera.)
  */
+
+import type { ServicePath } from "./services";
 
 export interface TeamProfile {
   slug: string;
@@ -45,8 +49,9 @@ export interface CaseStudy {
   heading: string;
   sector: string;
   location: { city: string; country: string };
-  /** Rutas de SERVICE_PATHS a las que pertenece el caso. */
-  servicePaths: string[];
+  /** Servicios a los que pertenece el caso. Tipado contra el registro: una
+   *  ruta inexistente no compila. */
+  servicePaths: ServicePath[];
   liveUrl: string;
   /** Clave en es.json → portfolio.projects. */
   portfolioKey: string;
@@ -79,7 +84,9 @@ export interface Article {
   modifiedDate: string;
   /** Slug del TeamProfile que firma el artículo (author del BlogPosting). */
   authorSlug: string;
-  servicePath: string;
+  /** Servicio que vende el artículo. Se renderiza como bloque «Servicio
+   *  relacionado» y alimenta el enlazado recursos → servicios. */
+  servicePath: ServicePath;
   caseSlug: string | null;
   tags: string[];
   readMinutes: number;

@@ -47,69 +47,7 @@
     "headingAccent": "tu operación",
     "description": "Vender más o reducir costos. La mayoría de las empresas necesita ambos para operar con ventaja. Elige por dónde empezar:",
     "closingNote": "Cada servicio se adapta a la escala, industria y objetivos específicos de tu empresa.",
-    "closingCta": "¿No sabes cuál necesitas? Empieza por el diagnóstico →",
-    "groups": [
-      {
-        "label": "Para vender más",
-        "keys": [
-          "web",
-          "ecommerce",
-          "seo",
-          "mvp"
-        ]
-      },
-      {
-        "label": "Para operar mejor",
-        "keys": [
-          "software",
-          "ia",
-          "cmms",
-          "transformacion"
-        ]
-      }
-    ],
-    "items": {
-      "web": {
-        "title": "Desarrollo web",
-        "benefit": "Una página que vende, no un folleto digital.",
-        "href": "/desarrollo-web"
-      },
-      "ecommerce": {
-        "title": "E-commerce",
-        "benefit": "Tu tienda vendiendo 24/7, con inventario y pagos integrados.",
-        "href": "/e-commerce"
-      },
-      "seo": {
-        "title": "Posicionamiento SEO",
-        "benefit": "Que te encuentren en Google cuando buscan lo que vendes.",
-        "href": "/posicionamiento-seo"
-      },
-      "mvp": {
-        "title": "Desarrollo de MVPs",
-        "benefit": "Convierte tu idea en un producto funcionando.",
-        "href": "/desarrollo-mvp"
-      },
-      "software": {
-        "title": "Software a medida",
-        "benefit": "Sistemas que se adaptan a tu operación, no al revés.",
-        "href": "/desarrollo-software-medida"
-      },
-      "ia": {
-        "title": "Inteligencia Artificial",
-        "benefit": "Automatiza las tareas repetitivas que consumen a tu equipo.",
-        "href": "/inteligencia-artificial"
-      },
-      "cmms": {
-        "title": "CMMS · Mantenimiento",
-        "benefit": "Digitaliza el mantenimiento y reduce paradas de planta.",
-        "href": "/implementacion-cmms"
-      },
-      "transformacion": {
-        "title": "Transformación digital",
-        "benefit": "Del papel y el Excel a una operación digital ordenada.",
-        "href": "/transformacion-digital"
-      }
-    }
+    "closingCta": "¿No sabes cuál necesitas? Empieza por el diagnóstico →"
   },
   "portfolio": {
     "headingNormal": "Resultados ",
@@ -300,41 +238,7 @@
     "description": "Construimos la tecnología que convierte, automatiza y escala. Para empresas que no aceptan el status quo.",
     "sections": {
       "services": {
-        "title": "Servicios",
-        "items": [
-          {
-            "label": "Desarrollo web",
-            "href": "/desarrollo-web"
-          },
-          {
-            "label": "E-commerce",
-            "href": "/e-commerce"
-          },
-          {
-            "label": "Posicionamiento SEO",
-            "href": "/posicionamiento-seo"
-          },
-          {
-            "label": "Desarrollo de MVPs",
-            "href": "/desarrollo-mvp"
-          },
-          {
-            "label": "Software a medida",
-            "href": "/desarrollo-software-medida"
-          },
-          {
-            "label": "Inteligencia Artificial",
-            "href": "/inteligencia-artificial"
-          },
-          {
-            "label": "CMMS (mantenimiento)",
-            "href": "/implementacion-cmms"
-          },
-          {
-            "label": "Transformación digital",
-            "href": "/transformacion-digital"
-          }
-        ]
+        "title": "Servicios"
       },
       "navigation": {
         "title": "Navegación",
@@ -769,8 +673,8 @@
           "icon": "Palette"
         },
         {
-          "title": "Optimización para Google desde la base",
-          "text": "Estructura, etiquetado y velocidad que los buscadores exigen, resueltos desde el primer día.",
+          "title": "Optimización para Google incluida",
+          "text": "Estructura, etiquetado y velocidad que los buscadores exigen, resueltos desde el primer día. Competir por búsquedas concretas ya es otra cosa: eso es [posicionamiento SEO continuo](/posicionamiento-seo).",
           "icon": "Search"
         },
         {
@@ -849,7 +753,7 @@
       "includes": [
         {
           "title": "Tienda a medida con tu marca",
-          "text": "Diseñada alrededor de cómo compran tus clientes, no de una plantilla genérica.",
+          "text": "Diseñada alrededor de cómo compran tus clientes, no de una plantilla genérica. Con la base técnica para Google incluida, y [posicionamiento SEO continuo](/posicionamiento-seo) si quieres competir por búsquedas de producto.",
           "icon": "Store"
         },
         {
@@ -1006,7 +910,7 @@
       "hero": {
         "badge": "Transformación digital",
         "title": "Del papel y el Excel a una operación digital.",
-        "subtitle": "«Transformación digital» suena grande, pero significa algo simple: ordenar y digitalizar cómo opera tu empresa, empezando por lo que más te cuesta. Sin big bang — por fases, según impacto."
+        "subtitle": "«Transformación digital» suena grande, pero significa algo simple: ordenar y digitalizar cómo opera tu empresa, empezando por lo que más te cuesta. Es el nombre que le damos a todo lo que hacemos para que operes mejor — y se recorre por fases, según impacto, no de golpe."
       },
       "pains": [
         "La información vive regada entre Excel, WhatsApp y papel",
@@ -1022,7 +926,7 @@
         },
         {
           "title": "Hoja de ruta priorizada",
-          "text": "Qué digitalizar primero y por qué, ordenado por impacto y esfuerzo real.",
+          "text": "Qué digitalizar primero y por qué, ordenado por impacto y esfuerzo real. El camino suele pasar por [software a medida](/desarrollo-software-medida), [automatización con IA](/inteligencia-artificial) o [software de mantenimiento](/implementacion-cmms).",
           "icon": "Map"
         },
         {
@@ -1047,8 +951,8 @@
         }
       ],
       "caseStudy": {
-        "name": "Salcedo Jewels + CCC Impresiones",
-        "text": "Dos empresas, el mismo punto de partida: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias — catálogo, inventario, pedidos y números en un solo lugar.",
+        "name": "Salcedo Jewels",
+        "text": "Salcedo Jewels y CCC Impresiones partieron del mismo punto: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias — catálogo, inventario, pedidos y números en un solo lugar.",
         "metric": "Hasta 80% menos tiempo operativo tras digitalizar",
         "url": "https://salcedojewels.com",
         "casePath": "/casos/salcedo-jewels"

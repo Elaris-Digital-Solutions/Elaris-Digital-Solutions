@@ -44,6 +44,7 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
+import { RichText } from "@/components/ui/rich-text";
 import { scrollToSection } from "@/lib/utils";
 import es from "@/locales/es.json";
 
@@ -277,7 +278,12 @@ export default function ServicePageTemplate({
                     <h3 className="mb-2.5 text-lg font-semibold leading-snug text-[#071540]">
                       {item.title}
                     </h3>
-                    <p className="text-sm font-light leading-relaxed text-slate-600">{item.text}</p>
+                    {/* RichText y no texto plano: permite enlazar servicios
+                        relacionados desde dentro del propio bloque. La puerta
+                        de link-integrity valida esas rutas en cada build. */}
+                    <p className="text-sm font-light leading-relaxed text-slate-600">
+                      <RichText text={item.text} />
+                    </p>
                   </motion.article>
                 );
               })}

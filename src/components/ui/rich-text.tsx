@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-
-/** Solo enlaces internos: [texto](/ruta). Nada más se interpreta. */
-const LINK_RE = /\[([^\]]+)\]\((\/[^)\s]*)\)/g;
+import { internalLinkMatcher } from "@/lib/internal-links";
 
 /**
  * Convierte los enlaces markdown de los párrafos de contenido en <Link>.
@@ -16,7 +14,7 @@ export function RichText({ text }: { text: string }) {
 
   // exec() sobre un regex global mantiene lastIndex entre llamadas; se crea
   // uno nuevo por invocación para que el componente sea reentrante.
-  const re = new RegExp(LINK_RE.source, "g");
+  const re = internalLinkMatcher();
   let match: RegExpExecArray | null;
 
   while ((match = re.exec(text)) !== null) {

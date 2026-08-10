@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
+import { SERVICES, SERVICE_GROUPS } from "@/content/services";
 import es from "@/locales/es.json";
 
 /**
@@ -17,12 +18,24 @@ import es from "@/locales/es.json";
  * directamente incorrecta— en las otras 24. «Por qué Elaris» y «FAQ» siguen
  * siendo secciones del home y viven en el footer.
  */
-const SERVICE_ITEMS = es.services.groups.flatMap((group) =>
-  group.keys.map((key) => {
-    const item = (es.services.items as Record<string, { title: string; href: string }>)[key];
-    return { label: item.title, href: item.href };
-  })
-);
+/**
+ * El menú conserva los dos grupos comerciales en vez de aplanarlos en una
+ * lista de ocho: la agrupación ES la propuesta de valor —vender más u operar
+ * mejor— y aplanarla obliga al visitante a reconstruirla leyendo etiquetas.
+ * Los servicios secundarios van al final de su grupo, en tono más apagado.
+ */
+const SERVICE_MENU = SERVICE_GROUPS.map((group) => ({
+  id: group.id,
+  label: group.label,
+  items: SERVICES.filter((service) => service.group === group.id).map((service) => ({
+    label: service.label,
+    href: service.path,
+    isSecondary: service.tier === "secondary",
+  })),
+}));
+
+const dropdownItemClass =
+  "block px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[#0855FD]/5 hover:text-[#0855FD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0855FD]";
 
 const NAV_ROUTES = [
   { label: "Casos", href: "/casos" },
@@ -214,19 +227,34 @@ const Navbar = () => {
               </button>
 
               {isServicesOpen && (
-                <div className="absolute left-1/2 top-full z-50 w-[280px] -translate-x-1/2 pt-3">
-                  <ul className="overflow-hidden rounded-xl border border-black/10 bg-white py-2 shadow-[0_12px_40px_rgba(7,21,64,0.12)]">
-                    {SERVICE_ITEMS.map((item) => (
-                      <li key={item.href}>
-                        <Link
-                          href={item.href}
-                          className="block px-4 py-2.5 text-sm font-medium text-[#111] transition-colors hover:bg-[#0855FD]/5 hover:text-[#0855FD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#0855FD]"
-                        >
-                          {item.label}
-                        </Link>
-                      </li>
+                <div className="absolute left-1/2 top-full z-50 w-[320px] -translate-x-1/2 pt-3">
+                  <div className="overflow-hidden rounded-xl border border-black/10 bg-white py-2 shadow-[0_12px_40px_rgba(7,21,64,0.12)]">
+                    {SERVICE_MENU.map((group, groupIndex) => (
+                      <div
+                        key={group.id}
+                        className={cn(groupIndex > 0 && "mt-1 border-t border-black/5 pt-1")}
+                      >
+                        <p className="px-4 pb-1 pt-2 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-slate-500">
+                          {group.label}
+                        </p>
+                        <ul aria-label={group.label}>
+                          {group.items.map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href}
+                                className={cn(
+                                  dropdownItemClass,
+                                  item.isSecondary ? "text-slate-600" : "text-[#111]"
+                                )}
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               )}
             </li>
@@ -279,10 +307,11 @@ const Navbar = () => {
         <div className="container mx-auto flex h-full flex-col px-4 pb-5 pt-2 sm:px-6">
           <div className="flex-1 overflow-y-auto pr-1">
             <div className="space-y-1 pt-2">
-              {/* Servicios: acordeón con las 8 páginas */}
+              {/* Servicios: acordeón con los dos grupos */}
               <button
                 type="button"
                 aria-expanded={isMobileServicesOpen}
+                aria-controls="nav-servicios-movil"
                 onClick={() => setIsMobileServicesOpen((prev) => !prev)}
                 className={mobileItemClass}
               >
@@ -296,19 +325,34 @@ const Navbar = () => {
                 />
               </button>
               {isMobileServicesOpen && (
-                <ul className="border-b border-dashed border-black/10 py-1 pl-4">
-                  {SERVICE_ITEMS.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-2.5 text-[0.95rem] text-slate-700 transition-colors hover:text-[#0855FD]"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
+                <div
+                  id="nav-servicios-movil"
+                  className="border-b border-dashed border-black/10 py-1 pl-4"
+                >
+                  {SERVICE_MENU.map((group) => (
+                    <div key={group.id} className="pb-1">
+                      <p className="pb-1 pt-2 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-slate-500">
+                        {group.label}
+                      </p>
+                      <ul aria-label={group.label}>
+                        {group.items.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className={cn(
+                                "block py-2.5 text-[0.95rem] transition-colors hover:text-[#0855FD] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2",
+                                item.isSecondary ? "text-slate-600" : "text-slate-700"
+                              )}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
+                </div>
               )}
 
               {NAV_ROUTES.map(({ label, href }) => (

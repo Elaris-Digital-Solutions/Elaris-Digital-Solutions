@@ -1,5 +1,6 @@
 import es from "@/locales/es.json";
 import { SITE_URL } from "@/seo/site";
+import { SERVICES, SERVICE_GROUPS, findService } from "@/content/services";
 import { CASE_STUDIES } from "@/content/casos";
 import { TEAM_PROFILES } from "@/content/equipo";
 import { ARTICLES } from "@/content/recursos";
@@ -12,7 +13,7 @@ import { ARTICLES } from "@/content/recursos";
 // (legal name, RUC, fiscal domicile) so AI/search don't merge Elaris with
 // similarly-named entities in other countries.
 //
-// Las 8 páginas de servicio SÍ se listan aquí: son públicas e indexables, y
+// Las páginas de servicio SÍ se listan aquí: son públicas e indexables, y
 // cada una responde a una intención de búsqueda distinta. Quedan fuera la
 // landing de pauta (/impulsa-tu-negocio) y la de apoyo (/apis-personalizadas),
 // que siguen siendo noindex.
@@ -23,21 +24,18 @@ import { ARTICLES } from "@/content/recursos";
 export const dynamic = "force-static";
 
 export function GET(): Response {
-  const s = es.services.items as Record<
-    string,
-    { title: string; benefit: string; href: string }
-  >;
-  const services = es.services.groups
-    .map((group) => {
-      const items = group.keys
-        .map((key) => {
-          const item = s[key];
-          return `- **${item.title}:** ${item.benefit} → ${SITE_URL}${item.href}`;
-        })
-        .join("\n");
-      return `### ${group.label}\n${items}`;
-    })
-    .join("\n\n");
+  const services = SERVICE_GROUPS.map((group) => {
+    const items = SERVICES.filter((service) => service.group === group.id)
+      .map(
+        (service) =>
+          `- **${service.label}:** ${service.benefit} → ${SITE_URL}${service.path}`
+      )
+      .join("\n");
+    const umbrella = group.umbrellaPath
+      ? `\n_Concepto paraguas del grupo: ${findService(group.umbrellaPath).label}._`
+      : "";
+    return `### ${group.label}${umbrella}\n${items}`;
+  }).join("\n\n");
 
   const differentiators = Object.values(es.process.steps)
     .map((step) => `- **${step.heading}:** ${step.description}`)
@@ -125,7 +123,7 @@ Desambiguación de entidad: esta empresa es ELARIS S.A.C.S (Perú, RUC 206155980
 
 ## Notas para agentes
 
-- La página de inicio (${SITE_URL}), las 8 páginas de servicio, los casos de éxito, los perfiles del equipo y las guías enlazadas arriba son públicos e indexados. Cada página de servicio y cada guía incluye su propia sección de preguntas frecuentes.
+- La página de inicio (${SITE_URL}), las ${SERVICES.length} páginas de servicio, los casos de éxito, los perfiles del equipo y las guías enlazadas arriba son públicos e indexados. Cada página de servicio y cada guía incluye su propia sección de preguntas frecuentes.
 - Para iniciar contacto o solicitar el diagnóstico gratuito, usa el email, el teléfono o la agenda indicados arriba.
 `;
 

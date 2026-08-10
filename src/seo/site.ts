@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import es from "@/locales/es.json";
 import type { Article, CaseStudy, TeamProfile } from "@/content/types";
 import { TEAM_PROFILES } from "@/content/equipo";
+import { SERVICES } from "@/content/services";
 
 export const SITE_URL = "https://elarisdigitalsolutions.com";
 export const OG_IMAGE = `${SITE_URL}/assets/Elaris-OG.png`;
@@ -13,18 +14,6 @@ export const HOME_TITLE =
   "Software a medida para vender más y operar mejor | Elaris Digital Solutions";
 export const HOME_DESCRIPTION =
   "Automatizamos procesos, modernizamos sistemas y construimos plataformas de venta para empresas en Perú y LATAM. El código es 100% tuyo. Diagnóstico inicial sin compromiso, con respuesta en menos de 12 horas.";
-
-/** Las 8 páginas de servicio indexables. Fuente única para sitemap y enlazado. */
-export const SERVICE_PATHS = [
-  "/desarrollo-web",
-  "/e-commerce",
-  "/posicionamiento-seo",
-  "/desarrollo-mvp",
-  "/desarrollo-software-medida",
-  "/inteligencia-artificial",
-  "/implementacion-cmms",
-  "/transformacion-digital",
-] as const;
 
 /**
  * Identificadores del grafo. Los nodos se declaran una vez (Organization en
@@ -156,32 +145,21 @@ export const buildWebsiteSchema = () => ({
   publisher: { "@id": ORG_ID },
 });
 
-/** Los 8 servicios reales, cada uno apuntando a su propia página indexable. */
-export const buildServiceSchema = () => {
-  const items = es.services.items as Record<
-    string,
-    { title: string; benefit: string; href: string }
-  >;
-  const orderedKeys = es.services.groups.flatMap((group) => group.keys);
-
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Servicios de Elaris Digital Solutions",
-    itemListElement: orderedKeys.map((key, index) => {
-      const service = items[key];
-      return {
-        "@type": "Service",
-        position: index + 1,
-        name: service.title,
-        description: service.benefit,
-        provider: { "@id": ORG_ID },
-        areaServed: "PE",
-        url: `${SITE_URL}${service.href}`,
-      };
-    }),
-  };
-};
+/** Los servicios reales, cada uno apuntando a su propia página indexable. */
+export const buildServiceSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Servicios de Elaris Digital Solutions",
+  itemListElement: SERVICES.map((service, index) => ({
+    "@type": "Service",
+    position: index + 1,
+    name: service.label,
+    description: service.benefit,
+    provider: { "@id": ORG_ID },
+    areaServed: "PE",
+    url: `${SITE_URL}${service.path}`,
+  })),
+});
 
 /** Portfolio projects as CreativeWork — gives agents concrete proof of work. */
 export const buildPortfolioSchema = () => {
@@ -303,7 +281,7 @@ export const buildCaseStudySchema = (caseStudy: CaseStudy) => ({
 /**
  * Metadata builder for secondary pages.
  *
- * Las 8 páginas de servicio SÍ se indexan (`{ index: true }`): son las únicas
+ * Las páginas de servicio SÍ se indexan (`{ index: true }`): son las únicas
  * con intención de búsqueda comercial. Todo lo demás — landing de pauta
  * (/impulsa-tu-negocio), página de apoyo (/apis-personalizadas), redirect
  * (/meet) y legales — sigue noindex,follow: los crawlers leen el contexto sin

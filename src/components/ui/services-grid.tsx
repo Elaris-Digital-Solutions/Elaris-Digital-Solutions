@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -16,18 +16,32 @@ import {
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
-import es from "@/locales/es.json";
+import {
+  SERVICES,
+  SERVICE_GROUPS,
+  SECONDARY_INTRO,
+  UMBRELLA_INTRO,
+  findService,
+  type ServiceIconName,
+} from "@/content/services";
 
-// Iconografía por servicio — module-level, nunca se recrea.
-const SERVICE_ICONS: Record<string, React.ElementType> = {
-  web: Globe,
-  ecommerce: ShoppingCart,
-  seo: Search,
-  mvp: Rocket,
-  software: Code2,
-  ia: Sparkles,
-  cmms: Wrench,
-  transformacion: RefreshCw,
+/** Enlace de apoyo: mismo anillo de foco que el resto de la casa. */
+const SUPPORT_LINK =
+  "font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2 rounded-sm";
+
+// Iconografía por nombre — module-level, nunca se recrea. Al ser un `Record`
+// sobre la unión completa, olvidar un icono al añadir un servicio es un error
+// de compilación aquí; antes devolvía `undefined` y React reventaba en
+// prerender con "Element type is invalid".
+const SERVICE_ICONS: Record<ServiceIconName, React.ElementType> = {
+  Globe,
+  ShoppingCart,
+  Search,
+  Rocket,
+  Code2,
+  Sparkles,
+  Wrench,
+  RefreshCw,
 };
 
 type ServiceItem = {
@@ -73,17 +87,31 @@ export default function ServicesGrid() {
 
   const groups = useMemo(
     () =>
-      es.services.groups.map((group) => ({
-        label: group.label,
-        items: group.keys.map<ServiceItem>((key) => ({
-          key,
-          title: t(`services.items.${key}.title`),
-          benefit: t(`services.items.${key}.benefit`),
-          href: t(`services.items.${key}.href`),
-          Icon: SERVICE_ICONS[key],
-        })),
-      })),
-    [t]
+      SERVICE_GROUPS.map((group) => {
+        const inGroup = SERVICES.filter((service) => service.group === group.id);
+        return {
+          label: group.label,
+          umbrella: group.umbrellaPath
+            ? {
+                href: group.umbrellaPath,
+                label: findService(group.umbrellaPath).label,
+              }
+            : null,
+          items: inGroup
+            .filter((service) => service.tier === "primary")
+            .map<ServiceItem>((service) => ({
+              key: service.key,
+              title: service.label,
+              benefit: service.benefit,
+              href: service.path,
+              Icon: SERVICE_ICONS[service.icon],
+            })),
+          secondary: inGroup
+            .filter((service) => service.tier === "secondary" && service.path !== group.umbrellaPath)
+            .map((service) => ({ key: service.key, label: service.label, href: service.path })),
+        };
+      }),
+    []
   );
 
   return (
@@ -120,11 +148,40 @@ export default function ServicesGrid() {
                 </h3>
                 <span className="h-px flex-1 bg-slate-200" aria-hidden />
               </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {group.items.map((service, index) => (
                   <ServiceCard key={service.key} service={service} index={index} />
                 ))}
               </div>
+
+              {/* Servicios de apoyo y página paraguas: fuera del conjunto de
+                  decisión principal para no diluir la elección, pero enlazados
+                  desde aquí — sus páginas siguen vivas e indexadas. */}
+              {(group.umbrella || group.secondary.length > 0) && (
+                <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-light text-slate-600">
+                  {group.umbrella && (
+                    <span>
+                      {UMBRELLA_INTRO}{" "}
+                      <Link href={group.umbrella.href} className={SUPPORT_LINK}>
+                        {group.umbrella.label}
+                      </Link>
+                    </span>
+                  )}
+                  {group.secondary.length > 0 && (
+                    <span>
+                      {SECONDARY_INTRO}{" "}
+                      {group.secondary.map((service, index) => (
+                        <Fragment key={service.key}>
+                          {index > 0 && <span aria-hidden> · </span>}
+                          <Link href={service.href} className={SUPPORT_LINK}>
+                            {service.label}
+                          </Link>
+                        </Fragment>
+                      ))}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
