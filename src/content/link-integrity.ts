@@ -63,6 +63,7 @@ function walk(value: unknown, where: string, out: Finding[]): void {
 function knownRoutes(): Set<string> {
   return new Set<string>([
     "/",
+    "/servicios",
     ...SERVICE_PATHS,
     "/casos",
     ...CASE_STUDIES.map((study) => `/casos/${study.slug}`),

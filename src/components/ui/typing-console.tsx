@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState, useCallback } from "react";
+import { useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TypingConsoleProps {
@@ -14,12 +15,6 @@ interface TypingConsoleProps {
   className?: string;
   cursorClassName?: string;
   hideCursor?: boolean;
-  /**
-   * Clases de altura mínima para el área de texto. Las frases ocupan distinto
-   * número de líneas al escribirse y borrarse; reservando la altura del peor
-   * caso, la consola no cambia de alto y nada de la página se desplaza.
-   */
-  textAreaClassName?: string;
 }
 
 const TypingConsole = ({
@@ -33,8 +28,9 @@ const TypingConsole = ({
   className,
   cursorClassName,
   hideCursor = false,
-  textAreaClassName,
 }: TypingConsoleProps) => {
+  const reduceMotion = useReducedMotion();
+
   const sanitizedPhrases = useMemo(() => {
     return phrases
       .filter((phrase) => phrase && typeof phrase === "string")
@@ -43,20 +39,30 @@ const TypingConsole = ({
   }, [phrases]);
 
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
+  // Arranca con la primera frase COMPLETA, no vacía. Dos motivos:
+  //   1. Así viaja en el HTML inicial. Con `""` los rastreadores que no
+  //      ejecutan JS —y son la mayoría de los de IA— no veían ninguna de las
+  //      propuestas de valor del hero.
+  //   2. Servidor y cliente renderizan lo mismo, así que no hay desajuste de
+  //      hidratación. La máquina de estados continúa sola desde «ya escrita».
+  const [displayText, setDisplayText] = useState(() => sanitizedPhrases[0] ?? "");
   const [isDeleting, setIsDeleting] = useState(false);
 
   const resetToStart = useCallback(() => {
     setCurrentPhraseIndex(0);
-    setDisplayText("");
+    setDisplayText(sanitizedPhrases[0] ?? "");
     setIsDeleting(false);
-  }, []);
+  }, [sanitizedPhrases]);
 
   useEffect(() => {
     resetToStart();
-  }, [phrases, resetToStart]);
+  }, [resetToStart]);
 
   useEffect(() => {
+    // WCAG 2.2.2: esto es movimiento automático, en bucle y de más de cinco
+    // segundos. Con movimiento reducido no se anima en absoluto — la primera
+    // frase se queda fija y legible, que es lo que la pauta pide.
+    if (reduceMotion) return;
     if (!sanitizedPhrases.length) return;
 
     const currentPhrase = sanitizedPhrases[currentPhraseIndex] || "";
@@ -97,6 +103,7 @@ const TypingConsole = ({
     isDeleting,
     loop,
     pauseDelay,
+    reduceMotion,
     sanitizedPhrases,
     typingSpeed,
   ]);
@@ -114,21 +121,41 @@ const TypingConsole = ({
     >
       <div className="flex items-start text-left">
         <span className="mr-2 flex-shrink-0 text-brand-gradient font-bold">{prefix}</span>
-        <div className={cn("flex-1 min-w-0", textAreaClassName)}>
-          {staticPrefix && (
-            <span className="text-[#071540]/60 break-words whitespace-pre-wrap">
-              {staticPrefix}{" "}
-            </span>
-          )}
-          <span className="break-words whitespace-pre-wrap">{displayText}</span>
-          {!hideCursor && (
+        {/* Rejilla de una sola celda: todas las frases se superponen ahí, así
+            que la caja mide siempre lo que ocupa la más alta. Las fantasma van
+            ocultas pero siguen ocupando sitio, de modo que la consola no cambia
+            de alto al escribir ni al borrar. Sin esto salta de 2 a 3 líneas en
+            móvil y arrastra 22px hacia abajo todo el resto de la página.
+            Reservar así, y no con un min-height fijo, mantiene la medida
+            correcta a cualquier ancho de pantalla. */}
+        <div className="grid flex-1 min-w-0 break-words whitespace-pre-wrap">
+          {sanitizedPhrases.map((phrase, index) => (
             <span
-              className={cn(
-                "inline-block h-4 w-2 ml-0.5 animate-pulse bg-brand-gradient",
-                cursorClassName,
-              )}
-            />
-          )}
+              key={index}
+              aria-hidden="true"
+              className="col-start-1 row-start-1 invisible"
+            >
+              {staticPrefix ? `${staticPrefix} ` : ""}
+              {phrase}
+              {!hideCursor && <span className="inline-block h-4 w-2 ml-0.5" />}
+            </span>
+          ))}
+
+          <span className="col-start-1 row-start-1">
+            {staticPrefix && (
+              <span className="text-[#071540]/60">{staticPrefix} </span>
+            )}
+            {displayText}
+            {!hideCursor && (
+              <span
+                className={cn(
+                  "inline-block h-4 w-2 ml-0.5 bg-brand-gradient",
+                  !reduceMotion && "animate-pulse",
+                  cursorClassName,
+                )}
+              />
+            )}
+          </span>
         </div>
       </div>
     </div>

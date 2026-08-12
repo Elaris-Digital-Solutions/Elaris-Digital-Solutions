@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -13,11 +13,12 @@ import Contact from "@/components/Contact";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import CustomSoftwareHero from "@/components/ui/custom-software-hero";
 import CustomSoftwareAIBlock from "@/components/ui/custom-software-ai-block";
+import type { Crumb } from "@/components/Breadcrumbs";
 
 import esData from "@/locales/es.json";
 const copy = esData.customSoftware;
 
-export default function CustomSoftware() {
+export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] }) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -29,9 +30,12 @@ export default function CustomSoftware() {
         >
             <Navbar />
 
-            <main className="site-sections">
+            {/* El id y el tabIndex son el destino del enlace de salto del
+                Navbar (WCAG 2.4.1). Esta vista no usa ServicePageTemplate, así
+                que hay que declararlos aquí a mano. */}
+            <main id="contenido-principal" tabIndex={-1} className="site-sections">
                 {/* 1. HERO SECTION — 2-column layout with dashboard mockup */}
-                <CustomSoftwareHero />
+                <CustomSoftwareHero breadcrumbs={breadcrumbs} />
 
                 {/* 4.5 BLOQUE IA — IA integrada en todos los desarrollos */}
                 <CustomSoftwareAIBlock />
@@ -469,22 +473,32 @@ export default function CustomSoftware() {
 
 const FaqItem = ({ faq }: { faq: { q: string, a: string } }) => {
     const [open, setOpen] = useState(false);
+    const panelId = useId();
+
     return (
         <div className="border-b border-slate-200 py-6">
-            <button
-                onClick={() => setOpen(!open)}
-                className="w-full flex justify-between items-center gap-6 text-left group"
-            >
-                <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? 'text-brand-gradient' : 'text-[#071540] group-hover:text-[#0855FD]'}`}>
-                    {faq.q}
-                </span>
-                <ChevronDown
-                    className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? 'rotate-180 icon-brand-gradient' : 'text-slate-400 group-hover:text-[#0855FD]'}`}
-                />
-            </button>
+            {/* Encabezado + aria-expanded/aria-controls: sin esto el acordeón
+                no anunciaba su estado ni qué panel controla (WCAG 4.1.2). */}
+            <h3>
+                <button
+                    onClick={() => setOpen(!open)}
+                    aria-expanded={open}
+                    aria-controls={panelId}
+                    className="w-full flex justify-between items-center gap-6 text-left group rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                >
+                    <span className={`text-base font-semibold leading-snug transition-colors duration-200 ${open ? 'text-brand-gradient' : 'text-[#071540] group-hover:text-[#0855FD]'}`}>
+                        {faq.q}
+                    </span>
+                    <ChevronDown
+                        aria-hidden="true"
+                        className={`flex-shrink-0 w-5 h-5 transition-all duration-300 ${open ? 'rotate-180 icon-brand-gradient' : 'text-slate-400 group-hover:text-[#0855FD]'}`}
+                    />
+                </button>
+            </h3>
             <AnimatePresence>
                 {open && (
                     <motion.div
+                        id={panelId}
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}

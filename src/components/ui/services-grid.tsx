@@ -3,17 +3,7 @@
 import { Fragment, useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  Code2,
-  Globe,
-  RefreshCw,
-  Rocket,
-  Search,
-  ShoppingCart,
-  Sparkles,
-  Wrench,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
 import {
@@ -22,27 +12,13 @@ import {
   SECONDARY_INTRO,
   UMBRELLA_INTRO,
   findService,
-  type ServiceIconName,
 } from "@/content/services";
+import { SERVICE_ICONS } from "@/components/ui/service-icons";
+import { trackEvent } from "@/lib/analytics";
 
 /** Enlace de apoyo: mismo anillo de foco que el resto de la casa. */
 const SUPPORT_LINK =
   "font-semibold text-brand-gradient hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2 rounded-sm";
-
-// Iconografía por nombre — module-level, nunca se recrea. Al ser un `Record`
-// sobre la unión completa, olvidar un icono al añadir un servicio es un error
-// de compilación aquí; antes devolvía `undefined` y React reventaba en
-// prerender con "Element type is invalid".
-const SERVICE_ICONS: Record<ServiceIconName, React.ElementType> = {
-  Globe,
-  ShoppingCart,
-  Search,
-  Rocket,
-  Code2,
-  Sparkles,
-  Wrench,
-  RefreshCw,
-};
 
 type ServiceItem = {
   key: string;
@@ -64,6 +40,7 @@ const ServiceCard = ({ service, index }: { service: ServiceItem; index: number }
     >
       <Link
         href={service.href}
+        onClick={() => trackEvent("service_click", { location: "home_grid", service: service.key })}
         className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-[#0855FD]/30 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
       >
         <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#0855FD]/10">

@@ -79,7 +79,7 @@
       "veltrixNfc": {
         "title": "VeltrixNFC",
         "description": "Plataforma para tarjetas de presentación metálicas con chip NFC: al acercarla a un celular abre el perfil digital del dueño, con sus datos, redes y botón de contacto. Incluye panel de personalización y gestión de tarjetas físicas. Opera en Perú y Chile.",
-        "category": "Producto digital (MVP)",
+        "category": "Primera versión funcional",
         "metrics": "De una idea a una startup operando en 2 países"
       }
     }
@@ -117,7 +117,7 @@
       "support": {
         "title": "Soporte estructurado que no te deja atado",
         "heading": "Continuidad con independencia real",
-        "description": "SLAs definidos, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Puedes operar el sistema con o sin nosotros — así fue diseñado desde el principio."
+        "description": "Tiempos de respuesta comprometidos por escrito, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Puedes operar el sistema con o sin nosotros — así fue diseñado desde el principio."
       }
     }
   },
@@ -169,8 +169,8 @@
         "a": "Tuyo, al 100%. Al cerrar el proyecto recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando."
       },
       {
-        "q": "¿Se integran con mis sistemas actuales (ERP, SAP, CRM)?",
-        "a": "Sí. Diseñamos integraciones a medida y, para sistemas heredados sin API, construimos capas de adaptación que exponen los datos de forma segura sin modificar el sistema original."
+        "q": "¿Se integran con los sistemas que ya uso?",
+        "a": "Sí. Da igual si es un sistema de gestión empresarial (un ERP como SAP), uno de clientes (un CRM) o un programa antiguo hecho a medida: diseñamos la integración para que hablen entre sí. Cuando el sistema viejo no tiene forma de conectarse, construimos una capa intermedia que expone sus datos de forma segura sin tocar el original."
       },
       {
         "q": "¿Necesito tenerlo todo definido para empezar?",
@@ -178,7 +178,7 @@
       },
       {
         "q": "¿Ofrecen soporte y mantenimiento después del lanzamiento?",
-        "a": "Sí. Trabajamos con SLAs definidos, planes de mantenimiento y transferencia de conocimiento a tu equipo, para que puedas operar el sistema con o sin nosotros."
+        "a": "Sí. Trabajamos con tiempos de respuesta comprometidos por escrito, planes de mantenimiento y transferencia de conocimiento a tu equipo, para que puedas operar el sistema con o sin nosotros."
       },
       {
         "q": "¿Cuánto cuesta un proyecto con Elaris?",
@@ -220,7 +220,10 @@
       "reasonPlaceholder": "Ej: inventario en Excel, pedidos por WhatsApp, sistemas que no se hablan entre sí...",
       "messagePlaceholder": "¿Qué parte de tu operación te está costando más tiempo hoy? ¿Cómo la llevan ahora — hojas de cálculo, WhatsApp, un sistema antiguo?",
       "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\n🎯 Objetivo: {reason}\n\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa.",
-      "responseTime": "Te respondemos en menos de 12 horas. Sin spam."
+      "responseTime": "Te respondemos en menos de 12 horas. Sin spam.",
+      "openedWhatsapp": "Abrimos WhatsApp en otra pestaña con tu mensaje listo. Solo tienes que enviarlo.",
+      "popupBlocked": "Tu navegador bloqueó la ventana de WhatsApp.",
+      "popupBlockedCta": "Abrir la conversación manualmente"
     },
     "info": {
       "title": "Información de Contacto",
@@ -279,9 +282,16 @@
     "closeLabel": "Cerrar asistente de WhatsApp"
   },
   "notFound": {
-    "title": "404",
-    "description": "¡Ups! Página no encontrada",
-    "cta": "Volver al inicio"
+    "title": "Esta página no existe",
+    "description": "El enlace que seguiste está roto o la página cambió de dirección. Si buscabas algo concreto, probablemente esté aquí:",
+    "cta": "Volver al inicio",
+    "suggestionsLabel": "Páginas sugeridas",
+    "suggestions": {
+      "servicios": "Todos los servicios",
+      "casos": "Casos de éxito",
+      "recursos": "Guías y recursos",
+      "equipo": "El equipo"
+    }
   },
   "customSoftware": {
     "seo": {
@@ -297,8 +307,8 @@
           "a": "Depende del alcance del proyecto. Un módulo funcional puede estar listo en 4 a 6 semanas. Una plataforma completa generalmente toma entre 3 y 6 meses. Trabajamos en sprints iterativos para que puedas ver avances reales desde el primer mes."
         },
         {
-          "q": "¿Realmente necesito software a medida o me sirve un SaaS?",
-          "a": "Si tus procesos son estándar, un SaaS puede ser suficiente. Pero cuando tus flujos de trabajo son únicos, necesitas integraciones específicas o quieres escalar sin pagar por usuarios o límites, el software a medida se vuelve la opción más rentable a mediano plazo."
+          "q": "¿Necesito software a medida o me sirve un programa por suscripción?",
+          "a": "Si tus procesos son estándar, un programa por suscripción —un SaaS, del tipo que pagas por usuario al mes— puede ser suficiente. Pero cuando tu forma de trabajar es propia, necesitas integraciones específicas o quieres crecer sin que la factura suba con cada empleado nuevo, el software a medida sale más rentable a mediano plazo."
         },
         {
           "q": "¿Quién es el dueño del código fuente?",
@@ -989,6 +999,28 @@
   },
   "contentHubs": {
     "breadcrumbHome": "Inicio",
+    "ctaHeading": "¿Hablamos de tu caso?",
+    "ctaTextCasos": "Cada uno de estos proyectos empezó con una conversación de media hora sobre cómo operaba la empresa. La tuya es igual de concreta: dos semanas mapeando tus procesos para decirte por dónde empezar.",
+    "ctaTextRecursos": "Estas guías cubren lo general. Tu operación tiene detalles que ninguna guía puede anticipar — para eso está el diagnóstico: dos semanas revisando cómo trabajas hoy, sin costo y sin compromiso.",
+    "ctaTextEquipo": "Con quien hables de este equipo es con quien vas a trabajar. No hay comerciales de por medio ni cuentas que se delegan después de firmar.",
+    "servicios": {
+      "badge": "Servicios",
+      "title": "Dos formas de que la tecnología te devuelva dinero",
+      "intro": "Vender más o reducir costos. La mayoría de las empresas necesita ambas, pero casi nunca al mismo tiempo — y empezar por la equivocada es la forma más cara de digitalizarse. Aquí está todo lo que hacemos, ordenado por el problema que resuelve.",
+      "breadcrumbLabel": "Servicios",
+      "seo": {
+        "title": "Servicios de desarrollo de software en Perú | Elaris Digital Solutions",
+        "description": "Páginas web, e-commerce, plataformas a medida, automatización con IA y software de mantenimiento. Todo lo que construimos para que tu empresa venda más u opere mejor, en Perú y LATAM."
+      },
+      "groupIntro": {
+        "vender": "Canales digitales que traen clientes y cierran ventas sin depender de tu horario.",
+        "operar": "Sistemas que ordenan tu operación y le quitan trabajo manual a tu equipo."
+      },
+      "cardCta": "Ver servicio",
+      "closingHeading": "¿No sabes cuál necesitas?",
+      "closingText": "Eso es normal, y es exactamente lo que resuelve el diagnóstico: dos semanas mapeando cómo trabaja hoy tu empresa para decirte por dónde empezar — aunque la respuesta sea que todavía no necesitas nada de esto.",
+      "closingCta": "Solicitar diagnóstico"
+    },
     "equipo": {
       "badge": "Nuestro equipo",
       "title": "Las personas detrás de Elaris",
@@ -1023,6 +1055,9 @@
       "updatedOn": "Actualizado el",
       "relatedGuides": "Guías relacionadas",
       "relatedCase": "Caso relacionado",
+      "serviceHeadingNormal": "Si prefieres que lo ",
+      "serviceHeadingAccent": "hagamos nosotros",
+      "serviceCta": "Ver el servicio",
       "breadcrumbLabel": "Recursos",
       "backToHub": "← Todos los recursos",
       "minRead": "min de lectura",

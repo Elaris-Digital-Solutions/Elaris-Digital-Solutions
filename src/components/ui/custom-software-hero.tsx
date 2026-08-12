@@ -2,6 +2,7 @@ import { memo } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Brain, Link2, BarChart3, TrendingUp } from "lucide-react";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
+import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 
 // ─── Animation variants (module-level → never recreated) ─────────────────────
 const fadeUp = {
@@ -141,7 +142,7 @@ const DashboardMock = memo(() => (
 DashboardMock.displayName = "DashboardMock";
 
 // ─── Main component ──────────────────────────────────────────────────────────
-export default function CustomSoftwareHero() {
+export default function CustomSoftwareHero({ breadcrumbs }: { breadcrumbs?: Crumb[] }) {
   return (
     <section className="relative min-h-[92vh] lg:h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-[#F8FAFC] to-[#EEF3FF] pt-[40px]">
       {/* Neural noise background */}
@@ -164,6 +165,10 @@ export default function CustomSoftwareHero() {
             {...fadeUp}
             className="lg:col-start-1 lg:row-start-1 lg:self-end"
           >
+            {/* Los mismos `items` alimentan el BreadcrumbList de la página:
+                Google exige que el marcado y lo visible coincidan. */}
+            {breadcrumbs && breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0855FD]/30 bg-[#0855FD]/[0.07] text-brand-gradient text-xs font-bold tracking-[0.12em] uppercase mb-4 xl:mb-5 2xl:mb-8 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-gradient animate-pulse" />
               Desarrollo de Software a Medida

@@ -254,6 +254,18 @@ const Navbar = () => {
                         </ul>
                       </div>
                     ))}
+
+                    {/* El control «Servicios» es un botón porque abre un menú;
+                        la taxonomía completa necesitaba además una página, y
+                        esta es su puerta de entrada. */}
+                    <div className="mt-1 border-t border-black/5 pt-1">
+                      <Link
+                        href="/servicios"
+                        className={cn(dropdownItemClass, "font-semibold text-brand-gradient")}
+                      >
+                        Ver todos los servicios →
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
@@ -283,8 +295,13 @@ const Navbar = () => {
           {/* Hamburger — solo bajo lg */}
           <button
             type="button"
-            aria-label="Abrir menu de navegacion"
+            // La etiqueta sigue al estado: con «Abrir» fija, un lector de
+            // pantalla anuncia «abrir» cuando el menú ya está abierto.
+            aria-label={
+              isMobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"
+            }
             aria-expanded={isMobileMenuOpen}
+            aria-controls="menu-navegacion-movil"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className={cn(
               "inline-flex h-10 w-10 items-center justify-center rounded-lg border transition-colors lg:hidden",
@@ -298,6 +315,7 @@ const Navbar = () => {
 
       {/* Mobile menu — presente en el HTML del servidor, oculto en lg por CSS */}
       <div
+        id="menu-navegacion-movil"
         className={cn(
           "overflow-hidden border-b backdrop-blur-[12px] transition-all duration-300 ease-in-out lg:hidden",
           navThemeClasses,
@@ -352,6 +370,13 @@ const Navbar = () => {
                       </ul>
                     </div>
                   ))}
+                  <Link
+                    href="/servicios"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-2.5 text-[0.95rem] font-semibold text-brand-gradient focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
+                  >
+                    Ver todos los servicios →
+                  </Link>
                 </div>
               )}
 

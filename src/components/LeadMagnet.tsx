@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import es from "@/locales/es.json";
 
 const copy = es.leadMagnet;
@@ -33,7 +34,7 @@ export default function LeadMagnet() {
               <h2 className="mb-4 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl lg:text-4xl">
                 {copy.title}
               </h2>
-              <p className="mb-6 max-w-2xl text-base font-light leading-relaxed text-white/70">
+              <p className="mb-6 max-w-2xl text-base font-light leading-relaxed text-white/85">
                 {copy.description}
               </p>
               <ul className="space-y-3">
@@ -49,16 +50,22 @@ export default function LeadMagnet() {
             </div>
 
             <div className="flex flex-col items-start gap-3 lg:items-center">
+              {/* Es el único activo con puerta del sitio y no medía nada: sin
+                  este evento no hay forma de saber si el checklist trae leads
+                  ni de qué canal vienen. */}
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand-gradient px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(47,100,255,0.4)] transition-all hover:-translate-y-0.5 hover:bg-[#0745DA]"
+                onClick={() => trackEvent("lead_magnet_click", { location: "home_checklist" })}
+                className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand-gradient px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(47,100,255,0.4)] transition-all hover:-translate-y-0.5 hover:bg-[#0745DA] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071540]"
               >
                 {copy.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </a>
-              <p className="text-xs text-white/70">{copy.note}</p>
+              {/* white/70 sobre el degradado oscuro no llega a 4.5:1 en el
+                  extremo violeta; /85 sí. */}
+              <p className="text-xs text-white/85">{copy.note}</p>
             </div>
           </div>
         </motion.div>

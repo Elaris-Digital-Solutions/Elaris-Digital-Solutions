@@ -25,10 +25,10 @@ npm start        # servir el build
 ## SEO / Agentic-readiness
 
 - Metadata por ruta vía la API de Metadata de Next (`src/app/**/page.tsx`).
-- JSON-LD (Organization, WebSite, Service, CreativeWork, Review, FAQPage) renderizado en el HTML inicial — ver `src/seo/site.ts` y `src/components/JsonLd.tsx`.
-- `robots.txt` y `sitemap.xml` dinámicos (`src/app/robots.ts`, `src/app/sitemap.ts`).
-- Solo la home se indexa; las landings de campaña/servicio y legales son `noindex, follow`.
-- Contexto para LLMs en `public/llms.txt` y `public/llms-full.txt`.
+- JSON-LD (Organization, WebSite, Service, BreadcrumbList, ProfilePage, BlogPosting, Article, FAQPage) renderizado en el HTML inicial — ver `src/seo/site.ts` y `src/components/JsonLd.tsx`.
+- `robots.txt`, `sitemap.xml` y `llms.txt` generados en build (`src/app/robots.txt/`, `src/app/sitemap.ts`, `src/app/llms.txt/`).
+- Se indexan la home, `/servicios`, las páginas de servicio y los hubs de contenido; la landing de pauta, la página de apoyo y las legales son `noindex, follow`.
+- Los servicios tienen una fuente única tipada en `src/content/services.ts`; `src/content/link-integrity.ts` verifica en cada build que todo enlace interno resuelve.
 
 ## Variables de entorno
 

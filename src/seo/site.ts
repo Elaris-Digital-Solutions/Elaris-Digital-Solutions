@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import es from "@/locales/es.json";
 import type { Article, CaseStudy, TeamProfile } from "@/content/types";
 import { TEAM_PROFILES } from "@/content/equipo";
-import { SERVICES } from "@/content/services";
+import {
+  SERVICES,
+  findService,
+  type Service,
+  type ServicePath,
+} from "@/content/services";
+import type { Crumb } from "@/components/Breadcrumbs";
 
 export const SITE_URL = "https://elarisdigitalsolutions.com";
 export const OG_IMAGE = `${SITE_URL}/assets/Elaris-OG.png`;
@@ -25,6 +31,13 @@ export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 export const personIdFor = (slug: string) => `${SITE_URL}/equipo/${slug}#person`;
+export const serviceIdFor = (path: ServicePath) => `${SITE_URL}${path}#service`;
+
+/** Área cubierta. Idéntica en Organization y en los nodos Service. */
+const AREA_SERVED = [
+  { "@type": "Country", name: "Perú" },
+  { "@type": "Place", name: "Latinoamérica" },
+];
 
 /** es.json → portfolio.projects  ↔  slug de /casos */
 const PORTFOLIO_CASE_SLUGS: Record<string, string> = {
@@ -145,19 +158,51 @@ export const buildWebsiteSchema = () => ({
   publisher: { "@id": ORG_ID },
 });
 
-/** Los servicios reales, cada uno apuntando a su propia página indexable. */
+/**
+ * Índice de servicios de la home.
+ *
+ * Los nodos van compactos, referenciando por `@id` el nodo completo que cada
+ * página de servicio declara. Es la misma regla que ya aplica `founder`: la
+ * entidad se define una vez y el resto la referencia, en vez de repetir ocho
+ * objetos completos que luego derivan.
+ */
 export const buildServiceSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Servicios de Elaris Digital Solutions",
   itemListElement: SERVICES.map((service, index) => ({
-    "@type": "Service",
+    "@type": "ListItem",
     position: index + 1,
-    name: service.label,
-    description: service.benefit,
-    provider: { "@id": ORG_ID },
-    areaServed: "PE",
-    url: `${SITE_URL}${service.path}`,
+    item: {
+      "@type": "Service",
+      "@id": serviceIdFor(service.path),
+      name: service.label,
+      url: `${SITE_URL}${service.path}`,
+    },
+  })),
+});
+
+/**
+ * Nodo canónico de un servicio, declarado en su propia página.
+ *
+ * `isRelatedTo` enlaza con los hermanos de grupo: es lo único que hace legible
+ * por máquina la agrupación comercial —vender más / operar mejor— y no solo su
+ * maquetación en la home.
+ */
+export const buildServiceNodeSchema = (service: Service) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": serviceIdFor(service.path),
+  name: service.label,
+  description: service.benefit,
+  url: `${SITE_URL}${service.path}`,
+  provider: { "@id": ORG_ID },
+  areaServed: AREA_SERVED,
+  isRelatedTo: SERVICES.filter(
+    (sibling) => sibling.group === service.group && sibling.path !== service.path
+  ).map((sibling) => ({
+    "@type": "Service",
+    "@id": serviceIdFor(sibling.path),
   })),
 });
 
@@ -272,8 +317,13 @@ export const buildCaseStudySchema = (caseStudy: CaseStudy) => ({
     name: caseStudy.client,
     url: caseStudy.liveUrl,
   },
+  // Por `@id`, no solo por url: así estos nodos son LOS MISMOS que declara
+  // cada página de servicio, y el caso queda unido al servicio en un único
+  // grafo en vez de quedar como dos bloques JSON sin relación.
   mentions: caseStudy.servicePaths.map((path) => ({
     "@type": "Service",
+    "@id": serviceIdFor(path),
+    name: findService(path).label,
     url: `${SITE_URL}${path}`,
   })),
 });
@@ -311,6 +361,52 @@ export const campaignMetadata = (
     twitter: { card: "summary_large_image", title, description, images: [OG_IMAGE] },
   };
 };
+
+/**
+ * Metadata de una página de servicio. La ruta se tipa contra el registro, así
+ * que una ruta mal escrita deja de compilar en vez de generar una canónica
+ * apuntando a una URL que no existe.
+ */
+export const buildServicePageMetadata = (
+  path: ServicePath,
+  seo: { title: string; description: string }
+): Metadata => campaignMetadata(seo.title, seo.description, path, { index: true });
+
+/**
+ * El proceso de trabajo como `HowTo`.
+ *
+ * Los cuatro pasos ya se renderizan como lista ordenada en todas las páginas
+ * de servicio; esto solo los hace legibles por máquina. Es la respuesta directa
+ * a «¿cómo trabajan?», que es de las primeras preguntas que un motor de
+ * respuestas necesita resolver sobre un proveedor de servicios.
+ *
+ * Sin `estimatedCost` ni `totalTime`: no publicamos tarifa de referencia y los
+ * plazos dependen del alcance. Inventarlos para llenar el esquema sería el
+ * mismo error que inventar una valoración.
+ */
+export const buildHowToSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo trabajamos en Elaris Digital Solutions",
+  description:
+    "Del diagnóstico inicial a la entrega del código: las cuatro fases de un proyecto con Elaris.",
+  step: es.servicePages.common.processSteps.map((step, index) => ({
+    "@type": "HowToStep",
+    position: index + 1,
+    name: step.title,
+    text: step.description,
+  })),
+});
+
+/**
+ * Migas de pan de una página de servicio. Se derivan una sola vez y alimentan
+ * a la vez el JSON-LD y el componente visible: Google exige que coincidan.
+ */
+export const serviceCrumbs = (path: ServicePath): Crumb[] => [
+  { name: es.contentHubs.breadcrumbHome, path: "/" },
+  { name: es.contentHubs.servicios.breadcrumbLabel, path: "/servicios" },
+  { name: findService(path).label, path },
+];
 
 /** FAQPage schema for the service landing pages (content is visible on-page). */
 export const buildFaqSchema = (items: { q: string; a: string }[]) => ({

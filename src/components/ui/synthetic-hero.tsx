@@ -174,10 +174,6 @@ const SyntheticHero = ({
               pauseDelay={3500}
               className="text-[#071540]/95"
               cursorClassName="bg-brand-gradient"
-              // Móvil: una línea de piso y crece al escribir. Desde sm se
-              // reservan 2 líneas porque ahí el contenido va centrado y un
-              // salto de línea movería todo el bloque.
-              textAreaClassName="min-h-[1.625em] sm:min-h-[3.25em]"
             />
           </div>
         </div>

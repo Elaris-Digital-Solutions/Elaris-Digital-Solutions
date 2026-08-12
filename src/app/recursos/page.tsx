@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import HubCta from "@/components/HubCta";
 import { campaignMetadata, buildBreadcrumbSchema } from "@/seo/site";
 import { ARTICLES } from "@/content/recursos";
 import { findProfile } from "@/content/equipo";
@@ -110,6 +111,8 @@ export default function Page() {
               </div>
             </div>
           </section>
+
+          <HubCta text={es.contentHubs.ctaTextRecursos} />
         </main>
         <Footer />
         <FloatingWhatsappButton />

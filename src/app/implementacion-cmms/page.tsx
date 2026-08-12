@@ -1,22 +1,32 @@
 import CMMS from "@/views/CMMS";
 import JsonLd from "@/components/JsonLd";
-import { campaignMetadata, buildFaqSchema } from "@/seo/site";
+import {
+  buildServicePageMetadata,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  buildServiceNodeSchema,
+  serviceCrumbs,
+} from "@/seo/site";
+import { findService } from "@/content/services";
 import es from "@/locales/es.json";
 
+const PATH = "/implementacion-cmms";
 const copy = es.cmms;
+const crumbs = serviceCrumbs(PATH);
 
-export const metadata = campaignMetadata(
-  copy.seo.title,
-  copy.seo.description,
-  "/implementacion-cmms",
-  { index: true }
-);
+export const metadata = buildServicePageMetadata(PATH, copy.seo);
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildFaqSchema(copy.faq.items)} />
-      <CMMS />
+      <JsonLd
+        data={[
+          buildServiceNodeSchema(findService(PATH)),
+          buildFaqSchema(copy.faq.items),
+          buildBreadcrumbSchema(crumbs),
+        ]}
+      />
+      <CMMS breadcrumbs={crumbs} />
     </>
   );
 }

@@ -44,6 +44,7 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
+import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 import { RichText } from "@/components/ui/rich-text";
 import { scrollToSection } from "@/lib/utils";
 import es from "@/locales/es.json";
@@ -132,10 +133,13 @@ const FaqItem = ({ item }: { item: { q: string; a: string } }) => {
 export default function ServicePageTemplate({
   copy,
   illustration,
+  breadcrumbs,
 }: {
   copy: ServicePageCopy;
   /** Visual opcional que se muestra al cierre de "Qué incluye". */
   illustration?: React.ReactNode;
+  /** Los mismos que se pasan a `buildBreadcrumbSchema` en la página. */
+  breadcrumbs?: Crumb[];
 }) {
   const reduceMotion = useReducedMotion();
 
@@ -181,6 +185,14 @@ export default function ServicePageTemplate({
             animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
+            {/* Las migas van dentro del hero centrado, así que se centran con
+                un contenedor flex. Los mismos `items` alimentan el JSON-LD:
+                Google exige que el marcado y lo visible coincidan. */}
+            {breadcrumbs && breadcrumbs.length > 0 && (
+              <div className="flex justify-center">
+                <Breadcrumbs items={breadcrumbs} />
+              </div>
+            )}
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0855FD]/25 bg-white/70 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.15em] text-brand-gradient shadow-sm backdrop-blur-md">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-gradient" aria-hidden="true" />
               {copy.hero.badge}
