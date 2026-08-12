@@ -1,11 +1,19 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL, SERVICE_PATHS } from "@/seo/site";
+import { SITE_URL } from "@/seo/site";
+import { SERVICE_PATHS } from "@/content/services";
 import { CASE_STUDIES } from "@/content/casos";
 import { TEAM_PROFILES } from "@/content/equipo";
 import { ARTICLES } from "@/content/recursos";
+import { assertInternalLinksResolve } from "@/content/link-integrity";
+
+// Domicilio inusual a propósito: la verificación de enlaces necesita un módulo
+// server-only que se ejecute siempre durante `next build` y que ya tenga a mano
+// los tres registros. El sitemap cumple las tres condiciones. A nivel de módulo,
+// para que falle antes de generar nada.
+assertInternalLinksResolve();
 
 /**
- * Home + las 8 páginas de servicio + los hubs de contenido publicados.
+ * Home + las páginas de servicio + los hubs de contenido publicados.
  *
  * Cada hub entra solo si su registro tiene contenido: así una fase puede
  * desplegarse sin que el sitemap anuncie URLs que todavía no existen.
@@ -21,6 +29,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: `${SITE_URL}/servicios`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     ...SERVICE_PATHS.map((path) => ({
       url: `${SITE_URL}${path}`,

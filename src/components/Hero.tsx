@@ -2,12 +2,18 @@ import { useMemo } from "react";
 import SyntheticHero from "@/components/ui/synthetic-hero";
 import { useI18n } from "@/lib/i18n";
 import { generateEventId, getFbCookies } from "@/lib/meta";
+import { trackEvent } from "@/lib/analytics";
 
 const trackHeroCTA = (contentName: string) => {
   const isMainRoute = window.location.pathname === '/' || window.location.pathname.startsWith('/es');
   const pixelId = isMainRoute ? '1294573795867367' : '868251342283921';
   const eventId = generateEventId();
   const { fbp, fbc } = getFbCookies();
+
+  // Hasta ahora el hero solo reportaba a Meta. Sin el equivalente en GA4 no
+  // había forma de saber qué proporción del tráfico orgánico llega al
+  // formulario, que es justo lo que mide el trabajo de SEO.
+  trackEvent("cta_click", { location: "hero", cta: contentName });
 
   try {
     (window as any).fbq?.('trackSingle', pixelId, 'ViewContent', {

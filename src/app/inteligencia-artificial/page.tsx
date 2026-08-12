@@ -1,21 +1,31 @@
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import JsonLd from "@/components/JsonLd";
-import { campaignMetadata, buildFaqSchema } from "@/seo/site";
+import {
+  buildServicePageMetadata,
+  buildFaqSchema,
+  buildBreadcrumbSchema,
+  buildServiceNodeSchema,
+  serviceCrumbs,
+} from "@/seo/site";
+import { findService } from "@/content/services";
 import es from "@/locales/es.json";
 
+const PATH = "/inteligencia-artificial";
 const copy = es.inteligenciaArtificial;
+const crumbs = serviceCrumbs(PATH);
 
-export const metadata = campaignMetadata(
-  copy.seo.title,
-  copy.seo.description,
-  "/inteligencia-artificial",
-  { index: true }
-);
+export const metadata = buildServicePageMetadata(PATH, copy.seo);
 
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildFaqSchema(copy.faq.items)} />
+      <JsonLd
+        data={[
+          buildServiceNodeSchema(findService(PATH)),
+          buildFaqSchema(copy.faq.items),
+          buildBreadcrumbSchema(crumbs),
+        ]}
+      />
       <ServicePageTemplate
         copy={{
           hero: copy.hero,
@@ -25,6 +35,7 @@ export default function Page() {
           faq: copy.faq.items,
           related: copy.related,
         }}
+        breadcrumbs={crumbs}
       />
     </>
   );

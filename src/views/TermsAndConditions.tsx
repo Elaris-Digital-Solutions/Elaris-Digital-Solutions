@@ -92,7 +92,8 @@ const TermsAndConditions = () => {
     <div className="relative min-h-screen overflow-x-hidden overflow-y-auto bg-[#F8FAFC]">
       <Navbar />
 
-      <main className="relative pt-28 pb-16">
+      {/* Destino del enlace de salto del Navbar (WCAG 2.4.1). */}
+      <main id="contenido-principal" tabIndex={-1} className="relative pt-28 pb-16">
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute left-1/2 top-0 h-72 w-[72rem] -translate-x-1/2 bg-[radial-gradient(circle_at_center,rgba(47,100,255,0.17),transparent_62%)]" />
           <div className="absolute -left-20 top-56 h-80 w-80 rounded-full bg-blue-100/50 blur-3xl" />

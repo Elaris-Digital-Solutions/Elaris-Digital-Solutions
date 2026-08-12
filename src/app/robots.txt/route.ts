@@ -22,6 +22,11 @@ export function GET(): Response {
     "",
     `Host: ${SITE_URL}`,
     `Sitemap: ${SITE_URL}/sitemap.xml`,
+    // llms.txt no es un estándar reconocido por los rastreadores, así que
+    // anunciarlo aquí es la única forma de que un agente lo descubra sin
+    // adivinar la ruta. Se genera en /llms.txt a partir del mismo copy que
+    // renderiza el sitio, de modo que nunca deriva.
+    `LLM-Context: ${SITE_URL}/llms.txt`,
     "",
   ].join("\n");
 

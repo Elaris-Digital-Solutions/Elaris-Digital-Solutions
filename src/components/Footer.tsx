@@ -5,10 +5,15 @@ import Link from "next/link";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
 import { scrollToSection } from "@/lib/utils";
+import { SERVICES } from "@/content/services";
 import es from "@/locales/es.json";
 
 const CURRENT_YEAR = new Date().getFullYear();
-const SERVICE_LINKS = es.footer.sections.services.items;
+/** Primarios primero y secundarios al final, respetando el orden de grupos. */
+const SERVICE_LINKS = [
+  ...SERVICES.filter((service) => service.tier === "primary"),
+  ...SERVICES.filter((service) => service.tier === "secondary"),
+].map((service) => ({ label: service.label, href: service.path }));
 
 /** Hubs de contenido indexable, enlazados desde todas las páginas. */
 const CONTENT_HUBS = [

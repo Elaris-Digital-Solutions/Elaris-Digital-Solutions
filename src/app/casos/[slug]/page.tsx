@@ -8,6 +8,7 @@ import {
 } from "@/seo/site";
 import { CASE_STUDIES, findCase } from "@/content/casos";
 import { ARTICLES } from "@/content/recursos";
+import { findService } from "@/content/services";
 import es from "@/locales/es.json";
 
 /** SSG puro: solo existen las rutas del registro. */
@@ -28,20 +29,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   );
 }
 
-/** href de servicio → título legible, para el bloque "Servicios aplicados". */
-const serviceTitleByHref = (): Record<string, string> => {
-  const map: Record<string, string> = {};
-  Object.values(es.services.items).forEach((service) => {
-    map[service.href] = service.title;
-  });
-  return map;
-};
-
 export default function Page({ params }: { params: { slug: string } }) {
   const study = findCase(params.slug);
   if (!study) notFound();
-
-  const titles = serviceTitleByHref();
 
   const crumbs = [
     { name: es.contentHubs.breadcrumbHome, path: "/" },
@@ -63,9 +53,9 @@ export default function Page({ params }: { params: { slug: string } }) {
       <CaseStudyTemplate
         caseStudy={study}
         breadcrumbs={crumbs}
-        services={study.servicePaths.map((href) => ({
-          href,
-          title: titles[href] ?? href,
+        services={study.servicePaths.map((path) => ({
+          href: path,
+          title: findService(path).label,
         }))}
         relatedArticles={relatedArticles}
       />

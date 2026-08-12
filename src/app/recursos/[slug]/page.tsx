@@ -10,6 +10,7 @@ import {
 import { ARTICLES, findArticle } from "@/content/recursos";
 import { findProfile } from "@/content/equipo";
 import { findCase } from "@/content/casos";
+import { findService } from "@/content/services";
 import es from "@/locales/es.json";
 
 export const dynamicParams = false;
@@ -75,6 +76,10 @@ export default function Page({ params }: { params: { slug: string } }) {
               }
             : null
         }
+        relatedService={(() => {
+          const service = findService(article.servicePath);
+          return { label: service.label, benefit: service.benefit, href: service.path };
+        })()}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import es from "@/locales/es.json";
@@ -7,35 +7,45 @@ const copy = es.homeFaq;
 
 const FaqItem = ({ faq }: { faq: { q: string; a: string } }) => {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
+
   return (
     <div className="border-b border-slate-200 py-6">
-      <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
-        className="group flex w-full items-center justify-between gap-6 rounded-lg text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
-      >
-        <span
-          className={`text-base font-semibold leading-snug transition-colors duration-200 ${
-            open ? "text-brand-gradient" : "text-[#071540] group-hover:text-[#0855FD]"
-          }`}
+      {/* El disparador va dentro de un encabezado: así un lector de pantalla
+          puede recorrer las preguntas por su lista de encabezados en vez de
+          tabular por todas. Mismo patrón que ServicePageTemplate. */}
+      <h3>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={panelId}
+          className="group flex w-full items-center justify-between gap-6 rounded-lg text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
         >
-          {faq.q}
-        </span>
-        <ChevronDown
-          className={`h-5 w-5 flex-shrink-0 transition-all duration-300 ${
-            open ? "rotate-180 icon-brand-gradient" : "text-slate-400 group-hover:text-[#0855FD]"
-          }`}
-        />
-      </button>
+          <span
+            className={`text-base font-semibold leading-snug transition-colors duration-200 ${
+              open ? "text-brand-gradient" : "text-[#071540] group-hover:text-[#0855FD]"
+            }`}
+          >
+            {faq.q}
+          </span>
+          <ChevronDown
+            aria-hidden="true"
+            className={`h-5 w-5 flex-shrink-0 transition-all duration-300 ${
+              open ? "rotate-180 icon-brand-gradient" : "text-slate-400 group-hover:text-[#0855FD]"
+            }`}
+          />
+        </button>
+      </h3>
       <AnimatePresence>
         {open && (
           <motion.div
+            id={panelId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            <p className="pt-4 text-sm font-light leading-relaxed text-slate-500">{faq.a}</p>
+            <p className="pt-4 text-sm font-light leading-relaxed text-slate-600">{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>

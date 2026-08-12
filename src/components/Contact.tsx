@@ -18,6 +18,15 @@ export default function Contact() {
 
   const phoneNumber = "51973663807";
 
+  /**
+   * El envío no guarda nada: compone un mensaje y abre WhatsApp. Si el
+   * navegador bloquea la ventana emergente —cosa habitual en móvil— antes no
+   * pasaba absolutamente nada visible y el usuario creía haber enviado algo.
+   * Ahora se guarda la URL compuesta para ofrecer un enlace manual.
+   */
+  const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+
   const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -54,7 +63,11 @@ export default function Contact() {
 
     const composedMessage = t("contact.form.whatsappTemplate", { fullName, email, reason });
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(composedMessage)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
+
+    const opened = window.open(url, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+    // `window.open` devuelve null cuando el navegador bloquea la ventana.
+    setFallbackUrl(opened ? null : url);
   }, [email, fullName, reason, t]);
 
   const contactItems = useMemo(
@@ -200,6 +213,30 @@ export default function Contact() {
                   </a>
                 </div>
                 <p className="mt-3 text-sm text-slate-600">{t("contact.form.responseTime")}</p>
+
+                {/* Región viva: el envío abre WhatsApp en otra pestaña, algo
+                    que un lector de pantalla no anuncia por sí solo, y que en
+                    móvil el navegador puede bloquear sin avisar. */}
+                <div aria-live="polite" role="status">
+                  {submitted && !fallbackUrl && (
+                    <p className="mt-3 rounded-xl bg-[#0855FD]/5 px-4 py-3 text-sm font-medium text-[#071540]">
+                      {t("contact.form.openedWhatsapp")}
+                    </p>
+                  )}
+                  {fallbackUrl && (
+                    <p className="mt-3 rounded-xl border border-[#FFC961] bg-[#FFF8E7] px-4 py-3 text-sm text-[#071540]">
+                      {t("contact.form.popupBlocked")}{" "}
+                      <a
+                        href={fallbackUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-brand-gradient underline"
+                      >
+                        {t("contact.form.popupBlockedCta")}
+                      </a>
+                    </p>
+                  )}
+                </div>
               </div>
             </form>
           </motion.div>

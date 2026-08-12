@@ -112,6 +112,34 @@ All colors MUST be HSL.
     scroll-behavior: smooth;
   }
 
+  /* WCAG 2.3.3: el desplazamiento animado es movimiento disparado por
+     interacción, así que tiene que poder desactivarse. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Red de seguridad para lo que anima sin pasar por `useReducedMotion`
+       —los componentes de la home lo hacen— y para `animate-pulse`. */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Anillo de foco global. Antes cada elemento lo declaraba por su cuenta y
+     faltaba en el menú móvil entero, los enlaces del footer, el imán de leads
+     y los campos del formulario: se veía el foco solo donde alguien se acordó
+     de ponerlo. Esta regla es el piso; quien quiera otro estilo lo sobrescribe. */
+  :focus-visible {
+    outline: 2px solid #0855fd;
+    outline-offset: 2px;
+  }
+
   /* ── Lock visual design to 1536px design width.
      On any desktop screen, the page scales proportionally
      so it looks identical to the 1536×864 reference screen. ── */

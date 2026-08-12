@@ -2,11 +2,12 @@
 
 import ServicePageTemplate from "@/components/ServicePageTemplate";
 import CmmsMockups from "@/components/ui/cmms-mockups";
+import type { Crumb } from "@/components/Breadcrumbs";
 import es from "@/locales/es.json";
 
 const copy = es.cmms;
 
-export default function CMMS() {
+export default function CMMS({ breadcrumbs }: { breadcrumbs?: Crumb[] }) {
   return (
     <ServicePageTemplate
       copy={{
@@ -18,6 +19,7 @@ export default function CMMS() {
         related: copy.related,
       }}
       illustration={<CmmsMockups />}
+      breadcrumbs={breadcrumbs}
     />
   );
 }

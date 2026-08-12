@@ -114,15 +114,21 @@ export default function TeamProfileTemplate({
                   className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 />
               </a>
+              {/* El contexto extra va en `aria-label` y no en un span
+                  `sr-only`: el texto oculto se hace visible durante el instante
+                  en que la hoja de estilos aún no se ha aplicado, y desbordaba
+                  el botón. Lo que no está en el DOM no puede escaparse.
+                  El nombre accesible empieza por la etiqueta visible, como pide
+                  WCAG 2.5.3. */}
               <a
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${labels.linkedinLabel} de ${profile.name} (se abre en una pestaña nueva)`}
                 className="inline-flex items-center gap-2 rounded-xl border border-[#0855FD]/30 bg-white/70 px-7 py-3 text-base font-medium text-brand-gradient backdrop-blur-md transition-colors duration-300 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
               >
                 <Linkedin aria-hidden="true" className="h-4 w-4" />
                 {labels.linkedinLabel}
-                <span className="sr-only"> de {profile.name} (se abre en una pestaña nueva)</span>
               </a>
             </div>
           </motion.div>
