@@ -343,14 +343,17 @@ export default function ServicePageTemplate({
                           Leer el caso completo →
                         </Link>
                       )}
+                      {/* Contexto en `aria-label`, no en un span `sr-only`:
+                          ese texto se ve durante el instante previo a que la
+                          hoja de estilos se aplique y desborda el botón. */}
                       <a
                         href={copy.caseStudy.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`${common.caseLinkLab} (${copy.caseStudy.name}, se abre en una pestaña nueva)`}
                         className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#071540]"
                       >
                         {common.caseLinkLab}
-                        <span className="sr-only"> ({copy.caseStudy.name}, se abre en una pestaña nueva)</span>
                       </a>
                     </div>
                   </div>
