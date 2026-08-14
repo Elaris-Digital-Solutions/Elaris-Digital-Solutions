@@ -33,8 +33,8 @@ const ServiceCard = ({ service, index }: { service: ServiceItem; index: number }
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 20 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.06 }}
     >
@@ -100,8 +100,8 @@ export default function ServicesGrid() {
       <div className="container relative z-10 mx-auto max-w-7xl px-6">
         <motion.div
           className="mx-auto mb-14 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
@@ -165,7 +165,6 @@ export default function ServicesGrid() {
 
         <motion.div
           className="mt-12 text-center"
-          initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}

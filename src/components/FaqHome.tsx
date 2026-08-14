@@ -1,6 +1,7 @@
 import { useId, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { FaqPanel } from "@/components/ui/faq-panel";
 import es from "@/locales/es.json";
 
 const copy = es.homeFaq;
@@ -36,19 +37,9 @@ const FaqItem = ({ faq }: { faq: { q: string; a: string } }) => {
           />
         </button>
       </h3>
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            id={panelId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-          >
-            <p className="pt-4 text-sm font-light leading-relaxed text-slate-600">{faq.a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <FaqPanel id={panelId} open={open}>
+        <p className="pt-4 text-sm font-light leading-relaxed text-slate-600">{faq.a}</p>
+      </FaqPanel>
     </div>
   );
 };
@@ -59,8 +50,8 @@ export default function FaqHome() {
       <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <motion.div
           className="mb-12 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >

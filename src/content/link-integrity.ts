@@ -20,6 +20,7 @@ import es from "@/locales/es.json";
 import { extractInternalLinks, normalizeRoute } from "@/lib/internal-links";
 import { REDIRECTS } from "@/seo/redirects.mjs";
 import { SERVICE_PATHS } from "./services";
+import { SERVICE_COPY } from "./service-copy";
 import { CASE_STUDIES } from "./casos";
 import { TEAM_PROFILES } from "./equipo";
 import { ARTICLES } from "./recursos";
@@ -95,6 +96,10 @@ export function assertInternalLinksResolve(): void {
   // sin tener que contar posiciones en un array.
   const found: Finding[] = [];
   walk(es, "es.json", found);
+  // El copy de las páginas de servicio salió de es.json para no viajar en el
+  // bundle del cliente, pero sus `related[].href` y `caseStudy.casePath` se
+  // siguen verificando igual.
+  walk(SERVICE_COPY, "service-copy", found);
   ARTICLES.forEach((article) => walk(article, `recursos/${article.slug}`, found));
   CASE_STUDIES.forEach((study) => walk(study, `casos/${study.slug}`, found));
   TEAM_PROFILES.forEach((profile) => walk(profile, `equipo/${profile.slug}`, found));

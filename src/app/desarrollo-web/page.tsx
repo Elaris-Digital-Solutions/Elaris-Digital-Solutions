@@ -8,10 +8,10 @@ import {
   serviceCrumbs,
 } from "@/seo/site";
 import { findService } from "@/content/services";
-import es from "@/locales/es.json";
+import { SERVICE_COPY } from "@/content/service-copy";
 
 const PATH = "/desarrollo-web";
-const copy = es.servicePages.web;
+const copy = SERVICE_COPY.web;
 const crumbs = serviceCrumbs(PATH);
 
 export const metadata = buildServicePageMetadata(PATH, copy.seo);

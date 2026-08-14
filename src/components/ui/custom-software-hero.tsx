@@ -6,20 +6,20 @@ import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 
 // ─── Animation variants (module-level → never recreated) ─────────────────────
 const fadeUp = {
-  initial: { opacity: 0, y: 28 },
-  animate: { opacity: 1, y: 0 },
+  initial: { y: 28 },
+  animate: { y: 0 },
   transition: { duration: 0.7, ease: "easeOut" },
 } as const;
 
 const fadeUpSub = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
+  initial: { y: 20 },
+  animate: { y: 0 },
   transition: { duration: 0.7, delay: 0.15, ease: "easeOut" },
 } as const;
 
 const fadeRight = {
-  initial: { opacity: 0, x: 36 },
-  animate: { opacity: 1, x: 0 },
+  initial: { x: 36 },
+  animate: { x: 0 },
   transition: { duration: 0.8, delay: 0.2, ease: "easeOut" },
 } as const;
 

@@ -18,7 +18,7 @@ export const TEAM_PROFILES: TeamProfile[] = [
     linkedin:
       "https://www.linkedin.com/in/carlos-alejandro-colfer-mendoza-a59a08355/",
     seoTitle:
-      "Carlos Alejandro Colfer Mendoza — Gerente General | Elaris Digital Solutions",
+      "Carlos Alejandro Colfer Mendoza, Gerente General | Elaris Digital Solutions",
     seoDescription:
       "Carlos Alejandro Colfer Mendoza es Gerente General y cofundador de Elaris Digital Solutions. Lidera la arquitectura de cada proyecto de software a medida para empresas en Perú y LATAM.",
     bioIntro:
@@ -49,14 +49,14 @@ export const TEAM_PROFILES: TeamProfile[] = [
     photo: "/assets/team/SergioHerrera.jpg",
     linkedin: "https://www.linkedin.com/in/sergio-herrera-jave/",
     seoTitle:
-      "Sergio Herrera Jave — Gerente Administrativo | Elaris Digital Solutions",
+      "Sergio Herrera Jave, Gerente Administrativo | Elaris Digital Solutions",
     seoDescription:
       "Sergio Herrera Jave es Gerente Administrativo y cofundador de Elaris Digital Solutions. Gestiona la relación con cada cliente de inicio a fin en proyectos de software para empresas en Perú y LATAM.",
     bioIntro:
       "Es la persona con la que hablas de principio a fin: entiende tu negocio antes que tu sistema, alinea expectativas y mantiene el proyecto en movimiento sin que tengas que perseguir a nadie.",
     bioParagraphs: [
-      "Sergio es Gerente Administrativo y cofundador de Elaris Digital Solutions. Su rol existe por una convicción del estudio: los proyectos de software no fracasan por el código, fracasan por la comunicación. Por eso cada cliente de Elaris tiene un interlocutor constante que traduce en ambas direcciones — del negocio a la ingeniería y de la ingeniería al negocio.",
-      "En la práctica, eso significa que Sergio está en el diagnóstico inicial entendiendo cómo opera la empresa, en cada revisión quincenal mostrando avances en lenguaje de resultados, y en la entrega final asegurando que el equipo del cliente sepa usar lo que recibió. Es también quien cuida que las promesas comerciales de Elaris — propuesta cerrada por fase, cero sorpresas de alcance, respuesta en menos de 12 horas — se cumplan en cada proyecto, del e-commerce de Salcedo Jewels a la digitalización de CCC Impresiones.",
+      "Sergio es Gerente Administrativo y cofundador de Elaris Digital Solutions. Su rol existe por una convicción del estudio: los proyectos de software no fracasan por el código, fracasan por la comunicación. Por eso cada cliente de Elaris tiene un interlocutor constante que traduce en ambas direcciones: del negocio a la ingeniería y de la ingeniería al negocio.",
+      "En la práctica, eso significa que Sergio está en el diagnóstico inicial entendiendo cómo opera la empresa, en cada revisión quincenal mostrando avances en lenguaje de resultados, y en la entrega final asegurando que el equipo del cliente sepa usar lo que recibió. Es también quien cuida que las promesas comerciales de Elaris (propuesta cerrada por fase, cero sorpresas de alcance, respuesta en menos de 12 horas) se cumplan en cada proyecto, del e-commerce de Salcedo Jewels a la digitalización de CCC Impresiones.",
       "Es además quien lleva la relación con los clientes después del lanzamiento: la transferencia de conocimiento al equipo, los tiempos de respuesta y la continuidad del acompañamiento pasan por él.",
     ],
     knowsAbout: [
@@ -75,13 +75,13 @@ export const TEAM_PROFILES: TeamProfile[] = [
     photo: "/assets/team/FabrizioBussalleu.jpg",
     linkedin: "https://www.linkedin.com/in/fabrizio-bussalleu/",
     seoTitle:
-      "Fabrizio Bussalleu — Gerente de Tecnología | Elaris Digital Solutions",
+      "Fabrizio Bussalleu, Gerente de Tecnología | Elaris Digital Solutions",
     seoDescription:
       "Fabrizio Bussalleu es Gerente de Tecnología (CTO) y cofundador de Elaris Digital Solutions. Convierte requerimientos de negocio en productos digitales funcionales para empresas en Perú y LATAM.",
     bioIntro:
       "Convierte requerimientos de negocio en productos digitales que la gente realmente usa, con obsesión por los detalles y por la experiencia de quien está al otro lado de la pantalla.",
     bioParagraphs: [
-      "Fabrizio es Gerente de Tecnología y cofundador de Elaris Digital Solutions. Es quien toma un requerimiento expresado en lenguaje de negocio — «pierdo ventas porque mi catálogo se desactualiza» — y lo devuelve convertido en un producto funcionando: interfaz, lógica e integraciones incluidas.",
+      "Fabrizio es Gerente de Tecnología y cofundador de Elaris Digital Solutions. Es quien toma un requerimiento expresado en lenguaje de negocio, del tipo “pierdo ventas porque mi catálogo se desactualiza”, y lo devuelve convertido en un producto funcionando: interfaz, lógica e integraciones incluidas.",
       "Su criterio de diseño es que la tecnología se mida por la experiencia de quien la usa, no por la sofisticación de quien la construyó. Ese enfoque se nota en los productos de Elaris: el catálogo autoadministrable con editor de fotos integrado de Salcedo Jewels, el asistente de reservas en cuatro pasos que usan los estudiantes de la UPC, y la plataforma de perfiles digitales de VeltrixNFC. Trabaja principalmente con React, Next.js y TypeScript, y lidera la práctica de inteligencia artificial aplicada del estudio.",
       "Esa misma obsesión por el detalle es la que aplica al rendimiento y la accesibilidad: que una plataforma cargue rápido en un celular de gama media y que cualquiera pueda usarla no son extras, son parte de que el producto funcione.",
     ],

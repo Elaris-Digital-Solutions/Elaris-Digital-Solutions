@@ -96,7 +96,7 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start lg:items-stretch">
 
           {/* Left — header + form (3/5 width) */}
-          <motion.div className="lg:col-span-3 self-start" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+          <motion.div className="lg:col-span-3 self-start" initial={{ x: -32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
 
             {/* Header lives here so the right column aligns with it */}
             <div className="mb-10">
@@ -242,7 +242,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Right — contact info + map (2/5 width) */}
-          <motion.div className="lg:col-span-2 flex flex-col gap-10" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
+          <motion.div className="lg:col-span-2 flex flex-col gap-10" initial={{ x: 32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}>
 
             {/* Contact items — no panel, pure text with icon */}
             <div className="space-y-6">

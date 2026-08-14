@@ -14,24 +14,24 @@ export const article: Article = {
   tags: ["software a medida", "costos", "Perú"],
   readMinutes: 7,
   intro: [
-    "Si estás cotizando un software a medida en Perú, ya te habrás dado cuenta del problema: nadie publica precios. Recibes propuestas que van de 5,000 a 150,000 soles por lo que parece ser «lo mismo», y nadie te explica por qué.",
-    "En esta guía te contamos lo que les explicamos a nuestros clientes antes de que inviertan un sol: qué determina realmente el precio de un software a medida, cuáles son los rangos del mercado peruano y — más importante — cómo detectar el costo oculto de la opción barata.",
+    "Si estás cotizando un software a medida en Perú, ya te habrás dado cuenta del problema: nadie publica precios. Recibes propuestas que van de 5,000 a 150,000 soles por lo que parece ser “lo mismo”, y nadie te explica por qué.",
+    "En esta guía te contamos lo que les explicamos a nuestros clientes antes de que inviertan un sol: qué determina realmente el precio de un software a medida, cuáles son los rangos del mercado peruano y, lo más importante, cómo detectar el costo oculto de la opción barata.",
   ],
   sections: [
     {
       h2: "Qué determina el precio de un software a medida",
       paragraphs: [
-        "No existe un «precio por software», igual que no existe un «precio por casa». El costo sale de cuatro variables concretas.",
+        "No existe un “precio por software”, igual que no existe un “precio por casa”. El costo sale de cuatro variables concretas.",
         "La primera es el alcance funcional: cuántas cosas distintas hace el sistema. Un catálogo consultable es una cosa; un catálogo con inventario, ventas, cuotas y reportes es otra. Cada módulo suma horas de diseño, desarrollo y prueba.",
-        "La segunda son las integraciones: si el sistema debe conversar con tu facturador, tu banco, tu ERP o una pasarela de pagos, cada conexión es trabajo de ingeniería real — y suele ser lo que separa un sistema útil de uno que obliga a recapturar datos a mano.",
+        "La segunda son las integraciones: si el sistema debe conversar con tu facturador, tu banco, tu ERP o una pasarela de pagos, cada conexión es trabajo de ingeniería real, y suele ser lo que separa un sistema útil de uno que obliga a recapturar datos a mano.",
         "La tercera es el volumen y los usuarios: no cuesta lo mismo un sistema para 5 personas de una oficina que uno que atiende a miles de clientes simultáneos.",
-        "Y la cuarta, la que casi nadie menciona: quién asume el riesgo. Una propuesta seria incluye pruebas, documentación, garantía y un plan de salida a producción. Una barata, no — y ese costo no desaparece: se te transfiere a ti, con intereses.",
+        "Y la cuarta, la que casi nadie menciona: quién asume el riesgo. Una propuesta seria incluye pruebas, documentación, garantía y un plan de salida a producción. Una barata, no, y ese costo no desaparece: se te transfiere a ti, con intereses.",
       ],
     },
     {
       h2: "Rangos de precio del mercado peruano (referenciales, 2026)",
       paragraphs: [
-        "Estos rangos salen de lo que se cotiza hoy en el mercado peruano para proyectos bien especificados. Son referenciales — tu proyecto puede salir de estos rangos por alcance, y eso es exactamente lo que un buen diagnóstico define antes de comprometerte.",
+        "Estos rangos salen de lo que se cotiza hoy en el mercado peruano para proyectos bien especificados. Son referenciales: tu proyecto puede salir de estos rangos por alcance, y eso es exactamente lo que un buen diagnóstico define antes de comprometerte.",
       ],
       list: [
         "Automatización puntual o módulo interno sencillo: S/ 8,000 – S/ 25,000",
@@ -43,23 +43,23 @@ export const article: Article = {
     {
       h2: "Por qué el precio por hora engaña",
       paragraphs: [
-        "La pregunta «¿cuánto cobras por hora?» parece prudente, pero compara mal. Un desarrollador de S/ 60 la hora que necesita 400 horas — y deja el sistema sin pruebas ni documentación — sale más caro que un equipo de S/ 200 la hora que lo resuelve en 150 con garantía incluida.",
+        "La pregunta “¿cuánto cobras por hora?” parece prudente, pero compara mal. Un desarrollador de S/ 60 la hora que necesita 400 horas, y que deja el sistema sin pruebas ni documentación, sale más caro que un equipo de S/ 200 la hora que lo resuelve en 150 con garantía incluida.",
         "Lo que de verdad quieres comparar es el costo total por resultado: cuánto cuesta llegar a un sistema funcionando, probado, documentado y del que seas dueño. Por eso en Elaris cotizamos [proyectos con alcance, plazo y costo cerrados por fase](/desarrollo-software-medida), no bolsas de horas: el riesgo de que tome más tiempo es nuestro, no tuyo.",
       ],
     },
     {
       h2: "El costo oculto del software barato",
       paragraphs: [
-        "El software barato se paga tres veces. Primero, cuando lo compras. Segundo, cuando descubres lo que no incluía: sin documentación, sin pruebas, sin garantía, y un código que solo entiende quien lo escribió — que ya no contesta. Tercero, cuando otro equipo tiene que rehacerlo desde cero porque salía más caro arreglarlo.",
-        "Hay señales de alerta claras: propuestas sin criterios de aceptación escritos, precios cerrados sin haber entendido tu operación, cero mención de quién es dueño del código, y la promesa de que «en dos semanas está todo».",
-        "Un ejemplo de lo contrario: cuando [Salcedo Jewels nos pidió su plataforma](/casos/salcedo-jewels), lo primero no fue cotizar — fue entender que su problema real era un catálogo en PDF que rehacían a mano con cada venta. El sistema que salió de ese diagnóstico redujo el tiempo operativo en 70–80%. El precio correcto se define entendiendo el problema, no adivinándolo.",
+        "El software barato se paga tres veces. Primero, cuando lo compras. Segundo, cuando descubres lo que no incluía: sin documentación, sin pruebas, sin garantía, y un código que solo entiende quien lo escribió, que ya no contesta. Tercero, cuando otro equipo tiene que rehacerlo desde cero porque salía más caro arreglarlo.",
+        "Hay señales de alerta claras: propuestas sin criterios de aceptación escritos, precios cerrados sin haber entendido tu operación, cero mención de quién es dueño del código, y la promesa de que “en dos semanas está todo”.",
+        "Un ejemplo de lo contrario: cuando [Salcedo Jewels nos pidió su plataforma](/casos/salcedo-jewels), lo primero no fue cotizar, sino entender que su problema real era un catálogo en PDF que rehacían a mano con cada venta. El sistema que salió de ese diagnóstico redujo el tiempo operativo entre 70 y 80%. El precio correcto se define entendiendo el problema, no adivinándolo.",
       ],
     },
     {
       h2: "Cómo saber cuánto costaría TU proyecto",
       paragraphs: [
-        "La única respuesta honesta a «¿cuánto cuesta?» es «depende del alcance — definámoslo». En Elaris eso se hace con un diagnóstico de dos semanas: revisamos cómo opera hoy tu negocio, identificamos cuellos de botella y te entregamos una ruta de desarrollo con costos estimados, antes de que te comprometas a nada.",
-        "Con eso en mano puedes comparar propuestas con criterio — la nuestra o la de cualquier otro. Si tu proyecto es más acotado, también te sirve nuestra guía de [cuánto cuesta una página web en Perú](/recursos/cuanto-cuesta-una-pagina-web-peru).",
+        "La única respuesta honesta a “¿cuánto cuesta?” es “depende del alcance, definámoslo”. En Elaris eso se hace con un diagnóstico de dos semanas: revisamos cómo opera hoy tu negocio, identificamos cuellos de botella y te entregamos una ruta de desarrollo con costos estimados, antes de que te comprometas a nada.",
+        "Con eso en mano puedes comparar propuestas con criterio, la nuestra o la de cualquier otro. Si tu proyecto es más acotado, también te sirve nuestra guía de [cuánto cuesta una página web en Perú](/recursos/cuanto-cuesta-una-pagina-web-peru).",
       ],
     },
   ],
@@ -78,7 +78,7 @@ export const article: Article = {
     },
     {
       q: "¿Quién queda como dueño del código?",
-      a: "Depende de lo que firmes — y deberías firmarlo antes de empezar. En Elaris el código es 100% del cliente: repositorio completo, documentación y licencia perpetua al cierre del proyecto.",
+      a: "Depende de lo que firmes, y deberías firmarlo antes de empezar. En Elaris el código es 100% del cliente: repositorio completo, documentación y licencia perpetua al cierre del proyecto.",
     },
   ],
   ctaText: "Solicitar diagnóstico",

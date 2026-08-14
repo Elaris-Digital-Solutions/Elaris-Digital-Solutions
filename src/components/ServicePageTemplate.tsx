@@ -45,6 +45,8 @@ import Contact from "@/components/Contact";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
+import { FaqPanel } from "@/components/ui/faq-panel";
+import { buildReveal } from "@/lib/reveal";
 import { RichText } from "@/components/ui/rich-text";
 import { scrollToSection } from "@/lib/utils";
 import es from "@/locales/es.json";
@@ -112,20 +114,9 @@ const FaqItem = ({ item }: { item: { q: string; a: string } }) => {
           </span>
         </button>
       </h3>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            id={panelId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 pr-14 text-sm font-light leading-relaxed text-slate-600">{item.a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <FaqPanel id={panelId} open={open}>
+        <p className="pb-6 pr-14 text-sm font-light leading-relaxed text-slate-600">{item.a}</p>
+      </FaqPanel>
     </div>
   );
 };
@@ -147,17 +138,7 @@ export default function ServicePageTemplate({
     window.scrollTo(0, 0);
   }, []);
 
-  // Con motion reducido las secciones aparecen ya visibles: sin desplazamiento
-  // ni fundido, pero sin quedarse en opacity 0 si el observer no dispara.
-  const reveal = (delay = 0): MotionProps =>
-    reduceMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y: 22 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, amount: 0.15 },
-          transition: { duration: 0.5, ease: "easeOut", delay },
-        };
+  const reveal = buildReveal(reduceMotion);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden overflow-y-auto bg-white">

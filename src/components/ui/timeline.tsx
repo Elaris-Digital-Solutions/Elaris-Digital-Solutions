@@ -45,8 +45,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           <motion.div
             key={index}
             className="flex justify-start pt-10 md:pt-40 md:gap-8"
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 28 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.05 }}
           >

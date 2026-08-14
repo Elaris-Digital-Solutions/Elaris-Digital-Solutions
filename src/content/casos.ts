@@ -28,7 +28,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary:
       "Una joyería que rehacía su catálogo en PDF con cada venta hoy vende 24/7 con inventario en tiempo real. Reducción estimada de 70–80% del tiempo operativo y ventas desestacionalizadas.",
     context: [
-      "Salcedo Jewels es una joyería de lujo peruana — oro italiano de 18 quilates — con presencia en Lima, Chiclayo y Cajamarca. Un equipo pequeño, piezas únicas de alta rotación y un problema que crecía con cada venta.",
+      "Salcedo Jewels es una joyería de lujo peruana, de oro italiano de 18 quilates, con presencia en Lima, Chiclayo y Cajamarca. Un equipo pequeño, piezas únicas de alta rotación y un problema que crecía con cada venta.",
       "Su canal digital era un catálogo en PDF armado en Canva. Como cada pieza es única, cada venta obligaba a rehacer el catálogo completo para no dejar espacios vacíos, y parte del personal trabajaba exclusivamente en mantenerlo al día. Mientras tanto, el inventario vivía en Excel y hojas sueltas.",
     ],
     before: [
@@ -84,9 +84,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     seoDescription:
       "Equipos tecnológicos que se renovaban cada 5 años sin que nadie los usara hoy se reservan en línea en 2 campus. Caso real de software a medida de Elaris.",
     summary:
-      "La UPC tenía equipos tecnológicos — VR, tablets, cámaras, proyectores — que se renovaban cada cinco años sin que los estudiantes pudieran usarlos: no existía forma de prestarlos. Hoy se reservan en línea y se controlan en tiempo real en dos campus.",
+      "La UPC tenía equipos tecnológicos (VR, tablets, cámaras, proyectores) que se renovaban cada cinco años sin que los estudiantes pudieran usarlos: no existía forma de prestarlos. Hoy se reservan en línea y se controlan en tiempo real en dos campus.",
     context: [
-      "La Universidad Peruana de Ciencias Aplicadas invertía en equipos que sus estudiantes necesitaban para desarrollarse: visores de realidad virtual para las carreras de desarrollo, Macs y dispositivos Android para testear aplicaciones, cámaras y proyectores para los de cine. El problema no era el presupuesto — era que no existía ningún sistema para prestarlos. Los equipos se renovaban cada cinco años sin que nadie los hubiera usado.",
+      "La Universidad Peruana de Ciencias Aplicadas invertía en equipos que sus estudiantes necesitaban para desarrollarse: visores de realidad virtual para las carreras de desarrollo, Macs y dispositivos Android para testear aplicaciones, cámaras y proyectores para los de cine. El problema no era el presupuesto, sino que no existía ningún sistema para prestarlos. Los equipos se renovaban cada cinco años sin que nadie los hubiera usado.",
       "El proyecto se coordinó con la Facultad de Ingeniería para los campus de Monterrico y San Miguel.",
     ],
     before: [
@@ -99,7 +99,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Catálogo por campus con disponibilidad real por unidad física",
       "Asistente de reserva en 4 pasos: fecha, duración, horario en bloques de 30 minutos y propósito académico",
       "Asignación automática de la unidad física disponible, con margen entre préstamos para revisión",
-      "Panel operativo en tiempo real para el personal: por retirar, en uso, atrasados — con verificación presencial de cada retiro y devolución",
+      "Panel operativo en tiempo real para el personal: por retirar, en uso y atrasados, con verificación presencial de cada retiro y devolución",
       "Suspensiones temporales automáticas para alumnos incumplidos y estadísticas de uso por carrera",
     ],
     results: [
@@ -146,7 +146,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     summary:
       "Una imprenta que operaba con Excel y hojas físicas, sin presencia digital, hoy tiene tienda online, cotizador de trabajos personalizados y tráfico orgánico constante desde Google.",
     context: [
-      "CCC Impresiones es una imprenta industrial mediana de Córdoba, Argentina. Vende dos cosas muy distintas: productos estándar en stock (etiquetas con medidas fijas) y trabajos 100% personalizados — remeras, impresión 3D, grabado láser, códigos de barras. Toda esa operación se administraba con Excel y hojas físicas, y la captación de clientes dependía por completo del boca a boca: en internet, CCC no existía.",
+      "CCC Impresiones es una imprenta industrial mediana de Córdoba, Argentina. Vende dos cosas muy distintas: productos estándar en stock (etiquetas con medidas fijas) y trabajos 100% personalizados: remeras, impresión 3D, grabado láser, códigos de barras. Toda esa operación se administraba con Excel y hojas físicas, y la captación de clientes dependía por completo del boca a boca: en internet, CCC no existía.",
     ],
     before: [
       "Pedidos e inventario en Excel y hojas físicas",
@@ -157,14 +157,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Tienda online para productos en stock, con inventario por variante y descuento automático de stock",
       "Cotizador de trabajos personalizados con formulario dinámico: los campos cambian según el servicio (textil, 3D, láser, etiquetas)",
       "Panel de gestión completo: productos, pedidos con estados y cuotas, estadísticas, portfolio y configuración de tienda",
-      "Modo tienda/consulta con un interruptor global: si pausan ventas, todos los botones «Comprar» pasan a «Cotizar»",
+      "Modo tienda/consulta con un interruptor global: si pausan ventas, todos los botones “Comprar” pasan a “Cotizar”",
       "Base técnica SEO desde el día uno: estructura, velocidad y contenido indexable",
     ],
     results: [
       {
         metric: "Tráfico orgánico constante",
         detail:
-          "Clientes nuevos llegan desde Google sin pagar por clic — el canal que antes no existía.",
+          "Clientes nuevos llegan desde Google sin pagar por clic, el canal que antes no existía.",
       },
       {
         metric: "0 hojas de cálculo en la operación comercial",
@@ -177,7 +177,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
     ],
     quote: {
-      text: "Manejábamos todo en Excel y hojas impresas. Hoy tenemos catálogo online, cotizador y control de pedidos en un solo lugar — y por primera vez nos escriben clientes que nos encontraron en Google.",
+      text: "Manejábamos todo en Excel y hojas impresas. Hoy tenemos catálogo online, cotizador y control de pedidos en un solo lugar, y por primera vez nos escriben clientes que nos encontraron en Google.",
       author: "Equipo de CCC Impresiones",
       role: "Córdoba, Argentina",
     },
@@ -186,7 +186,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: "veltrixnfc",
     client: "VeltrixNFC",
     heading: "De una idea a una startup operando en dos países",
-    sector: "Startup — tarjetas de presentación NFC",
+    sector: "Startup de tarjetas de presentación NFC",
     location: { city: "Lima y Santiago", country: "Perú y Chile" },
     servicePaths: ["/desarrollo-mvp", "/desarrollo-software-medida"],
     liveUrl: "https://veltrixnfc.com",
@@ -195,9 +195,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     publishDate: "2026-08-03",
     seoTitle: "Caso VeltrixNFC: de Idea a Startup Operando en 2 Países con un MVP",
     seoDescription:
-      "Veltrix tenía el producto físico —tarjetas metálicas con NFC— pero no el ecosistema digital para operar. Construimos su plataforma completa. Caso real de desarrollo de MVP.",
+      "Veltrix tenía el producto físico, tarjetas metálicas con NFC, pero no el ecosistema digital para operar. Construimos su plataforma completa. Caso real de desarrollo de MVP.",
     summary:
-      "Veltrix tenía las tarjetas metálicas con chip NFC y la visión de negocio, pero sin plataforma digital no podía operar. Construimos el ecosistema completo — perfiles, gestión de tarjetas y panel de administración — y hoy la startup opera en Perú y Chile.",
+      "Veltrix tenía las tarjetas metálicas con chip NFC y la visión de negocio, pero sin plataforma digital no podía operar. Construimos el ecosistema completo (perfiles, gestión de tarjetas y panel de administración) y hoy la startup opera en Perú y Chile.",
     context: [
       "VeltrixNFC quiere cambiar cómo se presentan los profesionales: tarjetas de presentación metálicas con un chip NFC que, al acercarse a un celular, abre el perfil digital del dueño con sus datos, redes y botón de contacto directo. El producto físico existía. La visión existía. Lo que no existía era todo lo demás: sin plataforma que vincule cada chip con su perfil, el negocio simplemente no podía operar.",
     ],
