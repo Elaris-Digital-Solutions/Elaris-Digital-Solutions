@@ -14,16 +14,16 @@ export const article: Article = {
   tags: ["e-commerce", "shopify", "woocommerce"],
   readMinutes: 7,
   intro: [
-    "«¿Me hago un Shopify o me mandan a hacer mi tienda?» es probablemente la pregunta que más nos hacen. Y la respuesta honesta — que no siempre nos conviene comercialmente — es: depende de tu operación, no de la moda.",
+    "“¿Me hago un Shopify o me mandan a hacer mi tienda?” es probablemente la pregunta que más nos hacen. Y la respuesta honesta, que no siempre nos conviene comercialmente, es que depende de tu operación y no de la moda.",
     "Esta guía compara las tres rutas sin fanatismo: qué resuelve cada una, cuánto cuesta de verdad cada camino, y las cinco señales concretas de que las plataformas estándar te quedaron chicas.",
   ],
   sections: [
     {
       h2: "Qué resuelve cada opción",
       paragraphs: [
-        "Shopify es alquiler de local comercial listo para usar: pagas mensualidad, subes productos y vendes el mismo día. Excelente para validar y para catálogos estándar. Sus límites: comisiones por venta, dependencia de apps de terceros para todo lo no estándar, y tu operación adaptándose a la plataforma — nunca al revés.",
+        "Shopify es alquiler de local comercial listo para usar: pagas mensualidad, subes productos y vendes el mismo día. Excelente para validar y para catálogos estándar. Sus límites: comisiones por venta, dependencia de apps de terceros para todo lo no estándar, y tu operación adaptándose a la plataforma, nunca al revés.",
         "WooCommerce es un plugin de tienda sobre WordPress: más control y sin mensualidad de plataforma, a cambio de que tú (o alguien) administre hosting, seguridad, actualizaciones y la fricción entre plugins. Más libre que Shopify, más frágil si nadie lo mantiene.",
-        "La tienda a medida se construye alrededor de tu operación: tu inventario, tus reglas de venta, tus integraciones. Cuesta más al inicio y tarda más en salir — y es la única opción donde la plataforma trabaja exactamente como tu negocio necesita.",
+        "La tienda a medida se construye alrededor de tu operación: tu inventario, tus reglas de venta, tus integraciones. Cuesta más al inicio y tarda más en salir, pero es la única opción donde la plataforma trabaja exactamente como tu negocio necesita.",
       ],
     },
     {
@@ -44,18 +44,18 @@ export const article: Article = {
         "Si marcaste dos o más, ya no estás eligiendo plataforma: estás decidiendo cuánto tiempo más quieres pagar el costo de que tu operación se adapte a un software genérico.",
       ],
       list: [
-        "1. Tu inventario tiene lógica propia: piezas únicas, variantes complejas, stock compartido entre canales — y vives corrigiendo a mano lo que la plataforma no entiende",
+        "1. Tu inventario tiene lógica propia: piezas únicas, variantes complejas, stock compartido entre canales, y vives corrigiendo a mano lo que la plataforma no entiende",
         "2. Tu forma de cobrar no es la estándar: cuotas con seguimiento, transferencias con confirmación, validaciones locales como el DNI",
         "3. Pagas cada vez más apps para simular lo que necesitas, y el stack se volvió una torre de parches",
         "4. Necesitas que la tienda converse con tus sistemas: facturación, contabilidad, courier, punto de venta físico",
-        "5. La operación diaria depende de una persona «que sabe cómo se hace» en la plataforma — y eso no escala",
+        "5. La operación diaria depende de una persona “que sabe cómo se hace” en la plataforma, y eso no escala",
       ],
     },
     {
       h2: "Qué cuesta cada camino de verdad",
       paragraphs: [
         "Shopify parece barato (entre 25 y 400 dólares mensuales según plan) hasta que sumas comisiones por venta, apps de pago y el tiempo del equipo peleando contra los límites. WooCommerce parece gratis hasta que pagas hosting decente, plugins premium y a la persona que lo mantiene vivo. En ambos, el costo es recurrente y crece con tu negocio.",
-        "La [tienda a medida](/e-commerce) invierte esa curva: inversión inicial mayor, pero sin mensualidad de plataforma, sin comisión por venta y sin pagar por funciones que simulan tu operación — porque la plataforma ES tu operación. En negocios con reglas propias, el punto de cruce suele llegar antes de lo que parece.",
+        "La [tienda a medida](/e-commerce) invierte esa curva: inversión inicial mayor, pero sin mensualidad de plataforma, sin comisión por venta y sin pagar por funciones que simulan tu operación, porque la plataforma ES tu operación. En negocios con reglas propias, el punto de cruce suele llegar antes de lo que parece.",
       ],
     },
     {
@@ -81,7 +81,7 @@ export const article: Article = {
     },
     {
       q: "¿Una tienda a medida incluye las pasarelas de pago peruanas?",
-      a: "Sí — esa es justamente una de sus ventajas: integra las formas de pago que tus clientes usan de verdad (tarjetas, Yape/Plin, transferencia con confirmación, cuotas), no solo las que la plataforma trae de fábrica.",
+      a: "Sí, y esa es justamente una de sus ventajas: integra las formas de pago que tus clientes usan de verdad (tarjetas, Yape/Plin, transferencia con confirmación, cuotas), no solo las que la plataforma trae de fábrica.",
     },
   ],
   ctaText: "Solicitar diagnóstico",
