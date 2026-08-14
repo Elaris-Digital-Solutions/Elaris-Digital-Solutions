@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* La fuente ya no se pide aquí: la carga `next/font` en el layout y se sirve
+   desde este mismo dominio. Un `@import` remoto en la primera línea del CSS
+   encadena cuatro descargas en serie antes de poder pintar texto. */
 
 /* Use PostCSS imports so plain CSS linters won't report unknown @tailwind at-rules;
    Tailwind/PostCSS will still recognize and include these when building. */
@@ -153,7 +155,7 @@ All colors MUST be HSL.
     position: relative; /* Required by Framer Motion useScroll to correctly calculate scroll offsets */
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-inter), "Inter", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;

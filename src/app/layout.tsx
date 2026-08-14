@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import JsonLd from "@/components/JsonLd";
@@ -11,6 +12,29 @@ import {
   buildOrganizationSchema,
   buildWebsiteSchema,
 } from "@/seo/site";
+
+/**
+ * Inter autoalojada.
+ *
+ * Antes se pedía con `@import url(fonts.googleapis.com)` en la primera línea de
+ * globals.css, que es la forma más lenta posible: el navegador tenía que bajar
+ * nuestro CSS, parsearlo, descubrir el import, pedir el CSS de Google y solo
+ * entonces pedir los woff2 — cuatro pasos en serie, todos bloqueando el
+ * pintado, con un tercero en el camino crítico.
+ *
+ * `next/font` descarga la fuente en tiempo de build y la sirve desde nuestro
+ * propio dominio con el `@font-face` ya inyectado. Misma familia, así que el
+ * texto se ve exactamente igual.
+ *
+ * Sin `weight`: Inter es una fuente variable, y pedirla así entrega un único
+ * archivo que cubre todos los pesos del 100 al 900. Enumerar los siete pesos
+ * que usa el sitio generaba siete archivos estáticos por cada rango Unicode.
+ */
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -75,10 +99,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className={inter.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Sin preconnect a Google Fonts: la fuente ya se sirve desde este
+            mismo dominio, así que abrir esa conexión sería trabajo inútil. */}
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <JsonLd data={[buildOrganizationSchema(), buildWebsiteSchema()]} />
@@ -107,24 +131,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </linearGradient>
           </defs>
         </svg>
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1294573795867367&ev=PageView&noscript=1"
-            alt=""
-          />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=868251342283921&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
+        {/* Los pixeles de respaldo del Pixel de Meta van como HTML crudo y no
+            como JSX a propósito: React detecta cualquier <img> del árbol y le
+            genera un <link rel="preload" as="image"> en la cabecera. Eso hacía
+            que TODO visitante —también los que sí ejecutan JavaScript, que son
+            casi todos— abriera dos conexiones a facebook.com para descargar
+            dos pixeles de 1×1 que nunca iba a usar. Con
+            `dangerouslySetInnerHTML` React no los ve, y el respaldo sigue
+            funcionando para quien tenga el JavaScript desactivado. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1294573795867367&ev=PageView&noscript=1" /><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=868251342283921&ev=PageView&noscript=1" />`,
+          }}
+        />
         <div id="root">
           <Providers>{children}</Providers>
         </div>
