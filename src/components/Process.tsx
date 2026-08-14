@@ -41,7 +41,7 @@ export default function Process() {
   return (
     <section id="estandares" className="py-12 sm:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div className="text-center mb-8" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+        <motion.div className="text-center mb-8" initial={{ y: 24 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-3xl font-extrabold tracking-tight drop-shadow-lg sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{t('process.headingNormal')}</span><span className="text-brand-gradient">{t('process.headingAccent')}</span>
           </h2>

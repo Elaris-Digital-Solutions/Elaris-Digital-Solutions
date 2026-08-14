@@ -25,8 +25,8 @@ function MemberCard({ member, index }: { member: Member; index: number }) {
   return (
     <motion.div
       className="flex flex-col items-center rounded-2xl border border-slate-200 bg-white px-6 py-8 text-center shadow-sm"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 24 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
     >
@@ -76,8 +76,8 @@ export default function Team() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="mb-12 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >

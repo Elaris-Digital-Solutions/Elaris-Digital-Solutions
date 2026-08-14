@@ -17,8 +17,8 @@ export default function LeadMagnet() {
       <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#071540] via-[#0B2A7A] to-[#3B1585] px-8 py-12 shadow-[0_30px_80px_rgba(7,21,64,0.25)] sm:px-14 sm:py-16"
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 32 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >

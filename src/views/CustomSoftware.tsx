@@ -14,6 +14,7 @@ import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import CustomSoftwareHero from "@/components/ui/custom-software-hero";
 import CustomSoftwareAIBlock from "@/components/ui/custom-software-ai-block";
 import type { Crumb } from "@/components/Breadcrumbs";
+import { FaqPanel } from "@/components/ui/faq-panel";
 
 import esData from "@/locales/es.json";
 const copy = esData.customSoftware;
@@ -46,7 +47,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                     <div className="container mx-auto px-6 max-w-7xl relative z-10">
 
                         {/* ── ENCABEZADO ── */}
-                        <motion.div className="text-center mb-16 max-w-3xl mx-auto" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+                        <motion.div className="text-center mb-16 max-w-3xl mx-auto" initial={{ y: 24 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
                             <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#071540] mb-5">
                                 Software que genera{" "}
                                 <span className="font-semibold text-brand-gradient">resultados medibles</span>
@@ -57,7 +58,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                         </motion.div>
 
                         {/* ── BLOQUE PRINCIPAL 2 COLUMNAS ── */}
-                        <motion.div className="grid lg:grid-cols-2 gap-6 mb-6" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.65, ease: "easeOut" }}>
+                        <motion.div className="grid lg:grid-cols-2 gap-6 mb-6" initial={{ y: 32 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.65, ease: "easeOut" }}>
 
                             {/* Columna izquierda — contexto estratégico */}
                             <div className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-10 flex flex-col justify-between hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300">
@@ -127,8 +128,8 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                                 <motion.div
                                     key={idx}
                                     className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-8 hover:border-[#0855FD]/30 hover:shadow-md transition-all duration-300 cursor-default"
-                                    initial={{ opacity: 0, y: 24 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
+                                    initial={{ y: 24 }}
+                                    whileInView={{ y: 0 }}
                                     viewport={{ once: true, amount: 0.2 }}
                                     transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
                                 >
@@ -152,7 +153,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                             {/* Columna de texto */}
-                            <motion.div className="flex flex-col justify-center" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+                            <motion.div className="flex flex-col justify-center" initial={{ x: -32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                                 <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
                                     <span className="w-5 h-px bg-brand-gradient" />
                                     Control operativo
@@ -183,7 +184,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                             </motion.div>
 
                             {/* Columna visual — Dashboard mockup */}
-                            <motion.div className="relative" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
+                            <motion.div className="relative" initial={{ x: 32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
                                 <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(7,21,64,0.08)] border border-slate-100 overflow-hidden">
                                     {/* Header bar */}
                                     <div className="bg-[#071540] px-5 py-3.5 flex items-center gap-3">
@@ -254,7 +255,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                             {/* Columna visual — Collaboration mockup (orden invertido en desktop) */}
-                            <motion.div className="relative order-2 lg:order-1" initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+                            <motion.div className="relative order-2 lg:order-1" initial={{ x: -32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                                 <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(7,21,64,0.08)] border border-slate-100 overflow-hidden">
                                     {/* Header */}
                                     <div className="bg-[#071540] px-5 py-3.5 flex items-center gap-3">
@@ -348,7 +349,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                             </motion.div>
 
                             {/* Columna de texto */}
-                            <motion.div className="flex flex-col justify-center order-1 lg:order-2" initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
+                            <motion.div className="flex flex-col justify-center order-1 lg:order-2" initial={{ x: 32 }} whileInView={{ x: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}>
                                 <span className="inline-flex items-center gap-2 text-brand-gradient text-sm font-medium uppercase tracking-widest mb-6">
                                     <span className="w-5 h-px bg-brand-gradient" />
                                     Escalabilidad y colaboración
@@ -384,7 +385,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
 
                 {/* 7.5 SOCIAL PROOF */}
                 <section className="py-24 lg:py-28 bg-white border-b border-t border-slate-100 overflow-hidden relative">
-                    <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
+                    <motion.div className="container mx-auto px-6 max-w-4xl text-center relative z-10" initial={{ y: 32 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.7, ease: "easeOut" }}>
                         <Quote className="mx-auto w-12 h-12 icon-brand-gradient mb-8 opacity-40" />
                         <p className="text-xl md:text-2xl lg:text-3xl font-light italic leading-relaxed mb-8 text-[#071540]">
                             &quot;Migrar de múltiples sistemas genéricos a una plataforma centralizada y desarrollada a medida por ELARIS fue la mejor decisión técnica para escalar. Ahora la tecnología se adapta a nuestras reglas de negocio, y no al revés.&quot;
@@ -400,7 +401,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                 <section className="py-24 lg:py-32 bg-white">
                     <div className="container mx-auto px-6 max-w-6xl">
                         {/* Header */}
-                        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+                        <motion.div className="text-center mb-16" initial={{ y: 24 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
                             <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase text-brand-gradient mb-4">
                                 Preguntas Frecuentes
                             </span>
@@ -495,21 +496,11 @@ const FaqItem = ({ faq }: { faq: { q: string, a: string } }) => {
                     />
                 </button>
             </h3>
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        id={panelId}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.25, ease: 'easeInOut' }}
-                    >
-                        <p className="pt-4 text-slate-500 font-light leading-relaxed text-sm">
-                            {faq.a}
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <FaqPanel id={panelId} open={open}>
+                <p className="pt-4 text-slate-600 font-light leading-relaxed text-sm">
+                    {faq.a}
+                </p>
+            </FaqPanel>
         </div>
     );
 }

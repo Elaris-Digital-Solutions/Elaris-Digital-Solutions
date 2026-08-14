@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
+import { buildReveal } from "@/lib/reveal";
 import { scrollToSection } from "@/lib/utils";
 import type { CaseStudy } from "@/content/types";
 import es from "@/locales/es.json";
@@ -29,15 +30,7 @@ export default function CaseStudyTemplate({
 }: Props) {
   const reduceMotion = useReducedMotion();
 
-  const reveal = (delay = 0): MotionProps =>
-    reduceMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y: 22 },
-          whileInView: { opacity: 1, y: 0 },
-          viewport: { once: true, amount: 0.15 },
-          transition: { duration: 0.5, ease: "easeOut", delay },
-        };
+  const reveal = buildReveal(reduceMotion);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-white">

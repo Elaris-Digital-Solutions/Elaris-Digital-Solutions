@@ -39,8 +39,8 @@ function calculateGap(width: number): number {
 
 // Framer Motion variants — module-level, never recreated
 const quoteVariants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
+  initial: { y: 20 },
+  animate: { y: 0 },
   exit:    { opacity: 0, y: -20 },
 };
 

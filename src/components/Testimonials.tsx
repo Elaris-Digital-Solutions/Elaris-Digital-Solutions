@@ -24,7 +24,7 @@ export default function Testimonials() {
   return (
     <section id="clientes" className="py-20 sm:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
+        <motion.div className="text-center mb-12" initial={{ y: 24 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6, ease: "easeOut" }}>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
             <span className="text-slate-900">{t('testimonials.headingNormal')}</span><span className="text-brand-gradient">{t('testimonials.headingAccent')}</span>
           </h2>

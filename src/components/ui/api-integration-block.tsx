@@ -151,7 +151,7 @@ export default function ApiIntegrationBlock() {
         {/* ── Header ── */}
         <motion.div
           className="text-center mb-16 lg:mb-20 max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
@@ -184,7 +184,7 @@ export default function ApiIntegrationBlock() {
                 <motion.div
                   key={idx}
                   className="flex gap-5 items-start group"
-                  initial={{ opacity: 0, x: -24 }}
+                  initial={{ x: -24 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.55, delay: 0.15 + idx * 0.09 }}
                 >
@@ -203,7 +203,7 @@ export default function ApiIntegrationBlock() {
           {/* Right – mockup */}
           <motion.div
             className="relative hidden lg:block"
-            initial={{ opacity: 0, x: 32 }}
+            initial={{ x: 32 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.25 }}
           >
