@@ -22,7 +22,7 @@ const benefits = [
   {
     icon: Webhook,
     title: "Webhooks y eventos en tiempo real",
-    desc: "Emitimos eventos a sistemas externos cuando ocurren cambios críticos — sin polling, con payloads tipados y reintentos automáticos ante fallos.",
+    desc: "Emitimos eventos a sistemas externos cuando ocurren cambios críticos, sin polling, con payloads tipados y reintentos automáticos ante fallos.",
   },
   {
     icon: BarChart3,
@@ -168,7 +168,7 @@ export default function ApiIntegrationBlock() {
           </h2>
 
           <p className="text-lg text-slate-400 font-light leading-relaxed">
-            No solo exponemos datos — diseñamos contratos robustos, seguros y bien documentados
+            No solo exponemos datos: diseñamos contratos robustos, seguros y bien documentados
             que permiten a tus equipos e integraciones trabajar con certeza total.
           </p>
         </motion.div>

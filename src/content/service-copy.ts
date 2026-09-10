@@ -6,7 +6,7 @@ import type { ServicePageCopy } from "@/components/ServicePageTemplate";
  * Vive aquí y no en `es.json` porque ese archivo lo importa `I18nProvider`,
  * que envuelve toda la aplicación: cualquier cosa dentro de él se empaqueta en
  * el bundle de JavaScript de TODAS las páginas. Estos cinco bloques suman ~19 KB
- * y solo los leen los `page.tsx` de servidor, que los pasan como prop — así
+ * y solo los leen los `page.tsx` de servidor, que los pasan como prop, así
  * que viajan una vez, ya renderizados, en vez de en el bundle de cada visita.
  *
  * `servicePages.common` sí se queda en `es.json`: lo lee ServicePageTemplate,
@@ -74,7 +74,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     "faq": [
       {
         "q": "¿Cuánto tarda una página web?",
-        "a": "Un sitio institucional o de captación está listo en 3 a 5 semanas, incluyendo diseño, contenido y optimización para Google. Plataformas más complejas (catálogos grandes, sistemas integrados) toman más — lo definimos en el diagnóstico."
+        "a": "Un sitio institucional o de captación está listo en 3 a 5 semanas, incluyendo diseño, contenido y optimización para Google. Plataformas más complejas (catálogos grandes, sistemas integrados) toman más, y lo definimos en el diagnóstico."
       },
       {
         "q": "¿Cuánto cuesta?",
@@ -86,7 +86,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "q": "¿Incluye posicionamiento en Google?",
-        "a": "Incluye la base técnica: estructura, velocidad y etiquetado que Google exige. El posicionamiento sostenido (contenido, autoridad, búsquedas locales) es un trabajo continuo — para eso está nuestro servicio de Posicionamiento SEO, que se integra directo sobre esta base."
+        "a": "Incluye la base técnica: estructura, velocidad y etiquetado que Google exige. El posicionamiento sostenido (contenido, autoridad, búsquedas locales) es un trabajo continuo, y para eso está nuestro servicio de Posicionamiento SEO, que se integra directo sobre esta base."
       },
       {
         "q": "¿Qué pasa con mi web actual y mi dominio?",
@@ -166,7 +166,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "q": "¿Puedo gestionar el catálogo yo mismo?",
-        "a": "Sí — ese es el punto. Subes productos, fotos, precios y stock desde un panel simple. En Salcedo Jewels, lo que antes era rehacer un catálogo entero hoy es subir un producto: el resto se actualiza solo."
+        "a": "Sí, ese es el punto. Subes productos, fotos, precios y stock desde un panel simple. En Salcedo Jewels, lo que antes era rehacer un catálogo entero hoy es subir un producto: el resto se actualiza solo."
       },
       {
         "q": "¿Qué formas de pago puedo ofrecer?",
@@ -174,7 +174,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "q": "¿Qué pasa con mis ventas por WhatsApp?",
-        "a": "No se pierden — se ordenan. La tienda genera resúmenes de pedido listos para WhatsApp y tu inventario queda centralizado, vendas por el canal que vendas. WhatsApp deja de ser tu sistema de registro y vuelve a ser un canal de atención."
+        "a": "No se pierden, se ordenan. La tienda genera resúmenes de pedido listos para WhatsApp y tu inventario queda centralizado, vendas por el canal que vendas. WhatsApp deja de ser tu sistema de registro y vuelve a ser un canal de atención."
       }
     ],
     "related": [
@@ -187,18 +187,18 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
   "seo": {
     "seo": {
       "title": "Posicionamiento SEO para Empresas en Perú | Elaris Digital Solutions",
-      "description": "Posicionamiento SEO para empresas en Perú: que te encuentren en Google cuando buscan lo que vendes. Técnica y contenido con resultados medibles — sin promesas mágicas."
+      "description": "Posicionamiento SEO para empresas en Perú: que te encuentren en Google cuando buscan lo que vendes. Técnica y contenido con resultados medibles, sin promesas mágicas."
     },
     "hero": {
       "badge": "SEO",
       "title": "Que te encuentren en Google cuando buscan lo que vendes.",
-      "subtitle": "SEO es el trabajo de aparecer en los resultados de Google sin pagar por cada clic. Lo hacemos con técnica y contenido — y te mostramos el avance con datos, no con promesas."
+      "subtitle": "SEO es el trabajo de aparecer en los resultados de Google sin pagar por cada clic. Lo hacemos con técnica y contenido, y te mostramos el avance con datos, no con promesas."
     },
     "pains": [
       "Tus clientes te buscan en Google y encuentran a tu competencia",
       "Dependes 100% de pauta: si apagas los anuncios, se apagan las ventas",
       "Tu web es nueva o vieja, pero igual: invisible",
-      "Te prometieron «primer lugar en Google» y no pasó nada"
+      "Te prometieron “primer lugar en Google” y no pasó nada"
     ],
     "includes": [
       {
@@ -208,7 +208,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "title": "Investigación de búsquedas reales",
-        "text": "Qué escriben tus clientes en Google cuando buscan lo que vendes — con volumen y competencia.",
+        "text": "Qué escriben tus clientes en Google cuando buscan lo que vendes, con volumen y competencia.",
         "icon": "Search"
       },
       {
@@ -246,7 +246,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "q": "¿Garantizan el primer lugar en Google?",
-        "a": "No — y desconfía de quien lo garantice: el resultado depende de Google, tu competencia y tu historial. Lo que sí garantizamos es el trabajo correcto (técnica, contenido y medición) y reportes transparentes de cómo avanza cada búsqueda que te interesa."
+        "a": "No, y desconfía de quien lo garantice: el resultado depende de Google, tu competencia y tu historial. Lo que sí garantizamos es el trabajo correcto (técnica, contenido y medición) y reportes transparentes de cómo avanza cada búsqueda que te interesa."
       },
       {
         "q": "¿SEO o publicidad pagada?",
@@ -276,7 +276,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     "hero": {
       "badge": "MVP",
       "title": "De la idea a un producto funcionando.",
-      "subtitle": "Un MVP (producto mínimo viable) es la primera versión real de tu producto: lo suficiente para salir al mercado, conseguir usuarios y validar el negocio — sin gastar como si ya fueras una empresa grande."
+      "subtitle": "Un MVP (producto mínimo viable) es la primera versión real de tu producto: lo suficiente para salir al mercado, conseguir usuarios y validar el negocio, sin gastar como si ya fueras una empresa grande."
     },
     "pains": [
       "Tienes la idea clara, pero no un equipo técnico que la construya",
@@ -318,7 +318,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     ],
     "caseStudy": {
       "name": "VeltrixNFC",
-      "text": "Veltrix tenía el producto físico —tarjetas de presentación metálicas con chip NFC— y la visión, pero no el ecosistema digital para operarlo. Construimos la plataforma completa: perfiles digitales, gestión de tarjetas y panel de administración.",
+      "text": "Veltrix tenía el producto físico, tarjetas de presentación metálicas con chip NFC, y la visión, pero no el ecosistema digital para operarlo. Construimos la plataforma completa: perfiles digitales, gestión de tarjetas y panel de administración.",
       "metric": "De una idea a una startup operando en Perú y Chile",
       "url": "https://veltrixnfc.com",
       "casePath": "/casos/veltrixnfc"
@@ -360,7 +360,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     "hero": {
       "badge": "Transformación digital",
       "title": "Del papel y el Excel a una operación digital.",
-      "subtitle": "«Transformación digital» suena grande, pero significa algo simple: ordenar y digitalizar cómo opera tu empresa, empezando por lo que más te cuesta. Es el nombre que le damos a todo lo que hacemos para que operes mejor — y se recorre por fases, según impacto, no de golpe."
+      "subtitle": "“Transformación digital” suena grande, pero significa algo simple: ordenar y digitalizar cómo opera tu empresa, empezando por lo que más te cuesta. Es el nombre que le damos a todo lo que hacemos para que operes mejor, y se recorre por fases, según impacto, no de golpe."
     },
     "pains": [
       "La información vive regada entre Excel, WhatsApp y papel",
@@ -402,7 +402,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     ],
     "caseStudy": {
       "name": "Salcedo Jewels",
-      "text": "Salcedo Jewels y CCC Impresiones partieron del mismo punto: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias — catálogo, inventario, pedidos y números en un solo lugar.",
+      "text": "Salcedo Jewels y CCC Impresiones partieron del mismo punto: Excel, papel y horas de trabajo manual. Hoy ambas operan sobre plataformas digitales propias: catálogo, inventario, pedidos y números en un solo lugar.",
       "metric": "Hasta 80% menos tiempo operativo tras digitalizar",
       "url": "https://salcedojewels.com",
       "casePath": "/casos/salcedo-jewels"
@@ -410,14 +410,14 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
     "faq": [
       {
         "q": "¿Por dónde se empieza una transformación digital?",
-        "a": "Por el diagnóstico: dos semanas mirando cómo opera hoy tu empresa, sin costo ni compromiso. De ahí sale una hoja de ruta priorizada — casi siempre se empieza por el proceso que más tiempo consume o más errores genera, porque es donde el retorno se siente antes."
+        "a": "Por el diagnóstico: dos semanas mirando cómo opera hoy tu empresa, sin costo ni compromiso. De ahí sale una hoja de ruta priorizada, y casi siempre se empieza por el proceso que más tiempo consume o más errores genera, porque es donde el retorno se siente antes."
       },
       {
         "q": "¿Cuánto dura y cuánto cuesta?",
         "a": "Se avanza por fases de 4 a 10 semanas, cada una con valor propio: no esperas un año para ver resultados. Cada fase se cotiza cerrada por separado y tú decides el ritmo entre una y otra, así que la inversión se reparte en el tiempo en vez de concentrarse al inicio."
       },
       {
-        "q": "¿Mi equipo no es técnico — va a poder usarlo?",
+        "q": "¿Mi equipo no es técnico, va a poder usarlo?",
         "a": "Ese es el criterio de diseño número uno: si tu equipo no lo adopta, el proyecto falló. Construimos pensando en quien lo usará cada día, capacitamos en cada entrega y medimos la adopción real, no solo la entrega técnica."
       },
       {
@@ -426,7 +426,7 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       },
       {
         "q": "¿En qué se diferencia esto de contratar un software genérico?",
-        "a": "Un software genérico digitaliza un proceso estándar; la transformación digital ordena TU operación completa — y a veces la respuesta correcta es un software genérico para una parte y desarrollo a medida para otra. Nuestro diagnóstico te dice cuál conviene dónde, sin sesgo: el código que construimos es tuyo y no cobramos licencias."
+        "a": "Un software genérico digitaliza un proceso estándar; la transformación digital ordena TU operación completa, y a veces la respuesta correcta es un software genérico para una parte y desarrollo a medida para otra. Nuestro diagnóstico te dice cuál conviene dónde, sin sesgo: el código que construimos es tuyo y no cobramos licencias."
       }
     ],
     "related": [

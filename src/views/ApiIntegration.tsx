@@ -71,7 +71,7 @@ export default function ApiIntegration() {
                                         Elimine los silos de datos desde la primera integración
                                     </h3>
                                     <p className="text-slate-600 font-light leading-relaxed text-base">
-                                        Los sistemas empresariales modernos no operan en aislamiento. Diseñamos APIs que actúan como el tejido conector de tu ecosistema — sincronizando datos entre ERP, CRM, plataformas externas y aplicaciones propias con consistencia, seguridad y rendimiento.
+                                        Los sistemas empresariales modernos no operan en aislamiento. Diseñamos APIs que actúan como el tejido conector de tu ecosistema, sincronizando datos entre ERP, CRM, plataformas externas y aplicaciones propias con consistencia, seguridad y rendimiento.
                                     </p>
                                 </div>
                                 <div className="mt-10 pt-8 border-t border-slate-200">
@@ -162,7 +162,7 @@ export default function ApiIntegration() {
                                     <span className="font-semibold">la primera llamada</span>
                                 </h3>
                                 <p className="text-slate-600 font-light text-lg leading-relaxed mb-8">
-                                    La seguridad no es un módulo adicional — es parte del diseño base. Implementamos autenticación robusta, control de acceso granular y políticas de throttling que protegen tus datos y garantizan que solo los sistemas autorizados puedan consumir tus recursos.
+                                    La seguridad no es un módulo adicional, sino parte del diseño base. Implementamos autenticación robusta, control de acceso granular y políticas de throttling que protegen tus datos y garantizan que solo los sistemas autorizados puedan consumir tus recursos.
                                 </p>
                                 <ul className="space-y-3">
                                     {[
@@ -384,7 +384,7 @@ export default function ApiIntegration() {
                                     <span className="font-semibold">sin polling ni fricción</span>
                                 </h3>
                                 <p className="text-slate-600 font-light text-lg leading-relaxed mb-8">
-                                    Cuando ocurre un evento en tu sistema — un pedido, un pago, un cambio de estado — los sistemas relevantes deben saberlo al instante. Diseñamos arquitecturas event-driven con webhooks tipados, reintentos automáticos y entrega garantizada que eliminan la sincronización manual.
+                                    Cuando ocurre un evento en tu sistema (un pedido, un pago, un cambio de estado) los sistemas relevantes deben saberlo al instante. Diseñamos arquitecturas event-driven con webhooks tipados, reintentos automáticos y entrega garantizada que eliminan la sincronización manual.
                                 </p>
                                 <ul className="space-y-3">
                                     {[

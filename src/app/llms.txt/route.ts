@@ -58,7 +58,7 @@ export function GET(): Response {
 
   const equipoBlock = TEAM_PROFILES.length
     ? `\n## Equipo fundador\n\n${TEAM_PROFILES.map(
-        (p) => `- **${p.name}** — ${p.role}, cofundador: ${SITE_URL}/equipo/${p.slug}`
+        (p) => `- **${p.name}**, ${p.role}, cofundador: ${SITE_URL}/equipo/${p.slug}`
       ).join("\n")}\n`
     : "";
 

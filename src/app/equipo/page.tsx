@@ -13,7 +13,7 @@ import es from "@/locales/es.json";
 const hub = es.contentHubs.equipo;
 
 export const metadata = campaignMetadata(
-  "Equipo de Elaris Digital Solutions — Quiénes somos",
+  "Equipo de Elaris Digital Solutions: quiénes somos",
   "Conoce a las personas detrás de Elaris Digital Solutions: Carlos Colfer, Sergio Herrera y Fabrizio Bussalleu. Software a medida para empresas en Perú y LATAM.",
   "/equipo",
   { index: true }
