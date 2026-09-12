@@ -22,7 +22,7 @@ interface HeroProps {
 const SyntheticHero = ({
   title = "An experiment in light, motion, and the quiet chaos between.",
   description =
-  "Experience a new dimension of interaction — fluid, tactile, and alive. Designed for creators who see beauty in motion.",
+  "Experience a new dimension of interaction, fluid, tactile, and alive. Designed for creators who see beauty in motion.",
   ctaButtons = [
     { text: "Explore the Canvas", href: "#explore", primary: true },
     { text: "Learn More", href: "#learn-more" },

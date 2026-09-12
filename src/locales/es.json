@@ -23,7 +23,7 @@
   },
   "hero": {
     "title": "Tecnología a medida para negocios que necesitan vender más y operar mejor.",
-    "description": "Automatizamos procesos, modernizamos sistemas y construimos plataformas que venden por ti. Software a medida para empresas en Perú y LATAM — y el código siempre es tuyo.",
+    "description": "Automatizamos procesos, modernizamos sistemas y construimos plataformas que venden por ti. Software a medida para empresas en Perú y LATAM, y el código siempre es tuyo.",
     "ctas": {
       "primary": "Solicitar diagnóstico",
       "secondary": "Ver casos reales"
@@ -92,7 +92,7 @@
       "analysis": {
         "title": "Tu código, tu negocio, tu activo",
         "heading": "Propiedad total sin condiciones",
-        "description": "Al cerrar el proyecto, recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando — el activo es 100% tuyo."
+        "description": "Al cerrar el proyecto, recibes el repositorio completo, la documentación y una licencia perpetua. Nunca quedas atado a nosotros para seguir operando: el activo es 100% tuyo."
       },
       "design": {
         "title": "Tecnología que no se rompe cuando más la necesitas",
@@ -102,7 +102,7 @@
       "development": {
         "title": "Sabes exactamente qué se entregó y cuándo",
         "heading": "Cero cajas negras en cada fase",
-        "description": "Cada funcionalidad viene con versionado, documentación técnica efectiva y evidencia entregable. Tienes visibilidad real del avance — no actualizaciones vacías de estado."
+        "description": "Cada funcionalidad viene con versionado, documentación técnica efectiva y evidencia entregable. Tienes visibilidad real del avance, no actualizaciones vacías de estado."
       },
       "testing": {
         "title": "Nada llega a producción sin tu validación",
@@ -112,19 +112,19 @@
       "deployment": {
         "title": "Lanzamos sin improvisar, con plan de retroceso",
         "heading": "Producción sin sustos ni urgencias",
-        "description": "Cada release tiene plan de rollback, monitoreo activo y checklist operativo. Si algo no funciona como esperamos, revertimos en minutos — no en horas de pánico a medianoche."
+        "description": "Cada release tiene plan de rollback, monitoreo activo y checklist operativo. Si algo no funciona como esperamos, revertimos en minutos, no en horas de pánico a medianoche."
       },
       "support": {
         "title": "Soporte estructurado que no te deja atado",
         "heading": "Continuidad con independencia real",
-        "description": "Tiempos de respuesta comprometidos por escrito, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Puedes operar el sistema con o sin nosotros — así fue diseñado desde el principio."
+        "description": "Tiempos de respuesta comprometidos por escrito, ventanas de soporte claras y transferencia de conocimiento a tu equipo. Puedes operar el sistema con o sin nosotros, así fue diseñado desde el principio."
       }
     }
   },
   "testimonials": {
     "headingNormal": "Lo que dicen quienes ",
     "headingAccent": "ya escalaron",
-    "description": "No son endorsements genéricos. Son resultados de negocios reales que apostaron por tecnología como ventaja competitiva — y ganaron.",
+    "description": "No son endorsements genéricos. Son resultados de negocios reales que apostaron por tecnología como ventaja competitiva, y ganaron.",
     "items": {
       "daniela": {
         "quote": "“Convirtieron una idea difusa en una plataforma funcional, profesional y que realmente conecta con mi audiencia. El proceso fue transparente, el resultado habló solo, y el impacto en mi presencia digital fue inmediato.”",
@@ -182,11 +182,11 @@
       },
       {
         "q": "¿Cuánto cuesta un proyecto con Elaris?",
-        "a": "Depende del alcance, pero nunca es una caja negra: tras el diagnóstico recibes una propuesta con alcance, plazos y costo total cerrados por fase, antes de comprometerte. Sin sorpresas ni adicionales a mitad de camino. No somos la opción más barata — somos la que elimina el riesgo de invertir en tecnología que no funciona."
+        "a": "Depende del alcance, pero nunca es una caja negra: tras el diagnóstico recibes una propuesta con alcance, plazos y costo total cerrados por fase, antes de comprometerte. Sin sorpresas ni adicionales a mitad de camino. No somos la opción más barata, somos la que elimina el riesgo de invertir en tecnología que no funciona."
       },
       {
         "q": "¿Cómo empiezo? ¿El diagnóstico tiene costo?",
-        "a": "El diagnóstico técnico y operativo es gratuito y toma dos semanas. Evaluamos cómo opera hoy tu negocio, identificamos cuellos de botella y te entregamos un informe con la ruta de desarrollo y los costos estimados — antes de que inviertas un sol en construir."
+        "a": "El diagnóstico técnico y operativo es gratuito y toma dos semanas. Evaluamos cómo opera hoy tu negocio, identificamos cuellos de botella y te entregamos un informe con la ruta de desarrollo y los costos estimados, antes de que inviertas un sol en construir."
       },
       {
         "q": "¿Cuánto tiempo tiene que dedicarle mi equipo?",
@@ -197,7 +197,7 @@
   "leadMagnet": {
     "badge": "Recurso descargable",
     "title": "Descubre qué procesos de tu empresa puedes automatizar hoy",
-    "description": "Te enviamos nuestro checklist «30 procesos que tu empresa puede automatizar» para que identifiques por dónde empezar antes de contratar a nadie.",
+    "description": "Te enviamos nuestro checklist “30 procesos que tu empresa puede automatizar” para que identifiques por dónde empezar antes de contratar a nadie.",
     "bullets": [
       "Identifica cuellos de botella que te cuestan tiempo y dinero",
       "Prioriza qué automatizar primero según impacto y esfuerzo",
@@ -218,7 +218,7 @@
       "fullNamePlaceholder": "John Doe",
       "emailPlaceholder": "johndoe@corp.com",
       "reasonPlaceholder": "Ej: inventario en Excel, pedidos por WhatsApp, sistemas que no se hablan entre sí...",
-      "messagePlaceholder": "¿Qué parte de tu operación te está costando más tiempo hoy? ¿Cómo la llevan ahora — hojas de cálculo, WhatsApp, un sistema antiguo?",
+      "messagePlaceholder": "¿Qué parte de tu operación te está costando más tiempo hoy? ¿Cómo la llevan ahora, con hojas de cálculo, WhatsApp o un sistema antiguo?",
       "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\n🎯 Objetivo: {reason}\n\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa.",
       "responseTime": "Te respondemos en menos de 12 horas. Sin spam.",
       "openedWhatsapp": "Abrimos WhatsApp en otra pestaña con tu mensaje listo. Solo tienes que enviarlo.",
@@ -308,7 +308,7 @@
         },
         {
           "q": "¿Necesito software a medida o me sirve un programa por suscripción?",
-          "a": "Si tus procesos son estándar, un programa por suscripción —un SaaS, del tipo que pagas por usuario al mes— puede ser suficiente. Pero cuando tu forma de trabajar es propia, necesitas integraciones específicas o quieres crecer sin que la factura suba con cada empleado nuevo, el software a medida sale más rentable a mediano plazo."
+          "a": "Si tus procesos son estándar, un programa por suscripción (un SaaS, del tipo que pagas por usuario al mes) puede ser suficiente. Pero cuando tu forma de trabajar es propia, necesitas integraciones específicas o quieres crecer sin que la factura suba con cada empleado nuevo, el software a medida sale más rentable a mediano plazo."
         },
         {
           "q": "¿Quién es el dueño del código fuente?",
@@ -338,7 +338,7 @@
   "apiIntegration": {
     "seo": {
       "title": "Creación de APIs Personalizadas | Elaris Digital Solutions",
-      "description": "Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas — ERP, CRM, plataformas externas y aplicaciones propias — sin fricciones."
+      "description": "Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas (ERP, CRM, plataformas externas y aplicaciones propias) sin fricciones."
     },
     "faq": {
       "titleNormal": "Todo lo que necesitas saber sobre ",
@@ -366,7 +366,7 @@
         },
         {
           "q": "¿Qué pasa si el sistema receptor falla? ¿Perdemos datos?",
-          "a": "No. Para webhooks y eventos diseñamos mecanismos de entrega garantizada con colas persistentes, reintentos automáticos con backoff exponencial y registro de todos los intentos fallidos. Los eventos nunca se pierden — se reintentan hasta confirmar la recepción o se almacenan para procesamiento manual posterior."
+          "a": "No. Para webhooks y eventos diseñamos mecanismos de entrega garantizada con colas persistentes, reintentos automáticos con backoff exponencial y registro de todos los intentos fallidos. Los eventos nunca se pierden: se reintentan hasta confirmar la recepción o se almacenan para procesamiento manual posterior."
         }
       ]
     }
@@ -385,7 +385,7 @@
       "Tu equipo responde las mismas preguntas todo el día",
       "Facturas, contratos y reportes se procesan a mano",
       "Tienes datos por todos lados y nadie los analiza",
-      "Te ofrecieron «IA» pero nadie te dice para qué la usarías tú"
+      "Te ofrecieron “IA” pero nadie te dice para qué la usarías tú"
     ],
     "includes": [
       {
@@ -429,7 +429,7 @@
           "a": "Todo lo que involucre leer, escribir o clasificar: análisis de contratos y facturas, clasificación de correos y tickets, resúmenes de reportes, respuestas a consultas frecuentes sobre tus documentos internos, redacción de borradores. Si una tarea consiste en procesar texto o documentos, casi seguro hay un caso viable."
         },
         {
-          "q": "¿Necesito preparar mis datos o «entrenar» algo antes de empezar?",
+          "q": "¿Necesito preparar mis datos o “entrenar” algo antes de empezar?",
           "a": "No. La mayoría de los casos funciona conectando modelos ya existentes (como GPT o Claude) a tus documentos y sistemas actuales. Entrenar un modelo propio solo se evalúa en casos muy específicos, y nunca es el punto de partida."
         },
         {
@@ -512,7 +512,7 @@
       "items": [
         {
           "q": "¿Qué es un CMMS y qué tipo de empresas lo necesitan?",
-          "a": "Un CMMS (Sistema de Gestión de Mantenimiento Computarizado) es una plataforma que digitaliza toda la operación de mantenimiento: órdenes de trabajo, programación de mantenimientos preventivos, gestión de activos e inventario de repuestos. Es ideal para empresas con activos físicos que mantener — manufactura, minería, energía, logística, facilities y cualquier operación industrial o de infraestructura donde el tiempo de parada representa un costo significativo."
+          "a": "Un CMMS (Sistema de Gestión de Mantenimiento Computarizado) es una plataforma que digitaliza toda la operación de mantenimiento: órdenes de trabajo, programación de mantenimientos preventivos, gestión de activos e inventario de repuestos. Es ideal para empresas con activos físicos que mantener: manufactura, minería, energía, logística, facilities y cualquier operación industrial o de infraestructura donde el tiempo de parada representa un costo significativo."
         },
         {
           "q": "¿Cuánto tiempo tarda la implementación de un CMMS?",
@@ -524,11 +524,11 @@
         },
         {
           "q": "¿Se puede conectar a sensores para avisar antes de que algo falle?",
-          "a": "Sí, es una de nuestras capacidades diferenciales. Conectamos el CMMS a sensores de temperatura, vibración, presión y corriente. Cuando una máquina se sale de su rango normal, el sistema genera automáticamente la orden de trabajo y avisa al técnico asignado — así la falla se atiende antes de que pare la producción. Si tu planta ya tiene un sistema de control (SCADA o PLC), lo aprovechamos en vez de reemplazarlo."
+          "a": "Sí, es una de nuestras capacidades diferenciales. Conectamos el CMMS a sensores de temperatura, vibración, presión y corriente. Cuando una máquina se sale de su rango normal, el sistema genera automáticamente la orden de trabajo y avisa al técnico asignado, así la falla se atiende antes de que pare la producción. Si tu planta ya tiene un sistema de control (SCADA o PLC), lo aprovechamos en vez de reemplazarlo."
         },
         {
           "q": "¿Los técnicos pueden usar el CMMS desde su celular en planta?",
-          "a": "Sí. La aplicación móvil está diseñada para técnicos en campo: recibe y cierra órdenes de trabajo, registra tiempos, adjunta fotos de evidencia y firma digitalmente las intervenciones. Funciona en modo offline para zonas sin cobertura dentro de planta — cuando el dispositivo recupera señal, sincroniza automáticamente todos los registros pendientes."
+          "a": "Sí. La aplicación móvil está diseñada para técnicos en campo: recibe y cierra órdenes de trabajo, registra tiempos, adjunta fotos de evidencia y firma digitalmente las intervenciones. Funciona en modo offline para zonas sin cobertura dentro de planta, y cuando el dispositivo recupera señal, sincroniza automáticamente todos los registros pendientes."
         },
         {
           "q": "¿Qué pasa con los datos históricos de mantenimiento que ya tenemos en Excel u otro sistema?",
@@ -581,12 +581,12 @@
     "breadcrumbHome": "Inicio",
     "ctaHeading": "¿Hablamos de tu caso?",
     "ctaTextCasos": "Cada uno de estos proyectos empezó con una conversación de media hora sobre cómo operaba la empresa. La tuya es igual de concreta: dos semanas mapeando tus procesos para decirte por dónde empezar.",
-    "ctaTextRecursos": "Estas guías cubren lo general. Tu operación tiene detalles que ninguna guía puede anticipar — para eso está el diagnóstico: dos semanas revisando cómo trabajas hoy, sin costo y sin compromiso.",
+    "ctaTextRecursos": "Estas guías cubren lo general. Tu operación tiene detalles que ninguna guía puede anticipar. Para eso está el diagnóstico: dos semanas revisando cómo trabajas hoy, sin costo y sin compromiso.",
     "ctaTextEquipo": "Con quien hables de este equipo es con quien vas a trabajar. No hay comerciales de por medio ni cuentas que se delegan después de firmar.",
     "servicios": {
       "badge": "Servicios",
       "title": "Dos formas de que la tecnología te devuelva dinero",
-      "intro": "Vender más o reducir costos. La mayoría de las empresas necesita ambas, pero casi nunca al mismo tiempo — y empezar por la equivocada es la forma más cara de digitalizarse. Aquí está todo lo que hacemos, ordenado por el problema que resuelve.",
+      "intro": "Vender más o reducir costos. La mayoría de las empresas necesita ambas, pero casi nunca al mismo tiempo, y empezar por la equivocada es la forma más cara de digitalizarse. Aquí está todo lo que hacemos, ordenado por el problema que resuelve.",
       "breadcrumbLabel": "Servicios",
       "seo": {
         "title": "Servicios de desarrollo de software en Perú | Elaris Digital Solutions",
@@ -598,7 +598,7 @@
       },
       "cardCta": "Ver servicio",
       "closingHeading": "¿No sabes cuál necesitas?",
-      "closingText": "Eso es normal, y es exactamente lo que resuelve el diagnóstico: dos semanas mapeando cómo trabaja hoy tu empresa para decirte por dónde empezar — aunque la respuesta sea que todavía no necesitas nada de esto.",
+      "closingText": "Eso es normal, y es exactamente lo que resuelve el diagnóstico: dos semanas mapeando cómo trabaja hoy tu empresa para decirte por dónde empezar, aunque la respuesta sea que todavía no necesitas nada de esto.",
       "closingCta": "Solicitar diagnóstico"
     },
     "equipo": {
@@ -628,7 +628,7 @@
     "recursos": {
       "badge": "Recursos",
       "title": "Guías claras para decidir bien",
-      "intro": "Lo que les explicamos a nuestros clientes antes de que inviertan un sol, publicado. Costos reales, comparativas honestas y por dónde empezar — sin humo y sin jerga.",
+      "intro": "Lo que les explicamos a nuestros clientes antes de que inviertan un sol, publicado. Costos reales, comparativas honestas y por dónde empezar, sin humo y sin jerga.",
       "readArticle": "Leer la guía",
       "byline": "Por",
       "publishedOn": "Publicado el",

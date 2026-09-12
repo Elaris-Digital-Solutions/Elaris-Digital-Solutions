@@ -163,7 +163,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                                     <span className="font-semibold">gestione sin límites</span>
                                 </h3>
                                 <p className="text-slate-600 font-light text-lg leading-relaxed mb-8">
-                                    Un software diseñado a medida elimina la fricción entre áreas. Automatiza tareas críticas, personaliza flujos según su lógica de negocio y conecta equipos, datos y sistemas en una sola plataforma — reduciendo errores humanos y ganando visibilidad total de la operación.
+                                    Un software diseñado a medida elimina la fricción entre áreas. Automatiza tareas críticas, personaliza flujos según su lógica de negocio y conecta equipos, datos y sistemas en una sola plataforma, reduciendo errores humanos y ganando visibilidad total de la operación.
                                 </p>
                                 <ul className="space-y-3">
                                     {[
@@ -359,7 +359,7 @@ export default function CustomSoftware({ breadcrumbs }: { breadcrumbs?: Crumb[] 
                                     <span className="font-semibold">sin perder el control</span>
                                 </h3>
                                 <p className="text-slate-600 font-light text-lg leading-relaxed mb-8">
-                                    A medida que su empresa crece, su software debe crecer con ella. Diseñamos plataformas que facilitan la comunicación fluida entre equipos, la integración con sistemas externos y el acceso desde cualquier dispositivo — con inteligencia incorporada para optimizar decisiones en tiempo real.
+                                    A medida que su empresa crece, su software debe crecer con ella. Diseñamos plataformas que facilitan la comunicación fluida entre equipos, la integración con sistemas externos y el acceso desde cualquier dispositivo, con inteligencia incorporada para optimizar decisiones en tiempo real.
                                 </p>
                                 <ul className="space-y-3">
                                     {[

@@ -202,7 +202,7 @@ export default function CustomSoftwareHero({ breadcrumbs }: { breadcrumbs?: Crum
             <p className="text-lg text-slate-600 font-light leading-relaxed mb-5 xl:mb-6 2xl:mb-10 max-w-[30rem]">
               Creamos soluciones tecnológicas personalizadas que se adaptan a tus
               procesos, integran inteligencia artificial y escalan junto con tu
-              operación empresarial&nbsp;— sin fricciones.
+              operación empresarial, sin fricciones.
             </p>
 
             <a

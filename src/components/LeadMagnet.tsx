@@ -8,7 +8,7 @@ const copy = es.leadMagnet;
 const WHATSAPP_URL =
   "https://wa.me/51973663807?text=" +
   encodeURIComponent(
-    "Hola Elaris, quiero el checklist «30 procesos que mi empresa puede automatizar»."
+    "Hola Elaris, quiero el checklist “30 procesos que mi empresa puede automatizar”."
   );
 
 export default function LeadMagnet() {

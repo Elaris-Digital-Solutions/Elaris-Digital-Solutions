@@ -213,7 +213,7 @@ export default function ApiIntegrationHero() {
           {/* ── [3] Description + CTA ── */}
           <motion.div {...fadeUpSub} className="lg:col-start-1 lg:row-start-2 lg:self-start">
             <p className="text-lg text-slate-600 font-light leading-relaxed mb-10 max-w-[30rem]">
-              Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas — ERP, CRM, plataformas externas y aplicaciones propias — sin fricciones y con trazabilidad completa.
+              Diseñamos APIs RESTful y GraphQL seguras, documentadas y listas para producción que conectan tus sistemas (ERP, CRM, plataformas externas y aplicaciones propias) sin fricciones y con trazabilidad completa.
             </p>
 
             <a

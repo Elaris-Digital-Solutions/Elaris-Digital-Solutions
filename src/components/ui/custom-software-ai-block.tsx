@@ -186,7 +186,7 @@ export default function CustomSoftwareAIBlock() {
           {/* Subtitle */}
           <p className="text-lg text-slate-400 font-light leading-relaxed">
             El software moderno debe ser inteligente y predictivo. Incorporamos
-            capacidades de IA desde la arquitectura base&nbsp;—&nbsp;no como un
+            capacidades de IA desde la arquitectura base, no como un
             complemento de última hora, sino como parte del núcleo del sistema.
           </p>
         </motion.div>

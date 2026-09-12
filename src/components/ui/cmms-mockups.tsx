@@ -19,9 +19,9 @@ const WORK_ORDERS = [
 ] as const;
 
 const UPCOMING = [
-  { asset: "Motor M5 — Revisión semestral", date: "15 mar", dot: "bg-blue-500" },
-  { asset: "Generador G1 — Cambio de aceite", date: "18 mar", dot: "bg-amber-500" },
-  { asset: "Transportador T3 — Alineación", date: "22 mar", dot: "bg-emerald-600" },
+  { asset: "Motor M5, revisión semestral", date: "15 mar", dot: "bg-blue-500" },
+  { asset: "Generador G1, cambio de aceite", date: "18 mar", dot: "bg-amber-500" },
+  { asset: "Transportador T3, alineación", date: "22 mar", dot: "bg-emerald-600" },
 ] as const;
 
 // Tonos -600/-700: sobre los -500 originales el texto blanco se quedaba
@@ -34,9 +34,9 @@ const SENSORS = [
 ] as const;
 
 const ALERTS = [
-  { txt: "Bomba H7 a 78 °C — orden de trabajo generada sola", dot: "bg-red-500" },
+  { txt: "Bomba H7 a 78 °C: orden de trabajo generada sola", dot: "bg-red-500" },
   { txt: "Vibración del Motor M5 dentro de rango normal", dot: "bg-emerald-600" },
-  { txt: "Quedan 2 filtros 3M — reposición solicitada", dot: "bg-amber-500" },
+  { txt: "Quedan 2 filtros 3M: reposición solicitada", dot: "bg-amber-500" },
 ] as const;
 
 const WindowChrome = ({ label }: { label: string }) => (
@@ -167,8 +167,8 @@ export default function CmmsMockups() {
                 Repuestos críticos
               </p>
               {[
-                { txt: "Filtro 3M — quedan 2", dot: "bg-amber-500" },
-                { txt: "Rodamiento 6205 — quedan 5", dot: "bg-emerald-600" },
+                { txt: "Filtro 3M: quedan 2", dot: "bg-amber-500" },
+                { txt: "Rodamiento 6205: quedan 5", dot: "bg-emerald-600" },
               ].map((item) => (
                 <div key={item.txt} className="mb-1.5 flex items-center gap-1.5">
                   <span className={`h-1.5 w-1.5 flex-shrink-0 rounded-full ${item.dot}`} />
