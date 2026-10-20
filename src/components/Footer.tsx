@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarDays, Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Instagram, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import SmartImage from "@/components/ui/smart-image";
 import { useI18n } from "@/lib/i18n";
@@ -33,8 +33,7 @@ const Footer = () => {
     label: navLabels[index] ?? "",
   }));
   const contactSection = {
-    title: t("footer.sections.contact.title"),
-    meetingLabel: t("footer.sections.contact.meetingLabel"),
+    title: t("footer.sections.contact.title"),
     email: t("footer.sections.contact.email"),
     phone: t("footer.sections.contact.phone"),
     instagram: t("footer.sections.contact.instagram"),
@@ -153,17 +152,6 @@ const Footer = () => {
           <div key="Contacto">
             <h3 className="mb-3 text-base font-semibold">{contactSection.title}</h3>
             <ul className="space-y-1.5 sm:space-y-2">
-              <li>
-                <a
-                  href="/meet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white/80 text-sm hover:text-white transition-colors"
-                >
-                  <CalendarDays className="h-4 w-4 flex-shrink-0" />
-                  {contactSection.meetingLabel}
-                </a>
-              </li>
               <li>
                 <a
                   href="mailto:contact@elarisdigitalsolutions.com"

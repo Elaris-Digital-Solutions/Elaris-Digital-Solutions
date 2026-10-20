@@ -96,8 +96,7 @@ ${faq}
 - Email: contact@elarisdigitalsolutions.com
 - Teléfono: +51 973 663 807
 - Oficina: Jr. Jerónimo de Aliaga 595, Santiago de Surco 15037, Lima, Perú
-- El proceso inicia con un diagnóstico técnico y operativo GRATUITO de dos semanas; respuesta a consultas en menos de 12 horas.
-- Agenda de reuniones: ${SITE_URL}/meet
+- El proceso inicia con un diagnóstico técnico y operativo GRATUITO de dos semanas; respuesta a consultas en menos de 12 horas.
 - Inversión: cada proyecto se cotiza cerrado por fase tras el diagnóstico, según alcance e impacto. No se publica una tarifa de referencia.
 
 ## Identidad legal

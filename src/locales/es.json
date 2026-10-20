@@ -204,7 +204,7 @@
       "Ubica tu caso antes de pasar al diagnóstico operativo"
     ],
     "cta": "Quiero el checklist gratis",
-    "note": "Te lo enviamos por WhatsApp. Sin spam."
+    "note": "Te lo enviamos por WhatsApp."
   },
   "contact": {
     "titleNormal": "Hablemos sobre ",
@@ -220,7 +220,7 @@
       "reasonPlaceholder": "Ej: inventario en Excel, pedidos por WhatsApp, sistemas que no se hablan entre sí...",
       "messagePlaceholder": "¿Qué parte de tu operación te está costando más tiempo hoy? ¿Cómo la llevan ahora, con hojas de cálculo, WhatsApp o un sistema antiguo?",
       "whatsappTemplate": "👤 Cliente: {fullName}\n📧 Email: {email}\n🎯 Objetivo: {reason}\n\nHola Elaris, me gustaría recibir un diagnóstico para mi empresa.",
-      "responseTime": "Te respondemos en menos de 12 horas. Sin spam.",
+      "responseTime": "Te respondemos en menos de 12 horas.",
       "openedWhatsapp": "Abrimos WhatsApp en otra pestaña con tu mensaje listo. Solo tienes que enviarlo.",
       "popupBlocked": "Tu navegador bloqueó la ventana de WhatsApp.",
       "popupBlockedCta": "Abrir la conversación manualmente"
@@ -255,7 +255,6 @@
       },
       "contact": {
         "title": "Contacto",
-        "meetingLabel": "Agenda una reunión",
         "email": "contact@elarisdigitalsolutions.com",
         "phone": "+51 973 663 807",
         "instagram": "@elarisdigitalsolutions",
