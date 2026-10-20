@@ -333,8 +333,7 @@ export const buildCaseStudySchema = (caseStudy: CaseStudy) => ({
  *
  * Las páginas de servicio SÍ se indexan (`{ index: true }`): son las únicas
  * con intención de búsqueda comercial. Todo lo demás — landing de pauta
- * (/impulsa-tu-negocio), página de apoyo (/apis-personalizadas), redirect
- * (/meet) y legales — sigue noindex,follow: los crawlers leen el contexto sin
+ * (/impulsa-tu-negocio), página de apoyo (/apis-personalizadas), y legales — sigue noindex,follow: los crawlers leen el contexto sin
  * que la página compita en resultados.
  */
 export const campaignMetadata = (

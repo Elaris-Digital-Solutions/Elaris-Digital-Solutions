@@ -75,7 +75,6 @@ function knownRoutes(): Set<string> {
     // Existen y se enlazan, aunque sean noindex.
     "/apis-personalizadas",
     "/impulsa-tu-negocio",
-    "/meet",
     "/terminos-condiciones",
     "/politicas-de-datos",
   ]);

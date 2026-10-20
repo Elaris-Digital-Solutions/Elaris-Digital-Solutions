@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, ArrowRight, CalendarDays } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { NeuralNoise } from "@/components/ui/neural-noise-cursor";
 import { generateEventId, getFbCookies } from "@/lib/meta";
@@ -189,9 +189,10 @@ export default function Contact() {
               </div>
 
               {/* Submit */}
-              {/* Dos rutas con peso visual comparable: WhatsApp convierte mejor
-                  en PYME LATAM, pero quien llega desde LinkedIn suele preferir
-                  agendar una llamada. */}
+              {/* Una sola ruta. En 74 días de medición el botón de Calendly
+                  registró cero clics reales, mientras WhatsApp fue el único
+                  canal con conversaciones. Dos CTA de peso parecido repartían
+                  la atención sin que el segundo aportara nada. */}
               <div className="pt-4">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
                   <button
@@ -201,16 +202,6 @@ export default function Contact() {
                     {t("common.buttons.sendMessage")}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                   </button>
-                  <a
-                    href="/meet"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent("meet_click", { location: "contact_form" })}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#0855FD]/30 px-7 py-3.5 text-sm font-semibold text-brand-gradient transition-colors hover:bg-[#0855FD]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0855FD] focus-visible:ring-offset-2"
-                  >
-                    <CalendarDays className="h-4 w-4" />
-                    Agendar llamada de 30 min
-                  </a>
                 </div>
                 <p className="mt-3 text-sm text-slate-600">{t("contact.form.responseTime")}</p>
 
