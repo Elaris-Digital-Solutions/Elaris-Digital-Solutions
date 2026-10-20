@@ -41,6 +41,41 @@ export default function Contact() {
 
     trackEvent("generate_lead", { method: "whatsapp_form" });
 
+    // Copia propia del lead ANTES de abrir WhatsApp. Si la ventana se bloquea
+    // y el visitante no usa el enlace de respaldo, al menos el contacto queda
+    // registrado en el servidor en vez de desaparecer.
+    //
+    // sendBeacon y no fetch con await: `window.open` más abajo tiene que
+    // seguir siendo síncrono dentro del gesto del usuario o el navegador lo
+    // trata como ventana emergente no solicitada y la bloquea. sendBeacon
+    // despacha sin bloquear y sobrevive a que la pestaña pierda el foco.
+    const leadBody = JSON.stringify({
+      fullName,
+      email,
+      reason,
+      pageUrl: window.location.href,
+      source: "formulario_contacto",
+    });
+
+    try {
+      const beacon = navigator.sendBeacon?.bind(navigator);
+      const enviado = beacon
+        ? beacon("/api/lead", new Blob([leadBody], { type: "application/json" }))
+        : false;
+
+      if (!enviado) {
+        // keepalive para que la petición sobreviva al cambio de pestaña.
+        fetch("/api/lead", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: leadBody,
+          keepalive: true,
+        }).catch(() => {});
+      }
+    } catch {
+      /* La captura nunca debe impedir que el visitante llegue a WhatsApp. */
+    }
+
     try {
       (window as any).fbq?.('trackSingle', pixelId, 'Lead', { eventID: eventId });
 

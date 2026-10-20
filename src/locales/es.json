@@ -454,6 +454,39 @@
         "label": "7 procesos que ya puedes automatizar con IA",
         "href": "/recursos/automatizar-procesos-con-ia"
       }
+    ],
+    "deepDive": [
+      {
+        "h2": "El primer proceso importa más que la tecnología",
+        "paragraphs": [
+          "La pregunta con la que llega casi todo el mundo es qué modelo usar. Es la pregunta equivocada, y es la que hace que los proyectos de inteligencia artificial se queden en demo. Lo que decide si esto funciona o no es qué proceso eliges primero.",
+          "Un buen primer caso cumple cuatro condiciones a la vez. Si falla una, el proyecto se puede hacer igual, pero va a costar más defenderlo por dentro:"
+        ],
+        "list": [
+          "Pasa muchas veces. Automatizar algo que ocurre tres veces al mes no se paga nunca, por bien que funcione.",
+          "Se puede revisar. Si una respuesta sale mal, alguien lo nota antes de que llegue al cliente o al banco.",
+          "Tiene una regla clara. Si dos personas de tu equipo resuelven el mismo caso distinto, primero hay que ponerse de acuerdo, y eso no lo arregla ningún modelo.",
+          "Se puede medir. Cuántos documentos por hora, cuántos errores, cuánto tiempo del equipo se liberó."
+        ]
+      },
+      {
+        "h2": "Qué no conviene automatizar todavía",
+        "paragraphs": [
+          "Esta parte casi nadie la pone en su web, y es justo la que evita que gastes en el proyecto equivocado.",
+          "No automatices decisiones con consecuencia legal o financiera directa sin que una persona firme: aprobar un crédito, despedir, declarar un impuesto. Tampoco procesos que cambian cada semana, porque vas a pasar más tiempo ajustando la automatización que haciendo la tarea. Y tampoco aquello donde un error no se puede tolerar y no hay forma práctica de revisar cada caso.",
+          "Hay un patrón que resume los tres: la inteligencia artificial es muy buena haciendo el 90% del trabajo y bastante mala sabiendo en qué 10% se equivocó. Sirve cuando ese 10% lo puede cachar alguien. No sirve cuando pasa directo.",
+          "Si quieres ver casos concretos que sí cumplen, los reunimos en [automatizar procesos con inteligencia artificial](/recursos/automatizar-procesos-con-ia)."
+        ]
+      },
+      {
+        "h2": "Qué pasa con los datos de tu empresa",
+        "paragraphs": [
+          "Es la primera objeción que aparece en cada reunión y merece una respuesta concreta, no una frase tranquilizadora.",
+          "Hay tres niveles, y cuál te toca depende de qué tan sensible es lo que procesas. En el primero se usan modelos de proveedores externos a través de sus interfaces de programación, las API, con contrato de que no entrenan con tus datos: es lo más rápido y barato, y alcanza para la mayoría de casos. En el segundo se filtra antes de enviar, de modo que los datos identificables nunca salen y el modelo solo ve lo que necesita para trabajar. En el tercero todo corre dentro de tu propia infraestructura y no sale nada.",
+          "El tercero cuesta bastante más y hace falta menos veces de lo que la gente cree. Parte del diagnóstico es decirte en cuál de los tres estás de verdad, en vez de venderte el más caro por si acaso.",
+          "Sea cual sea, el código de la automatización es tuyo con licencia perpetua, igual que en el [software a medida](/desarrollo-software-medida). Eso importa especialmente aquí: una automatización que no puedes auditar ni mover es una dependencia, no una mejora."
+        ]
+      }
     ]
   },
   "cmms": {
@@ -537,6 +570,10 @@
     },
     "related": [
       {
+        "label": "¿Tu planta necesita un CMMS? Cómo saberlo antes de gastar",
+        "href": "/recursos/cuando-necesitas-un-cmms"
+      },
+      {
         "label": "Transformación digital para pymes: por dónde empezar",
         "href": "/recursos/transformacion-digital-pymes-por-donde-empezar"
       }
@@ -598,7 +635,57 @@
       "cardCta": "Ver servicio",
       "closingHeading": "¿No sabes cuál necesitas?",
       "closingText": "Eso es normal, y es exactamente lo que resuelve el diagnóstico: dos semanas mapeando cómo trabaja hoy tu empresa para decirte por dónde empezar, aunque la respuesta sea que todavía no necesitas nada de esto.",
-      "closingCta": "Solicitar diagnóstico"
+      "closingCta": "Solicitar diagnóstico",
+      "chooseHeading": "Cómo saber por cuál de los dos empezar",
+      "chooseIntro": "Casi ninguna empresa necesita las dos cosas al mismo tiempo, y arrancar por la equivocada es la forma más cara de digitalizarse. Estas son las señales que miramos en el diagnóstico para decidirlo contigo.",
+      "chooseGroups": [
+        {
+          "id": "vender",
+          "title": "Empieza por vender más si te pasa esto",
+          "signals": [
+            "Tu equipo comercial repite el mismo discurso por WhatsApp porque la web no lo cuenta.",
+            "Llegan consultas, pero vienen frías y hay que explicar todo desde cero.",
+            "Vendes con un catálogo en PDF o por redes, y actualizar precios es trabajo manual.",
+            "Tienes capacidad para atender a más clientes de los que están llegando."
+          ],
+          "verdict": "Si te reconoces en tres de las cuatro, tu cuello de botella está en el canal, no en la operación. Ahí entran [páginas web y landing pages](/desarrollo-web), [tiendas e-commerce](/e-commerce) y [plataformas y MVP](/desarrollo-mvp), donde MVP es la primera versión funcional de un producto, la que sirve para probar la idea con usuarios reales antes de invertir de más."
+        },
+        {
+          "id": "operar",
+          "title": "Empieza por operar mejor si te pasa esto",
+          "signals": [
+            "El mismo dato se escribe dos o tres veces, en sistemas que no se hablan.",
+            "Cierras el mes a mano, con hojas de cálculo que solo entiende una persona.",
+            "No sabes qué stock tienes sin levantarte a preguntarle a alguien.",
+            "Cuando falla un equipo, nadie sabe cuándo fue su último mantenimiento."
+          ],
+          "verdict": "Si te reconoces aquí, el problema no es que falten clientes: es que atenderlos te cuesta demasiado. Ahí entran [software a medida y portales](/desarrollo-software-medida), [automatización e inteligencia artificial](/inteligencia-artificial) y el [software de mantenimiento](/implementacion-cmms), que en la industria se conoce como CMMS, un sistema para programar el mantenimiento de equipos y dejar registro de cada intervención."
+        }
+      ],
+      "chooseClosing": "Si marcaste señales de los dos lados, estás en la situación más común, y es la que peor se resuelve adivinando. Lo habitual es que una de las dos esté frenando a la otra: no sirve de nada traer el triple de clientes si la operación ya no da abasto, ni ordenar la operación para atender a los mismos de siempre. Saber cuál va primero es la mitad del trabajo.",
+      "faqHeading": "Preguntas frecuentes sobre cómo trabajamos",
+      "faq": [
+        {
+          "q": "¿De quién es el código que construyen?",
+          "a": "Tuyo, al cien por ciento. Te entregamos el repositorio y una licencia perpetua. Si mañana decides seguir con otro equipo, puedes hacerlo sin pedirnos permiso y sin pagar por rescatar tu propio sistema."
+        },
+        {
+          "q": "¿Cuánto cuesta cada servicio?",
+          "a": "No publicamos una tarifa de referencia, porque el mismo servicio puede costar muy distinto según el alcance y una cifra suelta solo sirve para que compares mal. Lo que sí hacemos es cerrar el precio por fase antes de empezar, para que sepas exactamente qué pagas en cada tramo. Los rangos reales del mercado peruano los publicamos en [nuestras guías](/recursos)."
+        },
+        {
+          "q": "¿Qué pasa si todavía no sé qué necesito?",
+          "a": "Es el caso normal, no la excepción. El diagnóstico inicial son dos semanas sin costo en las que mapeamos tu operación y te decimos qué conviene construir y en qué orden. Si la conclusión es que aún no necesitas software, te lo decimos igual."
+        },
+        {
+          "q": "¿Trabajan solo con empresas de Lima?",
+          "a": "Trabajamos desde Lima para Perú, Chile y Argentina. Buena parte del trabajo es remota y ya la hicimos así con una imprenta en Córdoba y con una universidad en dos campus distintos, de modo que la distancia no cambia el proceso. Puedes ver cómo quedó cada uno en [nuestros casos](/casos)."
+        },
+        {
+          "q": "¿En cuánto tiempo responden?",
+          "a": "En menos de 12 horas. Es el compromiso que mantenemos para cualquier consulta que entre por el formulario o por WhatsApp."
+        }
+      ]
     },
     "equipo": {
       "badge": "Nuestro equipo",
@@ -642,7 +729,50 @@
       "minRead": "min de lectura",
       "faqHeading": "Preguntas frecuentes",
       "ctaHeading": "¿Quieres saber qué aplica a tu negocio?",
-      "ctaText": "Te decimos qué tiene sentido en tu caso concreto, sin compromiso."
+      "ctaText": "Te decimos qué tiene sentido en tu caso concreto, sin compromiso.",
+      "pathsHeading": "Empieza por la guía que responde tu pregunta",
+      "pathsIntro": "Las seis guías cubren decisiones distintas. Esta es la que te toca según dónde estés.",
+      "paths": [
+        {
+          "situation": "Estás pidiendo cotizaciones y no sabes si te cobran de más",
+          "text": "Lee [cuánto cuesta un software a medida en Perú](/recursos/cuanto-cuesta-software-a-medida-peru) o [cuánto cuesta una página web](/recursos/cuanto-cuesta-una-pagina-web-peru), según lo que estés cotizando. Las dos traen rangos reales del mercado peruano y explican qué incluye y qué no cada tramo de precio."
+        },
+        {
+          "situation": "Vas a vender en línea y no sabes qué plataforma elegir",
+          "text": "[Shopify, WooCommerce o tienda a medida](/recursos/shopify-woocommerce-o-tienda-a-medida) compara las tres por costo real a dos años, no solo por el precio de entrada, que es donde suelen esconderse las sorpresas."
+        },
+        {
+          "situation": "Tienes una idea y quieres saber si vale la pena construirla",
+          "text": "[Cómo validar una idea de negocio con un MVP](/recursos/como-validar-una-idea-de-negocio-mvp) explica qué es un MVP, la primera versión funcional de un producto, y cómo armarlo para probar la idea con usuarios reales antes de comprometer el presupuesto entero."
+        },
+        {
+          "situation": "Tu equipo pierde horas en trabajo manual y repetitivo",
+          "text": "[Automatizar procesos con inteligencia artificial](/recursos/automatizar-procesos-con-ia) trae siete casos concretos, y [transformación digital para pymes](/recursos/transformacion-digital-pymes-por-donde-empezar) ordena por dónde empezar si lo que vas a digitalizar es la operación entera."
+        },
+        {
+          "situation": "Se te paran máquinas y el mantenimiento vive en cuadernos y Excel",
+          "text": "[¿Tu planta necesita un CMMS?](/recursos/cuando-necesitas-un-cmms) te da las señales de que la hoja de cálculo ya no alcanza, un método para calcular lo que te cuesta cada parada con tus propios números, y las tres razones por las que fracasan la mayoría de implementaciones."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Los rangos de precio que publican son reales?",
+          "a": "Salen de lo que se cotiza hoy en el mercado peruano para proyectos bien especificados, y los marcamos como referenciales porque tu proyecto puede salir de rango por alcance. Los publicamos porque leer una propuesta sin ninguna referencia es justo como se termina pagando de más."
+        },
+        {
+          "q": "¿Por qué publican precios del mercado y no su propia tarifa?",
+          "a": "Porque son dos cosas distintas. Los rangos del mercado te sirven para leer cualquier cotización con criterio, también las que no son nuestras. Nuestro precio sale del alcance concreto de tu proyecto y lo cerramos por fase antes de empezar."
+        },
+        {
+          "q": "¿Puedo usar estas guías para cotizar con otro proveedor?",
+          "a": "Sí, y es parte de para qué están. Preferimos que compares bien a que nos elijas por desconocimiento."
+        },
+        {
+          "q": "¿Quién escribe las guías?",
+          "a": "Los tres socios de Elaris, cada uno sobre lo que le toca trabajar. Cada guía va firmada y enlaza al perfil de quien la escribió, que puedes ver en [el equipo](/equipo)."
+        }
+      ],
+      "hubFaqHeading": "Sobre estas guías"
     }
   },
   "team": {
