@@ -148,6 +148,37 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
         "icon": "Truck"
       }
     ],
+    "deepDive": [
+      {
+        "h2": "Qué cambia cuando la tienda y el inventario son la misma cosa",
+        "paragraphs": [
+          "La mayoría de tiendas en Perú no tiene un problema de diseño, tiene un problema de doble registro. El catálogo vive en un sitio, el stock real en una hoja de cálculo o en la cabeza de alguien, y los pedidos entran por WhatsApp. Cada venta obliga a tocar tres lugares, y el día que uno no se actualiza vendes algo que ya no tienes.",
+          "Cuando el catálogo y el inventario son el mismo dato, esa clase de error deja de ser posible: no es que se detecte a tiempo, es que no puede ocurrir. Una venta descuenta stock en el momento, y si una pieza es única desaparece de la tienda sin que nadie haga nada.",
+          "En [Salcedo Jewels](/casos/salcedo-jewels) ese fue el cambio entero. No pasaron de una tienda fea a una bonita: pasaron de rehacer un catálogo en PDF con cada venta a subir un producto una sola vez."
+        ]
+      },
+      {
+        "h2": "Cuándo no te conviene una tienda a medida",
+        "paragraphs": [
+          "Lo decimos antes de cotizar porque sale más barato para los dos. Hay casos donde Shopify o WooCommerce son la respuesta correcta, y recomendarte lo contrario sería venderte de más."
+        ],
+        "list": [
+          "Vendes pocos productos estándar, sin variantes complicadas ni reglas propias de precio.",
+          "Todavía no sabes si el producto se vende. Primero valida con lo más barato que funcione y recién después construye.",
+          "Necesitas estar vendiendo en dos semanas. Una tienda a medida toma entre 6 y 10 semanas, y apurarla es justo como salen mal.",
+          "Tu volumen todavía no paga la diferencia. Con 20 pedidos al mes, la suscripción de una plataforma sale más a cuenta que un desarrollo."
+        ]
+      },
+      {
+        "h2": "El costo que aparece a dos años, no en la cotización",
+        "paragraphs": [
+          "Comparar una tienda a medida contra una plataforma por el precio de entrada es el error más caro de esta decisión, porque las dos cobran en momentos distintos.",
+          "La plataforma cobra poco al inicio y después todos los meses: suscripción, comisión sobre cada venta y los complementos que vas necesitando conforme tu operación se vuelve menos genérica. Esa cuenta sube justo cuando te va bien. El desarrollo a medida cobra casi todo al inicio y después solo hosting y mantenimiento.",
+          "El cruce suele caer entre el año y medio y los tres años, según cuánto vendas y cuántos complementos necesites. Antes de ese punto gana la plataforma, después gana lo propio. Por eso la pregunta útil no es cuál es más barata, sino cuánto tiempo piensas vender con esto.",
+          "Esa cuenta, con números concretos, está en [Shopify, WooCommerce o tienda a medida](/recursos/shopify-woocommerce-o-tienda-a-medida)."
+        ]
+      }
+    ],
     "caseStudy": {
       "name": "Salcedo Jewels",
       "text": "Salcedo Jewels vendía con un catálogo en PDF rehecho a mano en Canva con cada venta: ventas duplicadas, clientes desanimados y una persona dedicada solo a mantenerlo al día. Hoy su tienda y su inventario son la misma cosa.",

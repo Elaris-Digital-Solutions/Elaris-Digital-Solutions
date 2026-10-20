@@ -76,6 +76,19 @@ export interface ServicePageCopy {
   } | null;
   /** Guías de /recursos relacionadas con este servicio. */
   related?: { label: string; href: string }[];
+  /**
+   * Secciones de fondo, opcionales por página.
+   *
+   * El template daba para una página de unas 800 palabras, y Google dejó
+   * varias de ellas en "descubierta, actualmente sin indexar": con hero,
+   * dolores y tarjetas no hay suficiente contenido propio para que decida
+   * indexarlas. Esto permite añadir desarrollo real donde haga falta sin
+   * obligar a todas las páginas a tenerlo.
+   *
+   * Misma forma que `ArticleSection` a propósito: el día que algo de aquí
+   * crezca hasta merecer guía propia, se mueve sin reescribirlo.
+   */
+  deepDive?: { h2: string; paragraphs: string[]; list?: string[] }[];
   faq: { q: string; a: string }[];
 }
 
@@ -285,6 +298,54 @@ export default function ServicePageTemplate({
             {illustration && <div className="mt-14">{illustration}</div>}
           </div>
         </section>
+
+        {/* ── EN PROFUNDIDAD ───────────────────────────────────────────────── */}
+        {copy.deepDive && copy.deepDive.length > 0 && (
+          <section aria-labelledby="deepdive-heading" className="py-20 lg:py-24">
+            <div className="container mx-auto max-w-3xl px-6">
+              <h2 id="deepdive-heading" className="sr-only">
+                En profundidad
+              </h2>
+              <div className="space-y-14">
+                {copy.deepDive.map((block) => (
+                  <motion.div key={block.h2} {...reveal()}>
+                    <h3 className="mb-5 text-2xl font-extrabold tracking-tight text-[#071540] sm:text-3xl">
+                      {block.h2}
+                    </h3>
+                    <div className="space-y-4">
+                      {block.paragraphs.map((paragraph) => (
+                        <p
+                          key={paragraph}
+                          className="text-base font-light leading-relaxed text-slate-600"
+                        >
+                          <RichText text={paragraph} />
+                        </p>
+                      ))}
+                    </div>
+                    {block.list && block.list.length > 0 && (
+                      <ul className="mt-6 space-y-3">
+                        {block.list.map((item) => (
+                          <li
+                            key={item}
+                            className="flex gap-3 text-base font-light leading-relaxed text-slate-600"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gradient"
+                            />
+                            <span>
+                              <RichText text={item} />
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── CASO REAL ────────────────────────────────────────────────────── */}
         {copy.caseStudy && (

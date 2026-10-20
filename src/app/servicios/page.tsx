@@ -6,11 +6,13 @@ import Footer from "@/components/Footer";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SERVICE_ICONS } from "@/components/ui/service-icons";
+import { RichText } from "@/components/ui/rich-text";
 import {
   campaignMetadata,
   buildBreadcrumbSchema,
   buildServiceSchema,
   buildHowToSchema,
+  buildFaqSchema,
 } from "@/seo/site";
 import {
   SERVICES,
@@ -39,7 +41,12 @@ export default function Page() {
   return (
     <>
       <JsonLd
-        data={[buildBreadcrumbSchema(crumbs), buildServiceSchema(), buildHowToSchema()]}
+        data={[
+          buildBreadcrumbSchema(crumbs),
+          buildServiceSchema(),
+          buildHowToSchema(),
+          buildFaqSchema(hub.faq),
+        ]}
       />
       <div className="relative min-h-screen overflow-x-hidden bg-white">
         <Navbar />
@@ -150,6 +157,81 @@ export default function Page() {
               </section>
             );
           })}
+
+          {/* Sección de decisión: el hub tenía solo las tarjetas y Google lo
+              dejaba en "descubierta, sin indexar" por falta de contenido
+              propio. Esto además responde la pregunta real del visitante,
+              que no es qué vendemos sino cuál le toca. */}
+          <section aria-labelledby="servicios-elegir" className="bg-white py-20">
+            <div className="container mx-auto max-w-5xl px-6">
+              <h2
+                id="servicios-elegir"
+                className="mb-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                {hub.chooseHeading}
+              </h2>
+              <p className="mb-12 max-w-2xl text-base font-light leading-relaxed text-slate-600">
+                {hub.chooseIntro}
+              </p>
+
+              <div className="grid gap-8 md:grid-cols-2">
+                {hub.chooseGroups.map((group) => (
+                  <div
+                    key={group.id}
+                    className="flex h-full flex-col rounded-2xl border border-slate-200 bg-[#F8FAFC] p-8"
+                  >
+                    <h3 className="mb-5 text-lg font-semibold leading-snug text-[#071540]">
+                      {group.title}
+                    </h3>
+                    <ul className="mb-6 space-y-3">
+                      {group.signals.map((signal) => (
+                        <li
+                          key={signal}
+                          className="flex gap-3 text-sm font-light leading-relaxed text-slate-700"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gradient"
+                          />
+                          {signal}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="mt-auto text-sm font-light leading-relaxed text-slate-600">
+                      <RichText text={group.verdict} />
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-10 max-w-3xl text-base font-light leading-relaxed text-slate-700">
+                {hub.chooseClosing}
+              </p>
+            </div>
+          </section>
+
+          {/* FAQ en prosa plana, sin acordeón: aquí no hay que ahorrar
+              espacio y así el texto viaja siempre en el HTML. */}
+          <section aria-labelledby="servicios-faq" className="bg-[#F8FAFC] py-20">
+            <div className="container mx-auto max-w-3xl px-6">
+              <h2
+                id="servicios-faq"
+                className="mb-10 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                {hub.faqHeading}
+              </h2>
+              <dl className="space-y-8">
+                {hub.faq.map((item) => (
+                  <div key={item.q} className="border-t border-slate-200 pt-6">
+                    <dt className="mb-2 text-base font-semibold text-[#071540]">{item.q}</dt>
+                    <dd className="text-sm font-light leading-relaxed text-slate-600">
+                      <RichText text={item.a} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
 
           {/* Los mismos cuatro pasos que ven las páginas de servicio. Aquí
               también se emiten como HowTo: el marcado describe contenido que

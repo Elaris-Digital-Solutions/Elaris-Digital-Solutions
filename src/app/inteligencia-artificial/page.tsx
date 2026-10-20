@@ -32,6 +32,7 @@ export default function Page() {
           pains: copy.pains,
           includes: copy.includes,
           caseStudy: copy.caseStudy,
+          deepDive: copy.deepDive,
           faq: copy.faq.items,
           related: copy.related,
         }}

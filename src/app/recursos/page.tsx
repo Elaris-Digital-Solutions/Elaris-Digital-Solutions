@@ -7,7 +7,8 @@ import Footer from "@/components/Footer";
 import FloatingWhatsappButton from "@/components/ui/floating-whatsapp-button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import HubCta from "@/components/HubCta";
-import { campaignMetadata, buildBreadcrumbSchema } from "@/seo/site";
+import { RichText } from "@/components/ui/rich-text";
+import { campaignMetadata, buildBreadcrumbSchema, buildFaqSchema } from "@/seo/site";
 import { ARTICLES } from "@/content/recursos";
 import { findProfile } from "@/content/equipo";
 import es from "@/locales/es.json";
@@ -36,7 +37,7 @@ const formatDate = (iso: string) =>
 export default function Page() {
   return (
     <>
-      <JsonLd data={buildBreadcrumbSchema(crumbs)} />
+      <JsonLd data={[buildBreadcrumbSchema(crumbs), buildFaqSchema(hub.faq)]} />
       <div className="relative min-h-screen overflow-x-hidden bg-white">
         <Navbar />
         <main id="contenido-principal" tabIndex={-1}>
@@ -109,6 +110,56 @@ export default function Page() {
                   );
                 })}
               </div>
+            </div>
+          </section>
+
+          {/* El hub era solo rejilla de tarjetas: 40 palabras propias y
+              Google no lo indexaba. Enrutar por situación sirve al lector
+              y da al hub contenido que no repite el de los artículos. */}
+          <section aria-labelledby="recursos-rutas" className="bg-[#F8FAFC] py-20">
+            <div className="container mx-auto max-w-4xl px-6">
+              <h2
+                id="recursos-rutas"
+                className="mb-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                {hub.pathsHeading}
+              </h2>
+              <p className="mb-10 max-w-2xl text-base font-light leading-relaxed text-slate-600">
+                {hub.pathsIntro}
+              </p>
+              <dl className="space-y-8">
+                {hub.paths.map((path) => (
+                  <div key={path.situation} className="border-l-2 border-[#0855FD]/30 pl-6">
+                    <dt className="mb-2 text-base font-semibold text-[#071540]">
+                      {path.situation}
+                    </dt>
+                    <dd className="text-sm font-light leading-relaxed text-slate-600">
+                      <RichText text={path.text} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+
+          <section aria-labelledby="recursos-faq" className="bg-white py-20">
+            <div className="container mx-auto max-w-3xl px-6">
+              <h2
+                id="recursos-faq"
+                className="mb-10 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl"
+              >
+                {hub.hubFaqHeading}
+              </h2>
+              <dl className="space-y-8">
+                {hub.faq.map((item) => (
+                  <div key={item.q} className="border-t border-slate-200 pt-6">
+                    <dt className="mb-2 text-base font-semibold text-[#071540]">{item.q}</dt>
+                    <dd className="text-sm font-light leading-relaxed text-slate-600">
+                      <RichText text={item.a} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </section>
 
