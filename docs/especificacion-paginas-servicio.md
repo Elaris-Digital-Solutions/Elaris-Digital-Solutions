@@ -328,7 +328,7 @@ Fotos: pedir a cada cliente al enviar el borrador (mismo formato que las actuale
 - **Qué se construyó:** plataforma institucional de reservas: registro con correo @upc.edu.pe y carrera; login por enlace mágico (sin contraseña); catálogo filtrado por campus con disponibilidad real por unidad física; asistente de reserva en 4 pasos (fecha → duración → horario en bloques de 30 min → propósito) con detección de conflictos y margen de 2 horas entre préstamos; asignación automática de la unidad física; panel de verificación en tiempo real para el personal (por retirar / en uso / atrasados) con máquina de estados de 6 estados; suspensiones temporales de alumnos incumplidos; días inhabilitados administrables; estadísticas por carrera; encuestas de satisfacción.
 - **Resultado:** el problema quedó resuelto — los equipos que nadie usaba hoy se reservan y usan activamente en ambos campus, con control total de retiros y devoluciones.
 - **Activos:** sin material del "antes" (no había sistema). Logo y cifras con nombre: **autorizados**. Testimonio: borrador §6 pendiente de aprobación.
-- **URL:** https://upc-inventario.netlify.app
+- **URL:** https://dispositivos.ccnode.net
 
 ### 7.3 CCC Impresiones
 - **Quién:** imprenta industrial mediana, Córdoba (Argentina). Productos estándar (etiquetas) + trabajos personalizados (textil, impresión 3D, grabado láser, códigos de barras).
