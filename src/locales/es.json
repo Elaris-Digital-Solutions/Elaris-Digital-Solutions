@@ -752,6 +752,10 @@
         {
           "situation": "Se te paran máquinas y el mantenimiento vive en cuadernos y Excel",
           "text": "[¿Tu planta necesita un CMMS?](/recursos/cuando-necesitas-un-cmms) te da las señales de que la hoja de cálculo ya no alcanza, un método para calcular lo que te cuesta cada parada con tus propios números, y las tres razones por las que fracasan la mayoría de implementaciones."
+        },
+        {
+          "situation": "Te preocupa no aparecer cuando tus clientes preguntan a ChatGPT",
+          "text": "[Cómo aparecer en ChatGPT y otros buscadores con IA](/recursos/como-aparecer-en-chatgpt-y-buscadores-con-ia) explica qué se hace técnicamente, qué de todo eso tiene fundamento y qué todavía es apuesta, y abre los números que obtuvimos aplicándolo en este mismo sitio."
         }
       ],
       "faq": [

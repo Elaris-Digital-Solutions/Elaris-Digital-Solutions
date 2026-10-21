@@ -6,6 +6,7 @@ import { article as shopifyWooMedida } from "./shopify-woocommerce-o-tienda-a-me
 import { article as automatizarConIa } from "./automatizar-procesos-con-ia";
 import { article as transformacionPymes } from "./transformacion-digital-pymes-por-donde-empezar";
 import { article as cuandoNecesitasCmms } from "./cuando-necesitas-un-cmms";
+import { article as aparecerEnChatgpt } from "./como-aparecer-en-chatgpt-y-buscadores-con-ia";
 
 /**
  * Artículos publicados, del más reciente al más antiguo.
@@ -14,7 +15,7 @@ import { article as cuandoNecesitasCmms } from "./cuando-necesitas-un-cmms";
  * vez de nacer con seis entradas y quedarse mudo:
  *   Tanda 1 (2026-08-03): costos de software, MVP, costos de web.
  *   Tanda 2 (2026-08-17): Shopify vs a medida, IA, transformación digital.
- *   Tanda 3 (2026-10-20): CMMS.
+ *   Tanda 3 (2026-10-20): CMMS y posicionamiento en motores de IA.
  *
  * Los enlaces entre artículos viven dentro de su propia tanda, así ninguno
  * apunta a una URL que aún no existe.
@@ -25,6 +26,7 @@ import { article as cuandoNecesitasCmms } from "./cuando-necesitas-un-cmms";
  * visible en Lima de los ocho servicios.
  */
 export const ARTICLES: Article[] = [
+  aparecerEnChatgpt,
   cuandoNecesitasCmms,
   transformacionPymes,
   automatizarConIa,

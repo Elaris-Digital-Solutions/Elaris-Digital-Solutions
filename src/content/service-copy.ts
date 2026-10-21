@@ -263,6 +263,24 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
         "icon": "FileBarChart"
       }
     ],
+    "deepDive": [
+      {
+        "h2": "También para ChatGPT y los buscadores con IA",
+        "paragraphs": [
+          "Cada vez más gente deja de buscar y empieza a preguntar. En vez de revisar diez enlaces, lee una respuesta armada por un asistente, con dos o tres fuentes citadas. Donde antes había diez posiciones por las que competir, ahora hay una respuesta en la que estás o no estás.",
+          "Eso se llama GEO, por optimización para motores generativos, y también AEO, por motores de respuesta. Lo importante es que no es un servicio aparte: lo que hace que un modelo pueda leerte y citarte es casi lo mismo que hace que Google te entienda bien. Contenido accesible en el HTML sin depender de JavaScript, estructura clara y páginas que responden preguntas concretas en vez de describirse.",
+          "Lo trabajamos como parte de esto, no como un paquete con nombre nuevo y precio aparte. Y lo aplicamos primero en nuestro propio sitio: contamos qué hicimos, qué tiene fundamento técnico, qué todavía es apuesta y los números que llevamos en [cómo aparecer en ChatGPT y otros buscadores con IA](/recursos/como-aparecer-en-chatgpt-y-buscadores-con-ia)."
+        ]
+      },
+      {
+        "h2": "Por qué no prometemos el primer lugar",
+        "paragraphs": [
+          "Nadie controla el algoritmo de Google, así que nadie puede garantizar una posición. Quien la garantice está vendiendo algo que no está en su mano, y normalmente la letra chica define “primer lugar” como una búsqueda tan específica que no la hace nadie: tu propia marca, o una frase de siete palabras con tu distrito incluido.",
+          "Lo que sí se puede comprometer es el trabajo y la evidencia. Las cuentas de Search Console y Analytics son tuyas desde el primer día y entras cuando quieras, así que puedes verificar cualquier cosa que te reportemos sin pedirnos permiso.",
+          "Y hay algo que conviene decir antes de contratar: el posicionamiento tarda meses en moverse, y en los primeros no vas a ver ventas nuevas. Si tu negocio necesita clientes este mes, lo honesto es decirte que esto no es lo que te resuelve ese problema."
+        ]
+      }
+    ],
     "caseStudy": {
       "name": "CCC Impresiones",
       "text": "CCC no captaba ningún cliente por internet. Construimos su plataforma con base técnica SEO desde el día uno: hoy recibe tráfico orgánico constante y está lista para amplificar con Google Ads.",
@@ -293,6 +311,10 @@ export const SERVICE_COPY: Record<string, ServicePageCopy & { seo: { title: stri
       }
     ],
     "related": [
+      {
+        "label": "Cómo aparecer en ChatGPT y otros buscadores con IA",
+        "href": "/recursos/como-aparecer-en-chatgpt-y-buscadores-con-ia"
+      },
       {
         "label": "¿Cuánto cuesta una página web en Perú?",
         "href": "/recursos/cuanto-cuesta-una-pagina-web-peru"

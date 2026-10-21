@@ -76,7 +76,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     sector: "Educación superior",
     location: { city: "Lima (campus Monterrico y San Miguel)", country: "Perú" },
     servicePaths: ["/desarrollo-software-medida"],
-    liveUrl: "https://upc-inventario.netlify.app",
+    liveUrl: "https://dispositivos.ccnode.net",
     portfolioKey: "sistemaInventarioUPC",
     relatedArticleSlugs: ["cuanto-cuesta-software-a-medida-peru"],
     publishDate: "2026-08-03",

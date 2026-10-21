@@ -159,7 +159,7 @@ Cifras y nombres ya autorizados por el negocio ("logos y cifras con nombre: sí 
 ### 3.2 `inventario-upc`
 
 - `client`: `Universidad Peruana de Ciencias Aplicadas (UPC)` · `sector`: `Educación superior` · `location`: `{ city: "Lima (campus Monterrico y San Miguel)", country: "Perú" }`
-- `servicePaths`: `["/desarrollo-software-medida"]` · `liveUrl`: `https://upc-inventario.netlify.app` · `portfolioKey`: `sistemaInventarioUPC`
+- `servicePaths`: `["/desarrollo-software-medida"]` · `liveUrl`: `https://dispositivos.ccnode.net` · `portfolioKey`: `sistemaInventarioUPC`
 - `relatedArticleSlugs`: `["cuanto-cuesta-software-a-medida-peru"]`
 - `seoTitle`: `Caso UPC: Sistema de Reservas de Equipos para una Universidad`
 - `seoDescription`: `Equipos tecnológicos que se renovaban cada 5 años sin que nadie los usara hoy se reservan en línea en 2 campus. Caso real de software a medida de Elaris.`

@@ -34,7 +34,7 @@ export const PROJECT_CONFIGS: readonly ProjectConfig[] = [
     slug: "sistemaInventarioUPC",
     image: "/assets/SISTEMA-INVENTARIO-UPC.webp",
     Icon: AppWindow,
-    url: "https://upc-inventario.netlify.app",
+    url: "https://dispositivos.ccnode.net",
     stack: ["React", "Tailwind", "Vite"],
     caseSlug: "inventario-upc",
   },
